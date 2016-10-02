@@ -26,7 +26,7 @@ class Transactions(object):
 		self.tribe_id = ''
 											# Add Date and Time
 
-											
+
 
 	def setTransactionId(self,transaction_id):
 		self.transaction_id = transaction_id
@@ -45,7 +45,7 @@ class Transactions(object):
 
 
 
-	def setApplicant_id(self,applicant_id):
+	def setApplicantId(self,applicant_id):
 		self.applicant_id = applicant_id
 
 	def getApplicantId(self):
@@ -57,7 +57,7 @@ class Transactions(object):
 	def setBunkhouseId(self,bunkhouse_id):
 		self.bunkhouse_id = bunkhouse_id
 
-	def getBunkhousId(self):
+	def getBunkhouseId(self):
 		return self.bunkhouse_id
 
 
