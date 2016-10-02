@@ -7,13 +7,13 @@
 # PURPOSE        : Reading and Writing to "User.csv"
 # AUTHOR         : ROHAN SAWANT
 # CREATION DATE  : 01-OCT-2016
-# PENDING 		 : Adding getter-setter	for user_id
+# PENDING 		 : Transformation
 # -------------------------------------------------------------------------------
 # CHANGE HISTORY :
 # VER	|	DATE       	|	MODIFIED BY  		|  	CHANGE DESCRIPTION
 # -------------------------------------------------------------------------------
 # 1.0   	01-OCT-2016  	ROHAN SAWANT    		Added user_id, user_name
-#
+# 2.0       01-OCT-2016		JEMIN GOHIL             Added user_type, password
 # ===============================================================================
 
 class User(object):
@@ -21,6 +21,8 @@ class User(object):
 	def __init__(self):	
 		self.user_id = 0
 		self.user_name = ''
+		self.user_type = ''
+		self.password = ''
 
 	def setUserId(self,user_id):
 		self.user_id = user_id
@@ -33,3 +35,15 @@ class User(object):
 
 	def getUserName(self):
 		return self.user_name
+
+	def setUserType(self,user_type):
+		self.user_type = user_type
+
+	def getUserType(self):
+		return self.user_type
+
+	def setPassword(self,password):
+		self.password = password
+
+	def getPassword(self):
+		return self.password
