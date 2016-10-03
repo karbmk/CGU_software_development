@@ -8,13 +8,14 @@
 #				   class and many more. All the common functions
 # AUTHOR         : KARTHIK MANJUNATH
 # CREATION DATE  : 01-OCT-2016
-# PENDING 		 : Logic for insert,update, object and list of object identification
+# PENDING 		 : Logic for update
 # -------------------------------------------------------------------------------
 # CHANGE HISTORY :
 # VER	|	DATE       	|	MODIFIED BY  		|  	CHANGE DESCRIPTION
 # -------------------------------------------------------------------------------
 # 1.0   	01-OCT-2016  	KARTHIK MANJUNATH		Just defined name of functions
 # 2.0		02-OCT-2016		ROHAN SAWANT			Made reading logic for getFromCsv
+# 3.0		02-OCT-2016		KARTHIK MANJUNATH		Adding Logic to convert dict to Object
 # ===============================================================================
 
 import csv
