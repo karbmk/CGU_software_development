@@ -21,7 +21,7 @@ import csv
 import sys
 sys.path.append("Csv")
 
-class Common_Csv(object):
+class Common_functions(object):
 
 	def csvToListOfList(self,filename):
 		""" Read from csv file to List of List """
@@ -47,18 +47,39 @@ class Common_Csv(object):
 				
 		return list_of_dict
 
-	def insertIntoCsv(self,filename):
-		pass
-	
+	def obj_dic(self,d):
+		""" Convert list of dictionaries to list of objects """
+		top = type('new', (object,), d)
+		seqs = tuple, list, set, frozenset
+		for i, j in d.items():
+			if isinstance(j, dict):
+				setattr(top, i, obj_dic(j))
+			elif isinstance(j, seqs):
+				setattr(top, i, 
+					type(j)(obj_dic(sj) if isinstance(sj, dict) else sj for sj in j))
+			else:
+				setattr(top, i, j)
+		return top
+
+	def insertIntoCsv(self,filename,object_name):
+		""" Insert into .csv from objects """
+		
+		dict = object_name.__dict__
+		list_data = csvToListOfList('Csv/'+ filename)
+		header = list_data[0]
+		output_list = []
+		
+		for i in range(0,len(header)):
+			output_list.append(str(dict[header[i]]))
+		
+		writer=csv.writer(open('Csv/'+ filename,'a'),quoting=csv.QUOTE_ALL,lineterminator='\n')
+		writer.writerow(output_list)
+
 	def updateIntoCsv(self,filename):
 		pass
 	
 	def getFromCsv(self,filename,where):
-		""" Read to csv file
-			return_type can be a 
-				'L' which is list of objects
-				'O' which is object
-		"""
+		""" Read to csv file """
 		
 		# Reading csv and storing data in List of List
 		list_data = self.csvToListOfList('Csv/'+filename) 
@@ -81,17 +102,4 @@ class Common_Csv(object):
 		for dict_in_list in list_dict_data_where:
 			list_of_objects.append(self.obj_dic(dict_in_list))
 		return list_of_objects
-	
-	def obj_dic(self,d):
-		""" Convert list of dictionaries to list of objects """
-		top = type('new', (object,), d)
-		seqs = tuple, list, set, frozenset
-		for i, j in d.items():
-			if isinstance(j, dict):
-				setattr(top, i, obj_dic(j))
-			elif isinstance(j, seqs):
-				setattr(top, i, 
-					type(j)(obj_dic(sj) if isinstance(sj, dict) else sj for sj in j))
-			else:
-				setattr(top, i, j)
-		return top
+
