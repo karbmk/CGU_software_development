@@ -18,10 +18,12 @@
 # ===============================================================================
 
 import csv
+import sys
+sys.path.append("Csv")
 
 class Common_Csv(object):
 
-	def csvToListOfList(filename):
+	def csvToListOfList(self,filename):
 		""" Read from csv file to List of List """
 
 		data = []
@@ -31,7 +33,7 @@ class Common_Csv(object):
 		
 		return data
 	
-	def convertListToDict(input_list):
+	def convertListToDict(self,input_list):
 		""" Convert List of List to Dictionary (having header) """
 		
 		list_of_dict = []
@@ -55,9 +57,9 @@ class Common_Csv(object):
 		""" Read to csv file """
 		
 		# Reading csv and storing data in List of List
-		list_data = csvToListOfList(filename) 
+		list_data = self.csvToListOfList('Csv/'+filename) 
 		# Converting List of List to List of Dictionary
-		list_dict_data = convertListToDict(list_data)
+		list_dict_data = self.convertListToDict(list_data)
 		list_dict_data_where = []
 		
 		if where == {}:
@@ -71,8 +73,21 @@ class Common_Csv(object):
 				for columns in where:
 					if list_dict_data[i][columns] == where[columns]:
 						list_dict_data_where.append(list_dict_data[i])
-
-		# Code here the logic to convert List of Dictionary to One Object or List of Objects depending on the type
-			
-		return list_dict_data_where
-
+		list_of_objects = []
+		for dict_in_list in list_dict_data_where:
+			list_of_objects.append(self.obj_dic(dict_in_list))
+		return list_of_objects
+	
+	def obj_dic(self,d):
+		""" Convert list of dictionaries to list of objects """
+		top = type('new', (object,), d)
+		seqs = tuple, list, set, frozenset
+		for i, j in d.items():
+			if isinstance(j, dict):
+				setattr(top, i, obj_dic(j))
+			elif isinstance(j, seqs):
+				setattr(top, i, 
+					type(j)(obj_dic(sj) if isinstance(sj, dict) else sj for sj in j))
+			else:
+				setattr(top, i, j)
+		return top
