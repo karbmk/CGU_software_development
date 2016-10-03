@@ -53,7 +53,7 @@ class Common_Csv(object):
 	def updateIntoCsv(self,filename):
 		pass
 	
-	def getFromCsv(self,filename,where,return_type):
+	def getFromCsv(self,filename,where):
 		""" Read to csv file
 			return_type can be a 
 				'L' which is list of objects
