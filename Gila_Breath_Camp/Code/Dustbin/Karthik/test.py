@@ -8,9 +8,9 @@ k = common_functions.Common_functions()
 '''
 ur = user.User()
 ur.setUserId("6")
-ur.setUserName("vini")
+ur.setUserName("")
 ur.setUserType("DIRECTOR")
-ur.setPassword("ilovejemin")
+ur.setPassword("")
 
 k.insertIntoCsv("user.csv",ur)
 '''
