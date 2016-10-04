@@ -44,7 +44,7 @@ class Applicant(object):
 		return self.applicant_id
 
 	def setLastName(self,last_name):
-		self.last_name.strip()
+		self.last_name = last_name.strip()
 		if last_name.isalpha():
 			self.last_name = last_name
 		else:
