@@ -1,6 +1,6 @@
 from django.conf.urls import url
 import sys
-sys.path.append("Python/Func1")
+sys.path.append("Python")
 import views
 #from . import views
 urlpatterns = [
