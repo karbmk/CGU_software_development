@@ -35,6 +35,8 @@ class Applicant(object):
 		self.tribe_id = ''
 		self.bunkhouse_id = ''
 
+	
+
 	def setApplicantId(self,applicant_id):
 		self.applicant_id = applicant_id
 
@@ -42,25 +44,39 @@ class Applicant(object):
 		return self.applicant_id
 
 	def setLastName(self,last_name):
-		self.last_name = last_name
+		self.last_name.strip()
+		if last_name.isalpha():
+			self.last_name = last_name
+		else:
+			return "Enter only alphabets"
 
 	def getLastName(self):
 		return self.last_name
 
 	def setFirstName(self,first_name):
-		self.first_name = first_name
+		self.first_name = first_name.strip()
+		if first_name.isalpha():
+			self.first_name = first_name
+		else:
+			return "Enter only alphabets"
 
 	def getFirstName(self):
 		return self.first_name
 
 	def setGuardianFirstName(self,guardian_first_name):
-		self.guardian_first_name = guardian_first_name
+		if guardian_first_name.isalpha():
+			self.guardian_first_name = guardian_first_name
+		else:
+			return "Enter only alphabets"
 
 	def getGuardianFirstName(self):
 		return self.guardian_first_name
 
 	def setGuardianLastName(self,guardian_last_name):
-		self.guardian_last_name = guardian_last_name
+		if guardian_last_name.isalpha():
+			self.guardian_last_name = guardian_last_name
+		else:
+			return "Enter only alphabets"
 
 	def getGuardianLastName(self):
 		return self.guardian_last_name
