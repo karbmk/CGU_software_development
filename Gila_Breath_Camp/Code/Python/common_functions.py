@@ -66,7 +66,7 @@ class Common_functions(object):
 		""" Insert into .csv from objects """
 		
 		dict = object_name.__dict__
-		list_data = csvToListOfList('Csv/'+ filename)
+		list_data = self.csvToListOfList('Csv/'+ filename)
 		header = list_data[0]
 		output_list = []
 		

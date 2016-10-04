@@ -43,7 +43,12 @@ class User(object):
 		return self.user_type
 
 	def setPassword(self,password):
-		self.password = password
+		if len(password) < 5
+			return false
+		else: 
+			self.password = password
 
 	def getPassword(self):
 		return self.password
+
+
