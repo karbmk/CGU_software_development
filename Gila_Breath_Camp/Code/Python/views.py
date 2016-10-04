@@ -7,5 +7,5 @@ from django.http import HttpResponse
 
 
 def test(request):
-    print("")
-    return HttpResponse("CUM on software developers")
+    context = ""
+    return render(request,'test.html',context)
