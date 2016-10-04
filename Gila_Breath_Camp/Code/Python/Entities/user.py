@@ -15,7 +15,7 @@
 # 1.0   	01-OCT-2016  	ROHAN SAWANT    		Added user_id, user_name
 # 2.0       01-OCT-2016		JEMIN GOHIL             Added user_type, password
 # 3.0       03-OCT-2016		JEMIN GOHIL             Transformation complete
-# ===============================================================================
+# ================================================================================
 
 class User(object):
 

@@ -1,19 +1,14 @@
 import sys
-sys.path.append("Python")
-import common_functions
+sys.path.append("Python/Entities")
+import user
+ur = user.User()
+ur.setUserId('1')
+ur.setUserName(" JEMIN GOHIL ")
+ur.setUserType("Owner")
+ur.setPassword('abcdef')
+print(ur.getUserId())
+print(ur.getUserName())
+print(ur.getUserType())
+print(ur.getPassword())
 
-app = getFromCsv
-app.setApplicantId('1')
-app.setFirstName("Name to suna hi hga")
-app.setLastName(" __|__")
-app.setAge('Abhi to meri umar hi kya hai')
-app.setSex("Mann to bhot h pr abhi nahi")
-print (app.getApplicantId())
-print (app.getFirstName())
-print (app.getLastName())
-print (app.getAge())
-print (app.getSex())
-
-print (app.__dict__)
-k = Common_functions()
-k.getFromCsv()
+print(ur.__dict__)
