@@ -7,14 +7,15 @@
 # PURPOSE        : Reading and Writing to "User.csv"
 # AUTHOR         : ROHAN SAWANT
 # CREATION DATE  : 01-OCT-2016
-# PENDING 		 : Transformation
+# PENDING 		 : 
 # -------------------------------------------------------------------------------
 # CHANGE HISTORY :
 # VER	|	DATE       	|	MODIFIED BY  		|  	CHANGE DESCRIPTION
 # -------------------------------------------------------------------------------
 # 1.0   	01-OCT-2016  	ROHAN SAWANT    		Added user_id, user_name
 # 2.0       01-OCT-2016		JEMIN GOHIL             Added user_type, password
-# ===============================================================================
+# 3.0       03-OCT-2016		JEMIN GOHIL             Transformation complete
+# ================================================================================
 
 class User(object):
 
@@ -31,7 +32,7 @@ class User(object):
 		return self.user_id
 
 	def setUserName(self,user_name):
-		self.user_name = user_name
+		self.user_name = user_name.strip()
 
 	def getUserName(self):
 		return self.user_name
@@ -43,8 +44,8 @@ class User(object):
 		return self.user_type
 
 	def setPassword(self,password):
-		if len(password) < 5
-			return false
+		if len(password) < 5:
+			return "Password should be more than 5 characters"
 		else: 
 			self.password = password
 
