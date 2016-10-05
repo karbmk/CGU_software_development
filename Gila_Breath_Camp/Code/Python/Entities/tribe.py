@@ -33,7 +33,11 @@ class Tribe(object):
 
 
 	def setTribeName(self,tribe_name):
-		self.user_id = tribe_name
+		tribe_name = tribe_name.strip()
+		if tribe_name.isalpha():
+			self.tribe_name = tribe_name.upper()
+		else: 
+			return "Enter only alphabets"
 
 
 	def getTribeName(self):
