@@ -1,14 +1,29 @@
 import sys
 sys.path.append("Python/Entities")
-import user
-ur = user.User()
-ur.setUserId('1')
-ur.setUserName(" JEMIN GOHIL ")
-ur.setUserType("Owner")
-ur.setPassword('abcdef')
-print(ur.getUserId())
-print(ur.getUserName())
-print(ur.getUserType())
-print(ur.getPassword())
+import applicant
+ur = applicant.Applicant()
 
-print(ur.__dict__)
+print('ur.setFirstName("Jemin ") :',ur.setFirstName("Jemin "))
+print('ur.setLastName("Gohil")',ur.setLastName("Gohil"))
+print(ur.getFirstName())
+print(ur.getLastName())
+
+print('ur.setGuardianFirstName("Abc"):',ur.setGuardianFirstName("Abc"))
+print('ur.setGuardianLastName("gohil "):',ur.setGuardianLastName("gohil "))
+print(ur.getGuardianFirstName())
+print(ur.getGuardianLastName())
+
+print('ur.setGuardianContactNumber("9092283636 "):',ur.setGuardianContactNumber("9092283636 "))
+print(ur.getGuardianContactNumber())
+
+print('ur.setApplicationDate:', ur.setApplicationDate('10-04-2016'))
+print(ur.getApplicationDate())
+
+print('ur.setEmergencyContact:',ur.setEmergencyContact("9092283636 "))
+print(ur.getEmergencyContact())
+
+print('ur.setAge:', ur.setAge('456'))
+print(ur.getAge())
+
+print('ur.setGender:', ur.setGender('M'))
+print(ur.getGender())
