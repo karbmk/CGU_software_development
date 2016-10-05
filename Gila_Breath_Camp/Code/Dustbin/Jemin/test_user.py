@@ -1,15 +1,23 @@
 import sys
 sys.path.append("Python/Entities")
 # import applicant
-import tribe
+import bunkhouse
 #ur = applicant.Applicant()    # Initialization
 
-ur = tribe.Tribe()
+ur = bunkhouse.Bunkhouse()
+
+
+print('ur.setBunkhouseName("Test 2") :',ur.setBunkhouseName("Test") )
+
+print(ur.__dict__)
+
+'''
 
 print('ur.setTribeName("Tribe 1") :',ur.setTribeName("TesT      "))
 print(ur.getTribeName())
 print(ur.__dict__)
 
+'''
 
 """
 print('ur.setFirstName("Jemin ") :',ur.setFirstName("Jemin "))
