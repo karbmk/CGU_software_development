@@ -14,7 +14,7 @@
 # -------------------------------------------------------------------------------
 # 1.0   	02-OCT-2016  	JEMIN GOHIL, SOHEIL   Added bunkhouse_id, bunkhouse_name
 # 
-# ===============================================================================
+# ================================================================================
 
 class Bunkhouse(object):
 
@@ -29,8 +29,12 @@ class Bunkhouse(object):
 		return self.bunkhouse_id
 
 	def setBunkhouseName(self,bunkhouse_name):
-		self.bunkhouse_name = bunkhouse_name
-
+		bunkhouse_name = bunkhouse_name.strip()
+		if bunkhouse_name.isalpha():
+			self.bunkhouse_name = bunkhouse_name.upper()
+		else:
+			return "Enter only alphabets"
+				
 	def getBunkhouseName(self):
 		return self.bunkhouse_name
 
