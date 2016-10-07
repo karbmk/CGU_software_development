@@ -3,7 +3,7 @@ sys.path.append("Python/Entities")
 import applicant
 ur = applicant.Applicant()
 
-print('ur.setFirstName("Jemin ") :',ur.setFirstName("Jemin 1"))
+print('ur.setFirstName("Jemin ") :',ur.setFirstName("Jemin "))
 print('ur.setLastName("Gohil")',ur.setLastName("Gohil"))
 print(ur.getFirstName())
 print(ur.getLastName())
@@ -13,7 +13,7 @@ print('ur.setGuardianLastName("gohil "):',ur.setGuardianLastName("gohil "))
 print(ur.getGuardianFirstName())
 print(ur.getGuardianLastName())
 
-print('ur.setGuardianContactNumber("909228363 "):',ur.setGuardianContactNumber("909228363 "))
+print('ur.setGuardianContactNumber("9092283636 "):',ur.setGuardianContactNumber("9092283636 "))
 print(ur.getGuardianContactNumber())
 
 print('ur.setApplicationDate:', ur.setApplicationDate('10-04-2016'))
