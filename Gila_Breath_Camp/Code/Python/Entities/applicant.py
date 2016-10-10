@@ -126,8 +126,9 @@ class Applicant(object):
 
 
 	def setAge(self,age):
+		
 		age = age.strip()
-		if (len(age) < 4 and age.isdigit()):
+		if (age.isdigit() and 8<int(age) <19  ):
 			self.age = age
 		else:
 			return "Enter proper age"
