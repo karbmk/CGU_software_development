@@ -1,0 +1,4 @@
+"filename","column"
+"user.csv","user_id"
+"applicant.csv","applicant_id"
+"transactions.csv","transaction_id"
