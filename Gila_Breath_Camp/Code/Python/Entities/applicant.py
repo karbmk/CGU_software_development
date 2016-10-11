@@ -14,6 +14,7 @@
 # -------------------------------------------------------------------------------
 # 1.0   	02-OCT-2016  	JEMIN GOHIL, SOHEIL   Added all functions, testing required
 # 2.0		04-OCT-2016		JEMIN GOHIL			  Added Transformation
+# 3.0       10-OCT-2016     JEMIN GOHIL           removed transformation from age & gender
 # ==================================================================================
 
 class Applicant(object):
@@ -131,24 +132,15 @@ class Applicant(object):
 
 
 	def setAge(self,age):
+		self.age = age
 		
-		age = age.strip()
-		if (age.isdigit() and 8<int(age) <19  ):
-			self.age = age
-		else:
-			return "Enter proper age"
-
 	def getAge(self):
 		return self.age
 
 
 	def setGender(self,gender):
-		gender = gender.strip()
-		if gender.isalpha():
-			self.gender = gender
-		else:
-			return "Enter proper gender"
-
+		self.gender = gender
+		
 	def getGender(self):
 		return self.gender
 

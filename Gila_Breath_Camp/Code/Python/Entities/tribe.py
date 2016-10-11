@@ -14,7 +14,7 @@
 # -------------------------------------------------------------------------------
 # 1.0   	01-OCT-2016  	JEMIN GOHIL    		Added user_id, user_name
 # 2.0       01-OCT-2016		SOHEIL BOUZARI      Added user_type, password
-# ====================================================================================
+# =================================================================================
 
 
 class Tribe(object):
@@ -33,7 +33,7 @@ class Tribe(object):
 
 
 	def setTribeName(self,tribe_name):
-		tribe_name = tribe_name.strip()				# Removing extra character
+		tribe_name = tribe_name.strip()				# Removing extra character from tribe
 		if tribe_name.isalpha():
 			self.tribe_name = tribe_name.upper()
 		else: 

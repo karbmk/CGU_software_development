@@ -1,4 +1,4 @@
-getTest = function(id)
+getTest1 = function(id)
 { 
 	alert(document.getElementById("c_first_name").value);
 	//k = document.getElementById("user_id").value;

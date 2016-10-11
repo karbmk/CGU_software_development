@@ -18,7 +18,7 @@
 # 3.0		02-OCT-2016		KARTHIK MANJUNATH		Adding Logic to convert dict to Object
 # 4.0       10-OCT-2016		ROHAN SAWANT			Adding increment logic for Id's
 # 5.0       10-OCT-2016		ROHAN SAWANT			Corrected increment logic for Id's empty file
-# 6.0       10-OCT-2016		ROHAN SAWANT			Created pdate data to csv function
+# 6.0       10-OCT-2016		ROHAN SAWANT			Created update data to csv function
 # ===============================================================================
 
 import csv
