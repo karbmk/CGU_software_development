@@ -6,10 +6,15 @@
 "5","jg007","owner",""
 "6","test","clerk","123456"
 "7","jg007","owner","doobaramattpuchna"
-"8","NewRow","",""
+"8","replace new1","",""
 "9","NewRow","",""
+<<<<<<< HEAD
 "10","NewRow2","",""
 "11","Karthik-Yana","",""
 "12","Karthik-Yana","",""
 "13","Karthik-Yana","",""
 "14","Karthik-Yana","",""
+=======
+"10","replace new2","",""
+"11","replace new3","",""
+>>>>>>> 6b0c5f7aabc5f98b1cd9f4d8a08d923bfa232ad0
