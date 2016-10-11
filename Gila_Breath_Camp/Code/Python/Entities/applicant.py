@@ -62,7 +62,7 @@ class Applicant(object):
 
 
 	def setFirstName(self,first_name):
-		first_name = first_name.strip()
+		first_name = first_name.rstrip()
 		if first_name.isalpha():
 			self.first_name = first_name.upper()
 		else:
@@ -220,10 +220,3 @@ class Applicant(object):
 
 	def getBugsSpray(self):
 		return self.bugs_spray
-
-	
-
-
-
-
-	
