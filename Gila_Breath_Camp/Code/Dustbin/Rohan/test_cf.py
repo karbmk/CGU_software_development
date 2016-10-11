@@ -5,7 +5,7 @@ import common_functions
 import user
 
 ur = user.User()
-ur.setUserName('NewRow2')
+ur.setUserName('Karthik-Yana')
 
 cf = common_functions.Common_functions()
 cf.insertIntoCsv('user.csv',ur)
