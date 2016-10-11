@@ -16,6 +16,8 @@
 # 1.0   	01-OCT-2016  	KARTHIK MANJUNATH		Just defined name of functions
 # 2.0		02-OCT-2016		ROHAN SAWANT			Made reading logic for getFromCsv
 # 3.0		02-OCT-2016		KARTHIK MANJUNATH		Adding Logic to convert dict to Object
+# 4.0       10-OCT-2016		ROHAN SAWANT			Adding increment logic for Id's
+# 5.0       10-OCT-2016		ROHAN SAWANT			Corrected increment logic for Id's empty file
 # ===============================================================================
 
 import csv
@@ -67,17 +69,34 @@ class Common_functions(object):
 		
 		dict = object_name.__dict__
 		list_data = self.csvToListOfList('Csv/'+ filename)
-		header = list_data[0]
+
+		last_row = [list_data[0]]
+
+		if len(list_data) != 1:
+			last_row.append(list_data[len(list_data)-1])
+
+		last_row_dict = self.convertListToDict(last_row)
+
 		output_list = []
+		relations = self.csvToListOfList('relations.csv')
+		relations_dict = self.convertListToDict(relations)
 		
-		for i in range(0,len(header)):
-			output_list.append(str(dict[header[i]]))
+		for i in range(0,len(list_data[0])):
+			for j in range(0,len(relations_dict)):
+				if relations_dict[j]['filename'] == filename:
+					if len(list_data) != 1:
+						dict[relations_dict[j]['column']] = int(last_row_dict[0][relations_dict[j]['column']]) + 1
+					else:
+						dict[relations_dict[j]['column']] = 1
+			output_list.append(str(dict[list_data[0][i]]))
 		
 		writer=csv.writer(open('Csv/'+ filename,'a'),quoting=csv.QUOTE_ALL,lineterminator='\n')
 		writer.writerow(output_list)
 
-	def updateIntoCsv(self,filename):
+	def updateIntoCsv(self,filename,where):
+		""" Update into .csv from objects """
 		pass
+
 	
 	def getFromCsv(self,filename,where):
 		""" Read to csv file """

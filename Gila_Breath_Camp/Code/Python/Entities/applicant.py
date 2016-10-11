@@ -34,7 +34,12 @@ class Applicant(object):
 		self.medical_form = ''
 		self.tribe_id = ''
 		self.bunkhouse_id = ''
-
+		self.helmet = ''
+		self.boot = ''
+		self.sleeping_bag = ''
+		self.water_bottle = ''
+		self.sunscreen = ''
+		self.bugs_spray = ''
 	
 
 	def setApplicantId(self,applicant_id):
@@ -126,8 +131,9 @@ class Applicant(object):
 
 
 	def setAge(self,age):
+		
 		age = age.strip()
-		if (len(age) < 4 and age.isdigit()):
+		if (age.isdigit() and 8<int(age) <19  ):
 			self.age = age
 		else:
 			return "Enter proper age"
@@ -180,6 +186,51 @@ class Applicant(object):
 
 	def getTribeId(self):
 		return self.tribe_id
+
+
+	def setHelmet(self,helmet):
+		self.helmet = helmet
+
+	def getHelmet(self):
+		return self.helmet
+
+
+	def setBoot(self,boot):
+		self.boot = boot
+
+	def getBoot(self):
+		return self.boot
+
+
+	def setSleepingBag(self,sleeping_bag):
+		self.sleeping_bag = sleeping_bag
+
+	def getSleepingBag(self):
+		return self.sleeping_bag
+
+
+	def setWaterBottle(self,water_bottle):
+		self.water_bottle = water_bottle
+
+	def getWaterBottle(self):
+		return self.water_bottle
+
+
+	def setSunscreen(self,sunscreen):
+		self.sunscreen = sunscreen
+
+	def getSunscreen(self):
+		return self.sunscreen
+
+
+	def setBugsSpray(self,bugs_spray):
+		self.bugs_spray = bugs_spray
+
+	def getBugsSpray(self):
+		return self.bugs_spray
+
+	
+
 
 
 
