@@ -33,7 +33,7 @@ class Tribe(object):
 
 
 	def setTribeName(self,tribe_name):
-		tribe_name = tribe_name.strip()				# Removing extra character from
+		tribe_name = tribe_name.strip()				# Removing extra character
 		if tribe_name.isalpha():
 			self.tribe_name = tribe_name.upper()
 		else: 
