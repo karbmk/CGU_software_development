@@ -1,0 +1,8 @@
+{
+	  'data' : {'user_id' : 1, 'first_name' : 'Rohan'}
+	, 'status':'success' or 'error'
+	, 'message':'Date : Enter a valid date|Date : Enter a integer'
+}
+
+
+

@@ -16,7 +16,10 @@
 # 2.0		04-OCT-2016		JEMIN GOHIL			  	Added Transformation
 # 3.0       10-OCT-2016     JEMIN GOHIL           	removed transformation from age & gender
 # 4.0		13-OCT-2016		ROHAN SAWANT			Changed value of tribe_id and bunkhouse_id = 0
+# 5.0		13-OCT-2016		ROHAN SAWANT			Added transformation to setAge
 # ================================================================================
+
+from datetime import datetime
 
 class Applicant(object):
 
@@ -29,7 +32,7 @@ class Applicant(object):
 		self.guardian_contact_number = ''
 		self.application_date = ''
 		self.emergency_contact = ''
-		self.age = ''
+		self.age = 0
 		self.gender = ''
 		self.address = ''
 		self.legal_form = ''
@@ -105,9 +108,6 @@ class Applicant(object):
 	def getGuardianContactNumber(self):
 		return self.guardian_contact_number
 
-
-	from datetime import datetime
-
 	def setApplicationDate(self,application_date):
 		try: 
 			date = datetime.strptime(application_date, '%m-%d-%Y')
@@ -133,7 +133,13 @@ class Applicant(object):
 
 
 	def setAge(self,age):
-		self.age = age
+		try:
+			self.age = age.strip()
+			self.age = int(age)
+		except:
+			self.age = ''
+			return "Enter an integer"
+
 		
 	def getAge(self):
 		return self.age
