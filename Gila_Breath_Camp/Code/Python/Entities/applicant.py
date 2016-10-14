@@ -12,10 +12,11 @@
 # CHANGE HISTORY :
 # VER	|	DATE       	|	MODIFIED BY  		|  	CHANGE DESCRIPTION
 # -------------------------------------------------------------------------------
-# 1.0   	02-OCT-2016  	JEMIN GOHIL, SOHEIL   Added all functions, testing required
-# 2.0		04-OCT-2016		JEMIN GOHIL			  Added Transformation
-# 3.0       10-OCT-2016     JEMIN GOHIL           removed transformation from age & gender
-# ==================================================================================
+# 1.0   	02-OCT-2016  	JEMIN GOHIL, SOHEIL   	Added all functions, testing required
+# 2.0		04-OCT-2016		JEMIN GOHIL			  	Added Transformation
+# 3.0       10-OCT-2016     JEMIN GOHIL           	removed transformation from age & gender
+# 4.0		13-OCT-2016		ROHAN SAWANT			Changed value of tribe_id and bunkhouse_id = 0
+# ================================================================================
 
 class Applicant(object):
 
@@ -33,8 +34,8 @@ class Applicant(object):
 		self.address = ''
 		self.legal_form = ''
 		self.medical_form = ''
-		self.tribe_id = ''
-		self.bunkhouse_id = ''
+		self.bunkhouse_id = 0		
+		self.tribe_id = 0
 		self.helmet = ''
 		self.boot = ''
 		self.sleeping_bag = ''
