@@ -25,12 +25,15 @@ from datetime import datetime
 class Applicant(object):
 
 	def __init__(self):
-		self.applicant_id = 0
-		self.user_id = 0
+		self.applicant_id = ''
+		self.user_id = ''
+		self.bunkhouse_id = ''
+		self.tribe_id = ''
+		self.camp_time_slots = ''
 		self.applicant_first_name = ''
 		self.applicant_last_name = ''
-		self.age = 0
-		self.gender = ''
+		self.applicant_age = ''
+		self.applicant_gender = ''
 		self.applicant_address = ''
 		self.guardian_first_name = ''
 		self.guardian_last_name = ''
@@ -38,9 +41,7 @@ class Applicant(object):
 		self.guardian_address = ''
 		self.application_date = ''
 		self.emergency_contact = ''
-		self.bunkhouse_id = 0		
-		self.tribe_id = 0
-		self.medical_form = ''		
+		self.medical_form = ''			
 		self.legal_form = ''
 		self.helmet = ''
 		self.boot = ''
@@ -48,7 +49,8 @@ class Applicant(object):
 		self.water_bottle = ''
 		self.sunscreen = ''
 		self.bugs_spray = ''
-
+		self.check_in_status = ''
+		self.application_status = ''
 	
 	def setApplicantId(self,applicant_id):
 		self.applicant_id = applicant_id
@@ -62,6 +64,27 @@ class Applicant(object):
 
 	def getUserid(self):
 		return self.user_id
+
+
+	def setBunkhouseId(self,bunkhouse_id):
+		self.bunkhouse_id = bunkhouse_id
+
+	def getBunkhouseId(self):
+		return self.bunkhouse_id
+
+
+	def setTribeId(self,tribe_id):
+		self.tribe_id = tribe_id
+
+	def getTribeId(self):
+		return self.tribe_id
+
+
+	def setCampTimeSlots(self,camp_time_slots):
+		self.camp_time_slots = camp_time_slots
+
+	def getCampTimeSlots(self):
+		return self.camp_time_slots
 
 
 	def setApplicantFirstName(self,applicant_first_name):
@@ -80,11 +103,35 @@ class Applicant(object):
 		if applicant_last_name.isalpha():
 			self.applicant_last_name = applicant_last_name.upper()
 		else:
-			self.applicant_last_name = ''
 			return "Camper Last Name: Enter only alphabets"
 
 	def getApplicantLastName(self):
 		return self.applicant_last_name
+
+
+	def setApplicantAge(self,applicant_age):
+		try:
+			self.applicant_age = applicant_age.strip()
+			self.applicant_age = int(applicant_age)
+		except:
+			return "Enter an integer"
+	
+	def getApplicantAge(self):
+		return self.applicant_age
+
+
+	def setApplicantGender(self,applicant_gender):
+		self.applicant_gender = applicant_gender
+		
+	def getApplicantGender(self):
+		return self.applicant_gender
+
+
+	def setApplicantAddress(self,applicant_address):
+		self.applicant_address = applicant_address
+
+	def getApplicantAddress(self):
+		return self.applicant_address
 
 
 	def setGuardianFirstName(self,guardian_first_name):
@@ -121,8 +168,15 @@ class Applicant(object):
 		return self.guardian_contact_number
 
 
+	def setGaurdianAddress(self,gaurdian_address):
+		self.gaurdian_address = gaurdian_address
+
+	def getGaurdianAddress(self):
+		return self.gaurdian_address
+
+
 	def setApplicationDate(self,application_date):
-		self.application_date = date
+		self.application_date = application_date
 
 	def getApplicationDate(self):
 		return self.application_date
@@ -139,40 +193,6 @@ class Applicant(object):
 		return self.emergency_contact
 
 
-	def setAge(self,age):
-		try:
-			self.age = age.strip()
-			self.age = int(age)
-		except:
-			self.age = ''
-			return "Enter an integer"
-
-		
-	def getAge(self):
-		return self.age
-
-
-	def setGender(self,gender):
-		self.gender = gender
-		
-	def getGender(self):
-		return self.gender
-
-
-	def setApplicantAddress(self,applicant_address):
-		self.applicant_address = applicant_address
-
-	def getApplicantAddress(self):
-		return self.applicant_address
-
-
-	def setLegalForm(self,legal_form):
-		self.legal_form = legal_form
-
-	def getLegalForm(self):
-		return self.legal_form
-
-
 	def setMedicalForm(self,medical_form):
 		self.medical_form = medical_form
 
@@ -180,18 +200,11 @@ class Applicant(object):
 		return self.medical_form
 
 
-	def setBunkhouseId(self,bunkhouse_id):
-		self.bunkhouse_id = bunkhouse_id
+	def setLegalForm(self,legal_form):
+		self.legal_form = legal_form
 
-	def getBunkhouseId(self):
-		return self.bunkhouse_id
-
-
-	def setTribeId(self,tribe_id):
-		self.tribe_id = tribe_id
-
-	def getTribeId(self):
-		return self.tribe_id
+	def getLegalForm(self):
+		return self.legal_form
 
 
 	def setHelmet(self,helmet):
@@ -234,3 +247,19 @@ class Applicant(object):
 
 	def getBugsSpray(self):
 		return self.bugs_spray
+
+
+	def setCheckInStatus(self,check_in_status):
+		self.check_in_status = check_in_status
+
+	def getCheckInStatus(self):
+		return self.check_in_status
+
+
+	def setApplicationStatus(self,application_status):
+		self.application_status = application_status
+
+	def getApplicationStatus(self):
+		return self.application_status
+
+
