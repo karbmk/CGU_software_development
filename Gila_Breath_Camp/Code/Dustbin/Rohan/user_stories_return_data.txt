@@ -1,8 +1,9 @@
-{
+"{
 	  "data" : [{"user_id" : 1, "first_name" : "Rohan"}]
-	, "status":"success" or "error"
-	, "message":"Date : Enter a valid date|Date : Enter a integer"
-}
+}"
+
+
+"{ "data": [{"applicant_gender": "", "user_id": "", "sleeping_bag": "", "tribe_id": "", "application_date": "", "medical_form": "", "guardian_contact_number": "", "application_status": "", "payment": "", "guardian_last_name": "", "emergency_contact": "", "water_bottle": "", "applicant_first_name": "", "applicant_age": "", "check_in_status": "", "camp_time_slots": "", "guardian_address": "", "guardian_first_name": "", "bugs_spray": "", "legal_form": "", "bunkhouse_id": "", "applicant_address": "", "applicant_last_name": "", "boot": "", "applicant_id": "", "sunscreen": "", "helmet": ""}], "status":"success", "message":"Registration Complete" }
 
 
 
