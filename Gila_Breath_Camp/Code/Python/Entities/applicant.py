@@ -27,26 +27,28 @@ class Applicant(object):
 	def __init__(self):
 		self.applicant_id = 0
 		self.user_id = 0
-		self.first_name = ''
-		self.last_name = ''
+		self.applicant_first_name = ''
+		self.applicant_last_name = ''
+		self.age = 0
+		self.gender = ''
+		self.applicant_address = ''
 		self.guardian_first_name = ''
 		self.guardian_last_name = ''
 		self.guardian_contact_number = ''
+		self.guardian_address = ''
 		self.application_date = ''
 		self.emergency_contact = ''
-		self.age = 0
-		self.gender = ''
-		self.address = ''
-		self.legal_form = ''
-		self.medical_form = ''
 		self.bunkhouse_id = 0		
 		self.tribe_id = 0
+		self.medical_form = ''		
+		self.legal_form = ''
 		self.helmet = ''
 		self.boot = ''
 		self.sleeping_bag = ''
 		self.water_bottle = ''
 		self.sunscreen = ''
 		self.bugs_spray = ''
+
 	
 	def setApplicantId(self,applicant_id):
 		self.applicant_id = applicant_id
@@ -54,32 +56,35 @@ class Applicant(object):
 	def getApplicantId(self):
 		return self.applicant_id
 
+
 	def setUserId(self,user_id):
 		self.user_id = user_id
 
 	def getUserid(self):
 		return self.user_id
 
-	def setLastName(self,last_name):
-		last_name = last_name.strip()
-		if last_name.isalpha():
-			self.last_name = last_name.upper()
+
+	def setApplicantFirstName(self,applicant_first_name):
+		applicant_first_name = applicant_first_name.rstrip()
+		if applicant_first_name.isalpha():
+			self.applicant_first_name = applicant_first_name.upper()
 		else:
 			return "Enter only alphabets"
 
-	def getLastName(self):
-		return self.last_name
-
-
-	def setFirstName(self,first_name):
-		first_name = first_name.rstrip()
-		if first_name.isalpha():
-			self.first_name = first_name.upper()
-		else:
-			return "Enter only alphabets"
-
-	def getFirstName(self):
+	def getApplicantFirstName(self):
 		return self.first_name
+
+
+	def setApplicantLastName(self,applicant_last_name):
+		applicant_last_name = applicant_last_name.strip()
+		if applicant_last_name.isalpha():
+			self.applicant_last_name = applicant_last_name.upper()
+		else:
+			self.applicant_last_name = ''
+			return "Camper Last Name: Enter only alphabets"
+
+	def getApplicantLastName(self):
+		return self.applicant_last_name
 
 
 	def setGuardianFirstName(self,guardian_first_name):
@@ -87,7 +92,8 @@ class Applicant(object):
 		if guardian_first_name.isalpha():
 			self.guardian_first_name = guardian_first_name.upper()
 		else:
-			return "Enter only alphabets"
+			self.guardian_first_name = ''
+			return "Parent/Guardian Last Name: Enter only alphabets"
 
 	def getGuardianFirstName(self):
 		return self.guardian_first_name
@@ -114,14 +120,9 @@ class Applicant(object):
 	def getGuardianContactNumber(self):
 		return self.guardian_contact_number
 
+
 	def setApplicationDate(self,application_date):
-		try: 
-			date = datetime.strptime(application_date, '%m-%d-%Y')
-			self.application_date = date
-
-		except:
-			return "Enter proper Date"
-
+		self.application_date = date
 
 	def getApplicationDate(self):
 		return self.application_date
@@ -158,11 +159,11 @@ class Applicant(object):
 		return self.gender
 
 
-	def setAddress(self,address):
-		self.address = address
+	def setApplicantAddress(self,applicant_address):
+		self.applicant_address = applicant_address
 
-	def getAddress(self):
-		return self.address
+	def getApplicantAddress(self):
+		return self.applicant_address
 
 
 	def setLegalForm(self,legal_form):
