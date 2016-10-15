@@ -26,6 +26,7 @@ getTest = function(id)
 		{
 			type:"POST",
 			url:"../../create_volume/",
+			async:true,
 			data: 
    				{
         			vol_name: input // from form
@@ -39,8 +40,11 @@ getTest = function(id)
     		error: function(data)
     		{
         		debugger;
-        		alert("chutiye password galat kiya hoga dekh le");          
+        		alert("chutiye password galat kiya hoga dekh le");
       		}
     	}
   	);
+	
+	
+	
 }

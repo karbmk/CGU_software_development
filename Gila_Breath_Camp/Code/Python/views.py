@@ -12,7 +12,7 @@ sys.path.append("Python/Entities")
 import common_functions
 import user
 import ast
-
+import json
 
 def test(request):
 	context = ""
@@ -38,3 +38,12 @@ def create_volume(request):
 	#	ur.setPassword(data_dict["password"])
 	#k.insertIntoCsv("user.csv",ur)
 	return HttpResponse("success",content_type="application/type")
+
+	
+def test_js(request):
+	st = '{"jemin":"gohil","karthik":"manjunath"}'
+	st = '''{
+      "data":[''' + st +''']
+  }'''
+	print (st)
+	return HttpResponse(st,content_type="application/type")
