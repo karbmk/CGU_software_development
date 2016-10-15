@@ -169,11 +169,11 @@ class Applicant(object):
 		return self.guardian_contact_number
 
 
-	def setGaurdianAddress(self,gaurdian_address):
-		self.gaurdian_address = gaurdian_address
+	def setGuardianAddress(self,guardian_address):
+		self.guardian_address = guardian_address
 
-	def getGaurdianAddress(self):
-		return self.gaurdian_address
+	def getGuardianAddress(self):
+		return self.guardian_address
 
 
 	def setApplicationDate(self,application_date):
