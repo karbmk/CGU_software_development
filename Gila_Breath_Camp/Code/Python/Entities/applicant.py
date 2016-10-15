@@ -41,6 +41,7 @@ class Applicant(object):
 		self.guardian_address = ''
 		self.application_date = ''
 		self.emergency_contact = ''
+		self.payment = ''
 		self.medical_form = ''			
 		self.legal_form = ''
 		self.helmet = ''
@@ -191,6 +192,13 @@ class Applicant(object):
 
 	def getEmergencyContact(self):
 		return self.emergency_contact
+
+
+	def setPayment(self,payment):
+		self.payment = payment
+
+	def getPayment(self):
+		return self.payment
 
 
 	def setMedicalForm(self,medical_form):
