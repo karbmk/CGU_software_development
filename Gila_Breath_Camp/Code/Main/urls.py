@@ -19,5 +19,6 @@ from Python import views
 urlpatterns = [
     url(r'^Python/', include('Python.local_urls')),
     url(r'^create_volume/', views.create_volume, name='create_volume'),
+	url(r'^test_js/', views.test_js, name='test_js'),
 
 ]
