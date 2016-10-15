@@ -18,6 +18,8 @@
 # 3.0		02-OCT-2016		KARTHIK MANJUNATH		Adding Logic to convert dict to Object
 # 4.0       10-OCT-2016		ROHAN SAWANT			Adding increment logic for Id's
 # 5.0       10-OCT-2016		ROHAN SAWANT			Corrected increment logic for Id's empty file
+# 6.0       10-OCT-2016		ROHAN SAWANT			Created update data to csv function (many rows)
+# 7.0       10-OCT-2016		ROHAN SAWANT			Created update data to csv function (one row)
 # ===============================================================================
 
 import csv
@@ -93,11 +95,59 @@ class Common_functions(object):
 		writer=csv.writer(open('Csv/'+ filename,'a'),quoting=csv.QUOTE_ALL,lineterminator='\n')
 		writer.writerow(output_list)
 
-	def updateIntoCsv(self,filename,where):
+	def updateManyRowIntoCsv(self,filename,list_of_dict,input_key):
 		""" Update into .csv from objects """
-		pass
 
-	
+		csv_list_of_data = self.csvToListOfList('Csv/'+ filename)
+
+		# get values from where i.e. input_key_id
+
+		column_number = 0
+
+		for i in range(0,len(csv_list_of_data[0])):
+			if csv_list_of_data[0][i] == input_key:
+				column_number = i
+
+		for i in range(0,len(csv_list_of_data)):
+			# finding the id
+			for j in range(0,len(list_of_dict)):
+				if csv_list_of_data[i][column_number] == list_of_dict[j][input_key]:
+					# replacing values
+					for k in range(0,len(csv_list_of_data[i])):						
+						csv_list_of_data[i][k] = list_of_dict[j][csv_list_of_data[0][k]]
+
+		# write into file
+		with open('Csv/'+ filename, 'w', newline='') as csvfile:
+			writer = csv.writer(csvfile,quoting=csv.QUOTE_ALL)
+			writer.writerows(csv_list_of_data)
+
+	def updateOneRowIntoCsv(self,filename,object_name,input_key):
+		""" Update into .csv from objects """
+
+		csv_list_of_data = self.csvToListOfList('Csv/'+ filename)
+		object_name_dict = object_name.__dict__
+
+		# get values from where i.e. input_key_id
+		input_id = object_name_dict[input_key]
+
+		column_number = 0
+
+		for i in range(0,len(csv_list_of_data[0])-1):
+			if csv_list_of_data[0][i] == input_key:
+				column_number = i
+
+		for i in range(0,len(csv_list_of_data)-1):
+			# finding the id
+			if csv_list_of_data[i][column_number] == input_id:
+				# replacing values
+				for j in range(0,len(csv_list_of_data[i])-1):
+					csv_list_of_data[i][j] = object_name_dict[csv_list_of_data[0][j]]
+
+		# write into file
+		with open('Csv/'+ filename, 'w', newline='') as csvfile:
+			writer = csv.writer(csvfile,quoting=csv.QUOTE_ALL)
+			writer.writerows(csv_list_of_data)
+
 	def getFromCsv(self,filename,where):
 		""" Read to csv file """
 		

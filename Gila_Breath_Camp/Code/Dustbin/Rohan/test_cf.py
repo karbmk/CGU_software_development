@@ -3,10 +3,10 @@ sys.path.append("Python")
 sys.path.append("Python/Entities")
 import common_functions
 import user
+import applicant
 
-ur = user.User()
-ur.setUserName('Karthik-Yana')
+a = applicant.Applicant()
 
-cf = common_functions.Common_functions()
-cf.insertIntoCsv('user.csv',ur)
+print(a.setAge('A'))
 
+print(a.getAge())
