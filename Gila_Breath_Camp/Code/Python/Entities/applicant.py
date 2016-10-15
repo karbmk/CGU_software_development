@@ -17,6 +17,7 @@
 # 3.0       10-OCT-2016     JEMIN GOHIL           	removed transformation from age & gender
 # 4.0		13-OCT-2016		ROHAN SAWANT			Changed value of tribe_id and bunkhouse_id = 0
 # 5.0		13-OCT-2016		ROHAN SAWANT			Added transformation to setAge
+# 6.0		15-OCT-2016		ROHAN SAWANT			Added user_id getter-setter
 # ================================================================================
 
 from datetime import datetime
@@ -25,6 +26,7 @@ class Applicant(object):
 
 	def __init__(self):
 		self.applicant_id = 0
+		self.user_id = 0
 		self.first_name = ''
 		self.last_name = ''
 		self.guardian_first_name = ''
@@ -46,13 +48,17 @@ class Applicant(object):
 		self.sunscreen = ''
 		self.bugs_spray = ''
 	
-
 	def setApplicantId(self,applicant_id):
 		self.applicant_id = applicant_id
 
 	def getApplicantId(self):
 		return self.applicant_id
 
+	def setUserId(self,user_id):
+		self.user_id = user_id
+
+	def getUserid(self):
+		return self.user_id
 
 	def setLastName(self,last_name):
 		last_name = last_name.strip()
