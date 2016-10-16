@@ -13,6 +13,7 @@
 # VER	|	DATE       	|	MODIFIED BY  		|  	CHANGE DESCRIPTION
 # -------------------------------------------------------------------------------
 # 1.0   	01-OCT-2016  	ROHAN SAWANT    		Started coding
+# 2.0		15-OCT-2016		ROHAN SAWANT			First version of Registration User Story
 # ================================================================================
 
 import sys
@@ -69,7 +70,6 @@ class Registration(object):
 			return_front_end_dict = '{ "data": [' + json.dumps(emp_appl.__dict__) + '], "status":"success", "message":"Registration Complete" }'
 		else:
 			return_front_end_dict = '{ "data": [' + json.dumps(appl.__dict__) + '], "status":"error", "message":"' + message + '" }'
-
 
 		return return_front_end_dict
 

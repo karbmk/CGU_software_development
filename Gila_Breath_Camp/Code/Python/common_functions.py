@@ -52,20 +52,6 @@ class Common_functions(object):
 				
 		return list_of_dict
 
-	def obj_dic(self,d):
-		""" Convert list of dictionaries to list of objects """
-		top = type('new', (object,), d)
-		seqs = tuple, list, set, frozenset
-		for i, j in d.items():
-			if isinstance(j, dict):
-				setattr(top, i, obj_dic(j))
-			elif isinstance(j, seqs):
-				setattr(top, i, 
-					type(j)(obj_dic(sj) if isinstance(sj, dict) else sj for sj in j))
-			else:
-				setattr(top, i, j)
-		return top
-
 	def insertIntoCsv(self,filename,object_name):
 		""" Insert into .csv from objects """
 		
@@ -168,8 +154,6 @@ class Common_functions(object):
 				for columns in where:
 					if list_dict_data[i][columns] == where[columns]:
 						list_dict_data_where.append(list_dict_data[i])
-		list_of_objects = []
-		for dict_in_list in list_dict_data_where:
-			list_of_objects.append(self.obj_dic(dict_in_list))
-		return list_of_objects
+
+		return list_dict_data_where
 
