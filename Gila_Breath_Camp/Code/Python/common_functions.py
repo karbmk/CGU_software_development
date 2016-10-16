@@ -20,6 +20,7 @@
 # 5.0       10-OCT-2016		ROHAN SAWANT			Corrected increment logic for Id's empty file
 # 6.0       10-OCT-2016		ROHAN SAWANT			Created update data to csv function (many rows)
 # 7.0       10-OCT-2016		ROHAN SAWANT			Created update data to csv function (one row)
+# 8.0		15-OCT-2016		ROHAN SAWANT			Added suffix function for Integers
 # ===============================================================================
 
 import csv
@@ -51,6 +52,9 @@ class Common_functions(object):
 			list_of_dict.append(dict)
 				
 		return list_of_dict
+
+	def suffix(self,d):
+		return 'th' if 11<=d<=13 else {1:'st',2:'nd',3:'rd'}.get(d%10, 'th')
 
 	def insertIntoCsv(self,filename,object_name):
 		""" Insert into .csv from objects """

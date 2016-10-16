@@ -18,6 +18,7 @@
 import json
 import sys
 import ast
+import datetime
 sys.path.append("Python")
 import common_functions
 sys.path.append("Python/Entities")
@@ -37,7 +38,10 @@ class Choose_date(object):
 
 		data = cf.getFromCsv('date.csv',front_end_data)
 
-		startDate = data[0]['camp_time_slots']
+		start_date = datetime.datetime.strptime(data[0]['camp_time_slots'],"%Y-%m-%d %H:%M:%S.%f")
+		end_date = start_date + datetime.timedelta(days=13)
+		print(str(start_date.day) + '-' + str(end_date.day),start_date.strftime("%B"),str(end_date.year))
+		print(cf.suffix(11))
 
 		if len(data) == 0:
 			return_front_end_dict = '{ "data": [], "status":"error", "message":"No Date in ''date.csv''" }'
