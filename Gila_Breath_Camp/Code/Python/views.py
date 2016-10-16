@@ -13,6 +13,8 @@ import common_functions
 import user
 import ast
 import json
+sys.path.append("Python/User_Stories")
+import registration
 
 def test(request):
 	context = ""
@@ -24,8 +26,8 @@ def create_volume(request):
 	c.update(csrf(request));
 	data = request.POST["vol_name"]
 	print("data"+data)
-	print(type(data))
-	data_dict = ast.literal_eval(data)
+	#print(type(data))
+	#data_dict = ast.literal_eval(data)
 	#print(data_dict["password"])
 	#k = common_functions.Common_functions()
 	#ur = user.User()
@@ -37,7 +39,14 @@ def create_volume(request):
 	#else:
 	#	ur.setPassword(data_dict["password"])
 	#k.insertIntoCsv("user.csv",ur)
-	return HttpResponse("success",content_type="application/type")
+	try:
+		regis = registration.Registration()
+		st = regis.register(data)
+		print(type(st))
+	except Exception as e:
+		st = e
+		print(st)
+	return HttpResponse(st,content_type="application/type")
 
 	
 def test_js(request):

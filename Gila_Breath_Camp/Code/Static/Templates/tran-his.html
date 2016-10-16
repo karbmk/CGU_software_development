@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
@@ -11,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     
 
-    <title>Finnxt UI</title>
+    <title>Gila Breath Camp</title>
 
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
@@ -35,6 +36,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="/Static/_/js/modernizr.custom.js"></script>
+		<script type="text/javascript" src="/Static/js/test.js" ></script>
+		<script type="text/javascript" src="/Static/js/test_dyn.js" ></script>
+
   </head>
 
   <body>
@@ -47,15 +51,17 @@
 		<li><a href="comp-detail.html"><span class="menu-ico tran-his"></span>OCTOBER<br/></a></li>
 	</nav>
 </div>
-
 <!-- Tabs-Header-start -->
 <header>
 	<div class="col-md-offset-1  col-md-11">
-
 		<div id="hor-tab" class="col-md-10">
 			<ul class="nav nav-tabs">
-				<li role="presentation" class="active"><a href="#tab1" data-toggle="tab">transaction history</a></li>
-				<li role="presentation"><a href="#tab2" data-toggle="tab">pending transaction</a></li>
+				<li role="presentation" class="active"><a href="#tab1" data-toggle="tab">REGISTER</a></li>
+				<li onclick="getTest1()" role="presentation"><a href="#tab2" data-toggle="tab">CHECK - IN</a></li>
+				<li role="presentation"><a href="#tab3" data-toggle="tab">APPLICATION STATUS</a></li>
+				<!--<li role="presentation"><a href="#tab4" data-toggle="tab">Interim Financials</a></li>
+				<li role="presentation"><a href="#tab5" data-toggle="tab">Related Company Information</a></li>
+				<li role="presentation"><a href="#tab6" data-toggle="tab">uploads</a></li>-->
 			</ul>
 		</div>
 
@@ -64,206 +70,1698 @@
 </header>
 <!-- Tabs-Header-End -->
 
-<section id="hx-trn">
-<div class="col-md-offset-1  col-md-11">
-	<div class="col-md-11">
-		<div class="tab-content">
+<!-- cur-trn-start -->
+<section id="cur-trn">
+	<!-- col-md-offset-1-start -->
+	<div class="col-md-offset-1  col-md-11">
+		<!-- form-wrap-start -->
+		<div class="col-md-9 form-wrap">
+			<!-- tab-content-start -->
+			<div class="tab-content">
 
-	        <!--tab1-content-start-->
-		    <div class="tab-pane active fade in" id="tab1">
+				<!-- tab1-start -->
+			    <div  class="tab-pane active fade in" id="tab1">
+			    	<!-- nav-tabs-start -->
+					
+					
+				    <div id="ver-tab" class="col-md-3">
+					    <ul class="nav nav-tabs">
+				    		<li role="presentation" class="active"><a href="#tab-1-1" data-toggle="tab"></a></li>
+							<!--<li role="presentation"><a href="#tab-1-2" data-toggle="tab">Parent Information</a></li>
+							<li role="presentation"><a href="#tab-1-3" data-toggle="tab">Bank Borrowings</a></li>-->
+						</ul>
+				    </div>
+				    <!-- nav-tabs-stop -->
+				    
+					<!-- tab-content-1-start -->
+				    <div class="tab-content">
+				    	<!-- tab-1-1-comp-start -->
+				    	<div class="tab-pane active fade in" id="tab-1-1">
+					    	<div class="box col-md-9">
+					    			<div style="display: none;" class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpDate" id="lblCmpDate" class="control-label">Incorporation Date</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<div class="input-group date datepick">
+									                <input type="text" name="txtCmpDate" id="txtCmpDate" class="form-control" />
+									                <span class="input-group-addon">
+									                    <span class="fa fa-calendar"></span>
+									                </span>
+								            	</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+									<strong>CAMPER INFORMATION</strong> <br><br>
+										<div style="display: none;" class="col-md-5">
+											<label name="lblCmpFd" id="lblCmpFd" class="control-label">Name</label>
+										</div>
+										<div style="display: none;" class="col-md-7">
+											<div style="display: none;" class="col-md-4">
+												<select name="cmbCmpFdSal" id="cmbCmpFdSal" class="form-control">
+													<option>Mrs.</option>
+													<option>Miss.</option>
+												</select>
+											</div>	
+										</div>
+									</div>
 
-		    	<!--tab1-title-start-->
-					<div class="row">
-						<div class="col-md-3">
-							<h5>Transaction Name</h5>
-						</div>
-						<div class="col-md-9">
-							<h5>Quick Status/Overview</h5>
-						</div>
-					</div>
-				<!--tab1-title-end-->	
+									<!--<div class="form-group">
+										<div class="col-md-5"> </div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="txtCmpFdFn" class="form-control" placeholder="First Name">
+											</div>
+										</div>	
+									</div>-->
+									
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">NAME</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="c_first_name" class="form-control" placeholder="First Name"><br>
+											</div>
+										</div>
+									</div>
+
+									<div style="display: none;" class="form-group">
+										<div class="col-md-5"> </div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdMn" id="txtCmpFdMn" class="form-control" placeholder="Middle Name">
+											</div>
+										</div>	
+									</div>		
+
+									<div class="form-group">
+										<div class="col-md-5"> </div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdLn" id="c_last_name" class="form-control" placeholder="Last Name"><br>
+											</div>
+										</div>	
+									</div>	
+
+									<div style="display: none;" class="form-group">
+										<div style="display: none;" class="col-md-5">
+											<label name="lblCmpCrHd" id="lblCmpCrHd" class="control-label">Currently Headed / Promoted By</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<select name="cmbCmpCrHdSal" id="cmbCmpCrHdSal" class="form-control">
+													<option>Mrs.</option>
+													<option>Miss.</option>
+												</select>
+											</div>	
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">AGE</label>
+
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpCrHdFn" id="c_age" class="form-control" placeholder="Age"><br>
+											</div>
+										</div>	
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-5"> 
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">GENDER</label>										
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<select name="cmbCmpCrHdSal" id="c_sex" class="form-control">
+													<option>Male</option>
+													<option>Female</option>
+												</select><br>
+											</div>
+										</div>	
+									</div>		
+
+									<div class="form-group">
+										<div class="col-md-5"> 
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">ADDRESS</label>																				
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<!--<input type="text" size="50" name="txtCmpCrHdLn" id="txtCmpCrHdLn" class="form-control" placeholder="Address">-->
+												<textarea rows="4" id="c_address" cols="32" class="form-control" placeholder="Address"></textarea><br>
+											</div>
+										</div>	
+									</div>	
+									<div style="display: none;" class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">Generation of Promoters</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<select name="cmbCmpGenPro" id="cmbCmpGenPro" class="form-control">
+													<option></option>
+													<option></option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div style="display: none;" class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpChN" id="lblCmpChN" class="control-label">Any change of company name</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpChN" id="txtCmpChN" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div style="display: none;" class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpNatBiz" id="lblCmpNatBiz" class="control-label">Nature of Business</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-12">
+												<label name="lblNatBiz" id="lblNatBiz" class="radio-inline">
+	            									<input type="radio" name="rdoNatBiz" id="rdoNatBiz" value="manufacturing"> Manufacturing
+	          									</label>
+	          									<label name="lblNatBiz" id="lblNatBiz" class="radio-inline">
+	            									<input type="radio" name="rdoNatBiz" id="rdoNatBiz" value="trading"> Trading
+	          									</label>
+	          									<label name="lblNatBiz" id="lblNatBiz" class="radio-inline">
+	            									<input type="radio" name="rdoNatBiz" id="rdoNatBiz" value="services"> Services
+	          									</label>
+											</div>
+										</div>
+									</div>	
+
+									<div style="display: none;" class="panel panel-fin sub-pan">
+								   		<div class="panel-heading clearfix">
+								          <h3 class="pull-left panel-title">Shareholding Pattern ( >5% shares)</h3>
+								          <span class="ctrl-bt pull-right">
+												<i class="add-t">Add another</i>
+												<a id="lnkCmpShPt" name="lnkCmpShPt" href="#" class="add">+</a>
+										  </span>
+								        </div>
+
+								        <div class="panel-body">	
+											<div class="form-group">
+												<div class="col-md-4">
+													<label name="lblCmpShN" id="lblCmpShN" class="control-label">Name of Shareholder</label>
+													<input type="text" name="txtCmpShN" id="txtCmpShN" class="form-control"/>
+												</div>	
+												<div class="col-md-4">
+													<label name="lblCmpShTy" id="lblCmpShTy" class="control-label">Type of Shareholder</label>
+													<select name="cmbCmpShTy" id="cmbCmpShTy" class="form-control">
+														<option></option>
+														<option></option>
+													</select>
+												</div>
+												<div class="col-md-4">
+													<label name="lblCmpPrSh" id="lblCmpPrSh" class="control-label">Percntage Shareholding</label>
+													<input type="text" name="txtCmpPrSh" id="txtCmpPrSh" class="form-control">
+												</div>
+												<div class="col-md-4">
+													<label name="lblCmpYrIn" id="lblCmpYrIn" class="control-label">Year of Investment</label>
+													<div class="input-group date yrpick">
+										                <input type="text" name="txtCmpYrIn" id="txtCmpYrIn" class="form-control" />
+										                <span class="input-group-addon">
+										                    <span class="fa fa-calendar-o"></span>
+										                </span>
+										            </div>
+												</div>
+											</div>
+										</div>
+									</div>		
+
+									<div class="form-group">
+									<strong>PARENT/GUARDIAN INFORMATION</strong> <br><br>
+										<div style="display: none;" class="col-md-5">
+											<label name="lblCmpFd" id="lblCmpFd" class="control-label">Name</label>
+										</div>
+										<div style="display: none;" class="col-md-7">
+											<div style="display: none;" class="col-md-4">
+												<select name="cmbCmpFdSal" id="cmbCmpFdSal" class="form-control">
+													<option>Mrs.</option>
+													<option>Miss.</option>
+												</select>
+											</div>	
+										</div>
+									</div>
+									
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">NAME</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="g_first_name" class="form-control" placeholder="First Name"><br>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-5"> </div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdLn" id="g_last_name" class="form-control" placeholder="Last Name"><br>
+											</div>
+										</div>	
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5"> 
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">ADDRESS</label>																		
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<!--<input type="text" size="50" name="txtCmpCrHdLn" id="txtCmpCrHdLn" class="form-control" placeholder="Address">-->
+												<textarea rows="4" cols="32" id="g_address" class="form-control" placeholder="Address"></textarea><br>
+											</div>
+										</div>	
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">CONTACT</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="g_contact_info" class="form-control" placeholder="Contact"><br>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">EMERENCY CONTACT</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="g_emergency_contact" class="form-control" placeholder="Emergency Contact"><br>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">PAYMENT</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="g_payment" class="form-control" placeholder="Payment"><br>
+											</div>
+										</div>
+									</div>
+									
+									<div style="display: none;" class="form-group">
+			  							<div class="col-sm-12">
+			  								<label name="lblCmpAdInf" id="lblCmpAdInf" class="control-label">Additional Information</label>
+		      								<textarea class="form-control" name="txtCmpAdInf" id="txtCmpAdInf" placeholder=""></textarea>
+		    							</div>
+						            </div>
+									<div class="form-group">
+										<div class="col-md-8">
+											<input type="submit" onclick="getTest()" value="REGISTER" id="btnCmp" name="btnCmp" class="btn form-btn"> 
+										</div>
+									</div>
+					        </div>
+					    </div>     
+					    <!-- tab-1-1-comp-end -->
+
+			    		<!-- tab-1-2-major-start -->
+			            <div class="tab-pane fade in" id="tab-1-2">
+			            	<div class="box col-md-9">
+			    		        <form name="frmCapExp" id="frmCapExp" class="form-horizontal">
+
+			    		        	<div class="form-group">
+			    		        	 <div class="panel panel-fin">
+								        <div class="panel-heading clearfix">
+								          <h3 class="pull-left panel-title">Capacity Expansion</h3>
+								          <span class="ctrl-bt pull-right">
+												<i class="add-t">Add another</i>
+												<a id="lnkCapEx" name="lnkCapEx" href="#" class="add">+</a>
+										  </span>
+								        </div>
+								        <div class="panel-body">
+								        	<div class="form-group">
+								        		<div class="col-md-4">
+								        			<label name="lblCapExYr" id="lblCapExYr" class="label-control">Year</label>
+								        		</div>
+				    		        			<div class="col-md-4">
+				    		        				<div class="input-group date yrpick">
+								                		<input type="text" name="txtCapExYr" id="txtCapExYr" class="form-control" />
+								                		<span class="input-group-addon">
+								                   			<span class="fa fa-calendar-o"></span>
+								                		</span>
+								            		</div>
+				    		        			</div>
+				    		        		</div>	
+				    		        		<div class="form-group">
+				    		        			<div class="col-md-4">
+								        			<label name="lblCapExPrd" id="lblCapExPrd" class="label-control">Product</label>
+								        		</div>
+								        		<div class="col-md-4">
+								        			<input type="text" name="txtCapExPrd" id="txtCapExPrd" class="form-control">
+								        		</div>
+								        	</div>	
+				    		        		<div class="form-group">
+				    		        			<div class="col-md-4 col-md-offset-4">
+				    		        				<input type="text" name="txtCapExPrdFrm" id="txtCapExPrdFrm" class="form-control" placeholder="From Units">
+				    		        			</div>
+				    		        			<div class="col-md-4">
+				    		        				<input type="text" name="txtCapExPrdTo" id="txtCapExPrdTo" class="form-control" placeholder="To Units">
+				    		        			</div>
+				    		        		</div>
+				    		            </div>	
+				    		          </div>
+			    		            </div>
+			    		             
+			    		            <div class="form-group">
+			    		        	 <div class="panel panel-fin">
+								        <div class="panel-heading clearfix">
+								          <h3 class="pull-left panel-title">Certification</h3>
+								          <span class="ctrl-bt pull-right">
+												<i class="add-t">Add another</i>
+												<a id="lnkCerti" href="#" class="add">+</a>
+										  </span>
+								        </div>
+								        <div class="panel-body">
+			    		        			<div class="form-group">
+			    		        				<div class="col-md-4">
+			    		        					<labels name="lblValCerti" id="lblValCerti" class="label-control">Valid Cetification</labels>	
+			    		        				</div>
+												<div class="col-md-8">
+													<input type="text" name="txtValCerti" id="txtValCerti" class="form-control">
+												</div>
+				    		        		</div>
+				    		        		<div class="form-group">
+				    		        			<div class="col-md-4">
+			    		        					<labels name="lblCertiName" id="lblCertiName" class="label-control">Cetification Name</labels>	
+			    		        				</div>
+												<div class="col-md-8">
+													<input type="text" name="txtCertiName" id="txtCertiName" class="form-control">
+												</div>
+				    		        		</div>
+				    		        		<div class="form-group">
+				    		        			<div class="col-md-4">
+			    		        					<labels name="lblCertiDate" id="lblCertiDate" class="label-control">Cetification Date</labels>
+			    		        				</div>
+												<div class="col-md-8">
+													<div class="input-group date datepick">
+										                <input type="text" name="txtCertiDate" id="txtCertiDate" class="form-control" />
+										                <span class="input-group-addon">
+										                    <span class="fa fa-calendar"></span>
+										                </span>
+									            	</div>
+												</div>
+											</div>	
+				    		        		<div class="form-group">
+			    		        				<div class="col-md-4">
+			    		        					<labels name="lblType" id="lblType" class="label-control">Type</labels>	
+			    		        				</div>
+												<div class="col-md-8">
+													<input type="text" name="txtType" id="txtType" class="form-control">
+												</div>
+				    		        		</div>
+				    		        	</div>	
+				    		          </div>
+				    		        </div>
+
+				    		        <div class="form-group">
+			    		        	 <div class="panel panel-fin">
+								        <div class="panel-heading clearfix">
+								          <h3 class="pull-left panel-title">Awards</h3>
+								          <span class="ctrl-bt pull-right">
+												<i class="add-t">Add another</i>
+												<a id="lnkAwards" href="#" class="add">+</a>
+										  </span>
+								        </div>
+								        <div class="panel-body">
+			    		        			<div class="form-group">
+			    		        				<div class="col-md-4">
+			    		        					<label name="lblAwardsYr" id="lblAwardsYr" class="label-control">Year</label>
+			    		        				</div>
+			    		        				<div class="col-md-4">
+					    		        			<div class="input-group date yrpick">
+								                		<input type="text" name="txtAwardsYr" id="txtAwardsYr" class="form-control" />
+								                		<span class="input-group-addon">
+								                   			<span class="fa fa-calendar-o"></span>
+								                		</span>
+								            		</div>
+			    		        				</div>
+			    		        			</div>
+
+			    		        			<div class="form-group">
+			    		        				<div class="col-md-4">
+			    		        					<label name="lblAwardsN" id="lblAwardsN" class="label-control"> Name of Awards</label>
+			    		        				</div>
+			    		        				<div class="col-md-8">
+			    		        					<input type="text" name="txtAwardsN" id="txtAwardsN" class="form-control">
+			    		        				</div>
+			    		        			</div>
+			    		        		</div>
+			    		        	 </div>
+			    		        	</div>				
+			    		        	
+			    		        	<div class="form-group">
+			    		        		<div class="panel panel-fin">
+			    		        			<div class="panel-heading clearfix">
+						          		          <h3 class="pull-left panel-title">Diversification</h3>
+						          		          <span class="ctrl-bt pull-right">
+						          						<i class="add-t">Add another</i>
+						          						<a id="lnkDiver" name="lnkDiver" href="#" class="add">+</a>
+						          				  </span>
+								        	</div>
+								        	<div class="panel-body">
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4">
+			    		        						<label name="lblDiverYr" id="lblDiverYr" class="label-control">Year</label>
+			    		        					</div>
+			    		        					<div class="col-md-4">
+			    		        						<div class="input-group date yrpick">
+									                		<input type="text" name="txtDiverYr" id="txtDiverYr" class="form-control" />
+									                		<span class="input-group-addon">
+									                   			<span class="fa fa-calendar-o"></span>
+									                		</span>
+								            			</div>
+			    		        					</div>
+			    		        				</div>
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4">
+			    		        						<label name="lblDiverIndus" id="lblDiverIndus" class="label-control">Industry</label>
+			    		        					</div>
+			    		        					<div class="col-md-8">
+				    		        					<input type="text" name="txtDiverIndus" id="txtDiverIndus" class="form-control">
+				    		        				</div>
+			    		        				</div>
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4">
+			    		        						<label name="lblDiverDesc" id="lblDiverDesc" class="label-control">Description</label>
+			    		        					</div>
+			    		        					<div class="col-md-8">
+				    		        					<input type="text" name="txtDiverDesc" id="txtDiverDesc" class="form-control" >
+				    		        				</div>
+			    		        				</div>		
+			    		        			</div>
+			    		        		</div>
+			    		        	</div>		
+				    		        	
+				    		        <div class="form-group">
+			    		        		<div class="panel panel-fin">
+			    		        			<div class="panel-heading clearfix">
+								          		<h3 class="pull-left panel-title">Backward/Forward Integration</h3>
+					          		          	<span class="ctrl-bt pull-right">
+					          						<i class="add-t">Add another</i>
+					          						<a id="lnkBfInt" name="lnkBfInt" href="#" class="add">+</a>
+					          				    </span>
+								        	</div>
+								        	<div class="panel-body">
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4">
+			    		        						<label name="lblBfiIntYr" id="lblBfiIntYr" class="label-control">Year</label>
+			    		        					</div>
+			    		        					<div class="col-md-4">
+			    		        						<div class="input-group date yrpick">
+									                		<input type="text" name="txtBfiIntYr" id="txtBfiIntYr" class="form-control" />
+									                		<span class="input-group-addon">
+									                   			<span class="fa fa-calendar-o"></span>
+									                		</span>
+								            			</div>
+			    		        					</div>
+			    		        				</div>
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4">
+			    		        						<label name="lblBfiIntDesc" id="lblBfiIntDesc" class="label-control">Description</label>
+			    		        					</div>
+			    		        					<div class="col-md-8">
+				    		        					<input type="text" name="txtBfiIntDesc" id="txtBfiIntDesc" class="form-control">
+				    		        				</div>
+			    		        				</div>		
+			    		        			</div>
+			    		        		</div>
+			    		        	</div>	
+
+				    		        <div class="form-group">
+					    		        <div class="panel panel-fin">
+					    		        	<div class="panel-heading clearfix">
+					    		        		<h3 class="pull-left panel-title">Acquisition</h3>
+					          		          	<span class="ctrl-bt pull-right">
+					          						<i class="add-t">Add another</i>
+					          						<a id="lnkAcq" name="lnkAcq" href="#" class="add">+</a>
+					          				    </span>
+					    		        	</div>
+					    		        	<div class="panel-body">
+					    		        		<div class="form-group">
+						    		        		<div class="col-md-4">
+						    		        			<label name="lblAcqYr" id="lblAcqYr" class="label-control">Year</label>
+						    		        		</div>
+						    		        		<div class="col-md-4">
+						    		        			<div class="input-group date yrpick">
+									                		<input type="text" name="txtAcqYr" id="txtAcqYr" class="form-control" />
+									                		<span class="input-group-addon">
+									                   			<span class="fa fa-calendar-o"></span>
+									                		</span>
+								            			</div>
+						    		        		</div>
+						    		        	</div>
+						    		        	<div class="form-group">
+						    		        		<div class="col-md-4">
+						    		        			<label name="lblAcqDesc" id="lblAcqDesc" class="label-control">Description</label>
+						    		        		</div>
+						    		        		<div class="col-md-8">
+						    		        			<input type="text" name="txtAcqDesc" id="txtAcqDesc" class="form-control">
+						    		        		</div>
+						    		        	</div>
+					    		        	</div>
+					    		        </div>
+					    		    </div>    
+
+			    		        	<div class="form-group">
+			    		        		<div class="panel panel-fin">
+			    		        			<div class="panel-heading clearfix">
+			    		        				<h3 class="panel-title pull-left">Merger</h3>
+			    		        				<span class="ctrl-bt pull-right">
+					          						<i class="add-t">Add another</i>
+					          						<a id="lnkMer" name="lnkMer" href="#" class="add">+</a>
+					          				    </span>
+			    		        			</div>
+			    		        			<div class="panel-body">
+			    		        				<div class="form-group">
+				    		        				<div class="col-md-4">
+							    		       			<label name="lblMerYr" id="lblMerYr" class="label-control">Year</label>
+							    		        	</div>
+							    		        	<div class="col-md-4">
+						    		        			<div class="input-group date yrpick">
+									                		<input type="text" name="txtMerYr" id="txtMerYr" class="form-control" />
+									                		<span class="input-group-addon">
+									                   			<span class="fa fa-calendar-o"></span>
+									                		</span>
+								            			</div>
+						    		        		</div>
+						    		        	</div>
+						    		        	<div class="form-group">
+						    		        		<div class="col-md-4">
+							    		       			<label name="lblMerDesc" id="lblMerDesc" class="label-control">Description</label>
+							    		       		</div>
+							    		       		<div class="col-md-8">
+							    		       			<input type="text" name="txtMerDesc" id="txtMerDesc" class="form-control">
+							    		       		</div>
+						    		        	</div>	
+			    		        			</div>
+			    		        		</div>
+			    		        	</div>
+
+			    		        	<div class="form-group">
+			    		        		<div class="panel panel-fin">
+			    		        			<div class="panel-heading clearfix">
+			    		        				<h3 class="panel-title pull-left">Factory Location</h3>
+			    		        				<span class="ctrl-bt pull-right">
+					          						<i class="add-t">Add another</i>
+					          						<a id="lnkFL" name="lnkFL" href="#" class="add">+</a>
+					          				    </span>
+			    		        			</div>
+			    		        			<div class="panel-body">
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4">
+			    		        						<label name="lblFLAdd" id="lblFLAdd" class="label-control">Address</label>
+			    		        					</div>
+			    		        					<div class="col-md-8">
+			    		        						<input type="text" name="txtFLAdd" id="txtFLAdd" class="form-control" placeholder="Address" />
+			    		        					</div>
+			    		        				</div>
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4"></div>
+			    		        					<div class="col-md-8">
+			    		        						<input type="text" name="txtFLCity" id="txtFLCity" class="form-control" placeholder="City / District" />
+			    		        					</div>
+			    		        				</div>
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4"></div>
+			    		        					<div class="col-md-8">
+			    		        						<input type="text" name="txtFLState" id="txtFLState" class="form-control" placeholder="State">
+			    		        					</div>
+			    		        				</div>
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4"></div>
+			    		        					<div class="col-md-8">
+			    		        						<input type="text" name="txtFLZip" id="txtFLZip" class="form-control" placeholder="Zipcode">
+			    		        					</div>
+			    		        				</div>
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4">
+			    		        						<label name="lblFLYrInit" id="lblFLYrInit" class="label-control">Year Initiated</label>
+			    		        					</div>
+			    		        					<div class="col-md-8">
+			    		        						<div class="input-group date yrpick">
+									                		<input type="text" name="txtFLYrInit" id="txtFLYrInit" class="form-control" />
+									                		<span class="input-group-addon">
+									                   			<span class="fa fa-calendar-o"></span>
+									                		</span>
+								            			</div>
+			    		        					</div>
+			    		        				</div>
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4">
+			    		        						<label name="lblFLProManu" id="lblFLProManu" class="label-control">Products Manufactured</label>
+			    		        					</div>
+			    		        					<div class="col-md-8">
+			    		        						<input type="text" name="txtFLProManu" id="txtFLProManu" class="form-control">
+			    		        					</div>	
+			    		        				</div>	
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4">
+			    		        						<label name="lblFLCap" id="lblFLCap" class="label-control">Capacity</label>
+			    		        					</div>
+			    		        					<div class="col-md-8">
+			    		        						<input type="text" name="txtFLCap" id="txtFLCap" class="form-control">
+			    		        					</div>
+			    		        				</div>
+			    		        				<div class="form-group">
+			    		        					<div class="col-md-4">
+			    		        						<label name="lblFLUnt" id="lblFLUnt" class="label-control">Unit Details</label>
+			    		        					</div>
+			    		        					<div class="col-md-8">
+			    		        						<input type="text" name="txtFLUnt" id="txtFLUnt" class="form-control" >
+			    		        					</div>
+			    		        				</div>
+			    		        			</div>
+			    		        		</div>
+			    		        		<div class="col-md-8">
+			    		        			<input type="submit" id="btnMajMil" name="btnMajMil" class="btn form-btn" Value="SAVE">
+			    		        		</div>
+			    		        	</div>
+			    		        </form>
+		    		        </div>
+			    		</div>    	
+			    		<!-- tab-1-2-major-end -->
+
+			    		<!-- tab-1-3-borr-start -->
+			    	    <div class="tab-pane fade in" id="tab-1-3">
+        			    	<div class="box col-md-9">
+        				    	<form id="frmBBor" name="frmBBor" class="form-horizontal">
+        				    		<div class="form-group">
+        				    			<div class="col-md-6">
+			    							<label name="lblWrkCap" id="lblWrkCap" class="label-control">Working Capital</label>
+		    							</div>
+		    							<div class="col-md-6">
+		    								<select name="cmbWrkCap" id="cmbWrkCap" class="form-control">
+			    								<option>Multiple</option>
+			    								<option>Consortium</option>
+			    								<option>Sole</option>
+			    							</select>
+		    							</div>
+		    							<div class="clearfix"></div>
+		    							<br/>
+		    		        			<div class="panel panel-fin">
+		    		        				<div class="panel-heading clearfix">
+		    		        					<h3 class="panel-title pull-left"></h3>
+		    		        					<span class="ctrl-bt pull-right">
+				          							<i class="add-t">Add another</i>
+				          							<a id="lnkWrkCap" name="lnkwrkCap" href="#" class="add">+</a>
+				          				    	</span>
+		    		        				</div>
+		    		        				<div class="panel-body">
+		    		        					<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapNB" id="lblWrkCapNB" class="label-control">Name of Banks/FIs</label>
+			        				    				<input type="text" name="txtWrkCapNB" id="txtWrkCapNB" class="form-control">
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapRInt" id="lblWrkCapRInt" class="label-control">Rate of Interest/Commission</label>
+			        				    				<input type="text" name="txtWrkCapRInt" id="txtWrkCapRInt" class="form-control">
+			        				    			</div>
+			        				    		</div>	
+			        				    		<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapTF" id="lblWrkCapTF" class="label-control">Type of Facilites</label>
+			        				    				<input type="text" name="txtWrkCapTF" id="txtWrkCapTF" class="form-control">
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapLCD" id="lblWrkCapLCD" class="label-control">Loan Closure Date</label>
+			        				    				<input type="text" name="txtWrkCapLCD" id="txtWrkCapLCD" class="form-control">
+			        				    			</div>
+			        				    		</div>
+			        				    		<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapCur" id="lblWrkCapCur" class="label-control">Currency</label>
+			        				    				<input type="text" name="txtWrkCapCur" id="txtWrkCapCur" class="form-control">
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapHed" id="lblWrkCapHed" class="label-control">Hedged/Unhedged</label>
+			        				    				<input type="text" name="txtWrkCapHed" id="txtWrkCapHed" class="form-control">
+			        				    			</div>
+			        				    		</div>	
+			        				    		<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapTA" id="lblWrkCapTA" class="label-control">Type of Advance</label>
+			        				    				<input type="text" name="txtWrkCapTA" id="txtWrkCapTA" class="form-control">
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapNRM" id="lblWrkCapNRM" class="label-control">Name of RM</label>
+			        				    				<input type="text" name="txtWrkCapNRM" id="txtWrkCapNRM" class="form-control">
+			        				    			</div>
+			        				    		</div>
+			        				    		<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapSanLim" id="lblWrkCapSanLim" class="label-control">Sanctioned Limit</label>
+			        				    				<input type="text" name="txtWrkCapSanLim" id="txtWrkCapSanLim" class="form-control">
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapEmail" id="lblWrkCapEmail" class="label-control">Email id</label>
+			        				    				<input type="text" name="txtWrkCapEmail" id="txtWrkCapEmail" class="form-control">
+			        				    			</div>
+			        				    		</div>	
+												<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapOutAmt" id="lblWrkCapOutAmt" class="label-control">Outstanding Amount</label>
+			        				    				<input type="text" name="txtWrkCapOutAmt" id="txtWrkCapOutAmt" class="form-control">
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblWrkCapPhn" id="lblWrkCapPhn" class="label-control">Phone No</label>
+			        				    				<input type="text" name="txtWrkCapPhn" id="txtWrkCapPhn" class="form-control">
+			        				    			</div>
+			        				    		</div>
+			        				    						
+    				    					</div>
+    				    				</div>
+        				    		</div>		
+        				    		
+        				    		
+        				    		<br/>
+        				    		<div class="form-group">
+	    				    			<div class="col-md-6">
+	        				    			<label name="lblTrmLn" id="lblTrmLn" class="label-control">Term Loan</label>
+	        				    		</div>
+	        				    		<div class="col-md-6">
+	        				    			<select name="cmbTrmLn" id="cmbTrmLn" class="form-control">
+	        				    				<option>Multiple</option>
+	        				    				<option>Consortium</option>
+	        				    				<option>Sole</option>
+	        				    			</select>
+	        				    		</div>	
+
+
+										<div class="clearfix"></div>
+				    					<br/>
+		    		        			<div class="panel panel-fin">
+		    		        				<div class="panel-heading clearfix">
+		    		        					<h3 class="panel-title pull-left"></h3>
+		    		        					<span class="ctrl-bt pull-right">
+				          							<i class="add-t">Add another</i>
+				          							<a id="lnkTrmLn" name="lnkTrmLn" href="#" class="add">+</a>
+				          				    	</span>
+		    		        				</div>
+		    		        				<div class="panel-body">
+		    		        					<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnNB" id="lblTrmLnNB" class="label-control">Name of Banks/FIs</label>
+			        				    				<input type="text" name="txtTrmLnNB" id="txtTrmLnNB" class="form-control" >
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnRInt" id="lblTrmLnRInt" class="label-control">Rate of Interest/Commission</label>
+			        				    				<input type="text" name="txtTrmLnRInt" id="txtTrmLnRInt" class="form-control" >
+			        				    			</div>
+			        				    		</div>	
+			        				    		<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnTF" id="lblTrmLnTF" class="label-control">Type of Facilites</label>
+			        				    				<input type="text" name="txtTrmLnTF" id="txtTrmLnTF" class="form-control" >
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnLCD" id="lblTrmLnLCD" class="label-control">Loan Closure Date</label>
+			        				    				<input type="text" name="txtTrmLnLCD" id="txtTrmLnLCD" class="form-control" >
+			        				    			</div>
+			        				    		</div>
+			        				    		<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnCur" id="lblTrmLnCur" class="label-control">Currency</label>
+			        				    				<input type="text" name="txtTrmLnCur" id="txtTrmLnCur" class="form-control">
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnHed" id="lblTrmLnHed" class="label-control">Hedged/Unhedged</label>
+			        				    				<input type="text" name="txtTrmLnHed" id="txtTrmLnHed" class="form-control" >
+			        				    			</div>
+			        				    		</div>	
+			        				    		<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnTA" id="lblTrmLnTA" class="label-control">Type of Advance</label>
+			        				    				<input type="text" name="txtTrmLnTA" id="txtTrmLnTA" class="form-control" >
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnNRM" id="lblTrmLnNRM" class="label-control">Name of RM</label>
+			        				    				<input type="text" name="txtTrmLnNRM" id="txtTrmLnNRM" class="form-control">
+			        				    			</div>
+			        				    		</div>
+			        				    		<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnSanLim" id="lblTrmLnSanLim" class="label-control">Sanctioned Limit</label>
+			        				    				<input type="text" name="txtTrmLnSanLim" id="txtTrmLnSanLim" class="form-control">
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnEmail" id="lblTrmLnEmail" class="label-control">Email id</label>
+			        				    				<input type="text" name="txtTrmLnEmail" id="txtTrmLnEmail" class="form-control">
+			        				    			</div>
+			        				    		</div>	
+												<div class="form-group">
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnOutAmt" id="lblTrmLnOutAmt" class="label-control">Outstanding Amount</label>
+			        				    				<input type="text" name="txtTrmLnOutAmt" id="txtTrmLnOutAmt" class="form-control">
+			        				    			</div>
+			        				    			<div class="col-md-6">
+			        				    				<label name="lblTrmLnPhn" id="lblTrmLnPhn" class="label-control">Phone No</label>
+			        				    				<input type="text" name="txtTrmLnPhn" id="txtTrmLnPhn" class="form-control">
+			        				    			</div>
+			        				    		</div>
+			        				    						
+    				    					</div>
+	        				    		</div>
+	        				    	</div>	
+        				    		<input type="submit" id="btn" name="btn" class="btn form-btn" Value="SAVE">
+        				    	</form>
+        				    </div>
+			    		</div>    
+					    <!-- tab-1-3-borr-start -->
+					</div>       
+					<!-- tab-content-1-End -->
+				</div>
+				<!-- tab1-end -->
+
+<!--tab2-content-start-->
+		    <div class="tab-pane fade in" id="tab2">
+
+		    		
 
 				<!--panel-group-start-->	
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 				  <!-- headingFour-start -->
-				  <div class="panel panel-default">
-				    <div class="panel-heading" role="tab" id="headingFour">
-					    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-					    	<div class="row">
-						      	<div class="col-md-3">
-						      		<h4 class="panel-title"><i class="fa fa-angle-right"></i> Transaction 4<i class="fa fa-circle"></i></h4>
-							  	</div>
-							  	<div class="col-md-9">
-							  		<h4 class="panel-title">Status 2</h4>
-							  	</div>
-							</div>  	
-					    </a>
-				    </div>
-				    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-				      <div class="panel-body">
+				  <div class="panel">
+				    
+				      <div class="">
 				      	<div class="t-box">
-					       	<table class="table table-bordered">
+					       	<table id="checkin" class="table table-bordered">
 					       	  <tr>
-					       	    <th>Lendin Institution</th>
-					       	    <th>Transaction Status 1</th>
-					       	    <th>Transaction Status 2</th>
-					       	    <th>Transaction Status 3</th>
-					       	    <th>Transaction Status 4</th>
-					       	    <th>Transaction Status 5</th>
-					       	    <th>Transaction Status 6</th>
-					       	    <th>Transaction Status 7</th>
-					       	    <th>Transaction Status 8</th>
-					       	    <th>Transaction Status 9</th>
-					       	    <th>Transaction Status 10</th>
+					       	    <th>Application no.</th>
+					       	    <th>First Name</th>
+					       	    <th>Last Name</th>
+					       	    <th>medical</th>
+					       	    <th>legal</th>
+					       	    <th>emergency</th>
+					       	    <th>helmet</th>
+					       	    <th>boot</th>
+					       	    <th>sleeping bag</th>
+					       	    <th>water bottle</th>
+					       	    <th>sun screen</th>
+					       	    <th>bugs spray</th>
+					       	    <th>completed</th>
+
 					       	  </tr>
 					       	  <tr>
-					       	    <td>HDFC <i class="fa fa-circle"></i></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content=""><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content=""><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle-o"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle-o"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle-o"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle-o"></i></a></td>
+					       	    <td>1</i></td>
+					       	    <td>Karthik</td>
+					       	    <td>Manjunath</td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+
+					       	  
+							  </tr>
+							  
+					       	  <tr>
+					       	    <td>2</td>
+					       	    <td>Jemin</td>
+					       	    <td>Gohil</td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
 					       	  </tr>
 					       	  <tr>
-					       	    <td>AXIS</td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="24th March, 2016"><i class="fa fa-circle"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle-o"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle-o"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle-o"></i></a></td>
-					       	  </tr>
-					       	  <tr>
-					       	    <td>DEUTSCHE <i class="fa fa-circle"></i></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle lgrey"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="25th March, 2016"><i class="fa fa-circle"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle-o"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle-o"></i></a></td>
-					       	    <td><a href="#" class="tip" data-placement="top" tabindex="0" role="button" data-toggle="popover" data-trigger="hover" data-content="23th March, 2016"><i class="fa fa-circle-o"></i></td>
-					       	    <td><i class="fa fa-circle-o"></i></td>
-					       	    <td><i class="fa fa-circle-o"></i></td>
+					       	    <td>3 </i></td>
+					       	    <td>Rohan</td>
+					       	    <td>Sawant</td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
+					       	    <td><input type="checkbox" name="medical" value="medical"></td>
 					       	  </tr>
 					       	</table>
-					       	<a href="" class="btn form-btn">View Proposal</a>
+					       	<!--<a href="" class="btn form-btn">View Proposal</a>-->
 				       	</div>
 				      </div>
-				    </div>
 				  </div>
 				  <!-- headingFour-end -->
 
-				  <!-- headingThree-start -->
-				  <div class="panel panel-default">
-				    <div class="panel-heading" role="tab" id="headingThree">
-					    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-					    	<div class="row">
-						      	<div class="col-md-3">
-						      		<h4 class="panel-title"><i class="fa fa-angle-right"></i> Transaction 3</h4>
-							  	</div>
-							  	<div class="col-md-9">
-							  		<h4 class="panel-title">Status 1</h4>
-							  	</div>
-							</div>  	
-					    </a>
-				    </div>
-				    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-				      <div class="panel-body">
-				       	<div class="t-box">
-					       	<table class="table table-bordered">
-					       	  <tr>
-					       	    <th>Lendin Institution</th>
-					       	    <th>Transaction Status 1</th>
-					       	    <th>Transaction Status 2</th>
-					       	    <th>Transaction Status 3</th>
-					       	    <th>Transaction Status 4</th>
-					       	    <th>Transaction Status 5</th>
-					       	    <th>Transaction Status 6</th>
-					       	    <th>Transaction Status 7</th>
-					       	    <th>Transaction Status 8</th>
-					       	    <th>Transaction Status 9</th>
-					       	    <th>Transaction Status 10</th>
-					       	  </tr>
-					       	  <tr>
-					       	    <td>HDFC <i class="fa fa-circle"></i></td>
-					       	    <td><i class="fa fa-circle lgrey"></i></td>
-					       	    <td><i class="fa fa-circle lgrey"></i></td>
-					       	    <td><i class="fa fa-circle lgrey"></i></td>
-					       	    <td><i class="fa fa-circle lgrey"></i></td>
-					       	    <td><i class="fa fa-circle"></i></td>
-					       	    <td><i class="fa fa-circle lgrey"></i></td>
-					       	    <td><i class="fa fa-circle lgrey"></i></td>
-					       	    <td><i class="fa fa-circle lgrey"></i></td>
-					       	    <td><i class="fa fa-circle lgrey"></i></td>
-					       	    <td><i class="fa fa-circle"></i></td>
-					       	  </tr>
-					       	</table>
-					    </div>
-					   </div>   	
-				      </div>
-				    </div>
-				  <!-- headingThree-end -->
+				  
 
-				  <!-- headingTwo-start -->
-				  <div class="panel panel-default no-drop">
-				    <div class="panel-heading" role="tab" id="headingTwo">
-					    <a class="collapsed" href="#">
-					    	<div class="row">
-						      	<div class="col-md-3">
-						      		<h4 class="panel-title"><i class="fa"></i> Transaction 2<i class="fa fa-circle"></i> </h4>
-							  	</div>
-							  	<div class="col-md-9">
-							  		<h4 class="panel-title">Status 1</h4>
-							  	</div>
-							</div>  	
-					    </a>
-				    </div>
-				  </div>
-				  <!-- headingTwo-end -->
-
-				  <!-- headingOne-start -->
-				  <div class="panel panel-default no-drop">
-				    <div class="panel-heading" role="tab" id="headingOne">
-					    <a class="collapsed" href="#">
-					    	<div class="row">
-						      	<div class="col-md-3">
-						      		<h4 class="panel-title"><i class="fa"></i> Transaction 1</h4>
-							  	</div>
-							  	<div class="col-md-9">
-							  		<h4 class="panel-title">Status 5</h4>
-							  	</div>
-							</div>  	
-					    </a>
-				    </div>
-				  </div>
-				  <!-- headingOne-end -->
+				  
+				  
 				</div>
 				<!--panel-group-end-->
 			</div>
-	        <!--tab1-content-end-->
+	        <!--tab2-content-end-->
 
-	        <!--tab2-content-start-->
-		    <div class="tab-pane fade in" id="tab2">
-				<div class="row">
-		    	    DDDDD
-		        </div>
-			</div>
-			<!--tab2-content-start-->
+				<!-- tab3-Start -->
+				<div style="display: none;" class="tab-pane fade in" id="tab3">
+
+					<div class="row">
+				    	<!-- nav-tabs-start -->
+					    <div id="ver-tab" class="col-md-3">
+						    <ul class="nav nav-tabs">
+					    		<li role="presentation" class="active"><a href="#tab-3-1" data-toggle="tab">Sales Information</a></li>
+								<li role="presentation"><a href="#tab-3-2" data-toggle="tab">RAW MATERIALS</a></li>
+								<li role="presentation"><a href="#tab-3-3" data-toggle="tab">CUSTOMERS / DEALERS</a></li>
+								<li role="presentation"><a href="#tab-3-4" data-toggle="tab">NATURE OF BUSINESS</a></li>
+							</ul>	
+					    </div>
+					    <!-- nav-tabs-stop -->
+
+						<!-- tab-3-content-start -->
+					    <div class="tab-content">
+
+
+						<!-- sales-info-start -->
+						<div class="tab-pane active fade in" id="tab-3-1">
+							<!-- box-start -->
+							<div class="box col-md-9">
+								<form name="frmSales" id="frmSales" class="form-horizontal">
+									<div class="form-group">
+										<div class="col-md-4">To be Designed</div>
+										<div class="col-md-8">
+										</div>
+									</div>
+								</form>
+					        </div>
+							<!-- box-end -->
+						</div>	
+						<!-- sales-info-end -->
+
+						<!-- raw-materials-start -->
+						<div class="tab-pane active fade" id="tab-3-2">
+							<!-- box-start -->
+							<div class="box col-md-9">
+								<div class="ctrl-bt pull-right">
+									<i class="add-t">Add another</i>
+									<a id="lnkAddRawMt" name="lnkAddRawMt" href="#" class="add">+</a>
+								</div>
+								<div class="clearfix"></div><br/>
+								<form id="frmRawMt" name="frmRawMt" class="form-horizontal">
+									<div class="panel panel-fin">
+										<div class="form-group">
+											<div class="col-md-4">
+												<label id="lblKeyRawMt" name="lblKeyRawMt">Key Raw Material</label>
+											</div>
+											<div class="col-md-8">
+												<div class="col-md-10">
+													<input type="text" id="txtKeyRawMt" name="txtKeyRawMt" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-4">
+												<label id="lblRawMtPrMov" name="lblRawMtPrMov">Price Movement</label>
+											</div>
+											<div class="col-md-8">
+												<div class="col-md-10">
+													<input type="text" id="txtRawMtPrMov" name="txtRawMtPrMov" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-4">
+												<label id="lblRawMtSupN" name="lblRawMtSupN">Supplier Name</label>
+											</div>
+											<div class="col-md-8">
+												<div class="col-md-10">
+													<input id="txtRawMtSupN" name="txtRawMtSupN" class="form-control" type="text">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-4">
+												<label id="lblRawMtSupAd" name="lblRawMtSupAd">Supplier Address</label>
+											</div>
+											<div class="col-md-8">
+												<div class="col-md-10">
+													<textarea id="txtRawMtSupAd" name="txtRawMtSupAd" class="form-control"></textarea>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-4">
+												<label id="lblRawMtCtNat" name="lblRawMtCtNat">Contract Nature</label>
+											</div>
+											<div class="col-md-8">
+												<div class="col-md-10">
+													<input type="text" id="txtRawMtCtNat" name="txtRawMtCtNat" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-4">
+												<label id="lblRawMtPrEs" name="lblRawMtPrEs">Price Escalation</label>
+											</div>
+											<div class="col-md-8">
+												<div class="col-md-10">
+													<input type="text" id="txtRawMtPrEs" name="txtRawMtPrEs" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-4">
+												<label id="lblRawMtKyDif" name="lblRawMtKyDif">Key Differentiator</label>
+											</div>
+											<div class="col-md-8">
+												<div class="col-md-10">
+													<input type="text" id="txtRawMtKyDif" name="txtRawMtKyDif" class="form-control">
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-4">
+												<label id="lblRawMtPyTrm" name="lblRawMtPyTrm">Payment Terms</label>
+											</div>
+											<div class="col-md-8">
+												<div class="col-md-10">
+													<input type="text" id="txtRawMtPyTrm" name="txtRawMtPyTrm" class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-8">
+											<input type="submit" id="btnRawMt" name="btnRawMt" class="btn form-btn" Value="SAVE">
+										</div>
+									</div>
+								</form>
+					        </div>
+							<!-- box-end -->
+						</div>	
+						<!-- raw-materials-end -->
+
+						<!-- customers-Dealers-start -->
+						<div class="tab-pane active fade" id="tab-3-3">
+							<!-- box-start -->
+							<div class="box col-md-9">
+								<form id="frmCstDl" name="frmCstDl" class="form-horizontal">
+										<div class="panel panel-fin sub-pan">
+								   			<div class="panel-heading clearfix">
+									          	<h3 class="pull-left panel-title">Customers</h3>
+									          	<span class="ctrl-bt pull-right">
+													<i class="add-t">Add another</i>
+													<a id="lnkCstDlCust" name="lnkCstDlCust" href="#" class="add">+</a>
+											  	</span>
+								       		</div>
+									        <div class="panel-body">		
+												<div class="form-group">
+													<div class="col-md-4">
+														<label id="lblCstDlKy" name="lblCstDlKy">Key Customer</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input type="text" id="txtCstDlKy" name="txtCstDlKy" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-4">
+														<label class="lblCstDlPrMov" name="lblCstDlPrMov">Price Movement</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input type="text" id="txtCstDlPrMov" name="txtCstDlPrMov" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-4">
+														<label class="lblCstDlOrB" name="lblCstDlOrB">Order Book</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">	
+															<input type="text" id="txtCstDlOrB" name="txtCstDlOrB" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-4">
+														<label id="lblCstDlCtNat" name="lblCstDlCtNat">Contract Nature</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input type="text" id="txtCstDlCtNat" name="txtCstDlCtNat" class="form-control" >
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-4">
+														<label id="lblCstDlPrEsc" name="lblCstDlPrEsc">Price Escalation</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input id="txtCstDlPrEsc" name="txtCstDlPrEsc" class="form-control" type="text">
+														</div>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<div class="col-md-4">
+														<label id="lblCstDlPyTrm" name="lblCstDlPyTrm">Payment Terms</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input type="text" id="txtCstDlPyTrm" name="txtCstDlPyTrm" class="form-control" >
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<span class="mul-hd">Dealers</span>
+										<hr>
+										<div class="panel panel-fin sub-pan">
+								   			<div class="panel-heading clearfix">
+									          	<h3 class="pull-left panel-title">Added Last 1 year</h3>
+									          	<span class="ctrl-bt pull-right">
+													<i class="add-t">Add another</i>
+													<a id="lnkCstDlDealYr1" name="lnkCstDlDealYr1" href="#" class="add">+</a>
+											  	</span>
+								       		</div>
+									        <div class="panel-body">
+												<div class="form-group">
+													<div class="col-md-4">
+														<label name="lblCstDlDealYr1N" id="lblCstDlDealYr1N">Name</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input type="text" name="txtCstDlDealYr1N" id="txtCstDlDealYr1N" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-4">
+														<label id="lblCstDlDealYr1C" name="lblCstDlDealYr1C">Contact</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input type="text" name="txtCstDlDealYr1C" id="txtCstDlDealYr1C" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-4">
+														<label id="lblCstDlDealYr1Em" name="lblCstDlDealYr1Em">Email</label></div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input type="text" name="txtCstDlDealYr1Em" id="txtCstDlDealYr1Em" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-4">
+														<label id="lblCstDlDealYr1MatTy" name="lblCstDlDealYr1MatTy">Material Type</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input type="text" name="txtCstDlDealYr1MatTy" id="txtCstDlDealYr1MatTy" class="form-control">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>	
+
+										<div class="panel panel-fin sub-pan">
+								   			<div class="panel-heading clearfix">
+									          	<h3 class="pull-left panel-title">Last 3 year</h3>
+									          	<span class="ctrl-bt pull-right">
+													<i class="add-t">Add another</i>
+													<a id="lnkCstDlDealLYr3" name="lnkCstDlDealLYr3" href="#" class="add">+</a>
+											  	</span>
+								       		</div>
+									        <div class="panel-body">
+												<div class="form-group">
+													<div class="col-md-4">
+														<label name="lblCstDlDealYr3N" id="lblCstDlDealYr3N">Name</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input  type="text" name="txtCstDlDealYr3N" id="txtCstDlDealYr3N" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-4">
+														<label id="lblCstDlDealYr3C" name="lblCstDlDealYr3C">Contact</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input  type="text" name="txtCstDlDealYr3C" id="txtCstDlDealYr3C" class="form-control">
+														</div>	
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-4">
+														<label name="lblCstDlDealYr3Em" id="lblCstDlDealYr3Em">Email</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input type="text" name="txtCstDlDealYr3Em" id="txtCstDlDealYr3Em" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-4">
+														<label name="lblCstDlDealYr3MatTy" id="lblCstDlDealYr3MatTy">Material Type</label>
+													</div>
+													<div class="col-md-8">
+														<div class="col-md-10">
+															<input type="text" name="txtCstDlDealYr3MatTy" id="txtCstDlDealYr3MatTy" class="form-control">
+														</div>
+													</div>
+												</div>
+											</div>	
+										</div>
+
+									<div class="form-group">
+										<div class="col-md-8">
+											<input type="submit" id="btnCstDl" name="btnCstDl" class="btn form-btn" Value="SAVE">
+										</div>
+									</div>
+								</form>
+					        </div>
+							<!-- box-end -->
+						</div>	
+						<!-- customers-Dealers-End -->
+
+						<!-- nature-of-Business-start -->
+						<div class="tab-pane active fade" id="tab-3-4">
+							<!-- box-start -->
+							<div class="box col-md-9">
+								<form name="frmNatBiz" id="frmNatBiz" class="form-horizontal">
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblNatBizPrdYr1" id="lblNatBizPrdYr1">New Products launched in last 1 year</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-9">
+												<input type="text" name="txtNatBizPrdYr1" id="txtNatBizPrdYr1" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblNatBizLocYr1" id="lblNatBizLocYr1">New Locations reached in last 1 year</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-9">
+												<input type="text" name="txtNatBizLocYr1" id="txtNatBizLocYr1" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblNatBizComAd" id="lblNatBizComAd">Competitive Advantage</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-9">
+												<input type="text" name="txtNatBizComAd" id="txtNatBizComAd" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblNatBizCapUtiYr1" id="lblNatBizCapUtiYr1">Capacity Utilization in Last 1 year</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-9">
+												<input type="text" name="txtNatBizCapUtiYr1" id="txtNatBizCapUtiYr1" class="form-control">
+											</div>
+										</div>
+									</div>
+									<hr class="plain">
+									<div class="form-group">
+										<div class="col-md-5"><strong>Ageing Analysis</strong></div>
+										<div class="col-md-9"></div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-11">
+											<table name="tblAgAn" id="tblAgAn" class="table borderless">
+												<tr>
+													<th>Ageing</th>
+													<th>As on last balance sheet date</th>
+													<th>As on recent date</th>
+												</tr>
+												<tr>
+													<td>0-30 days</td>
+													<td><input type="text" name="txtBalD3" id="txtBalD3" class="form-control"></td>
+													<td><input type="text" name="txtRcntD3" id="txtRcntD3" class="form-control"></td>
+												</tr>
+												<tr>
+													<td>30-60 days</td>
+													<td><input type="text" name="txtBalD6" id="txtBalD6" class="form-control"></td>
+													<td><input type="text" name="txtRcntD6" id="txtRcntD6" class="form-control"></td>
+												</tr>
+												<tr>
+													<td>60-90 days</td>
+													<td><input type="text" name="txtBalD9" id="txtBalD9" class="form-control"></td>
+													<td><input type="text" name="txtRcntD9" id="txtRcntD9" class="form-control"></td>
+												</tr>
+												<tr>
+													<td>90-120 days</td>
+													<td><input type="text" name="txtBalD18" id="txtBalD18" class="form-control"></td>
+													<td><input type="text" name="txtRcntD18" id="txtRcntD18" class="form-control"></td>
+												</tr>
+												<tr>
+													<td>120-180 days</td>
+													<td><input class="form-control" type="text"></td>
+													<td><input class="form-control" type="text"></td>
+												</tr>
+												<tr>
+													<td>180-360 days</td>
+													<td><input type="text" name="txtBalD36" id="txtBalD36" class="form-control"></td>
+													<td><input type="text" name="txtRcntD36" id="txtRcntD36" class="form-control"></td>
+												</tr>
+												<tr>
+													<td>360 days</td>
+													<td><input type="text" name="txtBalD360" id="txtBalD360" class="form-control"></td>
+													<td><input type="text" name="txtRcntD360" id="txtRcntD360" class="form-control"></td>
+												</tr>
+											</table>
+										</div>
+									</div>		
+
+									<div class="form-group">
+										<div class="col-md-8">
+											<input type="submit" id="btnAgAn" name="btnAgAn" class="btn form-btn" Value="SAVE">
+										</div>
+									</div>
+								</form>
+					        </div>
+							<!-- box-end -->
+						</div>	
+						<!-- nature-of-Business-end -->
+						</div>
+						<!-- tab-3-content-end -->
+					</div>
+				</div>
+				<!-- tab3-End -->
+
+				<!-- tab4-Start -->
+				<div class="tab-pane fade in" id="tab4">
+					<div class="box col-md-9">
+						<div class="ctrl-bt pull-right">
+							<i class="add-t">Add another</i>
+							<a id="lnkInFi" name="lnkInFi" href="#" class="add">+</a>
+						</div>
+						<div class="clearfix"></div><br>
+						<form id="frmInFi" name="frmInFi" class="form-horizontal">
+							<div class="panel panel-fin">
+								<div class="form-group">
+									<div class="col-md-2"></div>
+									<div class="col-md-2 text-center">Q1</div>
+									<div class="col-md-2 text-center">Q2</div>
+									<div class="col-md-2 text-center">Q3</div>
+									<div class="col-md-2 text-center">Q4</div>
+								</div>	
+								<div class="form-group">
+									<div class="col-md-2">Sales</div>
+									<div class="col-md-2"><input type="text" name="txtInFiSalQ1" id="txtInFiSalQ1" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiSalQ2" id="txtInFiSalQ2" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiSalQ3" id="txtInFiSalQ3" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiSalQ4" id="txtInFiSalQ4" class="form-control"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-2">PBDIT</div>
+									<div class="col-md-2"><input type="text" name="txtInFiPbQ1" id="txtInFiPbQ1" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiPbQ2" id="txtInFiPbQ2" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiPbQ3" id="txtInFiPbQ3" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiPbQ4" id="txtInFiPbQ4" class="form-control"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-2">PAT</div>
+									<div class="col-md-2"><input type="text" name="txtInFiPtQ1" id="txtInFiPtQ1" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiPtQ2" id="txtInFiPtQ2" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiPtQ3" id="txtInFiPtQ3" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiPtQ4" id="txtInFiPtQ4" class="form-control"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-2">TTL</div>
+									<div class="col-md-2"><input type="text" name="txtInFiTtQ1" id="txtInFiTtQ1" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiTtQ2" id="txtInFiTtQ2" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiTtQ3" id="txtInFiTtQ3" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiTtQ4" id="txtInFiTtQ4" class="form-control"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-2">TOL</div>
+									<div class="col-md-2"><input type="text" name="txtInFiTolQ1" id="txtInFiTolQ1" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiTolQ2" id="txtInFiTolQ2" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiTolQ3" id="txtInFiTolQ3" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiTolQ4" id="txtInFiTolQ4" class="form-control"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-2">TNW</div>
+									<div class="col-md-2"><input type="text" name="txtInFiTnwQ1" id="txtInFiTnwQ1" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiTnwQ2" id="txtInFiTnwQ2" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiTnwQ3" id="txtInFiTnwQ3" class="form-control"></div>
+									<div class="col-md-2"><input type="text" name="txtInFiTnwQ4" id="txtInFiTnwQ4" class="form-control"></div>
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="submit" id="btnInFi" name="btnInFi" class="btn form-btn" Value="SAVE">
+							</div>	
+						</form>
+					</div>		
+				</div>
+				<!-- tab4-End -->
+
+				<!-- tab5-Start -->
+				<div class="tab-pane fade in" id="tab5">
+					<div class="box col-md-9">
+						<div class="ctrl-bt pull-right">
+							<i class="add-t">Add another</i>
+							<a id="lnkRCI" name="lnkRCI" href="#" class="add">+</a>
+						</div>
+						<div class="clearfix"></div><br/>
+						<form class="form-horizontal">
+							<div class="panel panel-fin">
+								<div class="form-group">
+									<div class="col-md-8">
+										<label id="lblRCINaComp" name="lblRCINaComp" class="label-control">Name of Company</label>
+										<input type="text" id="txtRCINaComp" name="txtRCINaComp" class="form-control">
+									</div>	
+								</div>
+								<div class="form-group">
+									<div class="col-md-8">
+										<label id="lblRCIRB" name="lblRCIRB" class="label-control">Relation with Borrower</label>
+										<select id="cmbRCIRB" name="cmbRCIRB" class="form-control">
+											<option></option>
+											<option>Wholly Owned</option>
+										</select>
+									</div>	
+								</div>
+								
+								<div class="form-group">
+									<div class="col-md-8">
+										<label id="lblRCIShSComp" name="lblRCIShSComp" class="label-control">Shareholding of the Subsidiary Company</label>
+										<input id="txtRCIShSComp" name="txtRCIShSComp" class="form-control" type="text">
+									</div>
+								</div>
+
+								<div class="panel panel-fin sub-pan">
+								   	<div class="panel-heading clearfix">
+							          <h3 class="pull-left panel-title">Shareholding Pattern ( >5% shares)</h3>
+							          <span class="ctrl-bt pull-right">
+											<i class="add-t">Add another</i>
+											<a id="lnkRCIShPt" name="lnkRCIShPt" href="#" class="add">+</a>
+									  </span>
+								   </div>
+
+							        <div class="panel-body">	
+										<div class="form-group">
+											<div class="col-md-4">
+												<label id="lblRCISPShN" name="lblRCISPShN" class="control-label">Name of Shareholder</label>
+												<input id="txtRCISPShN" name="txtRCISPShN" class="form-control" type="text">
+											</div>	
+											<div class="col-md-4">
+												<label id="lblRCITySh" name="lblRCITySh" class="control-label">Type of Shareholder</label>
+												<select id="cmbRCITySh" name="cmbRCITySh" class="form-control">
+													<option></option>
+													<option></option>
+												</select>
+											</div>
+											<div class="col-md-4">
+												<label id="lblRCIPerSh" name="lblRCIPerSh" class="control-label">Percntage Shareholding</label>
+												<input type="text" id="txtRCIPerSh" name="txtRCIPerSh" class="form-control" >
+											</div>
+											<div class="col-md-4">
+												<label id="lblRCIYrIn" name="lblRCIYrIn" class="control-label">Year of Investment</label>
+												<div class="input-group date yrpick">
+									                <input type="text" id="txtRCIYrIn" name="txtRCIYrIn" class="form-control" />
+									                <span class="input-group-addon">
+									                    <span class="fa fa-calendar-o"></span>
+									                </span>
+									            </div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<div class="col-md-3"></div>
+									<div class="col-md-3 text-center"><label id="lblRCIY1" name="lblRCIY1">Y1</label></div>
+									<div class="col-md-3 text-center"><label id="lblRCIY2" name="lblRCIY2">Y2</label></div>
+									<div class="col-md-3 text-center"><label id="lblRCIY3" name="lblRCIY3">Y3</label></div>
+								</div>	
+								<div class="form-group">
+									<div class="col-md-3"><label id="lblRCISales" name="lblRCISales">Sales</label></div>
+									<div class="col-md-3"><input type="text" id="txtY1Sales" name="txtY1Sales" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY2Sales" name="txtY2Sales" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY3Sales" name="txtY3Sales" class="form-control"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-3"><label id="lblRCIPBDIT" name="lblRCIPBDIT">PBDIT</label></div>
+									<div class="col-md-3"><input type="text" id="txtY1PBDIT" name="txtY1PBDIT" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY2PBDIT" name="txtY2PBDIT" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY3PBDIT" name="txtY3PBDIT" class="form-control"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-3"><label id="lblRCIPAT" name="lblRCIPAT">PAT</label></div>
+									<div class="col-md-3"><input type="text" id="txtY1PAT" name="txtY1PAT" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY2PAT" name="txtY2PAT" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY3PAT" name="txtY3PAT" class="form-control"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-3"><label id="lblRCITTL" name="lblRCITTL">TTL</label></div>
+									<div class="col-md-3"><input type="text" id="txtY1TTL" name="txtY1TTL" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY2TTL" name="txtY2TTL" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY3TTL" name="txtY3TTL" class="form-control"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-3"><label id="lblRCITOL" name="lblRCITOL">TOL</label></div>
+									<div class="col-md-3"><input type="text" id="txtY1TOL" name="txtY1TOL" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY2TOL" name="txtY2TOL" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY3TOL" name="txtY3TOL" class="form-control"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-3"><label id="lblRCITNW" name="lblRCITNW">TNW</label></div>
+									<div class="col-md-3"><input type="text" id="txtY1TNW" name="txtY1TNW" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY2TNW" name="txtY2TNW" class="form-control"></div>
+									<div class="col-md-3"><input type="text" id="txtY3TNW" name="txtY3TNW" class="form-control"></div>
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="submit" id="btnRCI" name="btnRCI" class="btn form-btn" Value="SAVE">
+							</div>	
+						</form>
+					</div>		
+				</div>
+				<!-- tab5-End -->
+	
+				<!-- tab6-start -->
+				<div class="tab-pane fade in" id="tab6">
+					<div class="box col-md-9">
+						<form id="frmUl" name="frmUl" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-md-6">
+									<label name="lblManDoc1" id="lblManDoc1" class="label-control">Mandatory Document</label>
+								</div>
+								<div class="col-md-6">
+									<input type="file">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-6">
+									<label name="lblManDoc2" id="lblManDoc2" class="label-control">Mandatory Document</label>
+								</div>
+								<div class="col-md-6">
+									<input type="file">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-6">
+									<label name="lblManDoc3" id="lblManDoc3" class="label-control">Mandatory Document</label>
+								</div>
+								<div class="col-md-6">
+									<input type="file">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-6">
+									<select name="cmbDDD1" id="cmbDDD1" class="form-control">
+										<option></option>
+										<option>Drop Down for Document Type</option>
+									</select>
+								</div>
+								<div class="col-md-6">
+									<input type="file">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-6">
+									<select name="cmbDDD2" id="cmbDDD2" class="form-control">
+										<option></option>
+										<option>Drop Down for Document Type</option>
+									</select>
+								</div>
+								<div class="col-md-6">
+									<input type="file">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-6">
+									<select name="cmbDDD3" id="cmbDDD3" class="form-control">
+										<option></option>
+										<option>Drop Down for Document Type</option>
+									</select>
+								</div>
+								<div class="col-md-6">
+									<input type="file">
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="submit" id="btnUlSv" name="btnUlSv" class="btn form-btn" Value="SAVE">
+								<input type="submit" id="btnUlSb" name="btnUlSb" class="btn form-btn" Value="SUBMIT">
+							</div>	
+						</form>
+					</div>			
+				</div>
+				<!-- tab7-End -->
+
+			</div>	
+			<!-- tab-content-end -->   
 		</div>
+		<!-- form-wrap-end --> 
 	</div>
-</div>
+	<!-- col-md-offset-1-end -->
 </section>
+<!-- cur-trn-end -->
 
    
     <!-- jQuery JavaScript plugins) -->
