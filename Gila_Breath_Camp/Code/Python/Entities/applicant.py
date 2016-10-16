@@ -195,11 +195,14 @@ class Applicant(object):
 
 
 	def setPayment(self,payment):
-		if (payment.isdigit() and len(payment) > 1000):
-			self.payment = payment
-
+		if (payment.isdigit()):
+			payment = int(payment)
+			if payment >= 1000:
+				self.payment = payment
+			else:
+				return "Payment: Amount less than 1000 not accepted"
 		else:
-			return "Payment: Amount less than 1000 not accepted"
+			return "Payment: Enter an integer"
 
 	def getPayment(self):
 		return self.payment

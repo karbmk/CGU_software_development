@@ -67,7 +67,7 @@ class Registration(object):
 		if message == '':
 			cf.insertIntoCsv('applicant.csv',appl)
 			emp_appl = applicant.Applicant()
-			return_front_end_dict = '{ "data": [' + json.dumps(emp_appl.__dict__) + '], "status":"success", "message":"Registration Complete" }'
+			return_front_end_dict = '{ "data": [' + json.dumps(emp_appl.__dict__) + '], "status":"success", "message":"REGISTRATION COMPLETE" }'
 		else:
 			return_front_end_dict = '{ "data": [' + json.dumps(appl.__dict__) + '], "status":"error", "message":"' + message + '" }'
 
