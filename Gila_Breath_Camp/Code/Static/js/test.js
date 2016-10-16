@@ -1,26 +1,42 @@
 getTest = function(id)
 { 
-	alert(document.getElementById("c_first_name").value);
+	//alert(document.getElementById("c_first_name").value);
 	//k = document.getElementById("user_id").value;
     //var conf_password = document.getElementById("confirm").value;
     //alert(conf_password);
 	
     var k =
         {
-            c_first_name:document.getElementById("c_first_name").value,
-            c_last_name:document.getElementById("c_last_name").value,
-            c_age:document.getElementById("c_age").value,
-            //c_sex:document.getElementById("c_sex").value,
-            c_address:document.getElementById("c_address").value,
-            g_first_name:document.getElementById("g_first_name").value,
-            g_last_name:document.getElementById("g_last_name").value,
-            g_address:document.getElementById("g_address").value,
-            g_contact_info:document.getElementById("g_contact_info").value,
-            g_emergency_contact:document.getElementById("g_emergency_contact").value,
-            g_payment:document.getElementById("g_payment").value
+			applicant_id:"",
+			user_id:"",
+			bunkhouse_id:"",
+			tribe_id:"",
+			camp_time_slots:'2016-10-15 00:00:00.000000',
+            applicant_first_name:document.getElementById("c_first_name").value,
+            applicant_last_name:document.getElementById("c_last_name").value,
+            applicant_age:document.getElementById("c_age").value,
+            applicant_gender:document.getElementById("c_sex").value,
+            applicant_address:document.getElementById("c_address").value,
+            guardian_first_name:document.getElementById("g_first_name").value,
+            guardian_last_name:document.getElementById("g_last_name").value,
+            guardian_address:document.getElementById("g_address").value,
+            guardian_contact_number:document.getElementById("g_contact_info").value,
+			application_date:"",
+            emergency_contact:document.getElementById("g_emergency_contact").value,
+            payment:document.getElementById("g_payment").value,
+			medical_form:"",
+			legal_form:"",
+			helmet:"",
+			boot:"",
+			sleeping_bag:"",
+			water_bottle:"",
+			sunscreen:"",
+			bugs_spray:"",
+			check_in_status:"",
+			application_status:""
         };
-    var input = JSON.stringify({k:k})
-	alert(input)
+    var input = JSON.stringify({data:[k]})
+	//alert(input)
 	$.ajax
 	(
 		{
@@ -35,7 +51,20 @@ getTest = function(id)
     		success: function(data) 
     		{
         		debugger;
-        		alert("thank you behenchod tune regester karli hain")
+				var obj = $.parseJSON(data)
+				if(obj["status"] == "success")
+				{
+					alert("Regestration Complete")
+					//alert("thank you behenchod tune regester karli hain")
+					location.reload()
+				}
+				else{
+					
+					alert(obj["message"].replaceAll("|","\n"))
+				}
+				
+				//alert(data)
+        		
     		},
     		error: function(data)
     		{
@@ -45,6 +74,8 @@ getTest = function(id)
     	}
   	);
 	
-	
-	
 }
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
