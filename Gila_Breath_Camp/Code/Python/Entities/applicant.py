@@ -89,11 +89,11 @@ class Applicant(object):
 
 
 	def setApplicantFirstName(self,applicant_first_name):
-		applicant_first_name = applicant_first_name.rstrip()
+		applicant_first_name = applicant_first_name.strip()
 		if applicant_first_name.isalpha():
 			self.applicant_first_name = applicant_first_name.upper()
 		else:
-			return "Enter only alphabets"
+			return "Camper First Name: Enter only alphabets"
 
 	def getApplicantFirstName(self):
 		return self.first_name
@@ -115,7 +115,7 @@ class Applicant(object):
 			self.applicant_age = applicant_age.strip()
 			self.applicant_age = int(applicant_age)
 		except:
-			return "Enter an integer"
+			return "Camper Age: Enter proper age"
 	
 	def getApplicantAge(self):
 		return self.applicant_age
@@ -141,7 +141,7 @@ class Applicant(object):
 			self.guardian_first_name = guardian_first_name.upper()
 		else:
 			self.guardian_first_name = ''
-			return "Parent/Guardian Last Name: Enter only alphabets"
+			return "Parent/Guardian First Name: Enter only alphabets"
 
 	def getGuardianFirstName(self):
 		return self.guardian_first_name
@@ -152,7 +152,7 @@ class Applicant(object):
 		if guardian_last_name.isalpha():
 			self.guardian_last_name = guardian_last_name.upper()
 		else:
-			return "Enter only alphabets"
+			return "Parent/Guardian Last Name: Enter only alphabets"
 
 	def getGuardianLastName(self):
 		return self.guardian_last_name
@@ -163,7 +163,7 @@ class Applicant(object):
 		if (len(guardian_contact_number) == 10 and guardian_contact_number.isdigit()):
 			self.guardian_contact_number = guardian_contact_number
 		else:
-			return "Enter 10 digits properly"
+			return "Parent/Guardian Contact Number: Enter 10 digits properly"
 
 	def getGuardianContactNumber(self):
 		return self.guardian_contact_number
@@ -188,14 +188,18 @@ class Applicant(object):
 		if (len(emergency_contact) == 10 and emergency_contact.isdigit()):
 			self.emergency_contact = emergency_contact
 		else:
-			return "Enter 10 digits properly"
+			return "Emergency Contact: Enter 10 digits properly"
 
 	def getEmergencyContact(self):
 		return self.emergency_contact
 
 
 	def setPayment(self,payment):
-		self.payment = payment
+		if (payment.isdigit() and len(payment) > 1000):
+			self.payment = payment
+
+		else:
+			return "Payment: Amount less than 1000 not accepted"
 
 	def getPayment(self):
 		return self.payment
