@@ -89,7 +89,7 @@ class Applicant(object):
 
 
 	def setApplicantFirstName(self,applicant_first_name):
-		applicant_first_name = applicant_first_name.rstrip()
+		applicant_first_name = applicant_first_name.strip()
 		if applicant_first_name.isalpha():
 			self.applicant_first_name = applicant_first_name.upper()
 		else:
