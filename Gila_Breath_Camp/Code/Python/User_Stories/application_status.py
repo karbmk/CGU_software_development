@@ -52,3 +52,40 @@ class Application_status(object):
 		return return_front_end_dict
 
 
+	def updateApplicationStatus(self,front_end_str):
+
+		front_end_dict = ast.literal_eval(front_end_str)
+		front_end_data = front_end_dict['data']
+
+		for i in range(0,len(front_end_data)):
+
+			where_applicant_id = {}
+			where_applicant_id['applicant_id'] = front_end_data[i]['applicant_id']
+			
+			cf = common_functions.Common_functions()
+
+			data = cf.getFromCsv('applicant.csv',where_applicant_id)
+
+			print(data[0])
+			appl = applicant.Applicant(data[0])
+
+			print(appl.getApplicantFirstName())
+
+#		if len(data) == 0:
+#			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered" }'
+#		else:
+#			new_data = []
+#
+#			for i in range(0,len(data)):
+#				dict = {}
+#				dict['applicant_id'] = data[i]['applicant_id']
+#				dict['applicant_last_name'] = data[i]['applicant_last_name']
+#				dict['acceptance_packet'] = data[i]['acceptance_packet']
+#				new_data.append(dict)
+#
+#			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
+
+#		return return_front_end_dict
+
+
+

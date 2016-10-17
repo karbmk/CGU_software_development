@@ -55,6 +55,10 @@ class Applicant(object):
 		self.acceptance_packet = ''
 		self.mailing_date = ''
 
+	def __init__(self, dictionary):
+		"""Constructor"""
+		for key in dictionary:
+			setattr(self, key, dictionary[key])
 	
 	def setApplicantId(self,applicant_id):
 		self.applicant_id = applicant_id
@@ -99,7 +103,7 @@ class Applicant(object):
 			return "Camper First Name: Enter only alphabets"
 
 	def getApplicantFirstName(self):
-		return self.first_name
+		return self.applicant_first_name
 
 
 	def setApplicantLastName(self,applicant_last_name):
