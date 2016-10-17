@@ -38,17 +38,43 @@
     <script src="/Static/_/js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="/Static/js/test.js" ></script>
 		<script type="text/javascript" src="/Static/js/test_dyn.js" ></script>
-
+		<script type="text/javascript" src="/Static/js/test_appl_status.js" ></script>
+		<script type="text/javascript" src="/Static/js/submit_appl_status.js" ></script>
+		<script type="text/javascript" src="/Static/js/submit_checkin.js" ></script>
+<script>
+function on_open()
+{
+		$.ajax
+	(
+		{
+			type:"GET",
+			url:"../../application_status_get/",
+			success:function(response)
+			{
+				var obj = $.parseJSON(response)
+				//alert(obj["data"][0]["display_date1"])
+				document.getElementById("date_1").innerHTML = obj["data"][0]["display_date1"]
+				document.getElementById("date_2").innerHTML = obj["data"][0]["display_date2"]
+				document.getElementById("date_3").innerHTML = obj["data"][0]["display_date3"]
+			},
+			error:function(response)
+			{
+				alert("End hogaya")
+			}
+		}
+	);
+}
+</script>
   </head>
 
-  <body>
+  <body onload="on_open();">
    
 <div class="menu-list gradiant-in-bg">
 	<div class="brand-logo"><span class="logo-in"></span></div>
 	<nav class="nav">
-		<li><a href="tran-his.html"><span class="menu-ico tran-his"></span>AUGUST<br/></a></li>
-		<li><a href="new-tran.html"><span class="menu-ico tran-his"></span>SEPTEMBER<br/></a></li>
-		<li><a href="comp-detail.html"><span class="menu-ico tran-his"></span>OCTOBER<br/></a></li>
+		<li><a href="tran-his.html"><span class="menu-ico tran-his"></span><p id="date_1">AUGUST</p><br/></a></li>
+		<li><a href="new-tran.html"><span  class="menu-ico tran-his"></span><p id="date_2">SEPTEMBER</p><br/></a></li>
+		<li><a href="comp-detail.html"><span  class="menu-ico tran-his"></span><p id="date_3">OCTOBER</p><br/></a></li>
 	</nav>
 </div>
 <!-- Tabs-Header-start -->
@@ -57,8 +83,8 @@
 		<div id="hor-tab" class="col-md-10">
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="active"><a href="#tab1" data-toggle="tab">REGISTER</a></li>
-				<li onclick="getTest1()" role="presentation"><a href="#tab2" data-toggle="tab">CHECK - IN</a></li>
-				<li role="presentation"><a href="#tab3" data-toggle="tab">APPLICATION STATUS</a></li>
+				<li id="check_click" onclick="getTest1()" role="presentation"><a href="#tab2" data-toggle="tab">CHECK - IN</a></li>
+				<li id="appl_click" onclick="getTest2()" role="presentation"><a href="#tab3" data-toggle="tab">APPLICATION STATUS</a></li>
 				<!--<li role="presentation"><a href="#tab4" data-toggle="tab">Interim Financials</a></li>
 				<li role="presentation"><a href="#tab5" data-toggle="tab">Related Company Information</a></li>
 				<li role="presentation"><a href="#tab6" data-toggle="tab">uploads</a></li>-->
@@ -983,56 +1009,94 @@
 					       	    <th>completed</th>
 
 					       	  </tr>
-					       	  <tr>
-					       	    <td>1</i></td>
-					       	    <td>Karthik</td>
-					       	    <td>Manjunath</td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
 
-					       	  
-							  </tr>
-							  
-					       	  <tr>
-					       	    <td>2</td>
-					       	    <td>Jemin</td>
-					       	    <td>Gohil</td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	  </tr>
-					       	  <tr>
-					       	    <td>3 </i></td>
-					       	    <td>Rohan</td>
-					       	    <td>Sawant</td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	  </tr>
 					       	</table>
-					       	<!--<a href="" class="btn form-btn">View Proposal</a>-->
+							<input type="submit" onclick="send_checkin()" value="SUBMIT" id="btnCmp" name="btnCmp" class="btn form-btn">
+				       	</div>
+				      </div>
+				  </div>
+				  <!-- headingFour-end -->
+
+				  
+<script>
+function myFunction()
+{
+	//alert("in my function")
+		var input = '{"data" :[{"date_id":"1"}]}';
+
+	var test = 0;
+	document.getElementById("check_click").onclick=''
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../test_js/",
+			async:false,
+			data: 
+   				{
+        			vol_name: input // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+				var obj = $.parseJSON(data)
+				obj_array = obj["data"]
+				
+				test = obj_array.length
+				//alert(data)
+        		
+    		},
+    		error: function(data)
+    		{
+        		debugger;
+        		alert("chutiye password galat kiya hoga dekh le");
+      		}
+    	}
+  	);
+	for(i=0;i<test;i++){
+	if(document.getElementById("medical"+i).checked && document.getElementById("legal"+i).checked && document.getElementById("emergency"+i).checked &&document.getElementById("helmet"+i).checked &&document.getElementById("boot"+i).checked &&document.getElementById("sleeping_bag"+i).checked &&document.getElementById("water_bottle"+i).checked &&document.getElementById("sunscreen"+i).checked &&document.getElementById("bugs_spray"+i).checked )
+	{
+	document.getElementById("completed"+i).innerText="COMPLETE";
+	}
+	else
+	{
+		document.getElementById("completed"+i).innerText = "INCOMPLETE"
+	}
+	}
+}
+</script>
+				  
+				  
+				</div>
+				<!--panel-group-end-->
+			</div>
+	        <!--tab2-content-end-->
+
+				<!-- tab3-Start -->
+				<div class="tab-pane fade in" id="tab3">
+
+		    		
+
+				<!--panel-group-start-->	
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+				  <!-- headingFour-start -->
+				  <div class="panel">
+				    
+				      <div class="">
+				      	<div class="t-box">
+					       	<table id="app_status" class="table table-bordered">
+					       	  <tr>
+					       	    <th>Application no.</th>
+					       	    <th>First Name</th>
+					       	    <th>Last Name</th>
+								<th>Application Status</th>
+					       	    <th>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Notice of acceptance and packet of arrival</th>
+								<th>Comments</th>
+					       	  </tr>
+
+					       	</table>
+							<input type="submit" onclick="send_appl_status()" value="SUBMIT" id="btnCmp" name="btnCmp" class="btn form-btn">
 				       	</div>
 				      </div>
 				  </div>
@@ -1045,9 +1109,6 @@
 				</div>
 				<!--panel-group-end-->
 			</div>
-	        <!--tab2-content-end-->
-
-				<!-- tab3-Start -->
 				<div style="display: none;" class="tab-pane fade in" id="tab3">
 
 					<div class="row">

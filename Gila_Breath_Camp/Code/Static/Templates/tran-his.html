@@ -41,17 +41,40 @@
 		<script type="text/javascript" src="/Static/js/test_appl_status.js" ></script>
 		<script type="text/javascript" src="/Static/js/submit_appl_status.js" ></script>
 		<script type="text/javascript" src="/Static/js/submit_checkin.js" ></script>
-
+<script>
+function on_open()
+{
+		$.ajax
+	(
+		{
+			type:"GET",
+			url:"../../application_status_get/",
+			success:function(response)
+			{
+				var obj = $.parseJSON(response)
+				//alert(obj["data"][0]["display_date1"])
+				document.getElementById("date_1").innerHTML = obj["data"][0]["display_date1"]
+				document.getElementById("date_2").innerHTML = obj["data"][0]["display_date2"]
+				document.getElementById("date_3").innerHTML = obj["data"][0]["display_date3"]
+			},
+			error:function(response)
+			{
+				alert("End hogaya")
+			}
+		}
+	);
+}
+</script>
   </head>
 
-  <body>
+  <body onload="on_open();">
    
 <div class="menu-list gradiant-in-bg">
 	<div class="brand-logo"><span class="logo-in"></span></div>
 	<nav class="nav">
-		<li><a href="tran-his.html"><span class="menu-ico tran-his"></span>AUGUST<br/></a></li>
-		<li><a href="new-tran.html"><span class="menu-ico tran-his"></span>SEPTEMBER<br/></a></li>
-		<li><a href="comp-detail.html"><span class="menu-ico tran-his"></span>OCTOBER<br/></a></li>
+		<li><a href="tran-his.html"><span onclick="on_open();" class="menu-ico tran-his"></span><p id="date_1">AUGUST</p><br/></a></li>
+		<li><a href="new-tran.html"><span onclick="on_open();" class="menu-ico tran-his"></span><p id="date_2">SEPTEMBER</p><br/></a></li>
+		<li><a href="comp-detail.html"><span onclick="on_open();" class="menu-ico tran-his"></span><p id="date_3">OCTOBER</p><br/></a></li>
 	</nav>
 </div>
 <!-- Tabs-Header-start -->
@@ -995,7 +1018,53 @@
 				  <!-- headingFour-end -->
 
 				  
+<script>
+function myFunction()
+{
+	//alert("in my function")
+		var input = '{"data" :[{"date_id":"1"}]}';
 
+	var test = 0;
+	document.getElementById("check_click").onclick=''
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../test_js/",
+			async:false,
+			data: 
+   				{
+        			vol_name: input // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+				var obj = $.parseJSON(data)
+				obj_array = obj["data"]
+				
+				test = obj_array.length
+				//alert(data)
+        		
+    		},
+    		error: function(data)
+    		{
+        		debugger;
+        		alert("chutiye password galat kiya hoga dekh le");
+      		}
+    	}
+  	);
+	for(i=0;i<test;i++){
+	if(document.getElementById("medical"+i).checked && document.getElementById("legal"+i).checked && document.getElementById("emergency"+i).checked &&document.getElementById("helmet"+i).checked &&document.getElementById("boot"+i).checked &&document.getElementById("sleeping_bag"+i).checked &&document.getElementById("water_bottle"+i).checked &&document.getElementById("sunscreen"+i).checked &&document.getElementById("bugs_spray"+i).checked )
+	{
+	document.getElementById("completed"+i).innerText="COMPLETE";
+	}
+	else
+	{
+		document.getElementById("completed"+i).innerText = "INCOMPLETE"
+	}
+	}
+}
+</script>
 				  
 				  
 				</div>
@@ -1021,7 +1090,9 @@
 					       	    <th>Application no.</th>
 					       	    <th>First Name</th>
 					       	    <th>Last Name</th>
+								<th>Application Status</th>
 					       	    <th>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Notice of acceptance and packet of arrival</th>
+								<th>Comments</th>
 					       	  </tr>
 
 					       	</table>

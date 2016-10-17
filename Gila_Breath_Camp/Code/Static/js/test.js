@@ -1,10 +1,6 @@
 getTest = function(id)
 { 
-	//alert(document.getElementById("c_first_name").value);
-	//k = document.getElementById("user_id").value;
-    //var conf_password = document.getElementById("confirm").value;
-    //alert(conf_password);
-	
+
     var k =
         {
 			applicant_id:"",
@@ -54,8 +50,7 @@ getTest = function(id)
 				var obj = $.parseJSON(data)
 				if(obj["status"] == "success")
 				{
-					alert("Regestration Complete")
-					//alert("thank you behenchod tune regester karli hain")
+					alert(obj["message"])
 					location.reload()
 				}
 				else{
@@ -63,7 +58,6 @@ getTest = function(id)
 					alert(obj["message"].replaceAll("|","\n"))
 				}
 				
-				//alert(data)
         		
     		},
     		error: function(data)
