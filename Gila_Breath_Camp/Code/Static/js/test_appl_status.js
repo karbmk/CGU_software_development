@@ -25,12 +25,21 @@ getTest2 = function(id)
 				var obj = $.parseJSON(data)
 				obj_array = obj["data"]
 				for(i=0;i<obj_array.length;i++)
-				{var html = '<tr>';
+				{
+					if(obj_array[i]["acceptance_packet"]=='1')
+					{
+						check = 'checked'
+					}
+					else
+					{
+						check = ''
+					}
+				var html = '<tr>';
             	//alert(obj["data"][i]["jemin"])
 				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
 				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
-				html += '<td align="center"><input id="appl_status'+i+'" type="checkbox" name="appl_status"></td>'
+				html += '<td align="center"><input id="appl_status'+i+'" type="checkbox" name="appl_status" '+check+'></td>'
 				
 				html += '</tr>'
 				$("#app_status").append(html);

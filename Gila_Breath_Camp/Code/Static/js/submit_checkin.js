@@ -1,7 +1,7 @@
 send_checkin = function(id)
 { 
 	//alert(document.getElementById("").value);
-	//alert("in js")
+	alert("in js")
 	var input = '{"data" :[{"date_id":"1"}]}';
 	//alert(typeof(input))
 	//location.reload()
@@ -9,12 +9,13 @@ send_checkin = function(id)
 	//$("#check").className = 'active'
 	//location.reload()
 	document.getElementById("check_click").onclick=''
+	var test = 0;
 	$.ajax
 	(
 		{
 			type:"POST",
 			url:"../../test_js/",
-			async:true,
+			async:false,
 			data: 
    				{
         			vol_name: input // from form
@@ -24,25 +25,53 @@ send_checkin = function(id)
     		{
 				var obj = $.parseJSON(data)
 				obj_array = obj["data"]
-				for(i=0;i<obj_array.length;i++)
-				{var html = '<tr>';
-            	//alert(obj["data"][i]["jemin"])
-				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
-				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
-				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
-				html += '<td><input id="medical'+i+'" type="checkbox" name="medical"></td>'
-				html += '<td><input id="legal'+i+'" type="checkbox" name="legal" ></td>'
-				html += '<td><input id="emergency'+i+'" type="checkbox" name="emergency" ></td>'
-				html += '<td><input id="helmet'+i+'" type="checkbox" name="helmet" ></td>'
-				html += '<td><input id="boot'+i+'" type="checkbox" name="boot" ></td>'
-				html += '<td><input id="sleeping_bag'+i+'" type="checkbox" name="sleeping_bag"></td>'
-				html += '<td><input id="water_bottle'+i+'" type="checkbox" name="water_bottle"></td>'
-				html += '<td><input id="sunscreen'+i+'" type="checkbox" name="sunscreen"></td>'
-				html += '<td><input id="bugs_spray'+i+'" type="checkbox" name="bugs_spray"></td>'
-				html += '<td><input id="completed'+i+'" type="checkbox" name="completed"></td>'
-				html += '</tr>'
-				$("#checkin").append(html);
+				test = obj_array.length
+				
+    		},
+    		error: function(data)
+    		{
+        		debugger;
+        		alert("chutiye password galat kiya hoga dekh le");
+      		}
+    	}
+  	);
+	var array = [],med ='1',leg ='1',emer ='1',hel ='1',boot ='1',sleeping_bag ='1',water_bottle ='1',sunscreen ='1',bugs_spray ='1',completed ='1';
+				for(i=0;i<test;i++)
+				{
+				if(document.getElementById("medical"+i).checked){med = '1'}else{med = '0'}
+				if(document.getElementById("legal"+i).checked){leg = '1'}else{leg = '0'}
+				if(document.getElementById("emergency"+i).checked){emer = '1'}else{emer = '0'}
+				if(document.getElementById("helmet"+i).checked){hel = '1'}else{hel = '0'}
+				if(document.getElementById("boot"+i).checked){boot = '1'}else{boot = '0'}
+				if(document.getElementById("sleeping_bag"+i).checked){sleeping_bag = '1'}else{sleeping_bag = '0'}
+				if(document.getElementById("water_bottle"+i).checked){water_bottle = '1'}else{water_bottle = '0'}
+				if(document.getElementById("sunscreen"+i).checked){sunscreen = '1'}else{sunscreen = '0'}
+				if(document.getElementById("bugs_spray"+i).checked){bugs_spray = '1'}else{bugs_spray = '0'}
+				if(document.getElementById("completed"+i).checked){completed = '1'}else{completed = '0'}
+				
+				var k = '{"applicant_id":"'+document.getElementById("appl"+i).innerText+'", "applicant_first_name":"'+document.getElementById("firstname"+i).innerText+'","applicant_last_name":"'+document.getElementById("lastname"+i).innerText+'","medical":"'+med+'","legal":"'+leg+'","emergency":"'+emer+'","helmet":"'+hel+'","boot":"'+boot+'","sleeping_bag":"'+sleeping_bag+'","water_bottle":"'+water_bottle+'","sunscreen":"'+sunscreen+'","bugs_spray":"'+bugs_spray+'","completed":"'+completed+'"}'
+				array.push(k)
+				
 				}
+				//alert(data)
+        		var input1 = '{"data":['+array+']}'
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../test_submit_checkin/",
+			async:false,
+			data: 
+   				{
+        			vol_name: input1 // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+				var obj = $.parseJSON(data)
+				//obj_array = obj["data"]
+				alert(obj["message"])
+				//test = obj_array.length
 				//alert(data)
         		
     		},
@@ -53,39 +82,6 @@ send_checkin = function(id)
       		}
     	}
   	);
-	/*$.ajax({
-        	type: 'GET',
-        	url:"../../test_js",
-			async:true,
-        	success: function(response){
-				var obj = $.parseJSON(response)
-				var html = '<tr>';
-            	alert(obj["data"][0]["jemin"])
-				html += '<td>'+obj["data"][0]["jemin"]+'</td>'
-				html += '<td>'+obj["data"][0]["jemin"]+'</td>'
-				html += '<td>ra</td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '</tr>'
-				$("#checkin").append(html);
-
-				//var obj = JSON.parse(response);
-				//alert(obj['data'][0]);
-        	},
-        	error: function(){
-				alert("error")
-        	}
-    		});*/
-	
-	
 	
 	
 }
