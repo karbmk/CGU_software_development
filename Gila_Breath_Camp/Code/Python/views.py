@@ -15,6 +15,8 @@ import ast
 import json
 sys.path.append("Python/User_Stories")
 import registration
+import choose_date
+import check_in_status
 
 def test(request):
 	context = ""
@@ -48,11 +50,29 @@ def create_volume(request):
 		print(st)
 	return HttpResponse(st,content_type="application/type")
 
-	
+@csrf_exempt	
 def test_js(request):
-	st = '{"jemin":"gohil","karthik":"manjunath"}'
-	st = '''{
-      "data":[''' + st +''']
-  }'''
-	print (st)
-	return HttpResponse(st,content_type="application/type")
+	print ("in python")
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["vol_name"]
+	print("data"+data)
+	try:
+		dt = choose_date.Choose_date()
+		st = dt.chooseDate(data)
+		print(st)
+		cis = check_in_status.Check_in_status()
+		st_get = cis.getCheckInStatus(json.dumps({"data" :[{"camp_time_slots":"2016-10-15 00:00:00.000000"}]}))
+		print(st_get)
+	except Exception as e:
+		st_get = e
+		print(st_get)
+	#st = '{"jemin":"gohil","karthik":"manjunath"},{"":"","":""}'
+	#st = '''{#  "data":[''' + st +''']#}'''
+	return HttpResponse(st_get,content_type="application/type")
+
+
+
+
+
+

@@ -38,6 +38,8 @@
     <script src="/Static/_/js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="/Static/js/test.js" ></script>
 		<script type="text/javascript" src="/Static/js/test_dyn.js" ></script>
+		<script type="text/javascript" src="/Static/js/test_appl_status.js" ></script>
+		<script type="text/javascript" src="/Static/js/submit_appl_status.js" ></script>
 
   </head>
 
@@ -57,8 +59,8 @@
 		<div id="hor-tab" class="col-md-10">
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="active"><a href="#tab1" data-toggle="tab">REGISTER</a></li>
-				<li onclick="getTest1()" role="presentation"><a href="#tab2" data-toggle="tab">CHECK - IN</a></li>
-				<li role="presentation"><a href="#tab3" data-toggle="tab">APPLICATION STATUS</a></li>
+				<li id="check_click" onclick="getTest1()" role="presentation"><a href="#tab2" data-toggle="tab">CHECK - IN</a></li>
+				<li id="appl_click" onclick="getTest2()" role="presentation"><a href="#tab3" data-toggle="tab">APPLICATION STATUS</a></li>
 				<!--<li role="presentation"><a href="#tab4" data-toggle="tab">Interim Financials</a></li>
 				<li role="presentation"><a href="#tab5" data-toggle="tab">Related Company Information</a></li>
 				<li role="presentation"><a href="#tab6" data-toggle="tab">uploads</a></li>-->
@@ -983,7 +985,7 @@
 					       	    <th>completed</th>
 
 					       	  </tr>
-					       	  <tr>
+					       	 <!-- <tr>
 					       	    <td>1</i></td>
 					       	    <td>Karthik</td>
 					       	    <td>Manjunath</td>
@@ -1030,9 +1032,9 @@
 					       	    <td><input type="checkbox" name="medical" value="medical"></td>
 					       	    <td><input type="checkbox" name="medical" value="medical"></td>
 					       	    <td><input type="checkbox" name="medical" value="medical"></td>
-					       	  </tr>
+					       	  </tr> -->
 					       	</table>
-					       	<!--<a href="" class="btn form-btn">View Proposal</a>-->
+					       	<a href="" class="btn form-btn">SUBMIT</a>
 				       	</div>
 				      </div>
 				  </div>
@@ -1048,6 +1050,40 @@
 	        <!--tab2-content-end-->
 
 				<!-- tab3-Start -->
+				<div class="tab-pane fade in" id="tab3">
+
+		    		
+
+				<!--panel-group-start-->	
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+				  <!-- headingFour-start -->
+				  <div class="panel">
+				    
+				      <div class="">
+				      	<div class="t-box">
+					       	<table id="app_status" class="table table-bordered">
+					       	  <tr>
+					       	    <th>Application no.</th>
+					       	    <th>First Name</th>
+					       	    <th>Last Name</th>
+					       	    <th>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Notice of acceptance and packet of arrival</th>
+					       	  </tr>
+
+					       	</table>
+							<input type="submit" onclick="send_appl_status()" value="SUBMIT" id="btnCmp" name="btnCmp" class="btn form-btn">
+				       	</div>
+				      </div>
+				  </div>
+				  <!-- headingFour-end -->
+
+				  
+
+				  
+				  
+				</div>
+				<!--panel-group-end-->
+			</div>
 				<div style="display: none;" class="tab-pane fade in" id="tab3">
 
 					<div class="row">

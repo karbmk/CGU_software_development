@@ -8,7 +8,7 @@ getTest = function(id)
     var k =
         {
 			applicant_id:"",
-			user_id:"",
+			user_id:"1",
 			bunkhouse_id:"",
 			tribe_id:"",
 			camp_time_slots:'2016-10-15 00:00:00.000000',
@@ -36,7 +36,7 @@ getTest = function(id)
 			application_status:""
         };
     var input = JSON.stringify({data:[k]})
-	//alert(input)
+	alert(typeof(input))
 	$.ajax
 	(
 		{
