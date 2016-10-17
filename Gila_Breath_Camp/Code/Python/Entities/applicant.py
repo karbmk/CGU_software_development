@@ -52,6 +52,9 @@ class Applicant(object):
 		self.bugs_spray = ''
 		self.check_in_status = ''
 		self.application_status = ''
+		self.acceptance_packet = ''
+		self.mailing_date = ''
+
 	
 	def setApplicantId(self,applicant_id):
 		self.applicant_id = applicant_id
@@ -195,14 +198,7 @@ class Applicant(object):
 
 
 	def setPayment(self,payment):
-		if (payment.isdigit()):
-			payment = int(payment)
-			if payment >= 1000:
-				self.payment = payment
-			else:
-				return "Payment: Amount less than 1000 not accepted"
-		else:
-			return "Payment: Enter an integer"
+		self.payment = payment
 
 	def getPayment(self):
 		return self.payment
@@ -276,5 +272,19 @@ class Applicant(object):
 
 	def getApplicationStatus(self):
 		return self.application_status
+
+
+	def setAcceptancePacket(self,acceptance_packet):
+		self.acceptance_packet = acceptance_packet
+
+	def getAcceptancePacket(self):
+		return self.acceptance_packet
+
+
+	def setMailingDate(self,mailing_date):
+		self.mailing_date = mailing_date
+
+	def getMailingDate(self):
+		return self.mailing_date
 
 
