@@ -48,13 +48,24 @@ class Application_status(object):
 
 				accept_status = 0
 
+				gender = data[i]['applicant_gender']
+				if gender[0] == 'M':
+					male_bucket += 1
+				elif gender[0] == 'F':
+					female_bucket += 1
+
+				if male_bucket > 36 or female_bucket > 36:
+					accept_status = 0
+				else:
+					accept_status = 1
+
 				dict = {}
 				dict['applicant_id'] = data[i]['applicant_id']
 				dict['applicant_first_name'] = data[i]['applicant_first_name']
 				dict['applicant_last_name'] = data[i]['applicant_last_name']
 				
 				age = int(data[i]['applicant_age'])
-				if age >= 9 and age <=18:
+				if age >= 9 and age <=18 and accept_status != 0:
 					accept_status = 1
 					print('applicant_age')
 				else:

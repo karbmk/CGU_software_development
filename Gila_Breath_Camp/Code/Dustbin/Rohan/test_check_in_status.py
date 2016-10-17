@@ -11,6 +11,6 @@ cis = check_in_status.Check_in_status()
 
 #print(st)
 
-st = cis.insertCheckInStatus(front_end_str1)
+st = cis.updateCheckInStatus(front_end_str1)
 
 

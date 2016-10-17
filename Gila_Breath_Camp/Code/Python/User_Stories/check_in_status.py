@@ -41,7 +41,7 @@ class Check_in_status(object):
 
 		return return_front_end_dict
 
-	def insertCheckInStatus(self,front_end_str):
+	def updateCheckInStatus(self,front_end_str):
 
 		front_end_dict = ast.literal_eval(front_end_str)
 		front_end_data = front_end_dict['data']
