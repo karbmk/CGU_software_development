@@ -25,6 +25,7 @@
 
 import csv
 import sys
+import calendar
 sys.path.append("Csv")
 
 class Common_functions(object):
@@ -52,9 +53,6 @@ class Common_functions(object):
 			list_of_dict.append(dict)
 				
 		return list_of_dict
-
-	def suffix(self,d):
-		return 'th' if 11<=d<=13 else {1:'st',2:'nd',3:'rd'}.get(d%10, 'th')
 
 	def insertIntoCsv(self,filename,object_name):
 		""" Insert into .csv from objects """

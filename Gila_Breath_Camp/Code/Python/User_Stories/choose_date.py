@@ -19,12 +19,21 @@ import json
 import sys
 import ast
 import datetime
+import calendar
 sys.path.append("Python")
 import common_functions
 sys.path.append("Python/Entities")
 import date
 
 class Choose_date(object):
+
+	def suffix(self,d):
+		return 'th' if 11<=d<=13 else {1:'st',2:'nd',3:'rd'}.get(d%10, 'th')
+
+	def returnSecondSunday(self,year,month):
+		c = calendar.Calendar(firstweekday=calendar.MONDAY)
+		date = c.monthdatescalendar(year,month)[1][6]
+		return date
 
 	def chooseDate(self,front_end_str):
 
@@ -38,14 +47,16 @@ class Choose_date(object):
 
 		data = cf.getFromCsv('date.csv',front_end_data)
 
-		start_date = datetime.datetime.strptime(data[0]['camp_time_slots'],"%Y-%m-%d %H:%M:%S.%f")
-		end_date = start_date + datetime.timedelta(days=13)
-		print(str(start_date.day) + '-' + str(end_date.day),start_date.strftime("%B"),str(end_date.year))
-		print(cf.suffix(11))
-
 		if len(data) == 0:
 			return_front_end_dict = '{ "data": [], "status":"error", "message":"No Date in ''date.csv''" }'
 		else:
+			self.returnSecondSunday(int(data[0]['year']),int(data[0]['month']))
+
+			start_date = self.returnSecondSunday(int(data[0]['year']),int(data[0]['month']))
+			end_date = start_date + datetime.timedelta(days=13)
+			
+			display_date = str(start_date.day) + self.suffix(start_date.day) + '-' + str(end_date.day) + self.suffix(end_date.day) + " " + start_date.strftime("%B") + " " + str(end_date.year)
+			data[0]['display_date'] = display_date			
 			return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"success", "message":"" }'
 
 		return return_front_end_dict

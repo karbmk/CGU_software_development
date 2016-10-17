@@ -20,7 +20,8 @@ class Date(object):
 
 	def __init__  (self):
 		self.date_id = ''
-		self.camp_time_slots = ''
+		self.month = ''		
+		self.year = ''
 
 
 	def setDateId(self,date_id):
@@ -30,10 +31,17 @@ class Date(object):
 		return self.date_id
 
 
-	def setCampTimeSlots(self,camp_time_slots):
-		self.camp_time_slots = camp_time_slots
+	def setMonth(self,month):
+		self.month = month
 
-	def getCampTimeSlots(self):
-		return self.camp_time_slots
+	def getMonth(self):
+		return self.month
+
+
+	def setYear(self,year):
+		self.year = year
+
+	def getYear(self):
+		return self.year
 
 

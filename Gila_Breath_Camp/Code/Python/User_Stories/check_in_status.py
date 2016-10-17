@@ -26,7 +26,7 @@ import applicant
 
 class Check_in_status(object):
 
-	def checkInStatus(self,front_end_str):
+	def getCheckInStatus(self,front_end_str):
 
 		front_end_dict = ast.literal_eval(front_end_str)
 		front_end_data = front_end_dict['data'][0]
@@ -41,4 +41,17 @@ class Check_in_status(object):
 
 		return return_front_end_dict
 
+	def insertCheckInStatus(self,front_end_str):
 
+		front_end_dict = ast.literal_eval(front_end_str)
+		front_end_data = front_end_dict['data'][0]
+		
+		cf = common_functions.Common_functions()
+		data = cf.getFromCsv('applicant.csv',front_end_data)
+
+		if len(data) == 0:
+			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered" }'
+		else:
+			return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
+
+		return return_front_end_dict
