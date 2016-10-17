@@ -159,13 +159,3 @@ class Common_functions(object):
 
 		return list_dict_data_where
 
-class Dict_to_obj(object):
-	"""
-	Turns a dictionary into a class
-	"""
- 
-	def __init__(self, dictionary):
-		"""Constructor"""
-		for key in dictionary:
-			setattr(self, key, dictionary[key])
-

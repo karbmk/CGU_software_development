@@ -19,6 +19,7 @@
 import sys
 import json
 import ast
+import datetime
 sys.path.append("Python")
 import common_functions
 sys.path.append("Python/Entities")
@@ -56,36 +57,32 @@ class Application_status(object):
 
 		front_end_dict = ast.literal_eval(front_end_str)
 		front_end_data = front_end_dict['data']
+		cf = common_functions.Common_functions()
+
+		app_dict = []
 
 		for i in range(0,len(front_end_data)):
 
 			where_applicant_id = {}
 			where_applicant_id['applicant_id'] = front_end_data[i]['applicant_id']
-			
-			cf = common_functions.Common_functions()
 
 			data = cf.getFromCsv('applicant.csv',where_applicant_id)
 
-			print(data[0])
-			appl = applicant.Applicant(data[0])
+			if front_end_data[i]['acceptance_packet'] == "1":
+				data[0]['acceptance_packet'] = front_end_data[i]['acceptance_packet']
+				data[0]['mailing_date'] = str(datetime.datetime.now())
+			elif front_end_data[i]['acceptance_packet'] == "0":
+				data[0]['acceptance_packet'] = ""
+				data[0]['mailing_date'] = ""
 
-			print(appl.getApplicantFirstName())
+			app_dict.append(data[0])
 
-#		if len(data) == 0:
-#			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered" }'
-#		else:
-#			new_data = []
-#
-#			for i in range(0,len(data)):
-#				dict = {}
-#				dict['applicant_id'] = data[i]['applicant_id']
-#				dict['applicant_last_name'] = data[i]['applicant_last_name']
-#				dict['acceptance_packet'] = data[i]['acceptance_packet']
-#				new_data.append(dict)
-#
-#			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
+		cf.updateManyRowIntoCsv('applicant.csv',app_dict,'applicant_id')
 
-#		return return_front_end_dict
+		return_front_end_dict = '{ "data": "", "status":"success", "message":"All applicant''s information updated" }'
+
+		return return_front_end_dict
+
 
 
 
