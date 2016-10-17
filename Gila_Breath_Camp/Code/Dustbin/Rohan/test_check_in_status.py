@@ -13,4 +13,4 @@ cis = check_in_status.Check_in_status()
 
 st = cis.updateCheckInStatus(front_end_str1)
 
-
+print(st)
