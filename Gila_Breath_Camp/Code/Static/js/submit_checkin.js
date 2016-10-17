@@ -1,13 +1,6 @@
 send_checkin = function(id)
 { 
-	//alert(document.getElementById("").value);
-	alert("in js")
 	var input = '{"data" :[{"date_id":"1"}]}';
-	//alert(typeof(input))
-	//location.reload()
-	//$("#register").className='';
-	//$("#check").className = 'active'
-	//location.reload()
 	document.getElementById("check_click").onclick=''
 	var test = 0;
 	$.ajax
@@ -31,7 +24,7 @@ send_checkin = function(id)
     		error: function(data)
     		{
         		debugger;
-        		alert("chutiye password galat kiya hoga dekh le");
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
       		}
     	}
   	);
@@ -55,7 +48,6 @@ send_checkin = function(id)
 				array.push(k)
 				
 				}
-				//alert(data)
         		var input1 = '{"data":['+array+']}'
 	$.ajax
 	(
@@ -71,16 +63,12 @@ send_checkin = function(id)
     		success: function(data) 
     		{
 				var obj = $.parseJSON(data)
-				//obj_array = obj["data"]
 				alert(obj["message"])
-				//test = obj_array.length
-				//alert(data)
         		
     		},
     		error: function(data)
     		{
-        		debugger;
-        		alert("chutiye password galat kiya hoga dekh le");
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
       		}
     	}
   	);
