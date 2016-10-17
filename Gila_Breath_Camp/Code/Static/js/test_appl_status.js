@@ -1,4 +1,4 @@
-getTest1 = function(id)
+getTest2 = function(id)
 { 
 	//alert(document.getElementById("").value);
 	//alert("in js")
@@ -8,7 +8,7 @@ getTest1 = function(id)
 	//$("#register").className='';
 	//$("#check").className = 'active'
 	//location.reload()
-	document.getElementById("check_click").onclick=''
+	document.getElementById("appl_click").onclick=''
 	$.ajax
 	(
 		{
@@ -30,18 +30,10 @@ getTest1 = function(id)
 				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
 				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
-				html += '<td><input id="medical'+i+'" type="checkbox" name="medical"></td>'
-				html += '<td><input id="legal'+i+'" type="checkbox" name="legal" ></td>'
-				html += '<td><input id="emergency'+i+'" type="checkbox" name="emergency" ></td>'
-				html += '<td><input id="helmet'+i+'" type="checkbox" name="helmet" ></td>'
-				html += '<td><input id="boot'+i+'" type="checkbox" name="boot" ></td>'
-				html += '<td><input id="sleeping_bag'+i+'" type="checkbox" name="sleeping_bag"></td>'
-				html += '<td><input id="water_bottle'+i+'" type="checkbox" name="water_bottle"></td>'
-				html += '<td><input id="sunscreen'+i+'" type="checkbox" name="sunscreen"></td>'
-				html += '<td><input id="bugs_spray'+i+'" type="checkbox" name="bugs_spray"></td>'
-				html += '<td><input id="completed'+i+'" type="checkbox" name="completed"></td>'
+				html += '<td align="center"><input id="appl_status'+i+'" type="checkbox" name="appl_status"></td>'
+				
 				html += '</tr>'
-				$("#checkin").append(html);
+				$("#app_status").append(html);
 				}
 				//alert(data)
         		

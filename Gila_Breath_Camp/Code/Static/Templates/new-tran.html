@@ -38,6 +38,7 @@
     <script src="/Static/_/js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="/Static/js/test.js" ></script>
 		<script type="text/javascript" src="/Static/js/test_dyn.js" ></script>
+		<script type="text/javascript" src="/Static/js/test_appl_status.js" ></script>
 
   </head>
 
@@ -56,9 +57,9 @@
 	<div class="col-md-offset-1  col-md-11">
 		<div id="hor-tab" class="col-md-10">
 			<ul class="nav nav-tabs">
-				<li role="presentation" class="active"><a href="#tab1" data-toggle="tab">REGISTER</a></li>
-				<li onclick="getTest1()" role="presentation"><a href="#tab2" data-toggle="tab">CHECK - IN</a></li>
-				<li role="presentation"><a href="#tab3" data-toggle="tab">APPLICATION STATUS</a></li>
+				<li role="presentation" id="register" class="active"><a href="#tab1" data-toggle="tab">REGISTER</a></li>
+				<li onclick="getTest1()" id="check" role="presentation"><a href="#tab2" data-toggle="tab">CHECK - IN</a></li>
+				<li onclick="getTest2()" role="presentation"><a href="#tab3" data-toggle="tab">APPLICATION STATUS</a></li>
 				<!--<li role="presentation"><a href="#tab4" data-toggle="tab">Interim Financials</a></li>
 				<li role="presentation"><a href="#tab5" data-toggle="tab">Related Company Information</a></li>
 				<li role="presentation"><a href="#tab6" data-toggle="tab">uploads</a></li>-->

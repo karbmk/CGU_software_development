@@ -1,4 +1,4 @@
-getTest1 = function(id)
+send_checkin = function(id)
 { 
 	//alert(document.getElementById("").value);
 	//alert("in js")
