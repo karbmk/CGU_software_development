@@ -1,16 +1,6 @@
 getTest2 = function(id)
 { 
-	//alert(document.getElementById("").value);
-	//alert("in js")
 	var input = '{"data" :[{"date_id":"1"}]}';
-	//alert(typeof(input))
-	//location.reload()
-	
-	
-	
-	//$("#register").className='';
-	//$("#check").className = 'active'
-	//location.reload()
 	document.getElementById("appl_click").onclick=''
 	$.ajax
 	(
@@ -47,7 +37,6 @@ getTest2 = function(id)
 					}
 					
 				var html = '<tr>';
-            	//alert(obj["data"][i]["jemin"])
 				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
 				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
@@ -58,49 +47,14 @@ getTest2 = function(id)
 				html += '</tr>'
 				$("#app_status").append(html);
 				}
-				//alert(data)
         		
     		},
     		error: function(data)
     		{
         		debugger;
-        		alert("chutiye password galat kiya hoga dekh le");
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
       		}
     	}
-  	);
-	/*$.ajax({
-        	type: 'GET',
-        	url:"../../test_js",
-			async:true,
-        	success: function(response){
-				var obj = $.parseJSON(response)
-				var html = '<tr>';
-            	alert(obj["data"][0]["jemin"])
-				html += '<td>'+obj["data"][0]["jemin"]+'</td>'
-				html += '<td>'+obj["data"][0]["jemin"]+'</td>'
-				html += '<td>ra</td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '<td><input type="checkbox" name="medical" value="medical"></td>'
-				html += '</tr>'
-				$("#checkin").append(html);
-
-				//var obj = JSON.parse(response);
-				//alert(obj['data'][0]);
-        	},
-        	error: function(){
-				alert("error")
-        	}
-    		});*/
-	
-	
-	
+  	);	
 	
 }

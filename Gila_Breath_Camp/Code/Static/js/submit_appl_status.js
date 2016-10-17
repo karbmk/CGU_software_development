@@ -25,7 +25,7 @@ send_appl_status = function(id)
     		},
     		error: function(data)
     		{
-        		alert("Sorry for the inconvinience. Server is not working");
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
       		}
     	}
   	);
@@ -61,16 +61,12 @@ send_appl_status = function(id)
     		success: function(data) 
     		{
 				var obj = $.parseJSON(data)
-				//obj_array = obj["data"]
 				alert(obj["message"])
-				//test = obj_array.length
-				//alert(data)
         		
     		},
     		error: function(data)
     		{
-        		debugger;
-        		alert("Sorry for the inconvinience. Server is not working");
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
       		}
     	}
   	);

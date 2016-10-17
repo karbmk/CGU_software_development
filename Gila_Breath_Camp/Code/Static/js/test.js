@@ -63,7 +63,7 @@ getTest = function(id)
     		error: function(data)
     		{
         		debugger;
-        		alert("chutiye password galat kiya hoga dekh le");
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
       		}
     	}
   	);

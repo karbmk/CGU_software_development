@@ -41,30 +41,8 @@
 		<script type="text/javascript" src="/Static/js/test_appl_status.js" ></script>
 		<script type="text/javascript" src="/Static/js/submit_appl_status.js" ></script>
 		<script type="text/javascript" src="/Static/js/submit_checkin.js" ></script>
-<script>
-function on_open()
-{
-		$.ajax
-	(
-		{
-			type:"GET",
-			url:"../../application_status_get/",
-			success:function(response)
-			{
-				var obj = $.parseJSON(response)
-				//alert(obj["data"][0]["display_date1"])
-				document.getElementById("date_1").innerHTML = obj["data"][0]["display_date1"]
-				document.getElementById("date_2").innerHTML = obj["data"][0]["display_date2"]
-				document.getElementById("date_3").innerHTML = obj["data"][0]["display_date3"]
-			},
-			error:function(response)
-			{
-				alert("End hogaya")
-			}
-		}
-	);
-}
-</script>
+		<script type="text/javascript" src="/Static/js/open_html.js" ></script>
+
   </head>
 
   <body onload="on_open();">
@@ -72,9 +50,9 @@ function on_open()
 <div class="menu-list gradiant-in-bg">
 	<div class="brand-logo"><span class="logo-in"></span></div>
 	<nav class="nav">
-		<li><a href="tran-his.html"><span onclick="on_open();" class="menu-ico tran-his"></span><p id="date_1">AUGUST</p><br/></a></li>
-		<li><a href="new-tran.html"><span onclick="on_open();" class="menu-ico tran-his"></span><p id="date_2">SEPTEMBER</p><br/></a></li>
-		<li><a href="comp-detail.html"><span onclick="on_open();" class="menu-ico tran-his"></span><p id="date_3">OCTOBER</p><br/></a></li>
+		<li><a href="tran-his.html"><span onclick="on_open();" class="menu-ico tran-his"></span><p id="date_1"></p><br/></a></li>
+		<li><a href="new-tran.html"><span onclick="on_open();" class="menu-ico tran-his"></span><p id="date_2"></p><br/></a></li>
+		<li><a href="comp-detail.html"><span onclick="on_open();" class="menu-ico tran-his"></span><p id="date_3"></p><br/></a></li>
 	</nav>
 </div>
 <!-- Tabs-Header-start -->
