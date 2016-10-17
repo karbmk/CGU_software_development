@@ -75,6 +75,26 @@ def test_js(request):
 	return HttpResponse(st_get,content_type="application/type")
 
 @csrf_exempt	
+def test_js_get_appl(request):
+	print ("in python")
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["vol_name"]
+	print("data"+data)
+	try:
+		dt = choose_date.Choose_date()
+		st = dt.chooseDate()
+		print(st)
+		cis = application_status.Application_status()
+		st_get = cis.getApplicationStatus(json.dumps({"data" :[{"camp_time_slots":"2016-10-15 00:00:00.000000"}]}))
+		print(st_get)
+	except Exception as e:
+		st_get = e
+		print(st_get)
+	return HttpResponse(st_get,content_type="application/type")
+
+
+@csrf_exempt	
 def test_submit_checkin(request):
 	c = {}
 	c.update(csrf(request));

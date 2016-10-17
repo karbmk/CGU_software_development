@@ -64,6 +64,7 @@ send_checkin = function(id)
     		{
 				var obj = $.parseJSON(data)
 				alert(obj["message"])
+				location.reload()
         		
     		},
     		error: function(data)

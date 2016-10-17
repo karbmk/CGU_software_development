@@ -6,7 +6,7 @@ getTest2 = function(id)
 	(
 		{
 			type:"POST",
-			url:"../../test_js/",
+			url:"../../test_js_get_appl/",
 			async:true,
 			data: 
    				{
@@ -27,7 +27,7 @@ getTest2 = function(id)
 					{
 						check = ''
 					}
-					if(obj_array[i]["check_in_status"]=='1')
+					if(obj_array[i]["application_status"]=='1')
 					{
 						check_stat = 'ACCEPTED'
 					}

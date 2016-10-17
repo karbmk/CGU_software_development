@@ -62,6 +62,7 @@ send_appl_status = function(id)
     		{
 				var obj = $.parseJSON(data)
 				alert(obj["message"])
+				location.reload()
         		
     		},
     		error: function(data)

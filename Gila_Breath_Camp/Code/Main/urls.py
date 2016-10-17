@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^Python/', include('Python.local_urls')),
     url(r'^create_volume/', views.create_volume, name='create_volume'),
 	url(r'^test_js/', views.test_js, name='test_js'),
+	url(r'^test_js_get_appl/', views.test_js_get_appl, name='test_js_get_appl'),
 	url(r'^application_status_send/', views.application_status_send, name='application_status_send'),
 	url(r'^application_status_get/', views.application_status_get, name='application_status_get'),
 	url(r'^test_submit_checkin/', views.test_submit_checkin, name='test_submit_checkin'),

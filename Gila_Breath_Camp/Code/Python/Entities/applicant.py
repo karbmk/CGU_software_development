@@ -56,10 +56,7 @@ class Applicant(object):
 		self.mailing_date = ''
 		self.rejected_reason = ''
 
-	def __init__(self, dictionary):
-		"""Constructor"""
-		for key in dictionary:
-			setattr(self, key, dictionary[key])
+
 	
 	def setApplicantId(self,applicant_id):
 		self.applicant_id = applicant_id
