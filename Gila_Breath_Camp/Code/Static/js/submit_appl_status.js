@@ -1,13 +1,6 @@
 send_appl_status = function(id)
 { 
-	//alert(document.getElementById("").value);
-	//alert("in js")
 	var input = '{"data" :[{"date_id":"1"}]}';
-	//alert(typeof(input))
-	//location.reload()
-	//$("#register").className='';
-	//$("#check").className = 'active'
-	//location.reload()
 	var test = 0;
 	document.getElementById("check_click").onclick=''
 	$.ajax
@@ -32,13 +25,11 @@ send_appl_status = function(id)
     		},
     		error: function(data)
     		{
-        		debugger;
-        		alert("chutiye password galat kiya hoga dekh le");
+        		alert("Sorry for the inconvinience. Server is not working");
       		}
     	}
   	);
 	
-	//input1 = '{"data" :[{"applicant_id":"1" , "acceptance_packet" : "0"},{"applicant_id":"7" , "acceptance_packet" : "1"}]}';
 	var array = []
 	var stat = '1'
 	for(i=0;i<test;i++)
@@ -79,11 +70,10 @@ send_appl_status = function(id)
     		error: function(data)
     		{
         		debugger;
-        		alert("chutiye password galat kiya hoga dekh le");
+        		alert("Sorry for the inconvinience. Server is not working");
       		}
     	}
   	);
-	//alert(test)
 	
 	
 	

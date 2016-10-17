@@ -1,10 +1,27 @@
-from django.shortcuts import render
+# =================================================================================================
+#                             GILA BREATH CAMP
+#
+# =================================================================================================
+# =================================================================================================
+# FILE NAME      : views.py
+# PURPOSE        : Connection between all the python modules and the front end
+# AUTHOR         : KARTHIK MANJUNATH
+# CREATION DATE  : 02-OCT-2016
+# PENDING 		 : 
+# -------------------------------------------------------------------------------------------------
+# CHANGE HISTORY :
+# VER	|	DATE       	|	MODIFIED BY  		|  	CHANGE DESCRIPTION
+# -------------------------------------------------------------------------------------------------
+# 1.0   	02-OCT-2016  	KARTHIK MANJUNATH    		Started basic structure
+# 2.0   	12-OCT-2016  	KARTHIK MANJUNATH   		Added logic for registration with front end
+# 3.0   	15-OCT-2016  	KARTHIK MANJUNATH    		Added logic for check-in with front end
+# 4.0   	17-OCT-2016  	KARTHIK MANJUNATH    		Added logic for application status with
+#														front end and code clean up or refactoring
+# =================================================================================================
 
-# Create your views here.
-#from django.core.context_processors import csrf
+from django.shortcuts import render
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
-# Create your views here.
 from django.http import HttpResponse
 import sys
 sys.path.append("Python")
@@ -19,7 +36,6 @@ import choose_date
 import check_in_status
 import application_status
 
-
 def test(request):
 	context = ""
 	return render(request,'index.html',context)
@@ -30,19 +46,6 @@ def create_volume(request):
 	c.update(csrf(request));
 	data = request.POST["vol_name"]
 	print("data"+data)
-	#print(type(data))
-	#data_dict = ast.literal_eval(data)
-	#print(data_dict["password"])
-	#k = common_functions.Common_functions()
-	#ur = user.User()
-	#ur.setUserId(data_dict["user_id"])
-	#ur.setUserName(data_dict["user_name"])
-	#ur.setUserType(data_dict["user_type"])
-	#if ur.setPassword(data_dict["password"]) == "Password should be more than 5 characters":
-	#	return false
-	#else:
-	#	ur.setPassword(data_dict["password"])
-	#k.insertIntoCsv("user.csv",ur)
 	try:
 		regis = registration.Registration()
 		st = regis.register(data)
@@ -69,13 +72,10 @@ def test_js(request):
 	except Exception as e:
 		st_get = e
 		print(st_get)
-	#st = '{"jemin":"gohil","karthik":"manjunath"},{"":"","":""}'
-	#st = '''{#  "data":[''' + st +''']#}'''
 	return HttpResponse(st_get,content_type="application/type")
 
 @csrf_exempt	
 def test_submit_checkin(request):
-	print ("in python")
 	c = {}
 	c.update(csrf(request));
 	data = request.POST["vol_name"]
@@ -90,8 +90,6 @@ def test_submit_checkin(request):
 	except Exception as e:
 		st_get = e
 		print(st_get)
-	#st = '{"jemin":"gohil","karthik":"manjunath"},{"":"","":""}'
-	#st = '''{#  "data":[''' + st +''']#}'''
 	return HttpResponse(st_get,content_type="application/type")
 
 @csrf_exempt
@@ -111,17 +109,10 @@ def application_status_send(request):
 		print(e)
 	return HttpResponse(st,content_type="application/type")
 
-@csrf_exempt
 def application_status_get(request):
-	print("in application_status")
-	c = {}
-	c.update(csrf(request));
-	data = request.POST["vol_name"]
-	print(data)
 	try:
-		a = application_status.Application_status()
-		print("in try")
-		st = a.getApplicationStatus(data)
+		dt = choose_date.Choose_date()
+		st = dt.chooseDate()
 		print(st)
 	except Exception as e:
 		st = e

@@ -5,6 +5,9 @@ getTest2 = function(id)
 	var input = '{"data" :[{"date_id":"1"}]}';
 	//alert(typeof(input))
 	//location.reload()
+	
+	
+	
 	//$("#register").className='';
 	//$("#check").className = 'active'
 	//location.reload()
@@ -34,12 +37,23 @@ getTest2 = function(id)
 					{
 						check = ''
 					}
+					if(obj_array[i]["check_in_status"]=='1')
+					{
+						check_stat = 'ACCEPTED'
+					}
+					else
+					{
+						check_stat = 'REJECTED'
+					}
+					
 				var html = '<tr>';
             	//alert(obj["data"][i]["jemin"])
 				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
 				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
+				html += '<td id="completed'+i+'">'+check_stat+'</td>'
 				html += '<td align="center"><input id="appl_status'+i+'" type="checkbox" name="appl_status" '+check+'></td>'
+				html += '<td id="comments'+i+'">'+obj_array[i]["rejected_reason"]+'</td>'
 				
 				html += '</tr>'
 				$("#app_status").append(html);
