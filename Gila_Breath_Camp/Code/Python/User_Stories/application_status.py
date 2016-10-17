@@ -45,6 +45,7 @@ class Application_status(object):
 				dict['applicant_id'] = data[i]['applicant_id']
 				dict['applicant_first_name'] = data[i]['applicant_first_name']
 				dict['applicant_last_name'] = data[i]['applicant_last_name']
+				dict['application_status'] = data[i]['application_status']
 				dict['acceptance_packet'] = data[i]['acceptance_packet']
 				new_data.append(dict)
 
