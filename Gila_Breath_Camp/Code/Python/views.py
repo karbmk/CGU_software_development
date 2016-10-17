@@ -17,6 +17,8 @@ sys.path.append("Python/User_Stories")
 import registration
 import choose_date
 import check_in_status
+import application_status
+
 
 def test(request):
 	context = ""
@@ -59,7 +61,7 @@ def test_js(request):
 	print("data"+data)
 	try:
 		dt = choose_date.Choose_date()
-		st = dt.chooseDate(data)
+		st = dt.chooseDate()
 		print(st)
 		cis = check_in_status.Check_in_status()
 		st_get = cis.getCheckInStatus(json.dumps({"data" :[{"camp_time_slots":"2016-10-15 00:00:00.000000"}]}))
@@ -71,8 +73,59 @@ def test_js(request):
 	#st = '''{#  "data":[''' + st +''']#}'''
 	return HttpResponse(st_get,content_type="application/type")
 
+@csrf_exempt	
+def test_submit_checkin(request):
+	print ("in python")
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["vol_name"]
+	print("data"+data)
+	try:
+		dt = choose_date.Choose_date()
+		st = dt.chooseDate()
+		print(st)
+		cis = check_in_status.Check_in_status()
+		st_get = cis.updateCheckInStatus(data)#json.dumps({"data" :[{"camp_time_slots":"2016-10-15 00:00:00.000000"}]}))
+		print(st_get)
+	except Exception as e:
+		st_get = e
+		print(st_get)
+	#st = '{"jemin":"gohil","karthik":"manjunath"},{"":"","":""}'
+	#st = '''{#  "data":[''' + st +''']#}'''
+	return HttpResponse(st_get,content_type="application/type")
 
+@csrf_exempt
+def application_status_send(request):
+	print("in application_status")
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["vol_name"]
+	print(data)
+	try:
+		a = application_status.Application_status()
+		print("in try")
+		st = a.updateApplicationStatus(data)
+		print(st)
+	except Exception as e:
+		st = e
+		print(e)
+	return HttpResponse(st,content_type="application/type")
 
-
+@csrf_exempt
+def application_status_get(request):
+	print("in application_status")
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["vol_name"]
+	print(data)
+	try:
+		a = application_status.Application_status()
+		print("in try")
+		st = a.getApplicationStatus(data)
+		print(st)
+	except Exception as e:
+		st = e
+		print(e)
+	return HttpResponse(st,content_type="application/type")
 
 
