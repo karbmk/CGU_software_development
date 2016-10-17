@@ -54,6 +54,7 @@ class Applicant(object):
 		self.application_status = ''
 		self.acceptance_packet = ''
 		self.mailing_date = ''
+		self.rejected_reason = ''
 
 	def __init__(self, dictionary):
 		"""Constructor"""
@@ -291,4 +292,10 @@ class Applicant(object):
 	def getMailingDate(self):
 		return self.mailing_date
 
+
+	def setRejectedReason(self,rejected_reason):
+		self.rejected_reason = rejected_reason
+
+	def getRejectedReason(self):
+		return self.rejected_reason
 

@@ -47,11 +47,20 @@ class Application_status(object):
 			for i in range(0,len(data)):
 
 				accept_status = 0
+				rejected_reason = ''
 
 				print('total_accept_status_male :',total_accept_status_male)
-				if total_accept_status_male >= 3 or total_accept_status_female >= 3:
+				if total_accept_status_male >= 3:
 					print('applicant id', data[i]['applicant_id'], 'rejected :', )
 					accept_status = 0
+					rejected_reason = 'SLOT IS FULL FOR MALE APPLICANTS'
+				else:
+					accept_status = 1
+
+				if total_accept_status_female >= 3:
+					print('applicant id', data[i]['applicant_id'], 'rejected :', )
+					accept_status = 0
+					rejected_reason = 'SLOT IS FULL FOR FEMALE APPLICANTS'
 				else:
 					accept_status = 1
 
@@ -66,6 +75,7 @@ class Application_status(object):
 					print('applicant_age')
 				else:
 					accept_status = 0
+					rejected_reason = 'AGE IS NOT BETWEEN 9 TO 18'
 
 				camp_date = datetime.datetime.strptime(data[i]['camp_time_slots'],"%Y-%m-%d %H:%M:%S.%f")
 				application_date = datetime.datetime.strptime(data[i]['application_date'],"%Y-%m-%d %H:%M:%S.%f")
@@ -82,6 +92,7 @@ class Application_status(object):
 					print('application_date')					
 				else:
 					accept_status = 0
+					rejected_reason = 'DATE FOR REGISTRATION HAS SURPASSED'
 
 				if data[i]['payment'] != '' and accept_status != 0:
 					payment = int(data[i]['payment'])
@@ -90,21 +101,24 @@ class Application_status(object):
 						print('payment')
 					else:
 						accept_status = 0
+						rejected_reason = 'PAYMENT $' + str(payment) + ' IS LESS THAN $1000'
 				else:
 					accept_status = 0
 
 				gender = data[i]['applicant_gender']
 				if gender[0] == 'M' and accept_status == 1:
 					print("gender :",gender)
-					total_accept_status_male += 1
+					total_accept_status_male += 1					
 				elif gender[0] == 'F' and accept_status == 1:
 					total_accept_status_female += 1
+
 
 				print(data[i]['applicant_id'],":",accept_status)
 				#if age = int(data[i]['applicant_age'])
 
 				dict['application_status'] = accept_status
 				dict['acceptance_packet'] = data[i]['acceptance_packet']
+				dict['rejected_reason'] = rejected_reason
 				new_data.append(dict)
 
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
@@ -126,6 +140,7 @@ class Application_status(object):
 			where_applicant_id['applicant_id'] = front_end_data[i]['applicant_id']
 
 			data = cf.getFromCsv('applicant.csv',where_applicant_id)
+			print(data)
 
 			if front_end_data[i]['acceptance_packet'] == "1":
 				data[0]['acceptance_packet'] = front_end_data[i]['acceptance_packet']
@@ -133,6 +148,8 @@ class Application_status(object):
 			elif front_end_data[i]['acceptance_packet'] == "0":
 				data[0]['acceptance_packet'] = ""
 				data[0]['mailing_date'] = ""
+
+			data[0]['rejected_reason'] = front_end_data[i]['rejected_reason']
 
 			app_dict.append(data[0])
 
