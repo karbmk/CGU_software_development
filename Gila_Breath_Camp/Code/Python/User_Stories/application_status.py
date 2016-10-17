@@ -40,21 +40,17 @@ class Application_status(object):
 		else:
 			
 			new_data = []
-			male_bucket = 0
-			female_bucket = 0
 			accept_status = 0
+			total_accept_status_male = 0
+			total_accept_status_female = 0
 
 			for i in range(0,len(data)):
 
 				accept_status = 0
 
-				gender = data[i]['applicant_gender']
-				if gender[0] == 'M':
-					male_bucket += 1
-				elif gender[0] == 'F':
-					female_bucket += 1
-
-				if male_bucket > 36 or female_bucket > 36:
+				print('total_accept_status_male :',total_accept_status_male)
+				if total_accept_status_male >= 3 or total_accept_status_female >= 3:
+					print('applicant id', data[i]['applicant_id'], 'rejected :', )
 					accept_status = 0
 				else:
 					accept_status = 1
@@ -97,10 +93,17 @@ class Application_status(object):
 				else:
 					accept_status = 0
 
+				gender = data[i]['applicant_gender']
+				if gender[0] == 'M' and accept_status == 1:
+					print("gender :",gender)
+					total_accept_status_male += 1
+				elif gender[0] == 'F' and accept_status == 1:
+					total_accept_status_female += 1
+
 				print(data[i]['applicant_id'],":",accept_status)
 				#if age = int(data[i]['applicant_age'])
 
-
+				dict['application_status'] = accept_status
 				dict['acceptance_packet'] = data[i]['acceptance_packet']
 				new_data.append(dict)
 
