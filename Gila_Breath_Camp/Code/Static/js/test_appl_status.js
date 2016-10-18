@@ -1,6 +1,6 @@
 getTest2 = function(id)
-{ 
-	var input = '{"data" :[{"date_id":"1"}]}';
+{ //alert(id)
+	var input = '{"data" :[{"date_id":"'+id+'"}]}';
 	document.getElementById("appl_click").onclick=''
 	$.ajax
 	(

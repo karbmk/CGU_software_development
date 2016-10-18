@@ -42,7 +42,20 @@ send_checkin = function(id)
 				if(document.getElementById("bugs_spray"+i).checked){bugs_spray = '1'}else{bugs_spray = '0'}
 				if(document.getElementById("completed"+i).innerText=="COMPLETE"){completed = '1'}else{completed = '0'}
 				
-				camp_time = "2017-01-08 00:00:00.000000"
+				var camp_time = "2017-12-11 00:00:00.000000"
+				if(id==1)
+				{
+					camp_time = "2016-12-11 00:00:00.000000"
+				}
+				else if(id==2)
+				{
+					camp_time = "2017-01-08 00:00:00.000000"
+				}
+				else if(id==3)
+				{
+					camp_time = "2017-02-12 00:00:00.000000"
+				}
+				
 				
 				var k = '{"applicant_id":"'+document.getElementById("appl"+i).innerText+'", "applicant_first_name":"'+document.getElementById("firstname"+i).innerText+'","applicant_last_name":"'+document.getElementById("lastname"+i).innerText+'","medical_form":"'+med+'","legal_form":"'+leg+'","emergency_contact":"'+emer+'","helmet":"'+hel+'","boot":"'+boot+'","sleeping_bag":"'+sleeping_bag+'","water_bottle":"'+water_bottle+'","sunscreen":"'+sunscreen+'","bugs_spray":"'+bugs_spray+'","check_in_status":"'+completed+'","camp_time_slots":"'+camp_time+'"}'
 				array.push(k)

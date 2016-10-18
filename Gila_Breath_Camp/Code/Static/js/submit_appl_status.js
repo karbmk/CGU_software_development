@@ -46,7 +46,7 @@ send_appl_status = function(id)
 		array.push(k)
 	}
 	alert(array)
-	input1 = '{"data":['+array+']}'
+	input1 = '{"data":['+array+'], "status":"'+id+'"}'
 	$.ajax
 	(
 		{

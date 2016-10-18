@@ -61,13 +61,20 @@ def test_js(request):
 	c = {}
 	c.update(csrf(request));
 	data = request.POST["vol_name"]
-	print("data"+data)
+	print((json.loads(data)["data"][0]["date_id"]))
 	try:
 		dt = choose_date.Choose_date()
 		st = dt.chooseDate()
 		print(st)
 		cis = check_in_status.Check_in_status()
-		st_get = cis.getCheckInStatus(json.dumps({"data" :[{"camp_time_slots":"2016-10-15 00:00:00.000000"}]}))
+		if json.loads(data)["data"][0]["date_id"]=="1":
+			camp_slot = "2016-12-11 00:00:00.000000"
+		elif json.loads(data)["data"][0]["date_id"]=="2":
+			camp_slot = "2016-01-08 00:00:00.000000"
+		else:
+			camp_slot = "2016-02-12 00:00:00.000000"
+		print('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
+		st_get = cis.getCheckInStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 		print(st_get)
 	except Exception as e:
 		st_get = e
@@ -86,7 +93,13 @@ def test_js_get_appl(request):
 		st = dt.chooseDate()
 		print(st)
 		cis = application_status.Application_status()
-		st_get = cis.getApplicationStatus(json.dumps({"data" :[{"camp_time_slots":"2016-10-15 00:00:00.000000"}]}))
+		if json.loads(data)["data"][0]["date_id"]=="1":
+			camp_slot = "2016-12-11 00:00:00.000000"
+		elif json.loads(data)["data"][0]["date_id"]=="2":
+			camp_slot = "2016-01-08 00:00:00.000000"
+		else:
+			camp_slot = "2016-02-12 00:00:00.000000"
+		st_get = cis.getApplicationStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 		print(st_get)
 	except Exception as e:
 		st_get = e

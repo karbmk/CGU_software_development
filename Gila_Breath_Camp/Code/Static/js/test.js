@@ -1,5 +1,19 @@
 getTest = function(id)
 { 
+//alert(typeof(id))
+var camp_slots = "2016-12-11 00:00:00.000000";
+if(id==1)
+{
+	camp_slots = "2016-12-11 00:00:00.000000"
+}
+else if(id==2)
+{
+	camp_slots = "2017-01-08 00:00:00.000000"
+}
+else if(id==3)
+{
+	camp_slots = "2017-02-12 00:00:00.000000"
+}
 
     var k =
         {
@@ -7,7 +21,7 @@ getTest = function(id)
 			user_id:"1",
 			bunkhouse_id:"",
 			tribe_id:"",
-			camp_time_slots:'2016-10-15 00:00:00.000000',
+			camp_time_slots:camp_slots,
             applicant_first_name:document.getElementById("c_first_name").value,
             applicant_last_name:document.getElementById("c_last_name").value,
             applicant_age:document.getElementById("c_age").value,
