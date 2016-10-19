@@ -2,7 +2,7 @@ send_appl_status = function(id)
 { 
 	var input = '{"data" :[{"date_id":"'+id+'"}]}';
 	var test = 0;
-	alert(id)
+	//alert(id)
 	document.getElementById("check_click").onclick=''
 	$.ajax
 	(
@@ -19,9 +19,9 @@ send_appl_status = function(id)
     		{
 				var obj = $.parseJSON(data)
 				obj_array = obj["data"]
-				alert(obj_array[0])
+				//alert(obj_array[0])
 				test = obj_array.length
-				alert(test)
+				//alert(test)
         		
     		},
     		error: function(data)

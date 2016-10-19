@@ -48,7 +48,7 @@ class Application_status(object):
 
 				accept_status = 0
 				rejected_reason = ''
-				slot = 3
+				slot = 36
 
 				camp_date = datetime.datetime.strptime(data[i]['camp_time_slots'],"%Y-%m-%d %H:%M:%S.%f")
 				application_date = datetime.datetime.strptime(data[i]['application_date'],"%Y-%m-%d %H:%M:%S.%f")
@@ -171,7 +171,11 @@ class Application_status(object):
 				data[0]['acceptance_packet'] = ""
 				data[0]['mailing_date'] = ""
 
-			data[0]['application_status'] = front_end_data[i]['application_status']
+			if front_end_data[i]['application_status'][0] == "A":
+				data[0]['application_status'] = "1"
+			elif front_end_data[i]['application_status'][0] == "R":
+				data[0]['application_status'] = "0"
+
 			data[0]['rejected_reason'] = front_end_data[i]['rejected_reason']
 
 			app_dict.append(data[0])

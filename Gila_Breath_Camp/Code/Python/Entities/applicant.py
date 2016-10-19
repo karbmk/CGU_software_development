@@ -134,7 +134,7 @@ class Applicant(object):
 
 
 	def setApplicantAddress(self,applicant_address):
-		self.applicant_address = applicant_address
+		self.applicant_address = applicant_address.replace('\n',' ')
 
 	def getApplicantAddress(self):
 		return self.applicant_address
@@ -175,7 +175,7 @@ class Applicant(object):
 
 
 	def setGuardianAddress(self,guardian_address):
-		self.guardian_address = guardian_address
+		self.guardian_address = guardian_address.replace('\n',' ')
 
 	def getGuardianAddress(self):
 		return self.guardian_address
