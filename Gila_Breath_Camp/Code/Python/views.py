@@ -68,11 +68,11 @@ def test_js(request):
 		print(st)
 		cis = check_in_status.Check_in_status()
 		if json.loads(data)["data"][0]["date_id"]=="1":
-			camp_slot = "2016-12-11 00:00:00.000000"
+			camp_slot = json.loads(st)["data"][0]["camp_time_slots1"]
 		elif json.loads(data)["data"][0]["date_id"]=="2":
-			camp_slot = "2016-01-08 00:00:00.000000"
+			camp_slot = json.loads(st)["data"][0]["camp_time_slots2"]
 		else:
-			camp_slot = "2016-02-12 00:00:00.000000"
+			camp_slot = json.loads(st)["data"][0]["camp_time_slots3"]
 		print('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 		st_get = cis.getCheckInStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 		print(st_get)
@@ -94,11 +94,11 @@ def test_js_get_appl(request):
 		print(st)
 		cis = application_status.Application_status()
 		if json.loads(data)["data"][0]["date_id"]=="1":
-			camp_slot = "2016-12-11 00:00:00.000000"
+			camp_slot = json.loads(st)["data"][0]["camp_time_slots1"]
 		elif json.loads(data)["data"][0]["date_id"]=="2":
-			camp_slot = "2016-01-08 00:00:00.000000"
+			camp_slot = json.loads(st)["data"][0]["camp_time_slots2"]
 		else:
-			camp_slot = "2016-02-12 00:00:00.000000"
+			camp_slot = json.loads(st)["data"][0]["camp_time_slots3"]
 		st_get = cis.getApplicationStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 		print(st_get)
 	except Exception as e:

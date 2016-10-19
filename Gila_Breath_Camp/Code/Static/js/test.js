@@ -1,19 +1,30 @@
 getTest = function(id)
 { 
 //alert(typeof(id))
-var camp_slots = "2016-12-11 00:00:00.000000";
-if(id==1)
-{
-	camp_slots = "2016-12-11 00:00:00.000000"
-}
-else if(id==2)
-{
-	camp_slots = "2017-01-08 00:00:00.000000"
-}
-else if(id==3)
-{
-	camp_slots = "2017-02-12 00:00:00.000000"
-}
+var camp_slots = "";
+$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../application_status_get/",
+			async:false,
+			success:function(response){
+			var obj = $.parseJSON(resopnse)
+			if(id==1)
+			{
+				camp_slots = obj["data"][0]["camp_time_slots1"]
+			}
+			else if(id==2)
+			{
+				camp_slots = obj["data"][0]["camp_time_slots2"]
+			}
+			else if(id==3)
+			{
+				camp_slots = obj["data"][0]["camp_time_slots3"]
+			}
+			}
+		}
+	);
 
     var k =
         {
