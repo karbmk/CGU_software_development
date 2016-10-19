@@ -49,73 +49,91 @@ class Application_status(object):
 				accept_status = 0
 				rejected_reason = ''
 
-				print('total_accept_status_male :',total_accept_status_male)
-				if total_accept_status_male >= 3:
-					print('applicant id', data[i]['applicant_id'], 'rejected :', )
-					accept_status = 0
-					rejected_reason = 'SLOT IS FULL FOR MALE APPLICANTS'
-				else:
-					accept_status = 1
-
-				if total_accept_status_female >= 3:
-					print('applicant id', data[i]['applicant_id'], 'rejected :', )
-					accept_status = 0
-					rejected_reason = 'SLOT IS FULL FOR FEMALE APPLICANTS'
-				else:
-					accept_status = 1
-
-				dict = {}
-				dict['applicant_id'] = data[i]['applicant_id']
-				dict['applicant_first_name'] = data[i]['applicant_first_name']
-				dict['applicant_last_name'] = data[i]['applicant_last_name']
-				
-				age = int(data[i]['applicant_age'])
-				if age >= 9 and age <=18 and accept_status != 0:
-					accept_status = 1
-					print('applicant_age')
-				else:
-					accept_status = 0
-					rejected_reason = 'AGE IS NOT BETWEEN 9 TO 18'
-
 				camp_date = datetime.datetime.strptime(data[i]['camp_time_slots'],"%Y-%m-%d %H:%M:%S.%f")
 				application_date = datetime.datetime.strptime(data[i]['application_date'],"%Y-%m-%d %H:%M:%S.%f")
 				camp_date_minus_2_month = cf.monthdelta(camp_date,-2)
-				camp_date_minus_8_month = cf.monthdelta(camp_date,-8)
+				camp_date_minus_8_month = cf.monthdelta(camp_date,-8)		
+				gender = data[i]['applicant_gender']
+				age = int(data[i]['applicant_age'])		
 
-				#print('camp_date_minus_8_month',camp_date_minus_8_month)
-				#print('application_date',application_date)
-				#print('camp_date_minus_2_month',camp_date_minus_2_month)
-				#print('accept_status',accept_status)
-
-				if application_date >= camp_date_minus_8_month and application_date <=camp_date_minus_2_month and accept_status != 0:
+				if application_date >= camp_date_minus_8_month and application_date <=camp_date_minus_2_month:
 					accept_status = 1
 					print('application_date')					
 				else:
 					accept_status = 0
 					rejected_reason = 'DATE FOR REGISTRATION HAS SURPASSED'
 
-				if data[i]['payment'] != '' and accept_status != 0:
-					payment = int(data[i]['payment'])
-					if payment >= 1000:
-						accept_status = 1
-						print('payment')
-					else:
+				if gender[0] == 'M':
+
+					print('total_accept_status_male :',total_accept_status_male)
+					if total_accept_status_male < 3 and accept_status == 1:
+						accept_status = 1				
+					elif rejected_reason == '':
+						print('applicant id', data[i]['applicant_id'], 'rejected :', )
 						accept_status = 0
-						rejected_reason = 'PAYMENT $' + str(payment) + ' IS LESS THAN $1000'
-				else:
-					accept_status = 0
+						rejected_reason = 'SLOT IS FULL FOR MALE APPLICANTS'
+					
+					if age >= 9 and age <=18 and accept_status != 0:
+						accept_status = 1
+						print('applicant_age')
+					elif rejected_reason == '':
+						accept_status = 0
+						rejected_reason = 'AGE IS NOT BETWEEN 9 TO 18'
 
-				gender = data[i]['applicant_gender']
-				if gender[0] == 'M' and accept_status == 1:
-					print("gender :",gender)
-					total_accept_status_male += 1					
-				elif gender[0] == 'F' and accept_status == 1:
-					total_accept_status_female += 1
+					if data[i]['payment'] != '' and accept_status != 0:
+						payment = int(data[i]['payment'])
+						if payment >= 1000:
+							accept_status = 1
+							print('payment')
+						elif rejected_reason == '':
+							accept_status = 0
+							rejected_reason = 'PAYMENT $' + str(payment) + ' IS LESS THAN $1000'
+					elif rejected_reason == '':
+						accept_status = 0
+						rejected_reason = 'PAYMENT $1000 IS PENDING'
 
+					if accept_status == 1:
+						total_accept_status_male += 1
 
-				print(data[i]['applicant_id'],":",accept_status)
-				#if age = int(data[i]['applicant_age'])
+				if gender[0] == 'F':
 
+					print('total_accept_status_female :',total_accept_status_female)
+					if total_accept_status_female < 3 and accept_status != 0 and gender[0] == 'F':
+						accept_status = 1				
+					elif rejected_reason == '':
+						print('applicant id', data[i]['applicant_id'], 'rejected :', )
+						accept_status = 0
+						rejected_reason = 'SLOT IS FULL FOR FEMALE APPLICANTS'
+			
+					age = int(data[i]['applicant_age'])
+					if age >= 9 and age <=18 and accept_status != 0:
+						accept_status = 1
+						print('applicant_age')
+					elif rejected_reason == '':
+						accept_status = 0
+						rejected_reason = 'AGE IS NOT BETWEEN 9 TO 18'
+
+					if data[i]['payment'] != '' and accept_status != 0:
+						payment = int(data[i]['payment'])
+						if payment >= 1000:
+							accept_status = 1
+							print('payment')
+						elif rejected_reason == '':
+							accept_status = 0
+							rejected_reason = 'PAYMENT $' + str(payment) + ' IS LESS THAN $1000'
+					elif rejected_reason == '':
+						accept_status = 0
+						rejected_reason = 'PAYMENT $1000 IS PENDING'
+
+					print(data[i]['applicant_id'],":",accept_status)
+				
+					if accept_status == 1:
+						total_accept_status_female += 1
+
+				dict = {}
+				dict['applicant_id'] = data[i]['applicant_id']
+				dict['applicant_first_name'] = data[i]['applicant_first_name']
+				dict['applicant_last_name'] = data[i]['applicant_last_name']
 				dict['application_status'] = accept_status
 				dict['acceptance_packet'] = data[i]['acceptance_packet']
 				dict['rejected_reason'] = rejected_reason
