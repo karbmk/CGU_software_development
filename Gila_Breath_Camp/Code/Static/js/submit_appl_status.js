@@ -1,6 +1,6 @@
 send_appl_status = function(id)
 { 
-	var input = '{"data" :[{"date_id":"1"}]}';
+	var input = '{"data" :[{"date_id":"'+id+'"}]}';
 	var test = 0;
 	document.getElementById("check_click").onclick=''
 	$.ajax
@@ -29,7 +29,7 @@ send_appl_status = function(id)
       		}
     	}
   	);
-	
+	alert(test)
 	var array = []
 	var stat = '1'
 	for(i=0;i<test;i++)

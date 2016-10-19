@@ -1,6 +1,6 @@
 send_checkin = function(id)
 { 
-	var input = '{"data" :[{"date_id":"1"}]}';
+	var input = '{"data" :[{"date_id":"'+id+'"}]}';
 	document.getElementById("check_click").onclick=''
 	var test = 0;
 	$.ajax
