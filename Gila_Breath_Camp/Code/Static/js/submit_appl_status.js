@@ -42,7 +42,7 @@ send_appl_status = function(id)
 		{
 			stat = '0'
 		}
-		var k = '{"applicant_id":"'+document.getElementById("appl"+i).innerText+'", "acceptance_packet":"'+stat+'"}'
+		var k = '{"applicant_id":"'+document.getElementById("appl"+i).innerText+'", "acceptance_packet":"'+stat+'", "rejected_reason":"'+document.getElementById("comments"+i).innerText+'"}'
 		array.push(k)
 	}
 	alert(array)

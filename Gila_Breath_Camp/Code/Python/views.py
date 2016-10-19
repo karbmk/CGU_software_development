@@ -23,6 +23,7 @@ from django.shortcuts import render
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from django.http import HttpResponseForbidden
 import sys
 sys.path.append("Python")
 sys.path.append("Python/Entities")

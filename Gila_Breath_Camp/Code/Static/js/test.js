@@ -5,11 +5,15 @@ var camp_slots = "";
 $.ajax
 	(
 		{
-			type:"POST",
+			type:"GET",
 			url:"../../application_status_get/",
 			async:false,
 			success:function(response){
-			var obj = $.parseJSON(resopnse)
+				alert("inside success")
+				alert(id)
+				alert(typeof(response))
+				//alert(obj["data"][0]["camp_time_slots1"])
+			var obj = $.parseJSON(response)
 			if(id==1)
 			{
 				camp_slots = obj["data"][0]["camp_time_slots1"]
@@ -22,6 +26,9 @@ $.ajax
 			{
 				camp_slots = obj["data"][0]["camp_time_slots3"]
 			}
+			},
+			error:function(response){
+				alert("error")
 			}
 		}
 	);
