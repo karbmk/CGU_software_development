@@ -162,7 +162,8 @@ class Application_status(object):
 
 			if front_end_data[i]['acceptance_packet'] == "1":
 				data[0]['acceptance_packet'] = front_end_data[i]['acceptance_packet']
-				data[0]['mailing_date'] = str(datetime.datetime.now())
+				if data[0]['mailing_date'] == "":
+					data[0]['mailing_date'] = str(datetime.datetime.now())
 			elif front_end_data[i]['acceptance_packet'] == "0":
 				data[0]['acceptance_packet'] = ""
 				data[0]['mailing_date'] = ""
