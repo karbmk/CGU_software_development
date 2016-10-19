@@ -58,21 +58,20 @@ def create_volume(request):
 
 @csrf_exempt	
 def test_js(request):
-	print ("in python")
 	c = {}
 	c.update(csrf(request));
 	data = request.POST["vol_name"]
-	print((json.loads(data)["data"][0]["date_id"]))
 	try:
 		dt = choose_date.Choose_date()
 		st = dt.chooseDate()
 		print(st)
+		camp_slot = ''
 		cis = check_in_status.Check_in_status()
 		if json.loads(data)["data"][0]["date_id"]=="1":
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots1"]
 		elif json.loads(data)["data"][0]["date_id"]=="2":
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots2"]
-		else:
+		elif json.loads(data)["data"][0]["date_id"]=="3":
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots3"]
 		print('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 		st_get = cis.getCheckInStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
@@ -98,7 +97,7 @@ def test_js_get_appl(request):
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots1"]
 		elif json.loads(data)["data"][0]["date_id"]=="2":
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots2"]
-		else:
+		elif json.loads(data)["data"][0]["date_id"]=="3":
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots3"]
 		st_get = cis.getApplicationStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 		print(st_get)
