@@ -40,7 +40,7 @@ getTest2 = function(id)
 				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
 				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
-				html += '<td id="completed'+i+'">'+check_stat+'</td>'
+				html += '<td id="completed_appl'+i+'">'+check_stat+'</td>'
 				html += '<td align="center"><input id="appl_status'+i+'" type="checkbox" name="appl_status" '+check+'></td>'
 				html += '<td id="comments'+i+'">'+obj_array[i]["rejected_reason"]+'</td>'
 				
