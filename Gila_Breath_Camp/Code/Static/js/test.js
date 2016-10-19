@@ -9,10 +9,6 @@ $.ajax
 			url:"../../application_status_get/",
 			async:false,
 			success:function(response){
-				alert("inside success")
-				alert(id)
-				alert(typeof(response))
-				//alert(obj["data"][0]["camp_time_slots1"])
 			var obj = $.parseJSON(response)
 			if(id==1)
 			{
