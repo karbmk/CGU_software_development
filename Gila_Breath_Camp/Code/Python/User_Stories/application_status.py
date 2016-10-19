@@ -48,6 +48,7 @@ class Application_status(object):
 
 				accept_status = 0
 				rejected_reason = ''
+				slot = 3
 
 				camp_date = datetime.datetime.strptime(data[i]['camp_time_slots'],"%Y-%m-%d %H:%M:%S.%f")
 				application_date = datetime.datetime.strptime(data[i]['application_date'],"%Y-%m-%d %H:%M:%S.%f")
@@ -66,7 +67,7 @@ class Application_status(object):
 				if gender[0] == 'M':
 
 					print('total_accept_status_male :',total_accept_status_male)
-					if total_accept_status_male < 3 and accept_status == 1:
+					if total_accept_status_male < slot and accept_status == 1:
 						accept_status = 1				
 					elif rejected_reason == '':
 						print('applicant id', data[i]['applicant_id'], 'rejected :', )
@@ -98,7 +99,7 @@ class Application_status(object):
 				if gender[0] == 'F':
 
 					print('total_accept_status_female :',total_accept_status_female)
-					if total_accept_status_female < 3 and accept_status != 0 and gender[0] == 'F':
+					if total_accept_status_female < slot and accept_status != 0 and gender[0] == 'F':
 						accept_status = 1				
 					elif rejected_reason == '':
 						print('applicant id', data[i]['applicant_id'], 'rejected :', )
@@ -136,6 +137,8 @@ class Application_status(object):
 				dict['applicant_last_name'] = data[i]['applicant_last_name']
 				dict['application_status'] = accept_status
 				dict['acceptance_packet'] = data[i]['acceptance_packet']
+				if rejected_reason == '':
+					rejected_reason = gender.upper()
 				dict['rejected_reason'] = rejected_reason
 				new_data.append(dict)
 

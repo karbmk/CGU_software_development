@@ -23,6 +23,8 @@ sys.path.append("Python")
 import common_functions
 sys.path.append("Python/Entities")
 import applicant
+sys.path.append("Python/User_Stories")
+import application_status
 
 class Check_in_status(object):
 
@@ -34,10 +36,26 @@ class Check_in_status(object):
 		cf = common_functions.Common_functions()
 		data = cf.getFromCsv('applicant.csv',front_end_data)
 
+		apps = application_status.Application_status()
+		new_data = apps.getApplicationStatus(front_end_str)
+
+		new_data_check = ast.literal_eval(new_data)
+		data_accepted = new_data_check['data']
+
+		accepted_applicant_id = []
+		for i in range(0,len(data_accepted)):
+			if data_accepted[i]['application_status'] == 1:
+				accepted_applicant_id.append(data_accepted[i]['applicant_id'])
+
+		return_data = []
+		for i in range(0,len(data)):
+			if data[i]['applicant_id'] in accepted_applicant_id:
+				return_data.append(data[i])
+
 		if len(data) == 0:
 			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered" }'
 		else:
-			return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
+			return_front_end_dict = '{ "data": ' + json.dumps(return_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
 		return return_front_end_dict
 
