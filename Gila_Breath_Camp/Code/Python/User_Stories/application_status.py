@@ -171,6 +171,7 @@ class Application_status(object):
 				data[0]['acceptance_packet'] = ""
 				data[0]['mailing_date'] = ""
 
+			data[0]['application_status'] = front_end_data[i]['application_status']
 			data[0]['rejected_reason'] = front_end_data[i]['rejected_reason']
 
 			app_dict.append(data[0])
