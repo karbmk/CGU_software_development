@@ -64,7 +64,7 @@ $.ajax
 	(
 		{
 			type:"POST",
-			url:"../../create_volume/",
+			url:"../../registration_ui/",
 			async:true,
 			data: 
    				{

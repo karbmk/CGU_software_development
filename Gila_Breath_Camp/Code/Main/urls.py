@@ -18,7 +18,7 @@ from Python import views
 
 urlpatterns = [
     url(r'^Python/', include('Python.local_urls')),
-    url(r'^create_volume/', views.create_volume, name='create_volume'),
+    url(r'^registration_ui/', views.registration_ui, name='registration_ui'),
 	url(r'^test_js/', views.test_js, name='test_js'),
 	url(r'^test_js_get_appl/', views.test_js_get_appl, name='test_js_get_appl'),
 	url(r'^application_status_send/', views.application_status_send, name='application_status_send'),

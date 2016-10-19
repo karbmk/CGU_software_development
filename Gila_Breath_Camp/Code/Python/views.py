@@ -42,7 +42,7 @@ def test(request):
 	return render(request,'index.html',context)
 
 @csrf_exempt
-def create_volume(request):
+def registration_ui(request):
 	c = {}
 	c.update(csrf(request));
 	data = request.POST["vol_name"]
@@ -50,10 +50,8 @@ def create_volume(request):
 	try:
 		regis = registration.Registration()
 		st = regis.register(data)
-		print(type(st))
 	except Exception as e:
 		st = e
-		print(st)
 	return HttpResponse(st,content_type="application/type")
 
 @csrf_exempt	
@@ -64,7 +62,6 @@ def test_js(request):
 	try:
 		dt = choose_date.Choose_date()
 		st = dt.chooseDate()
-		print(st)
 		camp_slot = ''
 		cis = check_in_status.Check_in_status()
 		if json.loads(data)["data"][0]["date_id"]=="1":
@@ -73,21 +70,16 @@ def test_js(request):
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots2"]
 		elif json.loads(data)["data"][0]["date_id"]=="3":
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots3"]
-		print('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 		st_get = cis.getCheckInStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
-		print(st_get)
 	except Exception as e:
 		st_get = e
-		print(st_get)
 	return HttpResponse(st_get,content_type="application/type")
 
 @csrf_exempt	
 def test_js_get_appl(request):
-	print ("in python")
 	c = {}
 	c.update(csrf(request));
 	data = request.POST["vol_name"]
-	print("data"+data)
 	try:
 		dt = choose_date.Choose_date()
 		st = dt.chooseDate()
@@ -127,29 +119,22 @@ def test_submit_checkin(request):
 
 @csrf_exempt
 def application_status_send(request):
-	print("in application_status")
 	c = {}
 	c.update(csrf(request));
 	data = request.POST["vol_name"]
-	print(data)
 	try:
 		a = application_status.Application_status()
-		print("in try")
 		st = a.updateApplicationStatus(data)
-		print(st)
 	except Exception as e:
 		st = e
-		print(e)
 	return HttpResponse(st,content_type="application/type")
 
 def application_status_get(request):
 	try:
 		dt = choose_date.Choose_date()
 		st = dt.chooseDate()
-		print(st)
 	except Exception as e:
 		st = e
-		print(e)
 	return HttpResponse(st,content_type="application/type")
 
 
