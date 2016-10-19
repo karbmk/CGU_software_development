@@ -29,7 +29,6 @@ send_appl_status = function(id)
       		}
     	}
   	);
-	alert(test)
 	var array = []
 	var stat = '1'
 	for(i=0;i<test;i++)
@@ -45,7 +44,6 @@ send_appl_status = function(id)
 		var k = '{"applicant_id":"'+document.getElementById("appl"+i).innerText+'", "acceptance_packet":"'+stat+'", "rejected_reason":"'+document.getElementById("comments"+i).innerText+'"}'
 		array.push(k)
 	}
-	alert(array)
 	input1 = '{"data":['+array+'], "status":"'+id+'"}'
 	$.ajax
 	(

@@ -64,7 +64,6 @@ $.ajax
 			application_status:""
         };
     var input = JSON.stringify({data:[k]})
-	alert(typeof(input))
 	$.ajax
 	(
 		{
@@ -94,7 +93,6 @@ $.ajax
     		},
     		error: function(data)
     		{
-        		debugger;
         		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
       		}
     	}
