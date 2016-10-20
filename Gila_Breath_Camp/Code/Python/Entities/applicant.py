@@ -18,6 +18,7 @@
 # 4.0		13-OCT-2016		ROHAN SAWANT			Changed value of tribe_id and bunkhouse_id = 0
 # 5.0		13-OCT-2016		ROHAN SAWANT			Added transformation to setAge
 # 6.0		15-OCT-2016		ROHAN SAWANT			Added user_id getter-setter
+# 7.0       19-OCT-2016		SOHEIL BOUZARI			Added .replace(" ","").isalpha(): ApplicantFirstName, ApplicantLastName, GuardianFirstName, GuardianLastName  
 # ================================================================================
 
 from datetime import datetime
