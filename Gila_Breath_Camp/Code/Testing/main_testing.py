@@ -30,6 +30,6 @@ def main_test_register_test():
 		expected_applicant_id.append(expected_errors_data[i]['applicant_id'])
 	for j in range(0,len(actual_errors_data)):
 		if actual_errors_data[j]['applicant_id'] in expected_applicant_id:
-			print(expected_errors_data[j]['applicant_id'],":","success")
+			print(actual_errors_data[j]['applicant_id'],":","success")
 
 main_test_register_test()
