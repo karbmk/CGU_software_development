@@ -95,7 +95,7 @@ class Applicant(object):
 
 	def setApplicantFirstName(self,applicant_first_name):
 		applicant_first_name = applicant_first_name.strip()
-		if applicant_first_name.isalpha():
+		if applicant_first_name.replace(" ","").isalpha():
 			self.applicant_first_name = applicant_first_name.upper()
 		else:
 			return "Camper First Name: Enter only alphabets"
@@ -106,7 +106,7 @@ class Applicant(object):
 
 	def setApplicantLastName(self,applicant_last_name):
 		applicant_last_name = applicant_last_name.strip()
-		if applicant_last_name.isalpha():
+		if applicant_last_name.replace(" ","").isalpha():
 			self.applicant_last_name = applicant_last_name.upper()
 		else:
 			return "Camper Last Name: Enter only alphabets"
@@ -142,7 +142,7 @@ class Applicant(object):
 
 	def setGuardianFirstName(self,guardian_first_name):
 		guardian_first_name = guardian_first_name.strip()
-		if guardian_first_name.isalpha():
+		if guardian_first_name.replace(" ","").isalpha():
 			self.guardian_first_name = guardian_first_name.upper()
 		else:
 			self.guardian_first_name = ''
@@ -154,7 +154,7 @@ class Applicant(object):
 
 	def setGuardianLastName(self,guardian_last_name):
 		guardian_last_name = guardian_last_name.strip()
-		if guardian_last_name.isalpha():
+		if guardian_last_name.replace(" ","").isalpha():
 			self.guardian_last_name = guardian_last_name.upper()
 		else:
 			return "Parent/Guardian Last Name: Enter only alphabets"
