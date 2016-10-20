@@ -18,6 +18,7 @@
 # 4.0		13-OCT-2016		ROHAN SAWANT			Changed value of tribe_id and bunkhouse_id = 0
 # 5.0		13-OCT-2016		ROHAN SAWANT			Added transformation to setAge
 # 6.0		15-OCT-2016		ROHAN SAWANT			Added user_id getter-setter
+# 7.0       19-OCT-2016		SOHEIL BOUZARI			Added .replace(" ","").isalpha(): ApplicantFirstName, ApplicantLastName, GuardianFirstName, GuardianLastName  
 # ================================================================================
 
 from datetime import datetime
@@ -95,7 +96,7 @@ class Applicant(object):
 
 	def setApplicantFirstName(self,applicant_first_name):
 		applicant_first_name = applicant_first_name.strip()
-		if applicant_first_name.isalpha():
+		if applicant_first_name.replace(" ","").isalpha():
 			self.applicant_first_name = applicant_first_name.upper()
 		else:
 			return "Camper First Name: Enter only alphabets"
@@ -106,7 +107,7 @@ class Applicant(object):
 
 	def setApplicantLastName(self,applicant_last_name):
 		applicant_last_name = applicant_last_name.strip()
-		if applicant_last_name.isalpha():
+		if applicant_last_name.replace(" ","").isalpha():
 			self.applicant_last_name = applicant_last_name.upper()
 		else:
 			return "Camper Last Name: Enter only alphabets"
@@ -142,7 +143,7 @@ class Applicant(object):
 
 	def setGuardianFirstName(self,guardian_first_name):
 		guardian_first_name = guardian_first_name.strip()
-		if guardian_first_name.isalpha():
+		if guardian_first_name.replace(" ","").isalpha():
 			self.guardian_first_name = guardian_first_name.upper()
 		else:
 			self.guardian_first_name = ''
@@ -154,7 +155,7 @@ class Applicant(object):
 
 	def setGuardianLastName(self,guardian_last_name):
 		guardian_last_name = guardian_last_name.strip()
-		if guardian_last_name.isalpha():
+		if guardian_last_name.replace(" ","").isalpha():
 			self.guardian_last_name = guardian_last_name.upper()
 		else:
 			return "Parent/Guardian Last Name: Enter only alphabets"
