@@ -21,11 +21,11 @@ getTest3 = function(id)
 				{
 					if(obj_array[i]["acceptance_packet"]=='1')
 					{
-						check = 'checked'
+						check = 'SENT'
 					}
 					else
 					{
-						check = ''
+						check = 'NOT SENT'
 					}
 					if(obj_array[i]["application_status"]=='1')
 					{
@@ -41,7 +41,7 @@ getTest3 = function(id)
 				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
 				html += '<td id="completed_appl'+i+'">'+check_stat+'</td>'
-				html += '<td align="center"><input id="appl_status'+i+'" type="checkbox" name="appl_status" '+check+'></td>'
+				html += '<td id="appl_status_cancel'+i+'" align="center">'+check+'</td>'
 				html += '<td align="center"><input id="cancel'+i+'" type="checkbox" name="appl_status" '+check+'></td>'
 				
 				html += '</tr>'
