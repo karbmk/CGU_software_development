@@ -43,7 +43,7 @@ class Notice(object):
 
 		cf = common_functions.Common_functions() 
 		data = cf.getFromCsv('applicant.csv',front_end_data)
-		
+		print(data)
 
 		data1 = self.getDataFromAppStatus(front_end_str)
 
@@ -51,9 +51,18 @@ class Notice(object):
 		data[0]["application_status"] = data1[0]["application_status"]
 
 		
-		with open("Dustbin/Jemin/a_template.txt", "r") as myfile:
+		with open("Dustbin/Jemin/r_template.txt", "r") as myfile:
 			template = myfile.readlines()
-			print(template)
+			temp = '\n'.join(template)
+
+		print(temp)
+		#print(data[0].keys()[0])
+		for i in data[0].keys():
+			print(i)
+			if('*'+i+'*' in temp):
+				print ("yes")
+				
+
 
 ap = Notice()
 ap.acceptance(front_end_str)
