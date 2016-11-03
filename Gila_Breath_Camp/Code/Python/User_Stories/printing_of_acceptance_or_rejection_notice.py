@@ -13,12 +13,13 @@
 # VER	|	DATE       	|	MODIFIED BY  		|  	CHANGE DESCRIPTION
 # -------------------------------------------------------------------------------
 # 1.0   	1-Nov-2016  	Jemin Gohil    		    Started coding
-# 
+# 2.0       3-Nov-2016      Jemin Gohil              Logic for printing rejection notice
 # ================================================================================
 
 import sys
 import ast
 import json
+import os.path
 sys.path.append("Python")
 import common_functions
 sys.path.append("Python/Entities")
@@ -43,7 +44,7 @@ class Notice(object):
 
 		cf = common_functions.Common_functions() 
 		data = cf.getFromCsv('applicant.csv',front_end_data)
-		print(data)
+		#print(data)
 
 		data1 = self.getDataFromAppStatus(front_end_str)
 
@@ -57,12 +58,21 @@ class Notice(object):
 
 		print(temp)
 		#print(data[0].keys()[0])
-		for i in data[0].keys():
-			print(i)
-			if('*'+i+'*' in temp):
-				print ("yes")
-				
-
+		for j in range(0,len(data)):
+			t = temp
+			for i in data[j].keys():
+				#print(i)
+				if('*'+i+'*' in temp):
+					t = t.replace('*'+i+'*',"abc")
+					print ("yes")
+			#print(t)
+				save_path = 'C:/Users/Acer/Desktop/CGU/SD/Bitbucket/software_development_cgu/Gila_Breath_Camp/Code/Dustbin/Jemin/'
+				name_of_file = data[0]["applicant_first_name"]+"_"+data[0]["applicant_last_name"]+"_"+data[0]["applicant_id"]+"_rejection_letter"
+				completeName = os.path.join(save_path, name_of_file + ".txt")
+				text_file = open(completeName,"w")
+				text_file.write(t)
+				text_file.close()
+			print(t)
 
 ap = Notice()
 ap.acceptance(front_end_str)
