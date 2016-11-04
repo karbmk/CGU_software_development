@@ -114,7 +114,7 @@ class Application_status(object):
 				dict['applicant_last_name'] = data[i]['applicant_last_name']
 				dict['application_status'] = applicant_status
 				dict['acceptance_packet'] = data[i]['acceptance_packet']
-				dict['rejected_reason'] = violations
+				dict['violations'] = violations
 				
 				new_data.append(dict)
 

@@ -28,14 +28,12 @@ sys.path.append("Python/User_Stories")
 import application_status
 
 front_end_str = json.dumps({"data" :[{"applicant_id":"1"}]}) #Need to remove
+
 class Notice(object):
 	"""docstring for AcceptanceNotice"""
 	def __init__(self):
 		pass
 		
-	def getDataFromAppStatus(self,front_end_str):
-		return [{"applicant_id":"1","applicant_first_name":"ROHAN","applicant_last_name":"SAWANT","application_status":"0","violations":["Age Not in Range","Due date passed"]}]
-
 	def acceptance(self,front_end_str):
 		
 		front_end_dict = ast.literal_eval(front_end_str)
@@ -46,11 +44,11 @@ class Notice(object):
 		data = cf.getFromCsv('applicant.csv',front_end_data)
 		#print(data)
 
-		data1 = self.getDataFromAppStatus(front_end_str)
+		app = application_status.Application_status(front_end_str)
+		data1 = app.getApplicationStatus(front_end_str)
 
 		data[0]["violations"] = data1[0]["violations"]
 		data[0]["application_status"] = data1[0]["application_status"]
-
 		
 		with open("Dustbin/Jemin/r_template.txt", "r") as myfile:
 			template = myfile.readlines()
@@ -66,7 +64,7 @@ class Notice(object):
 					t = t.replace('*'+i+'*',"abc")
 					print ("yes")
 			#print(t)
-				save_path = 'C:/Users/Acer/Desktop/CGU/SD/Bitbucket/software_development_cgu/Gila_Breath_Camp/Code/Dustbin/Jemin/'
+				save_path = 'Dustbin/Jemin/'
 				name_of_file = data[0]["applicant_first_name"]+"_"+data[0]["applicant_last_name"]+"_"+data[0]["applicant_id"]+"_rejection_letter"
 				completeName = os.path.join(save_path, name_of_file + ".txt")
 				text_file = open(completeName,"w")
