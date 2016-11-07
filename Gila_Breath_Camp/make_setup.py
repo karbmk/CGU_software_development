@@ -52,12 +52,17 @@ def createSpaceInProgramFiles(text_file):
 	text_file.write('PAUSE\n')
 	text_file.write('\n')
 
-def makeMkdir():
-	files = [f for f in os.listdir('.') if os.path.isfile(f)]
-	for f in files:
-		print(f)
-	print([os.path.abspath(name) for name in os.listdir(".") if os.path.isdir(name)])
-	text_file.write("mkdir")
+def makeMkdir(file_path):
+	all_folders_files = [name for name in os.listdir(file_path)]
+	segregate_folders_files = {'folders':[],'files':[]}
+	for name in all_folders_files:
+		print(name)
+		if name.find('.')!=-1:
+			segregate_folders_files['files'].append(name)
+		else:
+			segregate_folders_files['folders'].append(name)
+	print(segregate_folders_files)
+	#text_file.write("mkdir")
 
 def main():
 	text_file = createBatFile()
@@ -67,5 +72,6 @@ def main():
 	text_file.write('\n')
 
 #main()
-makeMkdir()
+file_path = input('Enter the path plus the folder name for which you need to create setup.exe :\n')
+makeMkdir(file_path)
 
