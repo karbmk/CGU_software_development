@@ -1,4 +1,5 @@
 import os
+from PIL import Image
 
 def createBatFile():
 	return open("setup.bat","w")
@@ -52,17 +53,18 @@ def createSpaceInProgramFiles(text_file):
 	text_file.write('PAUSE\n')
 	text_file.write('\n')
 
-def makeMkdir(file_path):
+def makeCmdForFilesFolders(text_file,file_path):
 	all_folders_files = [name for name in os.listdir(file_path)]
 	segregate_folders_files = {'folders':[],'files':[]}
 	for name in all_folders_files:
-		print(name)
 		if name.find('.')!=-1:
 			segregate_folders_files['files'].append(name)
 		else:
 			segregate_folders_files['folders'].append(name)
+			text_file.write('mkdir ' + name + '\n')
+			print(file_path + '\\' + name)
+			makeCmdForFilesFolders(text_file,file_path + '\\' + name)
 	print(segregate_folders_files)
-	#text_file.write("mkdir")
 
 def main():
 	text_file = createBatFile()
@@ -72,6 +74,28 @@ def main():
 	text_file.write('\n')
 
 #main()
+text_file = createBatFile()
+createSpaceInProgramFiles(text_file)
 file_path = input('Enter the path plus the folder name for which you need to create setup.exe :\n')
-makeMkdir(file_path)
+#makeCmdForFilesFolders(text_file,file_path)
+jpgfile = Image.open("Pic.jpg")
+print(jpgfile)
+print (jpgfile.bits, jpgfile.size, jpgfile.format)
+
+import PIL.Image
+import io
+
+image_data = None
+
+def imagetopy(image, output_file):
+	with open(image, 'rb') as fin:
+		image_data = fin.read()
+
+	with open(output_file, 'w') as fout:
+		fout.write('image_data = '+ repr(image_data))
+
+def pytoimage(pyfile):
+	pymodule = __import__(pyfile)
+	img = PIL.Image.open(io.BytesIO(pymodule.image_data))
+	img.show()
 
