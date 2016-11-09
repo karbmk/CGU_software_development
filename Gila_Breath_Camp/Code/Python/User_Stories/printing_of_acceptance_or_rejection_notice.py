@@ -44,12 +44,18 @@ class Notice(object):
 		data = cf.getFromCsv('applicant.csv',front_end_data)
 		#print(data)
 
-		app = application_status.Application_status(front_end_str)
+		app = application_status.Application_status()
 		data1 = app.getApplicationStatus(front_end_str)
+		data2 = ast.literal_eval(data1)
+		data3 = data2['data']
 
-		data[0]["violations"] = data1[0]["violations"]
-		data[0]["application_status"] = data1[0]["application_status"]
-		
+		print(data)
+		print("data3[0]['violations'] :",data3[0]["violations"])
+
+		data[0]["violations"] = data3[0]["violations"]
+		data[0]["application_status"] = data3[0]["application_status"]
+	
+
 		with open("Dustbin/Jemin/r_template.txt", "r") as myfile:
 			template = myfile.readlines()
 			temp = '\n'.join(template)
@@ -61,7 +67,7 @@ class Notice(object):
 			for i in data[j].keys():
 				#print(i)
 				if('*'+i+'*' in temp):
-					t = t.replace('*'+i+'*',"abc")
+					t = t.replace('*'+i+'*',"Rohan")
 					print ("yes")
 			#print(t)
 				save_path = 'Dustbin/Jemin/'
