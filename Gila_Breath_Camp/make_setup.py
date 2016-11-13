@@ -1,10 +1,12 @@
 import os
-from PIL import Image
+import PIL.Image
+import io
+import re
 
 def createBatFile():
 	return open("setup.bat","w")
 
-def createSpaceInProgramFiles(text_file):
+def createSpaceInProgramFiles(text_file,filename):
 	text_file.write('@echo off\n')
 	text_file.write('\n')
 	text_file.write(':: BatchGotAdmin\n')
@@ -37,57 +39,50 @@ def createSpaceInProgramFiles(text_file):
 	text_file.write(':-------------------------------------- \n')
 	text_file.write('\n')
 	text_file.write('@echo off\n')
-	text_file.write('TITLE Installing Gila_Breath_Camp\n')
+	text_file.write('TITLE Installing ' + filename + '\n')
 	text_file.write('cd C:\Program Files\n')
-	text_file.write('if exist "Gila_Breath_Camp" (\n')
-	text_file.write('	echo Gila_Breath_Camp already exist\n')
-	text_file.write('	rmdir Gila_Breath_Camp\n')
-	text_file.write('	echo removed Gila_Breath_Camp\n')
-	text_file.write('	mkdir Gila_Breath_Camp\n')
-	text_file.write('	echo created new folder Gila_Breath_Camp\n')
+	text_file.write('if exist "' + filename + '" (\n')
+	text_file.write('	echo ' + filename + ' already exist\n')
+	text_file.write('	rmdir ' + filename + '\n')
+	text_file.write('	echo removed ' + filename + '\n')
+	text_file.write('	mkdir ' + filename + '\n')
+	text_file.write('	echo created new folder ' + filename + '\n')
 	text_file.write(') else (\n')
-	text_file.write('	mkdir Gila_Breath_Camp\n')
-	text_file.write('	echo created folder Gila_Breath_Camp\n')
+	text_file.write('	mkdir ' + filename + '\n')
+	text_file.write('	echo created folder ' + filename + '\n')
 	text_file.write(')\n')
-	text_file.write('cd Gila_Breath_Camp\n')
+	text_file.write('cd ' + filename + '\n')
 	text_file.write('PAUSE\n')
 	text_file.write('\n')
 
-def makeCmdForFilesFolders(text_file,file_path):
+def differentiateFilesFolders(file_path):
 	all_folders_files = [name for name in os.listdir(file_path)]
-	segregate_folders_files = {'folders':[],'files':[]}
+	segregate_folders_files = {'folders':[],'files':[],'path':''}
 	for name in all_folders_files:
-		if name.find('.')!=-1:
-			segregate_folders_files['files'].append(name)
-		else:
-			segregate_folders_files['folders'].append(name)
-			text_file.write('mkdir ' + name + '\n')
-			print(file_path + '\\' + name)
-			makeCmdForFilesFolders(text_file,file_path + '\\' + name)
-	print(segregate_folders_files)
+		if name not in ['__pycache__'] and name[-4:] not in ['.pyc']:
+			if name.find('.') != -1:
+				segregate_folders_files['files'].append(name)
+			else:
+				segregate_folders_files['folders'].append(name)
+	return segregate_folders_files
 
-def main():
-	text_file = createBatFile()
-	createSpaceInProgramFiles(text_file)
+def makeLevels(file_path,proj_name):
+	""" Make levels at which files are present """
+	levels = {0:[]}
+	seed = differentiateFilesFolders(file_path)
+	last_filename = file_path.split('\\')[-1]
+	seed['path'] = "C:\\Program Files\\ " + proj_name + "\\" + last_filename
+	level = 0
+	levels[level].append(seed)
+	folder_count = 0
 
-	#End of line
-	text_file.write('\n')
+	#while levels[level][folder_count] != []:
+	#	levels[level][folder_count] = []
 
-#main()
-text_file = createBatFile()
-createSpaceInProgramFiles(text_file)
-file_path = input('Enter the path plus the folder name for which you need to create setup.exe :\n')
-#makeCmdForFilesFolders(text_file,file_path)
-jpgfile = Image.open("Pic.jpg")
-print(jpgfile)
-print (jpgfile.bits, jpgfile.size, jpgfile.format)
-
-import PIL.Image
-import io
-
-image_data = None
+	return levels
 
 def imagetopy(image, output_file):
+	image_data = None
 	with open(image, 'rb') as fin:
 		image_data = fin.read()
 
@@ -98,4 +93,23 @@ def pytoimage(pyfile):
 	pymodule = __import__(pyfile)
 	img = PIL.Image.open(io.BytesIO(pymodule.image_data))
 	img.show()
+
+def main():
+	#text_file = createBatFile()
+	#createSpaceInProgramFiles(text_file)
+	#file_path = input('Enter the path plus the folder name for which you need to create setup.exe :\n')
+	file_path = "C:\\Users\\Rohan\\Desktop\\Folder"
+	#file_path = file_path.replace("\\","\\\\")
+	#jpgfile = Image.open("Pic.jpg")
+	#End of line
+	levels = makeLevels(file_path,"C:\Program Files\Gila_Breath_Camp")
+	#text_file.write('\n')
+	print(levels)
+
+main()
+
+
+
+
+
 
