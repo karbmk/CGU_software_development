@@ -1,5 +1,5 @@
 Dear *guardian_last_name*,
-This is to inform you that your child *applicant_first_name* is not admitted for the summer camp because of following  *rejected_reason*. We look forward for your child’s application for the coming camps.
+This is to inform you that your child *applicant_first_name* is not admitted for the summer camp because of following reasons: *violations*. We look forward for your child’s application for the coming camps.
 
 Director
 GILA BREATH CAMP

@@ -107,7 +107,7 @@ class Application_status(object):
 				if len(violations) == 0:
 					accepted_count[gender] += 1
 					applicant_status = 1
-					violations = ('NO VIOLATIONS')
+					violations.append('NO VIOLATIONS')
 
 				dict['applicant_id'] = data[i]['applicant_id']
 				dict['applicant_first_name'] = data[i]['applicant_first_name']
