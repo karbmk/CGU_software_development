@@ -41,6 +41,7 @@ $.ajax
             applicant_age:document.getElementById("c_age").value,
             applicant_gender:document.getElementById("c_sex").value,
             applicant_address:document.getElementById("c_address").value,
+			guardian_ssn:document.getElementById("g_ssn").value,
             guardian_first_name:document.getElementById("g_first_name").value,
             guardian_last_name:document.getElementById("g_last_name").value,
             guardian_address:document.getElementById("g_address").value,

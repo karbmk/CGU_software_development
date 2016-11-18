@@ -692,7 +692,7 @@ table.fixed td { overflow: hidden; }
 /*-------------------------------------------------*/
 /* = Buttons /*
 ---------------------------------------------------*/
-.form-btn { background: #00ce92 ; padding: 4px 8px; text-transform: uppercase; letter-spacing: 1px;  color: #fff; transition: .3s ease;}
+.form-btn { background: #194e3f ; padding: 4px 8px; text-transform: uppercase; letter-spacing: 1px;  color: #fff; transition: .3s ease;}
 .form-btn:hover, .form-btn:focus { color: #fff; background-color: #6d6e70; }
 .form-horizontal .form-btn { margin-top: 20px; }
 
