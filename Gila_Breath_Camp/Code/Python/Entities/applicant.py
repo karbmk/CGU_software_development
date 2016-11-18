@@ -5,7 +5,7 @@
 # ===============================================================================
 # FILE NAME      : applicant.py
 # PURPOSE        : Reading and Writing to "User.csv"
-# AUTHOR         : JEMIN GOHIL, SOHEIL BOUZARI
+# AUTHOR         : JEMIN GOHIL,SOHEIL BOUZARI
 # CREATION DATE  : 02-OCT-2016
 # PENDING 		 :
 # -------------------------------------------------------------------------------
