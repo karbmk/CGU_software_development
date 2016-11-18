@@ -64,9 +64,9 @@
 				<li role="presentation" class="active"><a href="#tab1" data-toggle="tab">REGISTER</a></li>
 				<li id="appl_click" onclick="getTest2(2)" role="presentation"><a href="#tab2" data-toggle="tab">APPLICATION STATUS</a></li>
 				<li id="check_click" onclick="getTest1(2)" role="presentation"><a href="#tab3" data-toggle="tab">CHECK - IN</a></li>
-				<!--<li role="presentation"><a href="#tab4" data-toggle="tab">Interim Financials</a></li>
-				<li role="presentation"><a href="#tab5" data-toggle="tab">Related Company Information</a></li>
-				<li role="presentation"><a href="#tab6" data-toggle="tab">uploads</a></li>-->
+				<li role="presentation"><a href="#tab4" data-toggle="tab">Cancel</a></li>
+				<li role="presentation"><a href="#tab5" data-toggle="tab">BUNKHOUSES</a></li>
+				<li role="presentation"><a href="#tab6" data-toggle="tab">TRIBES</a></li>
 			</ul>
 		</div>
 
@@ -1534,7 +1534,27 @@ function myFunction()
 
 				<!-- tab4-Start -->
 				<div class="tab-pane fade in" id="tab4">
-					<div class="box col-md-9">
+				
+				<div class="panel">
+				    
+				      <div class="">
+				      	<div class="t-box">
+					       	<table id="cancel_status" class="table table-bordered">
+					       	  <tr>
+					       	    <th>Application no.</th>
+					       	    <th>First Name</th>
+					       	    <th>Last Name</th>
+								<th>Application Status</th>
+					       	    <th>Notice of acceptance and packet of arrival</th>
+								<th>Cancel</th>
+					       	  </tr>
+
+					       	</table>
+							<input type="submit" onclick="send_appl_status(1)" value="SUBMIT" id="btnCmp" name="btnCmp" class="btn form-btn">
+				       	</div>
+				      </div>
+				  </div>
+					<div style = "display:none;" class="box col-md-9">
 						<div class="ctrl-bt pull-right">
 							<i class="add-t">Add another</i>
 							<a id="lnkInFi" name="lnkInFi" href="#" class="add">+</a>
