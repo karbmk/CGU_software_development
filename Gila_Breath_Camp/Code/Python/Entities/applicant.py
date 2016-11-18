@@ -56,7 +56,7 @@ class Applicant(object):
 		self.acceptance_packet = ''
 		self.mailing_date = ''
 		self.rejected_reason = ''
-
+		self.guardian_ssn = ''
 
 	
 	def setApplicantId(self,applicant_id):
@@ -296,4 +296,11 @@ class Applicant(object):
 
 	def getRejectedReason(self):
 		return self.rejected_reason
+
+
+	def setGuardianSsn(self,guardian_ssn):
+		self.guardian_ssn = guardian_ssn
+
+	def getGuardianSsn(self):
+		return self.guardian_ssn
 

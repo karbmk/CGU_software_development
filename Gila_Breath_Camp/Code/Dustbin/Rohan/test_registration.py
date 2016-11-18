@@ -31,7 +31,8 @@ front_end_str1 = json.dumps({"data" :[{
 "sunscreen":"",
 "bugs_spray":"",
 "check_in_status":"",
-"application_status":""
+"application_status":"",
+"guardian_ssn":"DHND128839"
 }]})
 
 front_end_str2 = json.dumps({"data" :[{
@@ -154,7 +155,8 @@ front_end_str5 = json.dumps({"data" :[{
 "sunscreen":"",
 "bugs_spray":"",
 "check_in_status":"",
-"application_status":""
+"application_status":"",
+"guardian_ssn":"DHND128839"
 }]})
 
 regis = registration.Registration()
@@ -162,6 +164,6 @@ regis = registration.Registration()
 #st = regis.register(front_end_str3)
 #st = regis.register(front_end_str4)
 #st = regis.register(front_end_str2)
-st = regis.register(front_end_str5)
+st = regis.register(front_end_str1)
 #print(st)
 
