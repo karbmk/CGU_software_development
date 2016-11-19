@@ -46,6 +46,7 @@ getTest1 = function(id)
 				html += '<td><input onchange="myFunction()" id="sunscreen'+i+'" type="checkbox" name="sunscreen" '+sunscreen+'></td>'
 				html += '<td><input onchange="myFunction()" id="bugs_spray'+i+'" type="checkbox" name="bugs_spray" '+bugs_spray+'></td>'
 				html += '<td id="completed'+i+'">'+complete+'</td>'
+				html +='<button>PRINT</button>'
 				html += '</tr>'
 				$("#checkin").append(html);
 				}
