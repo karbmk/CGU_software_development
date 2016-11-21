@@ -13,6 +13,7 @@
 # VER	|	DATE       	|	MODIFIED BY  		|  	CHANGE DESCRIPTION
 # -------------------------------------------------------------------------------
 # 1.0   	17-NOV-2016  	ROHAN SAWANT    		Started coding
+# 2.0		20-NOV-2016		ROHAN SAWANT			Completed function getCustomerPriorities
 # ================================================================================
 
 import sys
@@ -26,8 +27,8 @@ import applicant
 
 class Priorities(object):
 
-	def customerPriorities(self,front_end_str):
-		""" Taking priorities from Customer """
+	def getCustomerPriorities(self,front_end_str):
+		""" get data for priorities from Customer """
 
 		cf = common_functions.Common_functions()
 		appl = applicant.Applicant()
@@ -36,23 +37,31 @@ class Priorities(object):
 		front_end_data = front_end_dict['data'][0]
 
 		data = cf.getFromCsv('applicant.csv',front_end_data)
-		new_data = []
-		list_of_names = []
 
-		for i in range(0,range(len(data))):
-			list_of_names.append(data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name'])
+		if data == []:
+			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered"}'
+		else:
+			new_data = []
+			list_of_names = []
+			list_of_ssn = []
 
-		for j in range(0,range(len(data))):
-			new_dict = {}
-			new_dict['applicant_id'] = data[j]['applicant_id']
-			new_dict['applicant_name'] = data[j]['applicant_last_name'] + ', ' + data[j]['applicant_first_name']
-			new_data.append(new_dict)
+			for i in range(0,len(data)):
+				list_of_names.append(data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name'])
+				list_of_ssn.append(data[i]['guardian_ssn'])
 
-		new_data['applicant_name_together_with'] = list_of_names
+			for j in range(0,len(data)):
+				new_dict = {}
+				new_dict['applicant_id'] = data[j]['applicant_id']
+				new_dict['applicant_name'] = data[j]['applicant_last_name'] + ', ' + data[j]['applicant_first_name']
+				new_dict['applicant_name_together_with'] = list_of_names
+				new_dict['guardian_ssn_together_with'] = list_of_ssn
+				new_dict['applicant_name_not_together_with'] = list_of_names
+				new_dict['guardian_ssn_not_together_with'] = list_of_ssn
+				new_data.append(new_dict)
 
-		
+			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
-
+		return return_front_end_dict
 
 
 
