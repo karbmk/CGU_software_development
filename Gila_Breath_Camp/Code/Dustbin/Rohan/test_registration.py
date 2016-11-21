@@ -156,7 +156,7 @@ front_end_str5 = json.dumps({"data" :[{
 "bugs_spray":"",
 "check_in_status":"",
 "application_status":"",
-"guardian_ssn":"DHND128839"
+"guardian_ssn":"000-01-2883"
 }]})
 
 front_end_str10 = json.dumps({"data" :[{"guardian_ssn":"342-909-8981"}]})
@@ -165,7 +165,7 @@ regis = registration.Registration()
 #st = regis.register(front_end_str1)
 #st = regis.register(front_end_str3)
 #st = regis.register(front_end_str4)
-#st = regis.register(front_end_str2)
-st = regis.alreadySsn(front_end_str10)
+st = regis.register(front_end_str5)
+#st = regis.alreadySsn(front_end_str10)
 print(st)
 
