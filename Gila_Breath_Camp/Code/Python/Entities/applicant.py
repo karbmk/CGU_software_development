@@ -19,6 +19,7 @@
 # 5.0		13-OCT-2016		ROHAN SAWANT			Added transformation to setAge
 # 6.0		15-OCT-2016		ROHAN SAWANT			Added user_id getter-setter
 # 7.0       19-OCT-2016		SOHEIL BOUZARI			Added .replace(" ","").isalpha(): ApplicantFirstName, ApplicantLastName, GuardianFirstName, GuardianLastName  
+# 8.0		20-NOV-2016		ROHAN SAWANT			Changed return for cancel flag
 # ================================================================================
 
 from datetime import datetime
@@ -305,7 +306,7 @@ class Applicant(object):
 			if guardian_ssn.replace("-","").isdigit():
 				self.guardian_ssn = guardian_ssn
 			else:
-				pass
+				return "SSN can't have anything except alphabets"
 		else:
 			return "Enter Proper Social Security Number in 'AAA-GG-SSSS' format"
 
