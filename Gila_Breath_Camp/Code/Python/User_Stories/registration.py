@@ -106,3 +106,6 @@ class Registration(object):
 			return_front_end_dict = '{ "data": [' + json.dumps(appl) + '], "status":"success", "message":"WE ALREADY HAVE DATA FOR SSN : ' + ssn_data[0]['guardian_ssn'] + '|DO YOU WANT TO USE IT?"}'
 
 		return return_front_end_dict
+
+
+

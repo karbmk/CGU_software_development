@@ -21,12 +21,16 @@
 # 6.0       10-OCT-2016		ROHAN SAWANT			Created update data to csv function (many rows)
 # 7.0       10-OCT-2016		ROHAN SAWANT			Created update data to csv function (one row)
 # 8.0		15-OCT-2016		ROHAN SAWANT			Added suffix function for Integers
+# 9.0		20-NOV-2016		ROHAN SAWANT			Added function to get data for accepted applicants
 # ===============================================================================
 
 import csv
 import sys
 import calendar
+import ast
 sys.path.append("Csv")
+sys.path.append("Python/User_Stories")
+import application_status
 
 class Common_functions(object):
 
@@ -164,4 +168,31 @@ class Common_functions(object):
 						list_dict_data_where.append(list_dict_data[i])
 
 		return list_dict_data_where
+
+	def getAcceptedApplicants(self,front_end_str):
+		""" Read from csv only accepted applicants """
+
+		front_end_dict = ast.literal_eval(front_end_str)
+		front_end_data = front_end_dict['data'][0]
+
+		data = self.getFromCsv('applicant.csv',front_end_data)
+
+		apps = application_status.Application_status()
+		new_data = apps.getApplicationStatus(front_end_str)
+
+		new_data_check = ast.literal_eval(new_data)
+		data_accepted = new_data_check['data']
+
+		accepted_applicant_id = []
+		for i in range(0,len(data_accepted)):
+			if data_accepted[i]['application_status'] == 1:
+				accepted_applicant_id.append(data_accepted[i]['applicant_id'])
+
+		accepted_data = []
+		for i in range(0,len(data)):
+			if data[i]['applicant_id'] in accepted_applicant_id:
+				accepted_data.append(data[i])
+
+		return accepted_data
+
 
