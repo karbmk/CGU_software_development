@@ -57,6 +57,7 @@ class Applicant(object):
 		self.mailing_date = ''
 		self.rejected_reason = ''
 		self.guardian_ssn = ''
+		self.cancel_flag = ''
 
 	
 	def setApplicantId(self,applicant_id):
@@ -303,4 +304,14 @@ class Applicant(object):
 
 	def getGuardianSsn(self):
 		return self.guardian_ssn
+
+
+	def setCancelFlag(self,cancel_flag):
+		self.cancel_flag = cancel_flag
+
+	def getCancelFlag(self):
+		return self.cancel_flag
+
+
+
 

@@ -20,26 +20,33 @@ import ast
 import json
 sys.path.append("Python")
 import common_functions
-sys.path.append("Python/Entities")
-import applicant
-import applicant_status
-sys.path.append("Python/User_Stories")
 
 class Application_cancellation(object):
 
 	def getApplicationCancellation(self,front_end_str):
-
-		front_end_dict = ast.literal_eval(front_end_str)
-		front_end_data = front_end_dict['data']
+		""" get data for accepted applicants """
 
 		cf = common_functions.Common_functions()
-		data = cf.getFromCsv("applicant.csv",front_end_data)
+		data = cf.getAcceptedApplicants(front_end_str)
 
-		apps = application_status.Application_status()
-		new_data = apps.getApplicationStatus(front_end_str)
+		if len(data) == 0:
+			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered" }'
+		else:
+			return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
-		data = cf.getFromCsv("applicant.csv",where)
-		data[0]['cancel_flag'] = str(cancelflag)
-
-		cf.updateManyRowIntoCsv("applicant.csv",data,"applicant_id")
+		return return_front_end_dict
 		
+	def setCancelFlag(self,front_end_str):
+		""" set cancel at csv """
+
+		front_end_dict = ast.literal_eval(front_end_str)
+		front_end_data = front_end_dict['data'][0]
+		
+		cf = common_functions.Common_functions()
+		data = cf.getFromCsv('applicant.csv',front_end_data)
+
+		print(data)
+
+
+
+
