@@ -2,17 +2,12 @@ import sys
 import json
 import ast
 sys.path.append("Python/User_Stories")
-import registration
+import priorities
 
-front_end_str1 = json.dumps({"data" :[{
-"applicant_id":"1",
-"user_id":"1",
-"":"",
-"":""
-}]})
+front_end_str1 = json.dumps({"data" :[{"camp_time_slots":"2017-02-12 00:00:00.000000"}]})
 
 pr = priorities.Priorities()
-st = pr.customerPriorities(front_end_str)
+st = pr.getCustomerPriorities(front_end_str1)
 
 print(st)
 
