@@ -14,6 +14,7 @@
 # -------------------------------------------------------------------------------
 # 1.0   	01-OCT-2016  	ROHAN SAWANT    		Started coding
 # 2.0		15-OCT-2016		ROHAN SAWANT			First version of Registration User Story
+# 3.0		20-NOV-2016		ROHAN SAWANT			Added alreadySsn function
 # ================================================================================
 
 import sys
@@ -75,3 +76,5 @@ class Registration(object):
 		return return_front_end_dict
 
 
+	def alreadySsn(self,front_end_str):
+		""" Showing data 

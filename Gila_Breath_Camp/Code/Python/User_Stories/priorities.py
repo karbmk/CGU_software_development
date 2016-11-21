@@ -29,6 +29,7 @@ class Priorities(object):
 	def customerPriorities(self,front_end_str):
 		""" Taking priorities from Customer """
 		
+		
 
 
 
