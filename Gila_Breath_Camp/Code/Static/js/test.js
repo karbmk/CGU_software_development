@@ -119,7 +119,7 @@ alreadySsn = function(id){
 				var obj = $.parseJSON(data)
 				if(obj["status"] == "success")
 				{
-					if (confirm(obj["message"])) {
+					if (confirm(obj["message"].replaceAll("|","\n"))) {
 						// Save it!
 						document.getElementById("g_ssn").value = obj["data"][0]["guardian_ssn"];
 						document.getElementById("g_first_name").value = obj["data"][0]["guardian_first_name"];
