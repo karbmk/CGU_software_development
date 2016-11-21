@@ -100,3 +100,101 @@ send_checkin = function(id)
 	
 	
 }
+
+
+send_cancel = function(id){
+	var input = '{"data" :[{"date_id":"'+id+'"}]}';
+	document.getElementById("check_click").onclick=''
+	var test = 0;
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../test_js/",
+			async:false,
+			data: 
+   				{
+        			vol_name: input // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+				var obj = $.parseJSON(data)
+				obj_array = obj["data"]
+				test = obj_array.length
+				
+    		},
+    		error: function(data)
+    		{
+        		debugger;
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
+      		}
+    	}
+  	);
+	var array = [];
+	
+	
+	for(i=0;i<test;i++)
+				{
+				
+				if(document.getElementById("cancel"+i).checked){can_flag = '1'}else{can_flag = '0'}
+				
+				var camp_time = "2017-12-11 00:00:00.000000"
+				$.ajax
+				(
+					{
+					type:"POST",
+					url:"../../application_status_get/",
+					async:false,
+					success:function(response){
+					var obj = $.parseJSON(resopnse)
+					if(id==1)
+					{
+						camp_time = obj["data"][0]["camp_time_slots1"]
+					}
+					else if(id==2)
+					{
+						camp_time = obj["data"][0]["camp_time_slots2"]
+					}
+					else if(id==3)
+					{
+						camp_time = obj["data"][0]["camp_time_slots3"]
+					}
+					}
+					}
+				);
+				
+				
+				var k = '{"applicant_id":"'+document.getElementById("appl"+i).innerText+'", "cancel_flag":"'+can_flag+'"}'
+				array.push(k)
+				
+				}
+			
+        		var input1 = '{"data":['+array+']}'
+				alert(input1)
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../send_cancel/",
+			async:false,
+			data: 
+   				{
+        			vol_name: input1 // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+				var obj = $.parseJSON(data)
+				alert(obj["message"])
+				location.reload()
+        		
+    		},
+    		error: function(data)
+    		{
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
+      		}
+    	}
+  	);
+	
+}

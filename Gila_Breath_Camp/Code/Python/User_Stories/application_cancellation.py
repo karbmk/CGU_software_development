@@ -80,7 +80,7 @@ class Application_cancellation(object):
 			for k in range(0,len(cancelled_data)):
 				cancelled_data[k]['cancel_flag'] = '1'
 			cf.updateManyRowIntoCsv('applicant.csv',cancelled_data,'applicant_id')
-			return_front_end_dict = '{ "data": "", , "status":"success", "message":"Application''s have been cancelled" }'
+			return_front_end_dict = '{ "data": "", "status":"success", "message":"Application''s have been cancelled" }'
 
 		return return_front_end_dict
 

@@ -36,6 +36,7 @@ import registration
 import choose_date
 import check_in_status
 import application_status
+import application_cancellation
 import printing_of_acceptance_or_rejection_notice
 
 def test(request):
@@ -77,6 +78,15 @@ def print_letter(request):
 	st = prin_letter.acceptance(data)
 	return HttpResponse(st,content_type="application/type")
 
+@csrf_exempt
+def send_cancel(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["vol_name"]
+	apps = application_cancellation.Application_cancellation()
+	st = apps.setManyCancelFlag(data)
+	print(st)
+	return HttpResponse(st,content_type="application/type")
 
 
 @csrf_exempt	
