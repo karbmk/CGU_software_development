@@ -54,6 +54,19 @@ def registration_ui(request):
 		st = e
 	return HttpResponse(st,content_type="application/type")
 
+@csrf_exempt
+def already_ssn(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["ssn"]
+	front_end_str10 = json.dumps({"data" :[{"guardian_ssn":"342-909-8982"}]})
+	try:
+		regis = registration.Registration()
+		st = regis.alreadySsn(data)
+	except Exception as e:
+		st = e
+	return HttpResponse(st,content_type="application/type")
+
 @csrf_exempt	
 def test_js(request):
 	c = {}

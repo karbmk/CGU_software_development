@@ -24,5 +24,6 @@ urlpatterns = [
 	url(r'^application_status_send/', views.application_status_send, name='application_status_send'),
 	url(r'^application_status_get/', views.application_status_get, name='application_status_get'),
 	url(r'^test_submit_checkin/', views.test_submit_checkin, name='test_submit_checkin'),
+	url(r'^already_ssn/', views.already_ssn, name='already_ssn'),
 
 ]
