@@ -43,6 +43,8 @@ getTest2 = function(id)
 				html += '<td id="completed_appl'+i+'">'+check_stat+'</td>'
 				html += '<td align="center"><input id="appl_status'+i+'" type="checkbox" name="appl_status" '+check+'></td>'
 				html += '<td id="comments'+i+'">'+obj_array[i]["violations"][0]+'</td>'
+				html +='<td><a href="/Static/Templates/index.html" class="smoth btn gradiant-bg"><strong><font color="white">PRINT</font></strong><span></span></a></td>'
+
 				
 				html += '</tr>'
 				$("#app_status").append(html);
