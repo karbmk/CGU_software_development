@@ -35,3 +35,15 @@ class Priorities(object):
 		front_end_dict = ast.literal_eval(front_end_str)
 		front_end_data = front_end_dict['data'][0]
 
+		data = cf.getFromCsv('applicant.csv',front_end_data)
+		new_data = []
+
+		for i in range(0,range(len(data))):
+			new_dict = {}
+			new_dict['applicant_id'] = data[i]['applicant_id']
+			new_dict['applicant_name'] = data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name']
+			new_data.append(new_dict)
+
+
+
+
