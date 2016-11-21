@@ -98,7 +98,8 @@ class Registration(object):
 			key = len(ssn_data)-1
 			appl['guardian_ssn'] = ssn_data[key]['guardian_ssn']
 			appl['guardian_first_name'] = ssn_data[key]['guardian_first_name']
-			appl['applicant_last_name'] = ssn_data[key]['applicant_last_name']
+			appl['guardian_last_name'] = ssn_data[key]['guardian_last_name']
+			appl['guardian_address'] = ssn_data[key]['guardian_address']
 			appl['guardian_contact_number'] = ssn_data[key]['guardian_contact_number']
 			appl['emergency_contact'] = ssn_data[key]['emergency_contact']
 

@@ -37,12 +37,21 @@ class Priorities(object):
 
 		data = cf.getFromCsv('applicant.csv',front_end_data)
 		new_data = []
+		list_of_names = []
 
 		for i in range(0,range(len(data))):
+			list_of_names.append(data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name'])
+
+		for j in range(0,range(len(data))):
 			new_dict = {}
-			new_dict['applicant_id'] = data[i]['applicant_id']
-			new_dict['applicant_name'] = data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name']
+			new_dict['applicant_id'] = data[j]['applicant_id']
+			new_dict['applicant_name'] = data[j]['applicant_last_name'] + ', ' + data[j]['applicant_first_name']
 			new_data.append(new_dict)
+
+		new_data['applicant_name_together_with'] = list_of_names
+
+		
+
 
 
 
