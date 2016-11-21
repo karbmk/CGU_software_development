@@ -77,4 +77,31 @@ class Registration(object):
 
 
 	def alreadySsn(self,front_end_str):
-		""" Showing data 
+		""" Showing data if already present for an SSN """
+
+		cf = common_functions.Common_functions()
+		appl = {'guardian_ssn':'','guardian_first_name':'','applicant_last_name':'','guardian_contact_number':'','emergency_contact':''}
+
+		error = []
+		message = ''
+		none = 0
+		return_front_end_dict = ''
+
+		front_end_dict = ast.literal_eval(front_end_str)
+		front_end_data = front_end_dict['data'][0]
+
+		ssn_data = cf.getFromCsv('applicant.csv',front_end_data)
+
+		if ssn_data == []:
+			return_front_end_dict = '{ "data": [], "status":"error", "message":"" }'
+		else:
+			key = len(ssn_data)-1
+			appl['guardian_ssn'] = ssn_data[key]['guardian_ssn']
+			appl['guardian_first_name'] = ssn_data[key]['guardian_first_name']
+			appl['applicant_last_name'] = ssn_data[key]['applicant_last_name']
+			appl['guardian_contact_number'] = ssn_data[key]['guardian_contact_number']
+			appl['emergency_contact'] = ssn_data[key]['emergency_contact']
+
+			return_front_end_dict = '{ "data": [' + json.dumps(appl) + '], "status":"success", "message":"WE HAVE ALREADY HAVE DATA FOR SSN : ' + ssn_data[0]['guardian_ssn'] + '\nDO YOU WANT TO USE IT?}'
+
+		return return_front_end_dict
