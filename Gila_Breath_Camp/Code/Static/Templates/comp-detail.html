@@ -70,6 +70,7 @@
 				<li id="get_cancel" onclick="getCancel(3)" role="presentation"><a href="#tab4" data-toggle="tab">CANCEL</a></li>
 				<li role="presentation"><a href="#tab5" data-toggle="tab">BUNKHOUSES</a></li>
 				<li role="presentation"><a href="#tab6" data-toggle="tab">TRIBES</a></li>
+				<li role="presentation"><a href="#tab7" data-toggle="tab">Priority</a></li>
 			</ul>
 		</div>
 
@@ -1875,7 +1876,35 @@ function myFunction()
 					</div>			
 				</div>
 				<!-- tab7-End -->
+				<div class="tab-pane fade in" id="tab7">
+					<div class="">
+				      	<div class="t-box">
+					       	<table id="checkin" class="table table-bordered">
+					       	  <tr>
+					       	    <th>Application no.</th><!--text box-->
+					       	    <th>Applicant Name</th><!--text box-->
+					       	    <th>Appliacant Name(together with)</th><!--dropdown-->
+					       	    <th>Guardian SSN(Together with)</th><!--dropdown-->
+					       	    <th>Guardian SSN(Together with)</th><!--dropdown-->
+					       	    <th>Applicant Name (Not Together with)</th><!--dropdown-->
+					       	    <th>Guardian SSN(Together with)</th><!--dropdown-->
+					       	    <!--<th>Medical Form</th>
+					       	    <th>Sleeping bag</th>
+					       	    <th>Water bottle</th>
+					       	    <th>Sunscreen</th>
+					       	    <th>Bugs spray</th>
+					       	    <th>Check-In Status</th>-->
 
+					       	  </tr>
+
+					       	</table>
+							<input type="submit" onclick="send_checkin(1)" value="SUBMIT" id="btnCmp" name="btnCmp" class="btn form-btn">
+				       	</div>
+				      </div>
+				</div>
+				
+				
+				
 			</div>	
 			<!-- tab-content-end -->   
 		</div>
