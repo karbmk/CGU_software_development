@@ -28,8 +28,10 @@ class Priorities(object):
 
 	def customerPriorities(self,front_end_str):
 		""" Taking priorities from Customer """
-		
-		
 
+		cf = common_functions.Common_functions()
+		appl = applicant.Applicant()
 
+		front_end_dict = ast.literal_eval(front_end_str)
+		front_end_data = front_end_dict['data'][0]
 

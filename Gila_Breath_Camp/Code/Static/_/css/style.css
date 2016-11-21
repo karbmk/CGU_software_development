@@ -565,7 +565,7 @@ header .col-md-2 .fa { font-size: 18px; }
 #hx-trn .panel-group .panel+.panel { margin-top: 5px; }
 #hx-trn .panel-body { padding: 15px 0; color:#828485; }
 #hx-trn .panel-body .t-box { box-shadow: 0px 0px 5px rgba(0,0,0,0.08); padding: 14px 20px; overflow-x: auto;}
-.t-box { box-shadow: 0px 0px 5px rgba(0,0,0,0.08); padding: 14px 20px; }
+.t-box { padding: 14px 20px; }
 #hx-trn .form-btn { margin: 26px 0; margin-bottom: 10px; }
 
 /*-- Transaction Table --*/
