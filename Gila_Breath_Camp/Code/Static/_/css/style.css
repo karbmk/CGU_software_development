@@ -30,14 +30,14 @@ hr.plain{ border-style:solid; border-color:#e2e6e7; }
 .torqouies-bg { background-color:#11af9e;}
 .lblue-bg { background-color:#1ac3c8; }
 .blue-bg { background-color:#20c1d4;}
-.gradiant-bg { background: -moz-linear-gradient(40deg, rgba(0,206,145,1) 0%, rgba(32,193,212,1) 100%); /* ff3.6+ */
-              background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(0,206,145,1)), color-stop(100%, rgba(32,193,212,1))); /* safari4+,chrome */
-              background: -webkit-linear-gradient(40deg, rgba(0,206,145,1) 0%, rgba(32,193,212,1) 100%); /* safari5.1+,chrome10+ */
-              background: -o-linear-gradient(40deg, rgba(0,206,145,1) 0%, rgba(32,193,212,1) 100%); /* opera 11.10+ */
-              background: -ms-linear-gradient(40deg, rgba(0,206,145,1) 0%, rgba(32,193,212,1) 100%); /* ie10+ */
-              background: linear-gradient(50deg, rgba(0,206,145,1) 0%, rgba(32,193,212,1) 100%); /* w3c */
+.gradiant-bg { background: -moz-linear-gradient(40deg, black 0%, grey 100%); /* ff3.6+ */
+              background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, black), color-stop(100%, grey))); /* safari4+,chrome */
+              background: -webkit-linear-gradient(40deg, black 0%, grey 100%); /* safari5.1+,chrome10+ */
+              background: -o-linear-gradient(40deg, black 0%, grey 100%); /* opera 11.10+ */
+              background: -ms-linear-gradient(40deg, black 0%, grey 100%); /* ie10+ */
+              background: linear-gradient(50deg, black 0%, grey 100%); /* w3c */
               filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ce91', endColorstr='#20c1d4',GradientType=1 ); /* ie6-9 */ }
-.gradiant-tp-bg { background: linear-gradient(-30deg, rgba(32,193,212,1) 0%, rgba(0,206,145,1) 100%) }
+.gradiant-tp-bg { background: linear-gradient(-30deg, black 0%, grey 100%) }
 .gradiant-in-bg {background: -moz-linear-gradient(40deg, black  0%, grey 100%); /* ff3.6+ */
                  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, black), color-stop(100%, grey )); /* safari4+,chrome */
                  background: -webkit-linear-gradient(40deg, black 0%, grey  100%); /* safari5.1+,chrome10+ */
