@@ -28,7 +28,7 @@ import applicant
 sys.path.append("Python/User_Stories")
 import application_status
 
-front_end_str = json.dumps({"data" :[{"applicant_id":"1"}]}) #Need to remove
+#front_end_str = json.dumps({"data" :[{"applicant_id":"1"}]}) #Need to remove
 
 class Notice(object):
 	"""docstring for AcceptanceNotice"""
@@ -57,8 +57,13 @@ class Notice(object):
 		data[0]["violations"] = data3[0]["violations"]
 		data[0]["application_status"] = data3[0]["application_status"]
 	
-
-		with open("Dustbin/Jemin/r_template.txt", "r") as myfile:
+		if data[0]["violations"][0] =="NO VIOLATIONS":
+			file_print = "Textfiles/Templates/a_template.txt"
+			path_name = "acception_letter"
+		else:
+			file_print = "Textfiles/Templates/r_template.txt"
+			path_name = "rejection_letter"
+		with open(file_print, "r") as myfile:
 			template = myfile.readlines()
 			temp = '\n'.join(template)
 
@@ -81,19 +86,17 @@ class Notice(object):
 			Str = ', \n'.join(data[j]['violations'])
 			#print(type(Str))
 			t=t.replace("*violations*",Str)
-			
-		#print(t)	
-				#print ("yes")
+			#print ("yes")
 
 
 			#print(t)
-		save_path = 'Dustbin/Jemin/'
-		name_of_file = data[0]["applicant_first_name"]+"_"+data[0]["applicant_last_name"]+"_"+data[0]["applicant_id"]+"_rejection_letter"
+		save_path = 'Textfiles/Prints/'
+		name_of_file = data[0]["applicant_first_name"]+"_"+data[0]["applicant_last_name"]+"_"+data[0]["applicant_id"]+"_"+path_name
 		completeName = os.path.join(save_path, name_of_file + ".txt")
 		text_file = open(completeName,"w")
 		text_file.write(t)
 		text_file.close()
 		print(t)
 
-ap = Notice()
-ap.acceptance(front_end_str)
+#ap = Notice()
+#ap.acceptance(front_end_str)

@@ -300,7 +300,14 @@ class Applicant(object):
 
 
 	def setGuardianSsn(self,guardian_ssn):
-		self.guardian_ssn = guardian_ssn
+		guardian_ssn = guardian_ssn.strip()
+		if len(guardian_ssn) == 11 and (guardian_ssn[3] == '-' and guardian_ssn[6] == '-'):
+			if guardian_ssn.replace("-","").isdigit():
+				self.guardian_ssn = guardian_ssn
+			else:
+				pass
+		else:
+			return "Enter Proper Social Security Number in 'AAA-GG-SSSS' format"
 
 	def getGuardianSsn(self):
 		return self.guardian_ssn
