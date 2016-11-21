@@ -36,6 +36,7 @@ import registration
 import choose_date
 import check_in_status
 import application_status
+import printing_of_acceptance_or_rejection_notice
 
 def test(request):
 	context = ""
@@ -66,6 +67,17 @@ def already_ssn(request):
 	except Exception as e:
 		st = e
 	return HttpResponse(st,content_type="application/type")
+
+@csrf_exempt
+def print_letter(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["ssn"]
+	prin_letter = printing_of_acceptance_or_rejection_notice.Notice()
+	st = prin_letter.acceptance(data)
+	return HttpResponse(st,content_type="application/type")
+
+
 
 @csrf_exempt	
 def test_js(request):
