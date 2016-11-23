@@ -27,5 +27,6 @@ urlpatterns = [
 	url(r'^already_ssn/', views.already_ssn, name='already_ssn'),
 	url(r'^print_letter/', views.print_letter, name='print_letter'),
 	url(r'^send_cancel/', views.send_cancel, name='send_cancel'),
+	url(r'^priorities_get/', views.priorities_get, name='priorities_get'),
 
 ]

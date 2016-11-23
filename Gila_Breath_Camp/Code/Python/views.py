@@ -36,6 +36,7 @@ import registration
 import choose_date
 import check_in_status
 import application_status
+import priorities
 import application_cancellation
 import printing_of_acceptance_or_rejection_notice
 
@@ -67,6 +68,30 @@ def already_ssn(request):
 		st = regis.alreadySsn(data)
 	except Exception as e:
 		st = e
+	return HttpResponse(st,content_type="application/type")
+
+
+@csrf_exempt
+def priorities_get(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["prior"]
+	print(data)
+	dt = choose_date.Choose_date()
+	st = dt.chooseDate()
+	camp_slot = ''
+	cis = check_in_status.Check_in_status()
+	if json.loads(data)["data"][0]["date_id"]=="1":
+		camp_slot = json.loads(st)["data"][0]["camp_time_slots1"]
+	elif json.loads(data)["data"][0]["date_id"]=="2":
+		camp_slot = json.loads(st)["data"][0]["camp_time_slots2"]
+	elif json.loads(data)["data"][0]["date_id"]=="3":
+		camp_slot = json.loads(st)["data"][0]["camp_time_slots3"]
+	st_get = cis.getCheckInStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
+	print(camp_slot)
+	front_end_str111 = '{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}'
+	pr = priorities.Priorities()
+	st = pr.getCustomerPriorities(front_end_str111)
 	return HttpResponse(st,content_type="application/type")
 
 @csrf_exempt
