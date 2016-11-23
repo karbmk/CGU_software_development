@@ -13,6 +13,7 @@
 # VER	|	DATE       	|	MODIFIED BY  		|  	CHANGE DESCRIPTION
 # -------------------------------------------------------------------------------
 # 1.0   	23-OCT-2016  	SOHEIL BOUZARI    		Started coding
+# 2.0   	23-NOV-2016  	JEMIN GOHIL     		Completed cancellation, refund left
 # ================================================================================
 
 import sys
@@ -48,11 +49,14 @@ class Application_cancellation(object):
 
 		if len(data) == 0:
 			return_front_end_dict = '{ "data": "", "status":"error", "message":"Something went wrong" }'
+		
 		else:
-			data[0]['cancel_flag'] = '1'
+			data[0]['cancel_flag'] = '0'
 			cf.updateManyRowIntoCsv('applicant.csv',data,'applicant_id')
 			return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"success", "message":"Applicantion has been cancelled" }'
+			
 
+		#print('return_front_end_dict;',return_front_end_dict)		
 		return return_front_end_dict
 
 	def setManyCancelFlag(self,front_end_str):
@@ -65,24 +69,36 @@ class Application_cancellation(object):
 		data = cf.getFromCsv('applicant.csv',{})
 
 		applicant_ids = []
-		cancelled_data = []
+		new = []
+
 
 		for i in range(0,len(front_end_data)):
 			applicant_ids.append(front_end_data[i]['applicant_id'])
-
+			#print(applicant_ids)
 		for j in range(0,len(data)):
 			if data[j]['applicant_id'] in applicant_ids:
-				cancelled_data.append(data[j])
+				new.append(data[j])
 
-		if len(data) == 0:
-			return_front_end_dict = '{ "data": "", "status":"error", "message":"Something went wrong" }'
-		else:
-			for k in range(0,len(cancelled_data)):
-				cancelled_data[k]['cancel_flag'] = '1'
-			cf.updateManyRowIntoCsv('applicant.csv',cancelled_data,'applicant_id')
-			return_front_end_dict = '{ "data": "", "status":"success", "message":"Application''s have been cancelled" }'
+		#print (len(new))
 
+		for k in range(0,len(new)):
+			for i in range(0,len(front_end_data)):
+				if new[k]["applicant_id"] == front_end_data[i]["applicant_id"]:
+					new[k]["cancel_flag"] = front_end_data[i]["cancel_flag"]
+
+		cf.updateManyRowIntoCsv('applicant.csv',new,'applicant_id')
+		return_front_end_dict = '{ "data": ' + json.dumps(new) + ', "status":"success", "message":"Applicantion has been updated" }'
 		return return_front_end_dict
+			#if len(data) == 0:
+				#return_front_end_dict = '{ "data": "", "status":"error", "message":"Something went wrong" }'
+			#else:
+				#data[j]['cancel_flag'] = '0'
+				#for k in range(0,len(cancelled_data)):
+					#cancelled_data[k]['cancel_flag'] = '0'
+				#cf.updateManyRowIntoCsv('applicant.csv',cancelled_data,'applicant_id')
+		#return_front_end_dict = '{ "data": "", "status":"success", "message":"Application''s have been cancelled" }'
 
+		#return return_front_end_dict
+		#print(cancelled_data)
 
 
