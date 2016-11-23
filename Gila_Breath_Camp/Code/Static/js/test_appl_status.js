@@ -155,3 +155,64 @@ getCancel = function(id){
     	}
   	);
 }
+
+getPriority = function(id){
+	var input = '{"data" :[{"date_id":"'+id+'"}]}';
+	document.getElementById("get_priorities").onclick=''
+	//alert("in get prior")
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../priorities_get/",
+			async:true,
+			data: 
+   				{
+        			prior: input // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+				
+				var obj = $.parseJSON(data)
+				obj_array = obj["data"]
+				for(i=0;i<obj_array.length;i++)
+				{
+					
+				var html_appl_name = ''
+				var html_guar_with = ''
+				var html_appl_name_without = ''
+				var html_guar_without = ''
+				//alert(obj_array[i]["applicant_name_together_with"].length)
+				for(var j=0;j<obj_array[i]["applicant_name_together_with"].length;j++){
+					//alert(obj_array[i]["applicant_name_together_with"][j])
+					html_appl_name +='<option>'+obj_array[i]["applicant_name_together_with"][j]+'</option>'
+				}
+				for(var j=0;j<obj_array[i]["guardian_ssn_together_with"].length;j++){
+					html_guar_with +='<option>'+obj_array[i]["guardian_ssn_together_with"][j]+'</option>'
+				}
+				for(var j=0;j<obj_array[i]["applicant_name_together_with"].length;j++){
+					html_appl_name_without +='<option>'+obj_array[i]["applicant_name_together_with"][j]+'</option>'
+				}
+				for(var j=0;j<obj_array[i]["guardian_ssn_not_together_with"].length;j++){
+					html_guar_without +='<option>'+obj_array[i]["guardian_ssn_not_together_with"][j]+'</option>'
+				}
+				var html = '<tr>';
+				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
+				html += '<td id="name'+i+'">'+obj_array[i]["applicant_name"]+'</td>'
+				html += '<td id="appl_name'+i+'"><select name="cmbCmpCrHdSal" class="form-control">'+html_appl_name+'</option></td>'
+				html += '<td id="guar_with'+i+'"><select name="cmbCmpCrHdSal" class="form-control">'+html_guar_with+'</option></td>'
+				html += '<td id="appl_name_without'+i+'"><select name="cmbCmpCrHdSal" class="form-control">'+html_appl_name_without+'</option></td>'
+				html += '<td id="guar_without'+i+'"><select name="cmbCmpCrHdSal" class="form-control">'+html_guar_without+'</option></td>'				
+				html += '</tr>'
+				$("#push_priorities").append(html);
+				}
+        		
+    		},
+    		error: function(data)
+    		{
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
+      		}
+    	}
+  	);
+}

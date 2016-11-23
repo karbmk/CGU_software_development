@@ -40,7 +40,7 @@
 
   <body onload="on_open();">
    
-<div class="menu-list gradiant-in-bg">
+<div class="menu-list bg-karthik">
 	<div class="brand-logo"><span class="logo-in"></span></div>
 	<nav class="nav">
 		<li><a href="tran-his.html"><span onclick="on_open();" class="menu-ico tran-his"></span><p id="date_1"></p><br/></a></li>
@@ -59,9 +59,9 @@
 				<li id="check_click" onclick="getTest1(1)" role="presentation"><a href="#tab3" data-toggle="tab">CHECK - IN</a></li>
 
 				<li id="get_cancel" onclick="getCancel(1)" role="presentation"><a href="#tab4" data-toggle="tab">Cancel</a></li>
-				<li role="presentation"><a href="#tab5" data-toggle="tab">BUNKHOUSE</a></li>
+				<li role="presentation"><a href="#tab5" data-toggle="tab">BUNKHOUSES</a></li>
 				<li role="presentation"><a href="#tab6" data-toggle="tab">TRIBES</a></li>
-				<li role="presentation"><a href="#tab7" data-toggle="tab">Priority</a></li>
+				<li id="get_priorities" onclick="getPriority(1)" role="presentation"><a href="#tab7" data-toggle="tab">Priority</a></li>
 			</ul>
 		</div>
 
@@ -1628,12 +1628,11 @@ function myFunction()
 				<div class="tab-pane fade in" id="tab7">
 					<div class="">
 				      	<div class="t-box">
-					       	<table id="checkin" class="table table-bordered">
+					       	<table id="push_priorities" class="table table-bordered">
 					       	  <tr>
 					       	    <th>Application no.</th>
 					       	    <th>Applicant Name</th>
 					       	    <th>Appliacant Name(together with)</th>
-					       	    <th>Guardian SSN(Together with)</th>
 					       	    <th>Guardian SSN(Together with)</th>
 					       	    <th>Applicant Name (Not Together with)</th>
 					       	    <th>Guardian SSN(Together with)</th>
@@ -1643,8 +1642,7 @@ function myFunction()
 					       	    <th>Bugs spray</th>
 					       	    <th>Check-In Status</th>-->
 
-					       	  </tr>
-
+					       	  
 					       	</table>
 							<input type="submit" onclick="send_checkin(1)" value="SUBMIT" id="btnCmp" name="btnCmp" class="btn form-btn">
 				       	</div>
