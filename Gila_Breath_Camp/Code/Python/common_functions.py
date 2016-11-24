@@ -195,4 +195,7 @@ class Common_functions(object):
 
 		return accepted_data
 
-
+	def str_to_date(self, date_str):
+		"""converts str to date"""
+		date_object = datetime.strptime(date_str.split(" ")[0], '%Y-%M-%d')
+		return date_object
