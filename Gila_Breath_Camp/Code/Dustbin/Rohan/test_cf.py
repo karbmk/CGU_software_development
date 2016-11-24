@@ -7,6 +7,11 @@ import applicant
 
 a = applicant.Applicant()
 
-print(a.setAge('A'))
+#print(a.setAge('A'))
 
-print(a.getAge())
+#print(a.getAge())
+
+cf = common_functions.Common_functions()
+
+print(cf.str_to_date("2016-11-21 00:35:28.438843"))
+

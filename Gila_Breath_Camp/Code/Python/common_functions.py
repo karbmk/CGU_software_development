@@ -31,6 +31,7 @@ import ast
 sys.path.append("Csv")
 sys.path.append("Python/User_Stories")
 import application_status
+import datetime
 
 class Common_functions(object):
 
@@ -197,5 +198,6 @@ class Common_functions(object):
 
 	def str_to_date(self, date_str):
 		"""converts str to date"""
-		date_object = datetime.strptime(date_str.split(" ")[0], '%Y-%M-%d')
+		date_object = datetime.datetime.strptime(date_str.split(" ")[0], '%Y-%m-%d')
 		return date_object
+
