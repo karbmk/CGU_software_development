@@ -107,10 +107,22 @@ class Application_cancellation(object):
 		mail = cf.str_to_date(mailing_date)
 		print('cancel_date:',cancel_date)
 		cancel = cf.str_to_date(cancel_date)
-		print(mail)
-		print(cancel_date)
-		#if week_difference 
-		return "100"
+
+		#print(mail)
+		#print(cancel_date)
+		#if week_difference
+		week_difference =  (cancel - mail).days/7
+		print('week_difference:',week_difference)
+		if week_difference <= 3:
+			refund = float(payment)*0.9
+			return refund
+
+		elif week_difference >= 3 and week_difference <= 6:
+			refund = float(payment)*0.45
+			return refund
+
+		else:
+			return "0"
 
 		#for i in range(0,len(new)):
 			#if new[i]["cancel_flag"] == '1'
