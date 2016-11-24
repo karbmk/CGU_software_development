@@ -46,15 +46,17 @@ class Priorities(object):
 			list_of_ssn = ["NONE"]
 
 			for i in range(0,len(data)):
-				list_of_names.append(data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name'])
+				name = data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name']
+				if name not in list_of_names:
+					list_of_names.append(data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name'])
 
 			for j in range(0,len(data)):
 				new_dict = {}
 				new_dict['applicant_id'] = data[j]['applicant_id']
 				new_dict['applicant_name'] = data[j]['applicant_last_name'] + ', ' + data[j]['applicant_first_name']
-				new_dict['applicant_name_together_with'] = list(set(list_of_names))
+				new_dict['applicant_name_together_with'] = list_of_names
 				new_dict['guardian_ssn_together_with'] = list_of_ssn
-				new_dict['applicant_name_not_together_with'] = list(set(list_of_names))
+				new_dict['applicant_name_not_together_with'] = list_of_names
 				new_dict['guardian_ssn_not_together_with'] = list_of_ssn
 				new_data.append(new_dict)
 
@@ -80,7 +82,9 @@ class Priorities(object):
 			for i in range(0,len(data)):
 				name = data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name']
 				if name == applicant_name_together_with:
-					list_of_ssn.append(data[i]['guardian_ssn'])
+					ssn = data[i]['guardian_ssn']
+					if ssn not in list_of_ssn:
+						list_of_ssn.append(data[i]['guardian_ssn'])
 
 			list_of_ssn = list(set(list_of_ssn))
 			new_data[0]['guardian_ssn_together_with'] = list_of_ssn
@@ -88,7 +92,7 @@ class Priorities(object):
 		if len(list_of_ssn) == 0:
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"" }'
 		else:
-			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"There are more than 1 SSN''s" }'
+			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"There are more than 1 SSN\'s" }'
 
 		return return_front_end_dict
 
