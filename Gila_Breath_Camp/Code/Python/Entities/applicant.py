@@ -59,6 +59,8 @@ class Applicant(object):
 		self.rejected_reason = ''
 		self.guardian_ssn = ''
 		self.cancel_flag = ''
+		self.refund = ''
+		self.cancel_date = ''
 
 	
 	def setApplicantId(self,applicant_id):
@@ -320,6 +322,19 @@ class Applicant(object):
 	def getCancelFlag(self):
 		return self.cancel_flag
 
+
+	def setrefund(self,refund):
+		self.refund = refund
+
+	def getrefund(self):
+		return self.refund
+		
+
+	def setcancel_date(self,cancel_date):
+		self.refund = refund
+
+	def getcancel_date(self):
+		return self.cancel_date
 
 
 

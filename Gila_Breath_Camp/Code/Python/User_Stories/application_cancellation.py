@@ -89,16 +89,22 @@ class Application_cancellation(object):
 		cf.updateManyRowIntoCsv('applicant.csv',new,'applicant_id')
 		return_front_end_dict = '{ "data": ' + json.dumps(new) + ', "status":"success", "message":"Applicantion has been updated" }'
 		return return_front_end_dict
-			#if len(data) == 0:
-				#return_front_end_dict = '{ "data": "", "status":"error", "message":"Something went wrong" }'
-			#else:
-				#data[j]['cancel_flag'] = '0'
-				#for k in range(0,len(cancelled_data)):
-					#cancelled_data[k]['cancel_flag'] = '0'
-				#cf.updateManyRowIntoCsv('applicant.csv',cancelled_data,'applicant_id')
-		#return_front_end_dict = '{ "data": "", "status":"success", "message":"Application''s have been cancelled" }'
+		
+	def setRefund(self,front_end_str):
+		"""Set Refund at csv"""
+		
+		front_end_dict = ast.literal_eval(front_end_str)
+		front_end_data = front_end_dict['data']
 
-		#return return_front_end_dict
-		#print(cancelled_data)
 
+		#print(front_end_data)
+		cf = common_functions.Common_functions()
+		new = cf.getFromCsv('applicant.csv',{})
+		print(new)
+		#refunds = []
+
+
+		#for i in range(0,len(new)):
+			#if new[i]["cancel_flag"] == '1'
+			#refunds.append()"""
 
