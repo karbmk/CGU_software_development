@@ -42,12 +42,11 @@ class Priorities(object):
 			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered"}'
 		else:
 			new_data = []
-			list_of_names = []
-			list_of_ssn = []
+			list_of_names = ["NONE"]
+			list_of_ssn = ["NONE"]
 
 			for i in range(0,len(data)):
 				list_of_names.append(data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name'])
-				list_of_ssn.append(data[i]['guardian_ssn'])
 
 			for j in range(0,len(data)):
 				new_dict = {}
@@ -62,6 +61,28 @@ class Priorities(object):
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
 		return return_front_end_dict
+
+	def getSsn(self,front_end_str):
+		""" Get SSN for selected Name """
+
+		front_end_dict = ast.literal_eval(front_end_str)
+		applicant_name_together_with = front_end_dict['data']['applicant_name_together_with']
+
+		data = cf.getFromCsv('applicant.csv',front_end_data)
+
+		if data == []:
+			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered"}'
+		else:
+			new_data = []
+			list_of_ssn = [""]
+
+			for i in range(0,len(data)):
+				name = append(data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name'])
+				if name == applicant_name_together_with:
+					list_of_ssn.append(data[i]['guardian_ssn'])
+
+		return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"" }'
+
 
 
 
