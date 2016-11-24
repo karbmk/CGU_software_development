@@ -52,9 +52,9 @@ class Priorities(object):
 				new_dict = {}
 				new_dict['applicant_id'] = data[j]['applicant_id']
 				new_dict['applicant_name'] = data[j]['applicant_last_name'] + ', ' + data[j]['applicant_first_name']
-				new_dict['applicant_name_together_with'] = list_of_names
+				new_dict['applicant_name_together_with'] = list(set(list_of_names))
 				new_dict['guardian_ssn_together_with'] = list_of_ssn
-				new_dict['applicant_name_not_together_with'] = list_of_names
+				new_dict['applicant_name_not_together_with'] = list(set(list_of_names))
 				new_dict['guardian_ssn_not_together_with'] = list_of_ssn
 				new_data.append(new_dict)
 
@@ -82,9 +82,13 @@ class Priorities(object):
 				if name == applicant_name_together_with:
 					list_of_ssn.append(data[i]['guardian_ssn'])
 
-			new_data[0]['guardian_ssn_together_with'] = list(set(list_of_ssn))
+			list_of_ssn = list(set(list_of_ssn))
+			new_data[0]['guardian_ssn_together_with'] = list_of_ssn
 
-		return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"" }'
+		if len(list_of_ssn) == 0:
+			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"" }'
+		else:
+			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"There are more than 1 SSN''s" }'
 
 		return return_front_end_dict
 
