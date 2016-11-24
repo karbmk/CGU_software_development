@@ -79,11 +79,10 @@ class Priorities(object):
 
 			for i in range(0,len(data)):
 				name = data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name']
-				print(name)
 				if name == applicant_name_together_with:
 					list_of_ssn.append(data[i]['guardian_ssn'])
 
-			new_data[0]['guardian_ssn_together_with'] = list_of_ssn
+			new_data[0]['guardian_ssn_together_with'] = list(set(list_of_ssn))
 
 		return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"" }'
 

@@ -15,3 +15,5 @@ cf = common_functions.Common_functions()
 
 print(cf.str_to_date("2016-11-21 00:35:28.438843"))
 
+print(cf.weeks_between(cf.str_to_date("2016-11-21 00:35:28.438843"),cf.str_to_date("2016-11-24 00:35:28.438843")))
+
