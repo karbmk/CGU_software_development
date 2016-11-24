@@ -19,6 +19,7 @@
 import sys
 import ast
 import json
+import datetime
 sys.path.append("Python")
 import common_functions
 
@@ -86,23 +87,28 @@ class Application_cancellation(object):
 				if new[k]["applicant_id"] == front_end_data[i]["applicant_id"]:
 					new[k]["cancel_flag"] = front_end_data[i]["cancel_flag"]
 
+
+		for l in range(0,len(new)):
+			if new[l]["cancel_flag"] == '1':
+				new[k]["cancel_date"] = str(datetime.datetime.now())
+					#getRefund(new[l]["payment"],new[l]["mailing_date"],new[l]["cancel_date"])
+				new[l]["refund"] = self.getRefund(new[l]["payment"],new[l]["mailing_date"],new[l]["cancel_date"])
+				print(new[l]["refund"])
+		
 		cf.updateManyRowIntoCsv('applicant.csv',new,'applicant_id')
-		return_front_end_dict = '{ "data": ' + json.dumps(new) + ', "status":"success", "message":"Applicantion has been updated" }'
+		return_front_end_dict = '{ "data": ' + json.dumps(new) + ', "status":"success", "message":"Application has been updated" }'
 		return return_front_end_dict
 		
-	def setRefund(self,front_end_str):
-		"""Set Refund at csv"""
+	def getRefund(self,payment,mailing_date,cancel_date):
 		
-		front_end_dict = ast.literal_eval(front_end_str)
-		front_end_data = front_end_dict['data']
-
-
-		#print(front_end_data)
-		cf = common_functions.Common_functions()
-		new = cf.getFromCsv('applicant.csv',{})
-		print(new)
-		#refunds = []
-
+		"""Set Refund at csv"""
+		#cf = common_functions.Common_functions()
+		#print(mailing_date)
+		#mail = cf.str_to_date(mailing_date)
+		#print(mail)
+		print(type(mailing_date.split(" ")[0]))
+		print(datetime.datetime.strptime(mailing_date.split(" ")[0], '%Y-%M-%d'))
+		return "100"
 
 		#for i in range(0,len(new)):
 			#if new[i]["cancel_flag"] == '1'
