@@ -205,8 +205,8 @@ getPriority = function(id){
 				html += '<td id="name'+i+'">'+obj_array[i]["applicant_name"]+'</td>'
 				html += '<td id="appl_name'+i+'"><select id="sel_appl_name'+i+'" onchange="next_guar_ssn(this.id)" name="cmbCmpCrHdSal" class="form-control">'+html_appl_name+'</option></td>'
 				html += '<td ><select id="guar_with'+i+'" name="cmbCmpCrHdSal" class="form-control">'+html_guar_with+'</option></td>'
-				html += '<td id="appl_name_without'+i+'"><select name="cmbCmpCrHdSal" class="form-control">'+html_appl_name_without+'</option></td>'
-				html += '<td id="guar_without'+i+'"><select name="cmbCmpCrHdSal" class="form-control">'+html_guar_without+'</option></td>'				
+				html += '<td ><select id="appl_name_without'+i+'" onchange="next_guar_without_ssn(this.id)"name="cmbCmpCrHdSal" class="form-control">'+html_appl_name_without+'</option></td>'
+				html += '<td ><select id="guar_without'+i+'" name="cmbCmpCrHdSal" class="form-control">'+html_guar_without+'</option></td>'				
 				html += '</tr>'
 				$("#push_priorities").append(html);
 				}
@@ -242,6 +242,7 @@ function next_guar_ssn(id){
 				
 				var obj = $.parseJSON(data)
 				obj_array = obj["data"]
+				
 				//alert(obj_array[0]["guardian_ssn_together_with"])
 				var select = document.getElementById("guar_with"+id.substr(id.length - 1));
 				var length = select.options.length;
@@ -253,8 +254,62 @@ function next_guar_ssn(id){
 					$("#guar_with"+id.substr(id.length - 1)).append('<option>'+obj_array[0]["guardian_ssn_together_with"][i]+'</option>');
 					//html_guar_with += html_guar_with +='<option>'+obj_array[0]["guardian_ssn_together_with"][i]+'</option>'
 				}
-				//html += '<td ><select id="guar_with'+i+'" name="cmbCmpCrHdSal" class="form-control">'+html_guar_with+'</option></td>'
+				if(obj["message"]==""){
+					
+				}
+				else{
+					alert(obj["message"].replaceAll("|","\n"))
+				}
 				
+    		},
+    		error: function(data)
+    		{
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
+      		}
+    	}
+  	);
+}
+
+function next_guar_without_ssn(id){
+	//alert(id)
+	var e = document.getElementById(id);
+	var strUser = e.options[e.selectedIndex].value;
+	//alert(strUser)
+	appl_name = '{"data" :[{"applicant_name_not_together_with":"'+strUser+'"}]}'
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../priorities_get_guar_ssn/",
+			async:true,
+			data: 
+   				{
+        			prior: appl_name // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+				
+				var obj = $.parseJSON(data)
+				obj_array = obj["data"]
+				//alert(obj_array[0]["guardian_ssn_not_together_with"])
+				var select = document.getElementById("guar_without"+id.substr(id.length - 1));
+				var length = select.options.length;
+				for (i = 0; i < length; i++) {
+					select.options[i] = null;
+				}
+				for(i=0;i<obj_array[0]["guardian_ssn_not_together_with"].length;i++)
+				{
+					$("#guar_without"+id.substr(id.length - 1)).append('<option>'+obj_array[0]["guardian_ssn_not_together_with"][i]+'</option>');
+					//html_guar_with += html_guar_with +='<option>'+obj_array[0]["guardian_ssn_together_with"][i]+'</option>'
+				}
+				//html += '<td ><select id="guar_with'+i+'" name="cmbCmpCrHdSal" class="form-control">'+html_guar_with+'</option></td>'
+				if(obj["message"]==""){
+					
+				}
+				else{
+					alert(obj["message"].replaceAll("|","\n"))
+				}
 				//$("#push_priorities").append(html);
     		},
     		error: function(data)
@@ -264,3 +319,8 @@ function next_guar_ssn(id){
     	}
   	);
 }
+
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};

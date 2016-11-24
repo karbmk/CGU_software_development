@@ -99,10 +99,10 @@ class Priorities(object):
 		else:
 			new_data[0]['guardian_ssn_not_together_with'] = list_of_ssn
 
-		if len(list_of_ssn) == 0:
+		if len(list_of_ssn) <=1:
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"" }'
 		else:
-			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"There are more than 1 SSN\'s" }'
+			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"There are more than 1 SSN\'s. | Please choose one of them from the dropdown" }'
 
 		return return_front_end_dict
 

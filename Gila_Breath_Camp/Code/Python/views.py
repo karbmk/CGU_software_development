@@ -102,6 +102,7 @@ def priorities_get_guar_ssn(request):
 	print(data)
 	pr = priorities.Priorities()
 	st = pr.getSsn(data)
+	print(st)
 	return HttpResponse(st,content_type="application/type")
 
 @csrf_exempt
