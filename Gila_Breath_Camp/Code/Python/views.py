@@ -95,6 +95,16 @@ def priorities_get(request):
 	return HttpResponse(st,content_type="application/type")
 
 @csrf_exempt
+def priorities_get_guar_ssn(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["prior"]
+	print(data)
+	pr = priorities.Priorities()
+	st = pr.getSsn(data)
+	return HttpResponse(st,content_type="application/type")
+
+@csrf_exempt
 def print_letter(request):
 	c = {}
 	c.update(csrf(request));

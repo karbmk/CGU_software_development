@@ -28,5 +28,6 @@ urlpatterns = [
 	url(r'^print_letter/', views.print_letter, name='print_letter'),
 	url(r'^send_cancel/', views.send_cancel, name='send_cancel'),
 	url(r'^priorities_get/', views.priorities_get, name='priorities_get'),
+	url(r'^priorities_get_guar_ssn/', views.priorities_get_guar_ssn, name='priorities_get_guar_ssn'),
 
 ]
