@@ -90,7 +90,8 @@ class Application_cancellation(object):
 
 		for l in range(0,len(new)):
 			if new[l]["cancel_flag"] == '1':
-				new[k]["cancel_date"] = str(datetime.datetime.now())
+				new[l]["cancel_date"] = str(datetime.datetime.now())
+				print('new[l]["cancel_date"]:',new[l]["cancel_date"])
 					#getRefund(new[l]["payment"],new[l]["mailing_date"],new[l]["cancel_date"])
 				new[l]["refund"] = self.getRefund(new[l]["payment"],new[l]["mailing_date"],new[l]["cancel_date"])
 				print(new[l]["refund"])
@@ -102,12 +103,13 @@ class Application_cancellation(object):
 	def getRefund(self,payment,mailing_date,cancel_date):
 		
 		"""Set Refund at csv"""
-		#cf = common_functions.Common_functions()
-		#print(mailing_date)
-		#mail = cf.str_to_date(mailing_date)
-		#print(mail)
-		print(type(mailing_date.split(" ")[0]))
-		print(datetime.datetime.strptime(mailing_date.split(" ")[0], '%Y-%M-%d'))
+		cf = common_functions.Common_functions()
+		mail = cf.str_to_date(mailing_date)
+		print('cancel_date:',cancel_date)
+		cancel = cf.str_to_date(cancel_date)
+		print(mail)
+		print(cancel_date)
+		#if week_difference 
 		return "100"
 
 		#for i in range(0,len(new)):
