@@ -1,5 +1,8 @@
 Dear *guardian_last_name*,
-This is to inform you that your child *applicant_first_name* has been admitted for the summer camp starting from *camp_time_slots*. Please look into the attached packet for information and guidance regarding the Check-In. We look forward to see your child at the Gila Breath Camp.
+
+This is to inform you that your child *applicant_first_name* has been admitted for the summer camp starting from *camp_time_slots*. 
+Please look into the attached packet for information and guidance regarding the Check-In. 
+We look forward to see your child at the Gila Breath Camp.
 
 Director
 GILA BREATH CAMP

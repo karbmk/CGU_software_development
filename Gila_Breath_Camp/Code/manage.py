@@ -2,6 +2,8 @@
 import os
 import sys
 
+os.system("chcp 65001")
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Main.settings")
     try:

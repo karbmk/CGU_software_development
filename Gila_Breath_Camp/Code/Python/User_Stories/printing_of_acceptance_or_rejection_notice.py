@@ -13,14 +13,15 @@
 # VER	|	DATE       	|	MODIFIED BY  		|  	CHANGE DESCRIPTION
 # -------------------------------------------------------------------------------
 # 1.0   	1-Nov-2016  	Jemin Gohil    		    Started coding
-# 2.0       3-Nov-2016      Jemin Gohil              Logic for printing rejection notice
-# 3.0       16-Nov-2016      Jemin Gohil             printing rejection notice completed
+# 2.0       3-Nov-2016      Jemin Gohil         	Logic for printing rejection notice
+# 3.0      	16-Nov-2016 	Jemin Gohil            	Printing rejection notice completed
 # ================================================================================
 
 import sys
 import ast
 import json
-import os.path
+import os
+import getpass
 sys.path.append("Python")
 import common_functions
 sys.path.append("Python/Entities")
@@ -63,34 +64,40 @@ class Notice(object):
 		else:
 			file_print = "Textfiles/Templates/r_template.txt"
 			path_name = "rejection_letter"
+
 		with open(file_print, "r") as myfile:
 			template = myfile.readlines()
-			temp = '\n'.join(template)
+			temp = ''.join(template)
 
-		#print(temp)
-		#print(data[0].keys()[0])
 		k = 1
 		Str = ''
 		for j in range(0,len(data)):
 			t = temp
 			for i in data[j].keys():
-				#print(data[j][i])
-				#print(i)
 				if('*'+i+'*' in temp ):
 					try:
 						t = t.replace('*'+i+'*',data[j][i])
 					except:
 						pass
-			#print(data[j]['violations'])
 			#print("--------------------------------")
-			Str = ', \n'.join(data[j]['violations'])
+			Str = ''
+			for m in range(0,len(data[j]['violations'])):
+				if m == 0:
+					Str = str(m+1) + '. ' + data[j]['violations'][m]
+				else:
+					Str = Str + '\n' + str(m+1) + '. ' +  data[j]['violations'][m]
 			#print(type(Str))
 			t=t.replace("*violations*",Str)
 			#print ("yes")
 
 
 			#print(t)
-		save_path = 'Textfiles/Prints/'
+		user  = getpass.getuser()
+		save_path = 'C:/Users/' + user + '/Documents/Gila_Breath_Camp'
+		
+		if not os.path.exists(save_path):
+			os.makedirs(save_path)
+		
 		name_of_file = data[0]["applicant_first_name"]+"_"+data[0]["applicant_last_name"]+"_"+data[0]["applicant_id"]+"_"+path_name
 		completeName = os.path.join(save_path, name_of_file + ".txt")
 		text_file = open(completeName,"w")
@@ -100,3 +107,5 @@ class Notice(object):
 
 #ap = Notice()
 #ap.acceptance(front_end_str)
+
+

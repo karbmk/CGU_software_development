@@ -106,5 +106,16 @@ class Priorities(object):
 
 		return return_front_end_dict
 
+	def updateCustomerPriorities(self,front_end_str):
+		""" Updating priorities in applicant.csv """
+
+		front_end_dict = ast.literal_eval(front_end_str)
+		front_end_data = front_end_dict['data']
+
+		data = cf.getFromCsv(front_end_str)
+
+		print(front_end_str)
+
+
 
 
