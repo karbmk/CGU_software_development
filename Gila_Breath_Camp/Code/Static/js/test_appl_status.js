@@ -41,7 +41,12 @@ getTest2 = function(id)
 				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
 				html += '<td id="completed_appl'+i+'">'+check_stat+'</td>'
+				if(check_stat=="ACCEPTED"){
 				html += '<td align="center"><input id="appl_status'+i+'" type="checkbox" name="appl_status" '+check+'></td>'
+				}
+				else{
+					html += '<td></td>'
+				}
 				html += '<td id="comments'+i+'">'+obj_array[i]["violations"][0]+'</td>'
 				html +='<td><a onclick="printLetter(this.id)" id="'+i+'" class="smoth btn gradiant-bg"><strong><font color="white">PRINT</font></strong><span></span></a></td>'
 
