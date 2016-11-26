@@ -21,6 +21,7 @@ import sys
 import json
 import ast
 import datetime
+import copy
 sys.path.append("Python")
 import common_functions
 sys.path.append("Python/Entities")
@@ -52,31 +53,20 @@ class Priorities(object):
 					list_of_names.append(data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name'])
 
 			for j in range(0,len(data)):
+
+				backup_list_of_names = copy.deepcopy(list_of_names)
+				backup_list_of_id = copy.deepcopy(list_of_id)
+
 				new_dict = {}
 				new_dict['applicant_id'] = data[j]['applicant_id']
 				new_dict['applicant_name'] = data[j]['applicant_last_name'] + ', ' + data[j]['applicant_first_name']
-
-				if data[j]['applicant_name_together_with'] != '':
-					new_dict['applicant_name_together_with'] = self.setSequence(list_of_names,data[j]['applicant_name_together_with'])
-				else:
-					new_dict['applicant_name_together_with'] = list_of_names
-
-				if data[j]['applicant_id_together_with'] != '':
-					new_dict['applicant_id_together_with'] = self.setSequence(list_of_id,data[j]['applicant_id_together_with'])
-				else:
-					new_dict['applicant_id_together_with'] = list_of_id
-
-				if data[j]['applicant_name_not_together_with'] != '':
-					new_dict['applicant_name_not_together_with'] = self.setSequence(list_of_names,data[j]['applicant_name_not_together_with'])
-				else:
-					new_dict['applicant_name_not_together_with'] = list_of_names
-
-				if data[j]['applicant_id_not_together_with'] != '':
-					new_dict['applicant_id_not_together_with'] = self.setSequence(list_of_id,data[j]['applicant_id_not_together_with'])
-				else:
-					new_dict['applicant_id_not_together_with'] = list_of_id
-
+				new_dict['applicant_name_together_with'] = self.getCorrectSequence(data[j]['applicant_name_together_with'],backup_list_of_names)
+				new_dict['applicant_id_together_with'] = self.getCorrectSequence(data[j]['applicant_id_together_with'],backup_list_of_id)
+				new_dict['applicant_name_not_together_with'] = self.getCorrectSequence(data[j]['applicant_name_not_together_with'],backup_list_of_names)
+				new_dict['applicant_id_not_together_with'] = self.getCorrectSequence(data[j]['applicant_id_not_together_with'],backup_list_of_id)
 				new_data.append(new_dict)
+
+			print(new_data[1]['applicant_name_not_together_with'])
 
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
@@ -154,11 +144,17 @@ class Priorities(object):
 	def setSequence(self,input_list,csv_data):
 		""" Returns a list in a sequence putting data in csv as first """
 		output_list = [csv_data]
-		
+
 		for i in range(0,len(input_list)):
 			if input_list[i] != csv_data:
 				output_list.append(input_list[i])
 
 		return output_list
 
+	def getCorrectSequence(self,input_key_value,input_list):
+		""" perform check for correct sequence for a particular key """
+		if input_key_value != '':
+			return self.setSequence(input_list,input_key_value)
+		else:
+			return input_list
 
