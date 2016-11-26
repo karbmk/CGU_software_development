@@ -350,13 +350,6 @@ class Applicant(object):
 		return self.applicant_name_together_with
 
 
-	def setApplicantSsnTogetherWith(self,applicant_ssn_together_with):
-		self.applicant_ssn_together_with = applicant_ssn_together_with
-
-	def getApplicantSsnTogetherWith(self):
-		return self.applicant_ssn_together_with
-
-
 	def setApplicantIdTogetherWith(self,applicant_id_together_with):
 		self.applicant_id_together_with = applicant_id_together_with
 
@@ -369,13 +362,6 @@ class Applicant(object):
 
 	def getApplicantNameNotTogetherWith(self):
 		return self.applicant_name_not_together_with
-
-
-	def setApplicantSsnNotTogetherWith(self,applicant_ssn_not_together_with):
-		self.applicant_ssn_not_together_with = applicant_ssn_not_together_with
-
-	def getApplicantSsnNotTogetherWith(self):
-		return self.applicant_ssn_not_together_with
 
 
 	def setApplicantIdNotTogetherWith(self,applicant_id_not_together_with):

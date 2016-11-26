@@ -14,6 +14,7 @@
 # -------------------------------------------------------------------------------
 # 1.0   	17-NOV-2016  	ROHAN SAWANT    		Started coding
 # 2.0		20-NOV-2016		ROHAN SAWANT			Completed function getCustomerPriorities
+# 3.0		26-NOV-2016		ROHAN SAWANT			Completed update priorities
 # ================================================================================
 
 import sys
@@ -112,12 +113,26 @@ class Priorities(object):
 		front_end_dict = ast.literal_eval(front_end_str)
 		front_end_data = front_end_dict['data']
 
+		cf = common_functions.Common_functions()		
 		data = cf.getFromCsv('applicant.csv',{})
 
-		#for i in range(0,len(data)):
+		if len(data) == 0:
+			return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"error", "message":"Something went wrong" }'
+		else:
 
+			for i in range(0,len(data)):
+				for j in range(0,len(front_end_data)):
+					if data[i]['applicant_id'] == front_end_data[j]['applicant_id']:
+						data[i]['applicant_name_together_with'] = front_end_data[j]['applicant_name_together_with']
+						data[i]['applicant_id_together_with'] = front_end_data[j]['applicant_id_together_with']
+						data[i]['applicant_name_not_together_with'] = front_end_data[j]['applicant_name_not_together_with']
+						data[i]['applicant_id_not_together_with'] = front_end_data[j]['applicant_id_not_together_with']
+			
+			cf.updateManyRowIntoCsv('applicant.csv',data,'applicant_id')
 
-		print(front_end_str)
+			return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"success", "message":"All Applicant\'s data updated" }'
+
+		return return_front_end_dict
 
 
 
