@@ -15,6 +15,7 @@
 # 1.0   	1-Nov-2016  	Jemin Gohil    		    Started coding
 # 2.0       3-Nov-2016      Jemin Gohil         	Logic for printing rejection notice
 # 3.0      	16-Nov-2016 	Jemin Gohil            	Printing rejection notice completed
+# 4.0       25-Nov-2016     Karthik                 return the string 
 # ================================================================================
 
 import sys
@@ -104,6 +105,7 @@ class Notice(object):
 		text_file.write(t)
 		text_file.close()
 		print(t)
+		return(t)
 
 #ap = Notice()
 #ap.acceptance(front_end_str)

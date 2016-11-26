@@ -112,6 +112,7 @@ def print_letter(request):
 	data = request.POST["ssn"]
 	prin_letter = printing_of_acceptance_or_rejection_notice.Notice()
 	st = prin_letter.acceptance(data)
+	print(st)
 	return HttpResponse(st,content_type="application/type")
 
 @csrf_exempt

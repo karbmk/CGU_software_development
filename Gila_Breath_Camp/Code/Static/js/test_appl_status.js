@@ -78,7 +78,11 @@ printLetter = function(clicked_id){
     		dataType: "text",
     		success: function(data) 
     		{
-				 alert("Letters have been printed in your desired path")       		
+				//alert(data)
+				var myWindow = window.open("","PRINT", "_blank");
+				myWindow.document.write("<p>"+data.replaceAll("\n","<br>")+"</p>");
+				myWindow.print()
+				//alert("Letters have been printed in your desired path")       		
     		},
     		error: function(data)
     		{
