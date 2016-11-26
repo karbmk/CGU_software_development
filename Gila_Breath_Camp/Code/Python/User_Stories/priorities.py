@@ -55,10 +55,27 @@ class Priorities(object):
 				new_dict = {}
 				new_dict['applicant_id'] = data[j]['applicant_id']
 				new_dict['applicant_name'] = data[j]['applicant_last_name'] + ', ' + data[j]['applicant_first_name']
-				new_dict['applicant_name_together_with'] = list_of_names
-				new_dict['guardian_id_together_with'] = list_of_id
-				new_dict['applicant_name_not_together_with'] = list_of_names
-				new_dict['guardian_id_not_together_with'] = list_of_id
+
+				if data[j]['applicant_name_together_with'] != '':
+					new_dict['applicant_name_together_with'] = self.setSequence(list_of_names,data[j]['applicant_name_together_with'])
+				else:
+					new_dict['applicant_name_together_with'] = list_of_names
+
+				if data[j]['applicant_id_together_with'] != '':
+					new_dict['applicant_id_together_with'] = self.setSequence(list_of_id,data[j]['applicant_id_together_with'])
+				else:
+					new_dict['applicant_id_together_with'] = list_of_id
+
+				if data[j]['applicant_name_not_together_with'] != '':
+					new_dict['applicant_name_not_together_with'] = self.setSequence(list_of_names,data[j]['applicant_name_not_together_with'])
+				else:
+					new_dict['applicant_name_not_together_with'] = list_of_names
+
+				if data[j]['applicant_id_not_together_with'] != '':
+					new_dict['applicant_id_not_together_with'] = self.setSequence(list_of_id,data[j]['applicant_id_not_together_with'])
+				else:
+					new_dict['applicant_id_not_together_with'] = list_of_id
+
 				new_data.append(new_dict)
 
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
@@ -134,6 +151,14 @@ class Priorities(object):
 
 		return return_front_end_dict
 
+	def setSequence(self,input_list,csv_data):
+		""" Returns a list in a sequence putting data in csv as first """
+		output_list = [csv_data]
+		
+		for i in range(0,len(input_list)):
+			if input_list[i] != csv_data:
+				output_list.append(input_list[i])
 
+		return output_list
 
 
