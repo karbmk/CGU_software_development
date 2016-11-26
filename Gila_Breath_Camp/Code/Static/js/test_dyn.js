@@ -72,6 +72,7 @@ function select_all(id){
 		document.getElementById("water_bottle"+id.substr(id.length - 1)).checked = true
 		document.getElementById("sunscreen"+id.substr(id.length - 1)).checked = true
 		document.getElementById("bugs_spray"+id.substr(id.length - 1)).checked = true
+		document.getElementById("completed"+id.substr(id.length - 1)).innerHTML = "COMPLETE"
 		
 		//alert("true")
 	}
@@ -86,5 +87,6 @@ function select_all(id){
 		document.getElementById("water_bottle"+id.substr(id.length - 1)).checked = false
 		document.getElementById("sunscreen"+id.substr(id.length - 1)).checked = false
 		document.getElementById("bugs_spray"+id.substr(id.length - 1)).checked = false
+		document.getElementById("completed"+id.substr(id.length - 1)).innerHTML = "INCOMPLETE"
 	}
 }
