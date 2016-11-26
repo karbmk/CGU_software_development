@@ -195,14 +195,14 @@ getPriority = function(id){
 					//alert(obj_array[i]["applicant_name_together_with"][j])
 					html_appl_name +='<option>'+obj_array[i]["applicant_name_together_with"][j]+'</option>'
 				}
-				for(var j=0;j<obj_array[i]["guardian_ssn_together_with"].length;j++){
-					html_guar_with +='<option>'+obj_array[i]["guardian_ssn_together_with"][j]+'</option>'
+				for(var j=0;j<obj_array[i]["guardian_id_together_with"].length;j++){
+					html_guar_with +='<option>'+obj_array[i]["guardian_id_together_with"][j]+'</option>'
 				}
 				for(var j=0;j<obj_array[i]["applicant_name_together_with"].length;j++){
 					html_appl_name_without +='<option>'+obj_array[i]["applicant_name_together_with"][j]+'</option>'
 				}
-				for(var j=0;j<obj_array[i]["guardian_ssn_not_together_with"].length;j++){
-					html_guar_without +='<option>'+obj_array[i]["guardian_ssn_not_together_with"][j]+'</option>'
+				for(var j=0;j<obj_array[i]["guardian_id_not_together_with"].length;j++){
+					html_guar_without +='<option>'+obj_array[i]["guardian_id_not_together_with"][j]+'</option>'
 				}
 				var html = '<tr>';
 				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
@@ -253,9 +253,9 @@ function next_guar_ssn(id){
 				for (i = 0; i < length; i++) {
 					select.options[i] = null;
 				}
-				for(i=0;i<obj_array[0]["guardian_ssn_together_with"].length;i++)
+				for(i=0;i<obj_array[0]["guardian_id_together_with"].length;i++)
 				{
-					$("#guar_with"+id.substr(id.length - 1)).append('<option>'+obj_array[0]["guardian_ssn_together_with"][i]+'</option>');
+					$("#guar_with"+id.substr(id.length - 1)).append('<option>'+obj_array[0]["guardian_id_together_with"][i]+'</option>');
 					//html_guar_with += html_guar_with +='<option>'+obj_array[0]["guardian_ssn_together_with"][i]+'</option>'
 				}
 				if(obj["message"]==""){
@@ -302,9 +302,9 @@ function next_guar_without_ssn(id){
 				for (i = 0; i < length; i++) {
 					select.options[i] = null;
 				}
-				for(i=0;i<obj_array[0]["guardian_ssn_not_together_with"].length;i++)
+				for(i=0;i<obj_array[0]["guardian_id_not_together_with"].length;i++)
 				{
-					$("#guar_without"+id.substr(id.length - 1)).append('<option>'+obj_array[0]["guardian_ssn_not_together_with"][i]+'</option>');
+					$("#guar_without"+id.substr(id.length - 1)).append('<option>'+obj_array[0]["guardian_id_not_together_with"][i]+'</option>');
 					//html_guar_with += html_guar_with +='<option>'+obj_array[0]["guardian_ssn_together_with"][i]+'</option>'
 				}
 				//html += '<td ><select id="guar_with'+i+'" name="cmbCmpCrHdSal" class="form-control">'+html_guar_with+'</option></td>'

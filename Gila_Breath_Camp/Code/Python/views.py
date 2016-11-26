@@ -101,7 +101,7 @@ def priorities_get_guar_ssn(request):
 	data = request.POST["prior"]
 	print(data)
 	pr = priorities.Priorities()
-	st = pr.getSsn(data)
+	st = pr.getId(data)
 	print(st)
 	return HttpResponse(st,content_type="application/type")
 
