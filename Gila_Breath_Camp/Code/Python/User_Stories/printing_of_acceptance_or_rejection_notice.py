@@ -58,7 +58,8 @@ class Notice(object):
 
 		data[0]["violations"] = data3[0]["violations"]
 		data[0]["application_status"] = data3[0]["application_status"]
-		data[0]["camp_time_slots"] = data3[0]["camp_time_slots"][:10]
+		#print
+		data[0]["camp_time_slots"] = data[0]["camp_time_slots"][:10]
 	
 		if data[0]["violations"][0] =="NO VIOLATIONS":
 			file_print = "Textfiles/Templates/a_template.txt"
