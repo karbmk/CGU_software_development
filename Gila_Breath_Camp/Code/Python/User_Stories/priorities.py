@@ -113,9 +113,9 @@ class Priorities(object):
 						list_of_id.append(data[i]['applicant_id'])
 
 		if together_flag == 1:
-			new_data[0]['guardian_id_together_with'] = list_of_id
+			new_data[0]['applicant_id_together_with'] = list_of_id
 		else:
-			new_data[0]['guardian_id_not_together_with'] = list_of_id
+			new_data[0]['applicant_id_not_together_with'] = list_of_id
 
 		if len(list_of_id) <=1:
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"" }'
