@@ -43,7 +43,7 @@ class Priorities(object):
 		else:
 			new_data = []
 			list_of_names = ["NONE"]
-			list_of_ssn = ["NONE"]
+			list_of_id = ["NONE"]
 
 			for i in range(0,len(data)):
 				name = data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name']
@@ -55,17 +55,17 @@ class Priorities(object):
 				new_dict['applicant_id'] = data[j]['applicant_id']
 				new_dict['applicant_name'] = data[j]['applicant_last_name'] + ', ' + data[j]['applicant_first_name']
 				new_dict['applicant_name_together_with'] = list_of_names
-				new_dict['guardian_ssn_together_with'] = list_of_ssn
+				new_dict['guardian_id_together_with'] = list_of_id
 				new_dict['applicant_name_not_together_with'] = list_of_names
-				new_dict['guardian_ssn_not_together_with'] = list_of_ssn
+				new_dict['guardian_id_not_together_with'] = list_of_id
 				new_data.append(new_dict)
 
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
 		return return_front_end_dict
 
-	def getSsn(self,front_end_str):
-		""" Get SSN for selected Name """
+	def getId(self,front_end_str):
+		""" Get Id for selected Name """
 
 		front_end_dict = ast.literal_eval(front_end_str)
 
@@ -85,24 +85,24 @@ class Priorities(object):
 			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered"}'
 		else:
 			new_data = [{}]
-			list_of_ssn = []
+			list_of_id = []
 
 			for i in range(0,len(data)):
 				name = data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name']
 				if name == applicant_name:
-					ssn = data[i]['guardian_ssn']
-					if ssn not in list_of_ssn:
-						list_of_ssn.append(data[i]['guardian_ssn'])
+					id = data[i]['applicant_id']
+					if id not in list_of_id:
+						list_of_id.append(data[i]['applicant_id'])
 
 		if together_flag == 1:
-			new_data[0]['guardian_ssn_together_with'] = list_of_ssn
+			new_data[0]['guardian_id_together_with'] = list_of_id
 		else:
-			new_data[0]['guardian_ssn_not_together_with'] = list_of_ssn
+			new_data[0]['guardian_id_not_together_with'] = list_of_id
 
-		if len(list_of_ssn) <=1:
+		if len(list_of_id) <=1:
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"" }'
 		else:
-			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"There are more than 1 SSN\'s. | Please choose one of them from the dropdown" }'
+			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"There are more than 1 Application Id\'s.| Please choose one of them from the dropdown" }'
 
 		return return_front_end_dict
 
@@ -112,7 +112,10 @@ class Priorities(object):
 		front_end_dict = ast.literal_eval(front_end_str)
 		front_end_data = front_end_dict['data']
 
-		data = cf.getFromCsv(front_end_str)
+		data = cf.getFromCsv('applicant.csv',{})
+
+		#for i in range(0,len(data)):
+
 
 		print(front_end_str)
 
