@@ -30,12 +30,13 @@ getTest1 = function(id)
 				if(obj_array[i]["water_bottle"]=='1'){water_bottle = 'checked'}else{water_bottle = ''}
 				if(obj_array[i]["sunscreen"]=='1'){sunscreen = 'checked'}else{sunscreen = ''}
 				if(obj_array[i]["bugs_spray"]=='1'){bugs_spray = 'checked'}else{bugs_spray = ''}
-				if(obj_array[i]["check_in_status"]=='1'){complete = 'COMPLETE'}else{complete = 'INCOMPLETE'}
+				if(obj_array[i]["check_in_status"]=='1'){complete = 'COMPLETE'; sel_all="checked"}else{complete = 'INCOMPLETE';sel_all=''}
 				
 				var html = '<tr>';
 				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
 				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
+				html += '<td><input onchange="select_all(this.id)" id="sel_all'+i+'" type="checkbox"  name="select" '+sel_all+'></td>'
 				html += '<td><input onchange="myFunction()" id="medical'+i+'" type="checkbox"  name="medical" '+med+'></td>'
 				html += '<td><input onchange="myFunction()" id="legal'+i+'" type="checkbox" name="legal" '+leg+'></td>'
 				html += '<td><input onchange="myFunction()" id="emergency'+i+'" type="checkbox" name="emergency" '+emer+'></td>'
@@ -58,4 +59,32 @@ getTest1 = function(id)
     	}
   	);
 		
+}
+function select_all(id){
+	//alert(id)
+	if(document.getElementById(id).checked == true){
+		document.getElementById("medical"+id.substr(id.length - 1)).checked = true
+		document.getElementById("legal"+id.substr(id.length - 1)).checked = true
+		document.getElementById("emergency"+id.substr(id.length - 1)).checked = true
+		document.getElementById("helmet"+id.substr(id.length - 1)).checked = true
+		document.getElementById("boot"+id.substr(id.length - 1)).checked = true
+		document.getElementById("sleeping_bag"+id.substr(id.length - 1)).checked = true
+		document.getElementById("water_bottle"+id.substr(id.length - 1)).checked = true
+		document.getElementById("sunscreen"+id.substr(id.length - 1)).checked = true
+		document.getElementById("bugs_spray"+id.substr(id.length - 1)).checked = true
+		
+		//alert("true")
+	}
+	else{
+		//alert("false")
+		document.getElementById("medical"+id.substr(id.length - 1)).checked = false
+		document.getElementById("legal"+id.substr(id.length - 1)).checked = false
+		document.getElementById("emergency"+id.substr(id.length - 1)).checked = false
+		document.getElementById("helmet"+id.substr(id.length - 1)).checked = false
+		document.getElementById("boot"+id.substr(id.length - 1)).checked = false
+		document.getElementById("sleeping_bag"+id.substr(id.length - 1)).checked = false
+		document.getElementById("water_bottle"+id.substr(id.length - 1)).checked = false
+		document.getElementById("sunscreen"+id.substr(id.length - 1)).checked = false
+		document.getElementById("bugs_spray"+id.substr(id.length - 1)).checked = false
+	}
 }
