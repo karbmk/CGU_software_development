@@ -45,7 +45,7 @@ getTest2 = function(id)
 				html += '<td align="center"><input id="appl_status'+i+'" type="checkbox" name="appl_status" '+check+'></td>'
 				}
 				else{
-					html += '<td></td>'
+					html += '<td id="appl_status'+i+'"></td>'
 				}
 				html += '<td id="comments'+i+'">'+obj_array[i]["violations"][0]+'</td>'
 				html +='<td><a onclick="printLetter(this.id)" id="'+i+'" class="smoth btn gradiant-bg"><strong><font color="white">PRINT</font></strong><span></span></a></td>'
