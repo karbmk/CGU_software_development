@@ -68,9 +68,9 @@
 				<li id="get_priorities" onclick="getPriority(3)" role="presentation"><a href="#tab7" data-toggle="tab">Priority</a></li>
 				<li id="appl_click" onclick="getTest2(3)" role="presentation"><a href="#tab2" data-toggle="tab">STATUS</a></li>
 				<li id="check_click" onclick="getTest1(3)" role="presentation"><a href="#tab3" data-toggle="tab">CHECK - IN</a></li>
+				<li id="get_bunk" onclick="getBunk(3)" role="presentation"><a href="#tab5" data-toggle="tab">BUNKHOUSES</a></li>
+				<li id="get_tribe" onclick="getTribe(3)" role="presentation"><a href="#tab6" data-toggle="tab">TRIBES</a></li>
 				<li id="get_cancel" onclick="getCancel(3)" role="presentation"><a href="#tab4" data-toggle="tab">CANCEL</a></li>
-				<li role="presentation"><a href="#tab5" data-toggle="tab">BUNKHOUSES</a></li>
-				<li role="presentation"><a href="#tab6" data-toggle="tab">TRIBES</a></li>
 				
 			</ul>
 		</div>
@@ -1645,15 +1645,16 @@ function myFunction()
 				<!-- tab5-Start -->
 				<div class="tab-pane fade in" id="tab5">
 					<div class="">
+					<div class="col-md-3" align="center" ><input type="text" id="bunk_number" name="txtY1TOL" class="form-control"></div></br></br>
 				      	<div class="t-box">
-					       	<table id="checkin" class="table table-bordered">
+					       	<table id="pop_bunk" class="table table-bordered">
 					       	  <tr>
 					       	    <th>Application no.</th>
 					       	    <th>Bunkhouse No.</th>
 					       	    <th>Appliacant Name</th>
-					       	    <!--<th>Medical Form</th>
-					       	    <th>Legal Form</th>
-					       	    <th>Emergency Contact</th>
+					       	    <th>GENDER</th>
+					       	    <th>AGE</th>
+					       	    <!--<th>Emergency Contact</th>
 					       	    <th>Helmet</th>
 					       	    <th>Boot</th>
 					       	    <th>Sleeping bag</th>
@@ -1793,15 +1794,16 @@ function myFunction()
 				<!-- tab6-start -->
 				<div class="tab-pane fade in" id="tab6">
 					<div class="">
+					<div class="col-md-3" align="center" ><input type="text" id="tribe_number" name="txtY1TOL" class="form-control"></div></br></br>
 				      	<div class="t-box">
-					       	<table id="checkin" class="table table-bordered">
+					       	<table id="pop_tribe" class="table table-bordered">
 					       	  <tr>
 					       	    <th>Application no.</th>
 					       	    <th>Tribe Name/No.</th>
 					       	    <th>Appliacant Name</th>
-					       	    <!--<th>Medical Form</th>
-					       	    <th>Legal Form</th>
-					       	    <th>Emergency Contact</th>
+					       	    <th>GENDER</th>
+					       	    <th>AGE</th>
+					       	    <!--<th>Emergency Contact</th>
 					       	    <th>Helmet</th>
 					       	    <th>Boot</th>
 					       	    <th>Sleeping bag</th>

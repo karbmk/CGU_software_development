@@ -70,7 +70,7 @@ class Assignment_of_bunkhouses(object):
 
 			return_front_end_dict = '{ "data": ' + json.dumps(all_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
-		return all_data
+		return return_front_end_dict
 
 
 

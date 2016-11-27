@@ -18,5 +18,5 @@ lol = cf.csvToListOfList('Csv/applicant.csv')
 header = lol[0]
 cf.printLod(st,header)
 
-#print(st)
+print(st)
 
