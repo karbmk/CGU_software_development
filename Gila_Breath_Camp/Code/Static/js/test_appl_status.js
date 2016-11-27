@@ -152,9 +152,12 @@ getCancel = function(id){
 				html += '<td id="completed_appl'+i+'">'+check_stat+'</td>'
 				html += '<td align="center" id="appl_status'+i+'" name="appl_status" >'+check+'</td>'
 				if (check == 'NOT SENT')
-				{html +='<td align="center">GO TO STATUS AND SEND ACCEPTANCE PACKET</td>'}
+				{html +='<td align="center" id="cancel'+i+'">GO TO STATUS AND SEND ACCEPTANCE PACKET</td>'}
 				else
 				{html += '<td align="center"><input id="cancel'+i+'" type="checkbox" name="appl_status" '+check_cancel+'></td>'}
+				html += '<td>'+obj_array[i]["mailing_date"]+'</td>'
+				html += '<td>'+obj_array[i]["cancel_date"]+'</td>'
+				html += '<td>'+obj_array[i]["refund"]+'</td>'
 				html += '</tr>'
 				$("#cancel_status").append(html);
 				}
