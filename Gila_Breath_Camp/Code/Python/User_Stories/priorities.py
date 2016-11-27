@@ -63,12 +63,12 @@ class Priorities(object):
 				new_dict['applicant_name_together_with'] = self.getCorrectSequence(data[j]['applicant_name_together_with'],backup_list_of_names)
 
 				check_list_of_id1 = ['NONE']
-				if data[j]['applicant_id_together_with'] != 'NONE':
+				if data[j]['applicant_id_together_with'] != '':
 					dict_applicant_name = [{'applicant_name_together_with':data[j]['applicant_name_together_with']}]
 					check_list_of_id1_str = self.getId('{ "data": ' + json.dumps(dict_applicant_name) + '}')
 					check_list_of_id1_dict = ast.literal_eval(check_list_of_id1_str)
 					check_list_of_id1 = check_list_of_id1_dict['data'][0]['applicant_id_together_with']
-					print("check_list_of_id1 :",check_list_of_id1)
+					#print("check_list_of_id1 :",check_list_of_id1)
 					if len(check_list_of_id1) > 1 and check_list_of_id1[0] != 'NONE':
 						check_list_of_id1 = self.getCorrectSequence(data[j]['applicant_id_together_with'],check_list_of_id1)
 
@@ -77,12 +77,13 @@ class Priorities(object):
 				new_dict['applicant_name_not_together_with'] = self.getCorrectSequence(data[j]['applicant_name_not_together_with'],backup_list_of_names)
 
 				check_list_of_id2 = ['NONE']
-				if data[j]['applicant_id_not_together_with'] != 'NONE':
+				print("data[j]['applicant_id_not_together_with'] :",data[j]['applicant_id_not_together_with'])
+				if data[j]['applicant_id_not_together_with'] != '':
 					dict_applicant_name = [{'applicant_name_not_together_with':data[j]['applicant_name_not_together_with']}]
 					check_list_of_id2_str = self.getId('{ "data": ' + json.dumps(dict_applicant_name) + '}')
 					check_list_of_id2_dict = ast.literal_eval(check_list_of_id2_str)
 					check_list_of_id2 = check_list_of_id2_dict['data'][0]['applicant_id_not_together_with']
-					print("check_list_of_id1 :",check_list_of_id2)
+					#print("check_list_of_id1 :",check_list_of_id2)
 					if len(check_list_of_id2) > 1 and check_list_of_id2[0] != 'NONE':
 						check_list_of_id2 = self.getCorrectSequence(data[j]['applicant_id_not_together_with'],check_list_of_id2)
 
@@ -90,7 +91,7 @@ class Priorities(object):
 
 				new_data.append(new_dict)
 
-			print("new_data[0]:",new_data[0])
+			print("new_data[0]:",new_data[11])
 
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
@@ -118,7 +119,7 @@ class Priorities(object):
 
 			new_data = [{}]
 			list_of_id = []
-			print("applicant_name : ",applicant_name)
+			#print("applicant_name : ",applicant_name)
 			if applicant_name != 'NONE':
 				for i in range(0,len(data)):
 					name = data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name']
@@ -139,7 +140,7 @@ class Priorities(object):
 		else:
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"There are more than 1 Application Id\'s.| Please choose one of them from the dropdown" }'
 
-		print("new_data : ",new_data)
+		#print("new_data : ",new_data)
 		return return_front_end_dict
 
 	def updateCustomerPriorities(self,front_end_str):
