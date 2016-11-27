@@ -36,7 +36,7 @@ getTest1 = function(id)
 				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
 				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
-				html += '<td><input onchange="select_all(this.id)" id="sel_all'+i+'" type="checkbox"  name="select" '+sel_all+'></td>'
+				html += '<td><input onchange="select_all('+i+')" id="sel_all'+i+'" type="checkbox"  name="select" '+sel_all+'></td>'
 				html += '<td><input onchange="myFunction()" id="medical'+i+'" type="checkbox"  name="medical" '+med+'></td>'
 				html += '<td><input onchange="myFunction()" id="legal'+i+'" type="checkbox" name="legal" '+leg+'></td>'
 				html += '<td><input onchange="myFunction()" id="emergency'+i+'" type="checkbox" name="emergency" '+emer+'></td>'
@@ -62,31 +62,31 @@ getTest1 = function(id)
 }
 function select_all(id){
 	//alert(id)
-	if(document.getElementById(id).checked == true){
-		document.getElementById("medical"+id.substr(id.length - 1)).checked = true
-		document.getElementById("legal"+id.substr(id.length - 1)).checked = true
-		document.getElementById("emergency"+id.substr(id.length - 1)).checked = true
-		document.getElementById("helmet"+id.substr(id.length - 1)).checked = true
-		document.getElementById("boot"+id.substr(id.length - 1)).checked = true
-		document.getElementById("sleeping_bag"+id.substr(id.length - 1)).checked = true
-		document.getElementById("water_bottle"+id.substr(id.length - 1)).checked = true
-		document.getElementById("sunscreen"+id.substr(id.length - 1)).checked = true
-		document.getElementById("bugs_spray"+id.substr(id.length - 1)).checked = true
-		document.getElementById("completed"+id.substr(id.length - 1)).innerHTML = "COMPLETE"
+	if(document.getElementById("sel_all"+id).checked == true){
+		document.getElementById("medical"+id).checked = true
+		document.getElementById("legal"+id).checked = true
+		document.getElementById("emergency"+id).checked = true
+		document.getElementById("helmet"+id).checked = true
+		document.getElementById("boot"+id).checked = true
+		document.getElementById("sleeping_bag"+id).checked = true
+		document.getElementById("water_bottle"+id).checked = true
+		document.getElementById("sunscreen"+id).checked = true
+		document.getElementById("bugs_spray"+id).checked = true
+		document.getElementById("completed"+id).innerHTML = "COMPLETE"
 		
 		//alert("true")
 	}
 	else{
 		//alert("false")
-		document.getElementById("medical"+id.substr(id.length - 1)).checked = false
-		document.getElementById("legal"+id.substr(id.length - 1)).checked = false
-		document.getElementById("emergency"+id.substr(id.length - 1)).checked = false
-		document.getElementById("helmet"+id.substr(id.length - 1)).checked = false
-		document.getElementById("boot"+id.substr(id.length - 1)).checked = false
-		document.getElementById("sleeping_bag"+id.substr(id.length - 1)).checked = false
-		document.getElementById("water_bottle"+id.substr(id.length - 1)).checked = false
-		document.getElementById("sunscreen"+id.substr(id.length - 1)).checked = false
-		document.getElementById("bugs_spray"+id.substr(id.length - 1)).checked = false
-		document.getElementById("completed"+id.substr(id.length - 1)).innerHTML = "INCOMPLETE"
+		document.getElementById("medical"+id).checked = false
+		document.getElementById("legal"+id).checked = false
+		document.getElementById("emergency"+id).checked = false
+		document.getElementById("helmet"+id).checked = false
+		document.getElementById("boot"+id).checked = false
+		document.getElementById("sleeping_bag"+id).checked = false
+		document.getElementById("water_bottle"+id).checked = false
+		document.getElementById("sunscreen"+id).checked = false
+		document.getElementById("bugs_spray"+id).checked = false
+		document.getElementById("completed"+id).innerHTML = "INCOMPLETE"
 	}
 }
