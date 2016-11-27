@@ -39,6 +39,9 @@ import application_status
 import priorities
 import application_cancellation
 import printing_of_acceptance_or_rejection_notice
+import assignment_of_bunkhouses
+import assignment_of_tribes
+
 
 def test(request):
 	context = ""
@@ -200,6 +203,48 @@ def test_submit_checkin(request):
 		st_get = e
 		print(st_get)
 	return HttpResponse(st_get,content_type="application/type")
+
+@csrf_exempt
+def assignment_bunkhouse(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["bunk"]
+	print(data)
+	dt = choose_date.Choose_date()
+	st = dt.chooseDate()
+	print(st)
+	cis = application_status.Application_status()
+	if json.loads(data)["data"][0]["date_id"]=="1":
+		camp_slot = json.loads(st)["data"][0]["camp_time_slots1"]
+	elif json.loads(data)["data"][0]["date_id"]=="2":
+		camp_slot = json.loads(st)["data"][0]["camp_time_slots2"]
+	elif json.loads(data)["data"][0]["date_id"]=="3":
+		camp_slot = json.loads(st)["data"][0]["camp_time_slots3"]
+	front_end_str = '{"data" :[{"camp_time_slots":"'+camp_slot+'","no_of_bunkhouses":"'+json.loads(data)["data"][0]["no_of_bunkhouses"]+'"}]}'
+	aob = assignment_of_bunkhouses.Assignment_of_bunkhouses()
+	st = aob.readBunkhouseData(front_end_str)
+	print(st)
+	return HttpResponse(st,content_type="application/type")
+
+@csrf_exempt
+def assignment_tribe(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["tribe"]
+	dt = choose_date.Choose_date()
+	st = dt.chooseDate()
+	print(st)
+	cis = application_status.Application_status()
+	if json.loads(data)["data"][0]["date_id"]=="1":
+		camp_slot = json.loads(st)["data"][0]["camp_time_slots1"]
+	elif json.loads(data)["data"][0]["date_id"]=="2":
+		camp_slot = json.loads(st)["data"][0]["camp_time_slots2"]
+	elif json.loads(data)["data"][0]["date_id"]=="3":
+		camp_slot = json.loads(st)["data"][0]["camp_time_slots3"]
+	front_end_str = '{"data" :[{"camp_time_slots":"'+camp_slot+'","no_of_tribes":"'+json.loads(data)["data"][0]["no_of_tribes"]+'"}]}'
+	aob = assignment_of_tribes.Assignment_of_tribes()
+	st = aob.readTribesData(front_end_str)
+	return HttpResponse(st,content_type="application/type")
 
 @csrf_exempt
 def application_status_send(request):
