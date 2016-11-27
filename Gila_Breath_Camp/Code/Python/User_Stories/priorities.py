@@ -61,12 +61,36 @@ class Priorities(object):
 				new_dict['applicant_id'] = data[j]['applicant_id']
 				new_dict['applicant_name'] = data[j]['applicant_last_name'] + ', ' + data[j]['applicant_first_name']
 				new_dict['applicant_name_together_with'] = self.getCorrectSequence(data[j]['applicant_name_together_with'],backup_list_of_names)
-				new_dict['applicant_id_together_with'] = self.getCorrectSequence(data[j]['applicant_id_together_with'],backup_list_of_id)
+
+				check_list_of_id1 = ['NONE']
+				if data[j]['applicant_id_together_with'] != 'NONE':
+					dict_applicant_name = [{'applicant_name_together_with':data[j]['applicant_name_together_with']}]
+					check_list_of_id1_str = self.getId('{ "data": ' + json.dumps(dict_applicant_name) + '}')
+					check_list_of_id1_dict = ast.literal_eval(check_list_of_id1_str)
+					check_list_of_id1 = check_list_of_id1_dict['data'][0]['applicant_id_together_with']
+					print("check_list_of_id1 :",check_list_of_id1)
+					if len(check_list_of_id1) > 1 and check_list_of_id1[0] != 'NONE':
+						check_list_of_id1 = self.getCorrectSequence(data[j]['applicant_id_together_with'],check_list_of_id1)
+
+				new_dict['applicant_id_together_with'] = check_list_of_id1
+
 				new_dict['applicant_name_not_together_with'] = self.getCorrectSequence(data[j]['applicant_name_not_together_with'],backup_list_of_names)
-				new_dict['applicant_id_not_together_with'] = self.getCorrectSequence(data[j]['applicant_id_not_together_with'],backup_list_of_id)
+
+				check_list_of_id2 = ['NONE']
+				if data[j]['applicant_id_not_together_with'] != 'NONE':
+					dict_applicant_name = [{'applicant_name_not_together_with':data[j]['applicant_name_not_together_with']}]
+					check_list_of_id2_str = self.getId('{ "data": ' + json.dumps(dict_applicant_name) + '}')
+					check_list_of_id2_dict = ast.literal_eval(check_list_of_id2_str)
+					check_list_of_id2 = check_list_of_id2_dict['data'][0]['applicant_id_not_together_with']
+					print("check_list_of_id1 :",check_list_of_id2)
+					if len(check_list_of_id2) > 1 and check_list_of_id2[0] != 'NONE':
+						check_list_of_id2 = self.getCorrectSequence(data[j]['applicant_id_not_together_with'],check_list_of_id2)
+
+				new_dict['applicant_id_not_together_with'] = check_list_of_id2
+
 				new_data.append(new_dict)
 
-			print(new_data[1]['applicant_name_not_together_with'])
+			print("new_data[0]:",new_data[0])
 
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
@@ -74,7 +98,6 @@ class Priorities(object):
 
 	def getId(self,front_end_str):
 		""" Get Id for selected Name """
-
 		front_end_dict = ast.literal_eval(front_end_str)
 
 		together_flag = 1
@@ -92,15 +115,19 @@ class Priorities(object):
 		if data == []:
 			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered"}'
 		else:
+
 			new_data = [{}]
 			list_of_id = []
-
-			for i in range(0,len(data)):
-				name = data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name']
-				if name == applicant_name:
-					id = data[i]['applicant_id']
-					if id not in list_of_id:
-						list_of_id.append(data[i]['applicant_id'])
+			print("applicant_name : ",applicant_name)
+			if applicant_name != 'NONE':
+				for i in range(0,len(data)):
+					name = data[i]['applicant_last_name'] + ', ' + data[i]['applicant_first_name']
+					if name == applicant_name:
+						id = data[i]['applicant_id']
+						if id not in list_of_id:
+							list_of_id.append(data[i]['applicant_id'])
+			else:
+				list_of_id = ['NONE']
 
 		if together_flag == 1:
 			new_data[0]['applicant_id_together_with'] = list_of_id
@@ -112,6 +139,7 @@ class Priorities(object):
 		else:
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"There are more than 1 Application Id\'s.| Please choose one of them from the dropdown" }'
 
+		print("new_data : ",new_data)
 		return return_front_end_dict
 
 	def updateCustomerPriorities(self,front_end_str):
@@ -126,18 +154,46 @@ class Priorities(object):
 		if len(data) == 0:
 			return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"error", "message":"Something went wrong" }'
 		else:
+			update_flag = 1
+			applicant_id_same = ''
+			applicant_id_same_applicant = ''
 
-			for i in range(0,len(data)):
-				for j in range(0,len(front_end_data)):
-					if data[i]['applicant_id'] == front_end_data[j]['applicant_id']:
-						data[i]['applicant_name_together_with'] = front_end_data[j]['applicant_name_together_with']
-						data[i]['applicant_id_together_with'] = front_end_data[j]['applicant_id_together_with']
-						data[i]['applicant_name_not_together_with'] = front_end_data[j]['applicant_name_not_together_with']
-						data[i]['applicant_id_not_together_with'] = front_end_data[j]['applicant_id_not_together_with']
+			for k in range(0,len(front_end_data)):
+
+				if front_end_data[k]['applicant_name_together_with']  != 'NONE':
+					if front_end_data[k]['applicant_id_together_with'] == front_end_data[k]['applicant_id_not_together_with']:
+						update_flag = 2
+						if applicant_id_same == '':
+							applicant_id_same = front_end_data[k]['applicant_id']
+						else:
+							applicant_id_same = applicant_id_same + ', ' + front_end_data[k]['applicant_id']
+
+			for l in range(0,len(front_end_data)):
+
+				if front_end_data[l]['applicant_id_together_with'] == front_end_data[l]['applicant_id'] or front_end_data[l]['applicant_id_not_together_with'] == front_end_data[l]['applicant_id']:
+					update_flag = 3
+					if applicant_id_same_applicant == '':
+						applicant_id_same_applicant = front_end_data[l]['applicant_id']
+					else:
+						applicant_id_same_applicant = applicant_id_same_applicant + ', ' + front_end_data[l]['applicant_id']
+
+			if update_flag == 1:
+				for i in range(0,len(data)):
+					for j in range(0,len(front_end_data)):
+						if data[i]['applicant_id'] == front_end_data[j]['applicant_id']:
+							data[i]['applicant_name_together_with'] = front_end_data[j]['applicant_name_together_with']
+							data[i]['applicant_id_together_with'] = front_end_data[j]['applicant_id_together_with']
+							data[i]['applicant_name_not_together_with'] = front_end_data[j]['applicant_name_not_together_with']
+							data[i]['applicant_id_not_together_with'] = front_end_data[j]['applicant_id_not_together_with']
+
 			
-			cf.updateManyRowIntoCsv('applicant.csv',data,'applicant_id')
-
-			return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"success", "message":"All Applicant\'s data updated" }'
+			if update_flag == 1:
+				cf.updateManyRowIntoCsv('applicant.csv',data,'applicant_id')
+				return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"success", "message":"All applicant\'s data updated" }'
+			elif update_flag == 2:
+				return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"success", "message":"You can\'t enter same names in both together and not together. Check following applicant id\'s : ' + applicant_id_same + '" }'
+			elif update_flag == 3:
+				return_front_end_dict = '{ "data": ' + json.dumps(data) + ', "status":"success", "message":"You can\'t enter same name as applicant in together or not together. Check following applicant id\'s : ' + applicant_id_same_applicant + '" }'
 
 		return return_front_end_dict
 
