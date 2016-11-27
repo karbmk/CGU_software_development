@@ -60,26 +60,47 @@ def differentiateFilesFolders(file_path):
 	segregate_folders_files = {'folders':[],'files':[],'path':''}
 	for name in all_folders_files:
 		if name not in ['__pycache__'] and name[-4:] not in ['.pyc']:
-			if name.find('.') != -1:
+			if name.find('.') !=  -1:
 				segregate_folders_files['files'].append(name)
 			else:
 				segregate_folders_files['folders'].append(name)
 	return segregate_folders_files
 
-def makeLevels(file_path,proj_name):
-	""" Make levels at which files are present """
-	levels = {0:[]}
-	seed = differentiateFilesFolders(file_path)
-	last_filename = file_path.split('\\')[-1]
-	seed['path'] = "C:\\Program Files\\ " + proj_name + "\\" + last_filename
+def makeLevel(file_path):
+	""" Make one level at which files are present """
+	all_level = []
+	stop_flag = 0
 	level = 0
-	levels[level].append(seed)
-	folder_count = 0
+	last_filename = file_path.split('\\')[-1]
+	parent = last_filename
+	path = file_path
+	continue_flag = 0
 
-	#while levels[level][folder_count] != []:
-	#	levels[level][folder_count] = []
+	seed = differentiateFilesFolders(path)
+	for i in range(0,len(seed['folders'])):
+		level_dict = {'level':'','parent':'','file_name':'','type':'','path':'','continue':''}
+		level_dict['level'] = level
+		level_dict['parent'] = parent
+		level_dict['file_name'] = seed['folders'][i]
+		if '.txt' in level_dict['file_name']:
+			level_dict['type'] = 'TEXT'
+		elif '.' not in level_dict['file_name']:
+			level_dict['type'] = 'FOLDER'
+			continue_flag = 1
+		level_dict['continue'] = continue_flag
+		level_dict['path'] = path
+		all_level.append(level_dict)
+		level += 1
 
-	return levels
+	return all_level
+
+def makeAllLevels(file_path,proj_name):
+	""" Make all levels at which files are present """
+	all_levels = makeLevel(file_path)
+	print(all_levels)
+#	for i in 
+#	while all_levels
+	
 
 def imagetopy(image, output_file):
 	image_data = None
@@ -98,11 +119,12 @@ def main():
 	#text_file = createBatFile()
 	#createSpaceInProgramFiles(text_file)
 	#file_path = input('Enter the path plus the folder name for which you need to create setup.exe :\n')
-	file_path = "C:\\Users\\Rohan\\Desktop\\Folder"
+	file_path = "C:\Rohan\CGU\Fall 2016\Software Development\BitBucket\software_development_cgu\Gila_Breath_Camp\\folder"
 	#file_path = file_path.replace("\\","\\\\")
+	#print(file_path)
 	#jpgfile = Image.open("Pic.jpg")
 	#End of line
-	levels = makeLevels(file_path,"C:\Program Files\Gila_Breath_Camp")
+	levels = makeAllLevels(file_path,"C:\Program Files\Gila_Breath_Camp")
 	#text_file.write('\n')
 	print(levels)
 
