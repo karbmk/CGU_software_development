@@ -81,7 +81,7 @@ class Application_cancellation(object):
 			if data[j]['applicant_id'] in applicant_ids:
 				new.append(data[j])
 
-		#print (len(new))
+		print (len(new))
 
 		for k in range(0,len(new)):
 			for i in range(0,len(front_end_data)):
@@ -96,6 +96,9 @@ class Application_cancellation(object):
 					#getRefund(new[l]["payment"],new[l]["mailing_date"],new[l]["cancel_date"])
 				new[l]["refund"] = self.getRefund(new[l]["payment"],new[l]["mailing_date"],new[l]["cancel_date"])
 				print(new[l]["refund"])
+			else:
+				new[l]["cancel_date"] = ""
+				new[l]["refund"] = ""
 		
 		cf.updateManyRowIntoCsv('applicant.csv',new,'applicant_id')
 		return_front_end_dict = '{ "data": ' + json.dumps(new) + ', "status":"success", "message":"Application has been updated" }'

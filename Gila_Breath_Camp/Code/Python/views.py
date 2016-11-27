@@ -133,7 +133,7 @@ def send_cancel(request):
 	data = request.POST["vol_name"]
 	apps = application_cancellation.Application_cancellation()
 	st = apps.setManyCancelFlag(data)
-	print(st)
+	#print(st)
 	return HttpResponse(st,content_type="application/type")
 
 
@@ -212,6 +212,7 @@ def application_status_send(request):
 	except Exception as e:
 		st = e
 	return HttpResponse(st,content_type="application/type")
+
 
 def application_status_get(request):
 	try:

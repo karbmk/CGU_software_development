@@ -137,7 +137,7 @@ send_cancel = function(id){
 	for(i=0;i<test;i++)
 				{
 				//var can_flag = '0'
-				if(document.getElementById("cancel"+i).type=="checkbox"){can_flag = '1'}else{can_flag = '0'}
+				if(document.getElementById("cancel"+i).checked){can_flag = '1'}else{can_flag = '0'}
 				
 				var camp_time = "2017-12-11 00:00:00.000000"
 				$.ajax
@@ -166,10 +166,10 @@ send_cancel = function(id){
 				
 				
 				var k = '{"applicant_id":"'+document.getElementById("appl"+i).innerText+'", "cancel_flag":"'+can_flag+'"}'
-				if(can_flag=="1"){
+				//if(can_flag=="1"){
 				array.push(k)
-				}
-				else{}
+				//}
+				//else{}
 				
 				}
 			
