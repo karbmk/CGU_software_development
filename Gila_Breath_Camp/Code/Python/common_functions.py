@@ -28,10 +28,12 @@ import csv
 import sys
 import calendar
 import ast
+import copy
 sys.path.append("Csv")
 sys.path.append("Python/User_Stories")
 import application_status
 import datetime
+from csv import DictWriter
 
 class Common_functions(object):
 
@@ -201,3 +203,28 @@ class Common_functions(object):
 		date_object = datetime.datetime.strptime(date_str.split(" ")[0], '%Y-%m-%d')
 		return date_object
 
+	def printLod(self,lod,header):
+		with open('out.csv','w') as outfile:
+			writer = DictWriter(outfile, tuple(header))
+			writer.writeheader()
+			writer.writerows(lod)
+
+	def sortData(self,input_list,column_to_sort_on):
+		""" Sorting data """
+
+		backup_input_list = copy.deepcopy(input_list)
+		sorted_list = []
+		ages = []
+
+		for i in range(0,len(input_list)):
+			ages.append(int(input_list[i][column_to_sort_on]))
+
+		ages.sort()
+
+		for j in range(0,len(ages)):
+			for k in range(0,len(input_list)):
+				if ages[j] == int(input_list[k][column_to_sort_on]):
+					if input_list[k] not in sorted_list:
+						sorted_list.append(input_list[k])
+
+		return sorted_list
