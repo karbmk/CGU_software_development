@@ -106,6 +106,17 @@ def priorities_get_guar_ssn(request):
 	return HttpResponse(st,content_type="application/type")
 
 @csrf_exempt
+def priorities_set_submit(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["prior"]
+	print(data)
+	pr = priorities.Priorities()
+	st = pr.updateCustomerPriorities(data)
+	print(st)
+	return HttpResponse(st,content_type="application/type")
+
+@csrf_exempt
 def print_letter(request):
 	c = {}
 	c.update(csrf(request));
@@ -145,6 +156,7 @@ def test_js(request):
 		st_get = cis.getCheckInStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 	except Exception as e:
 		st_get = e
+	print(st_get)
 	return HttpResponse(st_get,content_type="application/type")
 
 @csrf_exempt	

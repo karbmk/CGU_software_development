@@ -171,7 +171,6 @@ send_cancel = function(id){
 				}
 			
         		var input1 = '{"data":['+array+']}'
-				alert(input1)
 	$.ajax
 	(
 		{
@@ -197,4 +196,86 @@ send_cancel = function(id){
     	}
   	);
 	
+}
+
+send_priority = function(id){
+	var input = '{"data" :[{"date_id":"'+id+'"}]}';
+	
+	document.getElementById("check_click").onclick=''
+	var test = 0;
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../priorities_get/",
+			async:false,
+			data: 
+   				{
+        			prior: input // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+				var obj = $.parseJSON(data)
+				obj_array = obj["data"]
+				test = obj_array.length
+				//alert(test)
+				
+    		},
+    		error: function(data)
+    		{
+        		debugger;
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
+      		}
+    	}
+  	);
+	var array = [];
+				for(i=0;i<test;i++)
+				{
+				//if(document.getElementById("medical"+i).checked){med = '1'}else{med = '0'}
+				//if(document.getElementById("legal"+i).checked){leg = '1'}else{leg = '0'}
+				//if(document.getElementById("emergency"+i).checked){emer = '1'}else{emer = '0'}
+				//if(document.getElementById("helmet"+i).checked){hel = '1'}else{hel = '0'}
+				//if(document.getElementById("boot"+i).checked){boot = '1'}else{boot = '0'}
+				//if(document.getElementById("sleeping_bag"+i).checked){sleeping_bag = '1'}else{sleeping_bag = '0'}
+				//if(document.getElementById("water_bottle"+i).checked){water_bottle = '1'}else{water_bottle = '0'}
+				//if(document.getElementById("sunscreen"+i).checked){sunscreen = '1'}else{sunscreen = '0'}
+				//if(document.getElementById("bugs_spray"+i).checked){bugs_spray = '1'}else{bugs_spray = '0'}
+				//if(document.getElementById("completed"+i).innerText=="COMPLETE"){completed = '1'}else{completed = '0'}
+				
+				
+				//var option = this.options[this.selectedIndex];
+				//alert($('#sel_appl_name'+i).text(this.options[this.selectedIndex].value));
+				//alert($( "#sel_appl_name"+i+" option:selected" ).text())
+				//alert($('#sel_appl_name'+i).val($(this).find(":selected").text()))
+				var k = '{"applicant_id":"'+document.getElementById("appl"+i).innerText+'", "name":"'+document.getElementById("name"+i).innerText+'","applicant_name_together_with":"'+$( "#sel_appl_name"+i+" option:selected" ).text()+'","applicant_id_together_with":"'+$( "#guar_with"+i+" option:selected" ).text()+'","applicant_name_not_together_with":"'+$( "#appl_name_without"+i+" option:selected" ).text()+'","applicant_id_not_together_with":"'+$( "#guar_without"+i+" option:selected" ).text()+'"}'
+				array.push(k)
+				
+				}
+        		var input1 = '{"data":['+array+']}'
+				alert(input1)
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../priorities_set_submit/",
+			async:false,
+			data: 
+   				{
+        			prior: input1 // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+				var obj = $.parseJSON(data)
+				alert(obj["message"])
+				location.reload()
+        		
+    		},
+    		error: function(data)
+    		{
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
+      		}
+    	}
+  	);
 }
