@@ -253,13 +253,12 @@ function next_guar_ssn(id){
 				obj_array = obj["data"]
 				
 				//alert(obj_array[0]["guardian_ssn_together_with"])
-				var select = document.getElementById("guar_with"+id.substr(id.length - 1));
-				var length = select.options.length;
-				for (i = 0; i < length; i++) {
-					select.options[i] = null;
-				}
+				var select1 = document.getElementById("guar_with"+id.substr(id.length - 1));
+				select1.options.length = 0;
+				
 				for(i=0;i<obj_array[0]["applicant_id_together_with"].length;i++)
 				{
+					//alert(obj_array[0]["applicant_id_together_with"][i])
 					$("#guar_with"+id.substr(id.length - 1)).append('<option>'+obj_array[0]["applicant_id_together_with"][i]+'</option>');
 					//html_guar_with += html_guar_with +='<option>'+obj_array[0]["guardian_ssn_together_with"][i]+'</option>'
 				}
