@@ -31,7 +31,7 @@ class Assignment_of_bunkhouses(object):
 		where = [{'camp_time_slots':str(front_end_data['camp_time_slots'])}]
 		total_no_of_bunkhouses = int(front_end_data['no_of_bunkhouses'])
 		no_of_male_bunkhouses = total_no_of_bunkhouses/2
-		no_of_female_bunkhouses = total_no_of_bunkhouses/2
+		no_of_female_bunkhouses = total_no_of_bunkhouses
 
 		cf = common_functions.Common_functions()
 		data = cf.getAcceptedApplicants('{ "data": ' + json.dumps(where) + '}')
@@ -58,12 +58,12 @@ class Assignment_of_bunkhouses(object):
 				if bunkhouse_id == no_of_male_bunkhouses + 1:
 					bunkhouse_id = 1
 
-			bunkhouse_id = 1
+			bunkhouse_id = no_of_male_bunkhouses + 1
 			for l in range(0,len(female_data_with_bunkhouses)): 
 				female_data_with_bunkhouses[l]['bunkhouse_id'] = bunkhouse_id
 				bunkhouse_id += 1
 				if bunkhouse_id == no_of_female_bunkhouses + 1:
-					bunkhouse_id = 1
+					bunkhouse_id = no_of_male_bunkhouses + 1
 
 			all_data = male_data_with_bunkhouses + female_data_with_bunkhouses
 			cf.updateManyRowIntoCsv('applicant.csv',all_data,'applicant_id')
