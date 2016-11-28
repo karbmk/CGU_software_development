@@ -118,6 +118,10 @@ class Application_status(object):
 				
 				new_data.append(dict)
 
+				data[i]['rejected_reason'] = new_data[i]['violations'][0]
+
+			cf.updateManyRowIntoCsv('applicant.csv',data,'applicant_id')
+
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
 		return return_front_end_dict

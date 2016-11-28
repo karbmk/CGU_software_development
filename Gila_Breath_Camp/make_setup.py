@@ -96,13 +96,12 @@ def makeAllLevels(file_path,proj_name):
 	path = file_path
 	level = 0
 	
-	makeLevel(level,path)
+	level_data = makeLevel(level,path)
 	level += 1
 	return all_levels
 #	for i in 
 #	while all_levels
 	
-
 def imagetopy(image, output_file):
 	image_data = None
 	with open(image, 'rb') as fin:
