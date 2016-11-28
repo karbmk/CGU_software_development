@@ -286,6 +286,10 @@ send_priority = function(id){
 submitBunk = function(id){
 	var input = '{"data" :[{"date_id":"'+id+'","no_of_bunkhouses":"'+document.getElementById("bunk_number").value+'"}]}';
 	document.getElementById("get_bunk").onclick=''
+	if(isNaN(document.getElementById("bunk_number").value) || parseInt(document.getElementById("bunk_number").value)%2 != 0){
+		alert("Enter valid Bunkhouse number \nBunkhouse number should be a multiple of 2")
+		return;
+	}
 	$("#pop_bunk").empty()
 	$.ajax
 	(
@@ -352,6 +356,10 @@ submitBunk = function(id){
 submitTribe = function(id){
 	var input = '{"data" :[{"date_id":"'+id+'","no_of_tribes":"'+document.getElementById("tribe_number").value+'"}]}';
 	document.getElementById("get_tribe").onclick=''
+	if(isNaN(document.getElementById("tribe_number").value) || parseInt(document.getElementById("tribe_number").value)%2 != 0){
+		alert("Enter valid Tribe number \nBunkhouse number should be a multiple of 2")
+		return;
+	}
 	$("#pop_tribe").empty()
 	$.ajax
 	(
