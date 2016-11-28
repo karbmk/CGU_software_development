@@ -93,8 +93,11 @@ def priorities_get(request):
 	st_get = cis.getCheckInStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 	print(camp_slot)
 	front_end_str111 = '{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}'
-	pr = priorities.Priorities()
-	st = pr.getCustomerPriorities(front_end_str111)
+	try:
+		pr = priorities.Priorities()
+		st = pr.getCustomerPriorities(front_end_str111)
+	except Exception as e:
+		st = e
 	return HttpResponse(st,content_type="application/type")
 
 @csrf_exempt
