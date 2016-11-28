@@ -234,7 +234,7 @@ getPriority = function(id){
 
 function next_guar_ssn(id){
 	//alert(id)
-	var e = document.getElementById(id);
+	var e = document.getElementById("sel_appl_name"+id);
 	var strUser = e.options[e.selectedIndex].value;
 	//alert(strUser)
 	appl_name = '{"data" :[{"applicant_name_together_with":"'+strUser+'"}]}'
@@ -284,7 +284,7 @@ function next_guar_ssn(id){
 
 function next_guar_without_ssn(id){
 	//alert(id)
-	var e = document.getElementById(id);
+	var e = document.getElementById("appl_name_without"+id);
 	var strUser = e.options[e.selectedIndex].value;
 	//alert(strUser)
 	appl_name = '{"data" :[{"applicant_name_not_together_with":"'+strUser+'"}]}'
