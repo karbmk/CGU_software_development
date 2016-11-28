@@ -117,16 +117,30 @@ class Application_cancellation(object):
 		#if week_difference
 		week_difference =  (cancel - mail).days/7
 		print('week_difference:',week_difference)
-		if week_difference <= 3:
-			refund = float(payment)*0.9
-			return refund
+		if int(payment)<=1000:
+			if week_difference <= 3:
+				refund = float(payment)*0.9
+				return refund
 
-		elif week_difference >= 3 and week_difference <= 6:
-			refund = float(payment)*0.45
-			return refund
+			elif week_difference >= 3 and week_difference <= 6:
+				refund = float(payment)*0.45
+				return refund
 
-		else:
-			return "0"
+			else:
+				return "0"
+		elif int(payment)>1000:
+			payment_extra = int(payment)-1000
+			if week_difference <= 3:
+				refund = float(1000)*0.9
+				return refund+payment_extra
+
+			elif week_difference >= 3 and week_difference <= 6:
+				refund = float(1000)*0.45
+				return refund+payment_extra
+
+			else:
+				return "0"
+			
 
 		#for i in range(0,len(new)):
 			#if new[i]["cancel_flag"] == '1'
