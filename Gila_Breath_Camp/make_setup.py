@@ -55,33 +55,29 @@ def createSpaceInProgramFiles(text_file,filename):
 	text_file.write('PAUSE\n')
 	text_file.write('\n')
 
-def differentiateFilesFolders(file_path):
+def findFilesFolders(file_path):
 	all_folders_files = [name for name in os.listdir(file_path)]
-	segregate_folders_files = {'folders':[],'files':[],'path':''}
+	segregate_folders_files = {'file_names':[],'path':''}
 	for name in all_folders_files:
 		if name not in ['__pycache__'] and name[-4:] not in ['.pyc']:
-			if name.find('.') !=  -1:
-				segregate_folders_files['files'].append(name)
-			else:
-				segregate_folders_files['folders'].append(name)
+			segregate_folders_files['file_names'].append(name)
 	return segregate_folders_files
 
-def makeLevel(file_path):
+def makeLevel(level,file_path):
 	""" Make one level at which files are present """
 	all_level = []
 	stop_flag = 0
-	level = 0
 	last_filename = file_path.split('\\')[-1]
 	parent = last_filename
 	path = file_path
 	continue_flag = 0
 
-	seed = differentiateFilesFolders(path)
-	for i in range(0,len(seed['folders'])):
+	seed = findFilesFolders(path)
+	for i in range(0,len(seed['file_names'])):
 		level_dict = {'level':'','parent':'','file_name':'','type':'','path':'','continue':''}
 		level_dict['level'] = level
 		level_dict['parent'] = parent
-		level_dict['file_name'] = seed['folders'][i]
+		level_dict['file_name'] = seed['file_names'][i]
 		if '.txt' in level_dict['file_name']:
 			level_dict['type'] = 'TEXT'
 		elif '.' not in level_dict['file_name']:
@@ -96,12 +92,16 @@ def makeLevel(file_path):
 
 def makeAllLevels(file_path,proj_name):
 	""" Make all levels at which files are present """
-	all_levels = makeLevel(file_path)
-	print(all_levels)
+	main_continue_flag = 0
+	path = file_path
+	level = 0
+	
+	level_data = makeLevel(level,path)
+	level += 1
+	return all_levels
 #	for i in 
 #	while all_levels
 	
-
 def imagetopy(image, output_file):
 	image_data = None
 	with open(image, 'rb') as fin:
