@@ -38,5 +38,29 @@ class HomePage(Page):
 
 	def enter_camper_address(self,address):
 		self.browser.find_element_by_id('c_address').send_keys(address)
+	
+	def enter_guar_ssn(self, ssn):
+		self.browser.find_element_by_id('g_ssn').send_keys(ssn)
+	
+	def enter_g_f_name(self, g_first_name):
+		self.browser.find_element_by_id('g_first_name').send_keys(g_first_name)
+	
+	def enter_g_l_name(self, g_last_name):
+		self.browser.find_element_by_id('g_last_name').send_keys(g_last_name)
+	
+	def enter_g_address(self,address):
+		self.browser.find_element_by_id('g_address').send_keys(address)
+	
+	def enter_g_contact_info(self,contact):
+		self.browser.find_element_by_id('g_contact_info').send_keys(contact)
+	
+	def enter_g_emergency_contact(self,contact):
+		self.browser.find_element_by_id('g_emergency_contact').send_keys(contact)
+	
+	def enter_g_payment(self,pay):
+		self.browser.find_element_by_id('g_payment').send_keys(pay)
+	
+	def click_register_button(self):
+		self.browser.find_element_by_id("btnCmp").click()
 
 
