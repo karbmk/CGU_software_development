@@ -1,3 +1,0 @@
-mkdir Code
-mkdir Documents
-

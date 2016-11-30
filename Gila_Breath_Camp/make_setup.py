@@ -2,11 +2,87 @@ import os
 import PIL.Image
 import io
 import re
+import copy
+from csv import DictWriter
+os.system("chcp 65001")
 
-def createBatFile():
-	return open("setup.bat","w")
+def createBatFile(proj_name,levels):
+	text_file = open(proj_name + "_setup.bat","w")
+	createSpaceInProgramFiles(text_file,proj_name,levels)
+	makeFolders(text_file,levels)
+	makeTextCsvFiles(text_file,levels)
 
-def createSpaceInProgramFiles(text_file,filename):
+def makeProperPathInLevels(levels,file_path,proj_name):
+	for i in range(0,len(levels)):
+		replace_with = 'C:\\Program Files\\' + proj_name
+		levels[i]['new_path'] = levels[i]['path'].replace(file_path,replace_with)
+	return levels
+
+def makeFolders(text_file,levels):
+	""" make folders statement """
+	all_levels = []
+	for j in range(0,len(levels)):
+		if levels[j]['level'] not in all_levels:
+			all_levels.append(levels[j]['level'])
+			all_levels.sort()
+
+	for level in all_levels:
+		for i in range(0,len(levels)):
+			if levels[i]['type'] == 'FOLDER' and levels[i]['level'] == level:
+				text_file.write('cd ' + levels[i]['new_path'] + '\n')
+				text_file.write('mkdir ' + levels[i]['file_name'] + '\n')
+
+def delFolders(text_file,levels):
+	""" make folders statement """
+	all_levels = []
+	for j in range(0,len(levels)):
+		if levels[j]['level'] not in all_levels:
+			all_levels.append(levels[j]['level'])
+			all_levels.sort()
+			all_levels.reverse()
+
+	for level in all_levels:
+		for i in range(0,len(levels)):
+			if levels[i]['type'] == 'FOLDER' and levels[i]['level'] == level:
+				text_file.write('cd ' + levels[i]['new_path'] + '\n')
+				text_file.write('rmdir ' + levels[i]['file_name'] + '\n')
+
+def makeTextCsvFiles(text_file,levels):
+	""" make folders statement """
+	all_levels = []
+	for j in range(0,len(levels)):
+		if levels[j]['level'] not in all_levels:
+			all_levels.append(levels[j]['level'])
+
+	for level in all_levels:
+		for i in range(0,len(levels)):
+			if levels[i]['type'] not in ['PNG','JPG','HTML','FOLDER'] and levels[i]['level'] == level:
+				text_file.write('cd ' + levels[i]['new_path'] + '\n')
+				#print(levels[i]['path'] + '\\' + levels[i]['file_name'])
+				with open(levels[i]['path'] + '\\' + levels[i]['file_name'] , "r") as myfile:
+					for line in myfile:
+						#print(line)
+						if line.strip() == '':
+							text_file.write('echo.>> ' + levels[i]['file_name'] + '\n')
+						else:
+							text_file.write('echo ' + line.rstrip('\n') + ' >> ' + levels[i]['file_name'] + '\n')
+
+def delTextCsvFiles(text_file,levels):
+	""" make folders statement """
+	all_levels = []
+	for j in range(0,len(levels)):
+		if levels[j]['level'] not in all_levels:
+			all_levels.append(levels[j]['level'])
+			all_levels.sort()
+			all_levels.reverse()
+
+	for level in all_levels:
+		for i in range(0,len(levels)):
+			if levels[i]['type'] not in ['PNG','JPG','HTML','FOLDER'] and levels[i]['level'] == level:
+				text_file.write('cd ' + levels[i]['new_path'] + '\n')
+				text_file.write('del ' + levels[i]['file_name'] + '\n')
+
+def createSpaceInProgramFiles(text_file,filename,levels):
 	text_file.write('@echo off\n')
 	text_file.write('\n')
 	text_file.write(':: BatchGotAdmin\n')
@@ -43,6 +119,9 @@ def createSpaceInProgramFiles(text_file,filename):
 	text_file.write('cd C:\Program Files\n')
 	text_file.write('if exist "' + filename + '" (\n')
 	text_file.write('	echo ' + filename + ' already exist\n')
+	delTextCsvFiles(text_file,levels)
+	delFolders(text_file,levels)
+	text_file.write('cd C:\Program Files\n')
 	text_file.write('	rmdir ' + filename + '\n')
 	text_file.write('	echo removed ' + filename + '\n')
 	text_file.write('	mkdir ' + filename + '\n')
@@ -59,50 +138,66 @@ def findFilesFolders(file_path):
 	all_folders_files = [name for name in os.listdir(file_path)]
 	segregate_folders_files = {'file_names':[],'path':''}
 	for name in all_folders_files:
-		if name not in ['__pycache__'] and name[-4:] not in ['.pyc']:
+		if name not in ['__pycache__','Dustbin','.DS_Store','db.sqlite3'] and name[-4:] not in ['.pyc','.bat']:
 			segregate_folders_files['file_names'].append(name)
 	return segregate_folders_files
 
-def makeLevel(level,file_path):
+def makeLevels(continue_flag,level,file_path):
 	""" Make one level at which files are present """
-	all_level = []
-	stop_flag = 0
-	last_filename = file_path.split('\\')[-1]
-	parent = last_filename
-	path = file_path
-	continue_flag = 0
-
-	seed = findFilesFolders(path)
-	for i in range(0,len(seed['file_names'])):
-		level_dict = {'level':'','parent':'','file_name':'','type':'','path':'','continue':''}
-		level_dict['level'] = level
-		level_dict['parent'] = parent
-		level_dict['file_name'] = seed['file_names'][i]
-		if '.txt' in level_dict['file_name']:
-			level_dict['type'] = 'TEXT'
-		elif '.' not in level_dict['file_name']:
-			level_dict['type'] = 'FOLDER'
-			continue_flag = 1
-		level_dict['continue'] = continue_flag
-		level_dict['path'] = path
-		all_level.append(level_dict)
-		level += 1
+	if continue_flag == 1:
+		return []
+	else:
+		all_level = []
+		stop_flag = 0
+		last_filename = file_path.split('\\')[-1]
+		parent = last_filename
+		path = file_path
+		continue_flag = 0
+		seed = findFilesFolders(path)
+		for i in range(0,len(seed['file_names'])):
+			level_dict = {'level':'','parent':'','file_name':'','type':'','path':''}
+			level_dict['level'] = level
+			level_dict['parent'] = parent
+			level_dict['file_name'] = seed['file_names'][i]
+			level_dict['path'] = path
+			all_level.append(level_dict)
+			if '.txt' in level_dict['file_name']:
+				level_dict['type'] = 'TEXT'
+				continue_flag = 1
+			elif '.csv' in level_dict['file_name']:
+				level_dict['type'] = 'CSV'
+				continue_flag = 1
+			elif '.py' in level_dict['file_name']:
+				level_dict['type'] = 'PYTHON'
+				continue_flag = 1
+			elif '.png' in level_dict['file_name']:
+				level_dict['type'] = 'PNG'
+				continue_flag = 1
+			elif '.jpg' in level_dict['file_name']:
+				level_dict['type'] = 'JPG'
+				continue_flag = 1
+			elif '.js' in level_dict['file_name']:
+				level_dict['type'] = 'JS'
+				continue_flag = 1
+			elif '.html' in level_dict['file_name']:
+				level_dict['type'] = 'HTML'
+				continue_flag = 1
+			elif '.css' in level_dict['file_name']:
+				level_dict['type'] = 'CSS'
+				continue_flag = 1
+			elif '.' not in level_dict['file_name']:
+				level_dict['type'] = 'FOLDER'
+				all_level = all_level + makeLevels(0,level + 1,file_path + '\\' + level_dict['file_name'])
 
 	return all_level
 
-def makeAllLevels(file_path,proj_name):
-	""" Make all levels at which files are present """
-	main_continue_flag = 0
-	path = file_path
-	level = 0
-	
-	level_data = makeLevel(level,path)
-	level += 1
-	return all_levels
-#	for i in 
-#	while all_levels
-	
-def imagetopy(image, output_file):
+def printLod(lod,header):
+	with open('out1.csv','w') as outfile:
+		writer = DictWriter(outfile, tuple(header))
+		writer.writeheader()
+		writer.writerows(lod)
+
+def imagetopy(image,output_file):
 	image_data = None
 	with open(image, 'rb') as fin:
 		image_data = fin.read()
@@ -119,19 +214,20 @@ def main():
 	#text_file = createBatFile()
 	#createSpaceInProgramFiles(text_file)
 	#file_path = input('Enter the path plus the folder name for which you need to create setup.exe :\n')
-	file_path = "C:\Rohan\CGU\Fall 2016\Software Development\BitBucket\software_development_cgu\Gila_Breath_Camp\\folder"
+#	file_path = "C:\Rohan\CGU\Fall 2016\Software Development\BitBucket\software_development_cgu\Gila_Breath_Camp\\folder"
+	file_path = "C:\Rohan\CGU\Fall 2016\Software Development\BitBucket\software_development_cgu\Gila_Breath_Camp\Code"
+	proj_name = 'Gila_Breath_Camp'
 	#file_path = file_path.replace("\\","\\\\")
 	#print(file_path)
 	#jpgfile = Image.open("Pic.jpg")
 	#End of line
-	levels = makeAllLevels(file_path,"C:\Program Files\Gila_Breath_Camp")
+	levels = makeLevels(0,0,file_path)
+	levels = makeProperPathInLevels(levels,file_path,proj_name)
+	print(levels[0]['path'])
+	#header = ['level','parent','file_name','type','path']
+	createBatFile(proj_name,levels)
 	#text_file.write('\n')
-	print(levels)
 
 main()
-
-
-
-
 
 
