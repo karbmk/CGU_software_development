@@ -198,6 +198,27 @@ class Common_functions(object):
 
 		return accepted_data
 
+
+	def getCheckedInApplicants(self,front_end_str):
+		""" Read from csv only accepted applicants """
+
+		front_end_dict = ast.literal_eval(front_end_str)
+		front_end_data = front_end_dict['data'][0]
+
+		data = self.getFromCsv('applicant.csv',front_end_data)
+
+		checked_in_applicant_id = []
+		for i in range(0,len(data)):
+			if data[i]['check_in_status'] == "1":
+				checked_in_applicant_id.append(data[i]['applicant_id'])
+
+		checked_in_data = []
+		for i in range(0,len(data)):
+			if data[i]['applicant_id'] in checked_in_applicant_id:
+				checked_in_data.append(data[i])
+
+		return checked_in_data
+
 	def str_to_date(self, date_str):
 		"""converts str to date"""
 		date_object = datetime.datetime.strptime(date_str.split(" ")[0], '%Y-%m-%d')

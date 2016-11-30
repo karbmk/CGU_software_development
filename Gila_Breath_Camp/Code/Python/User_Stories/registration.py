@@ -153,6 +153,8 @@ class Registration(object):
 		error.append(appl.setEmergencyContact(front_end_data['emergency_contact']))
 		error.append(appl.setPayment(front_end_data['payment']))
 		error.append(appl.setGuardianSsn(front_end_data['guardian_ssn']))
+		error.append(appl.setApplicationDate(front_end_data['application_date']))
+
 		#print(front_end_str)
 		#print(error)
 

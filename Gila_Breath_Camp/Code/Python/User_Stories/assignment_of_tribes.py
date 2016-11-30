@@ -32,7 +32,7 @@ class Assignment_of_tribes(object):
 		total_no_of_tribes = int(front_end_data['no_of_tribes'])
 
 		cf = common_functions.Common_functions()
-		data = cf.getAcceptedApplicants('{ "data": ' + json.dumps(where) + '}')
+		data = cf.getCheckedInApplicants('{ "data": ' + json.dumps(where) + '}')
 
 		if len(data) == 0:
 			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered" }'
