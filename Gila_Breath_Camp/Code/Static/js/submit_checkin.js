@@ -256,7 +256,7 @@ send_priority = function(id){
 				
 				}
         		var input1 = '{"data":['+array+']}'
-				alert(input1)
+				//alert(input1)
 	$.ajax
 	(
 		{
@@ -282,6 +282,10 @@ send_priority = function(id){
     	}
   	);
 }
+
+
+
+
 
 submitBunk = function(id){
 	var input = '{"data" :[{"date_id":"'+id+'","no_of_bunkhouses":"'+document.getElementById("bunk_number").value+'"}]}';
