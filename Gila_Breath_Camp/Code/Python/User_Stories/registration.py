@@ -15,6 +15,7 @@
 # 1.0   	01-OCT-2016  	ROHAN SAWANT    		Started coding
 # 2.0		15-OCT-2016		ROHAN SAWANT			First version of Registration User Story
 # 3.0		20-NOV-2016		ROHAN SAWANT			Added alreadySsn function
+# 4.0		30-NOV-2016		ROHAN SAWANT			Added viewRegisteredApplicant function
 # ================================================================================
 
 import sys
@@ -104,6 +105,22 @@ class Registration(object):
 			appl['emergency_contact'] = ssn_data[key]['emergency_contact']
 
 			return_front_end_dict = '{ "data": [' + json.dumps(appl) + '], "status":"success", "message":"WE ALREADY HAVE DATA FOR SSN : ' + ssn_data[0]['guardian_ssn'] + '|DO YOU WANT TO USE IT?"}'
+
+		return return_front_end_dict
+
+
+	def viewRegisteredApplicant(self,front_end_str):
+		""" View Registered Applicant based on Application Id """
+		front_end_dict = ast.literal_eval(front_end_str)
+		front_end_data = front_end_dict['data'][0]
+
+		cf = common_functions.Common_functions()
+		data = cf.getFromCsv('applicant.csv',front_end_data)
+
+		if len(data) != 0:
+			return_front_end_dict = '{ "data": [' + json.dumps(data) + '], "status":"success", "message":"DATA RETRIEVED" }'
+		else:
+			return_front_end_dict = '{ "data": [' + json.dumps(data) + '], "status":"success", "message":"THERE WAS SOME PROBLEM WHILE RETRIEVING DATA" }'
 
 		return return_front_end_dict
 

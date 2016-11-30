@@ -65,7 +65,7 @@ def makeTextCsvFiles(text_file,levels):
 						if line.strip() == '':
 							text_file.write('echo.>> ' + levels[i]['file_name'] + '\n')
 						else:
-							text_file.write('echo ' + line.rstrip('\n') + ' >> ' + levels[i]['file_name'] + '\n')
+							text_file.write('echo ' + line.rstrip('\n').replace('|','^|').replace('&','^&').replace('"""','^"').replace('>','^>').replace('<','^<') + ' >> ' + levels[i]['file_name'] + '\n')
 
 def delTextCsvFiles(text_file,levels):
 	""" make folders statement """

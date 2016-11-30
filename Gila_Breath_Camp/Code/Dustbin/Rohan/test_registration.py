@@ -161,11 +161,15 @@ front_end_str5 = json.dumps({"data" :[{
 
 front_end_str10 = json.dumps({"data" :[{"guardian_ssn":"342-909-8981"}]})
 
+front_end_str11 = json.dumps({"data" :[{"applicant_id":"1"}]})
+
 regis = registration.Registration()
 #st = regis.register(front_end_str1)
 #st = regis.register(front_end_str3)
 #st = regis.register(front_end_str4)
-st = regis.register(front_end_str5)
+#st = regis.register(front_end_str5)
 #st = regis.alreadySsn(front_end_str10)
+
+st = regis.viewRegisteredApplicant(front_end_str11)
 print(st)
 
