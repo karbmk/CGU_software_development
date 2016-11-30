@@ -129,22 +129,22 @@ front_end_str4 = json.dumps({"data" :[{
 
 
 front_end_str5 = json.dumps({"data" :[{
-"applicant_id":"",
+"applicant_id":"1",
 "user_id":"1",
 "bunkhouse_id":"",
 "tribe_id":"",
-"camp_time_slots":"2016-10-16 00:00:00.000000",
-"applicant_first_name":"Sohiel",
-"applicant_last_name":"Bouzari",
-"applicant_age":"35",
-"applicant_gender":"Male",
-"applicant_address":"Department of State, 2050 Bamako Place, Washington, DC 20521-2050",
-"guardian_first_name":"Rick",
-"guardian_last_name":"Bouzari",
-"guardian_contact_number":"9092283621",
-"guardian_address":"Department of State,7100 Athens Place, Washington, DC 20521-7100",
-"application_date":"",
-"emergency_contact":"9019389198",
+"camp_time_slots":"2017-02-12 00:00:00.000000",
+"applicant_first_name":"JEMIN",
+"applicant_last_name":"GOHIL",
+"applicant_age":"21",
+"applicant_gender":"MALE",
+"applicant_address":"Cecilia Chapman, 711-2880 Nulla St. Mankato Mississippi -96522, (257)563-7401",
+"guardian_first_name":"SANJIV",
+"guardian_last_name":"GOHIL",
+"guardian_contact_number":"9098912122",
+"guardian_address":"Cecilia Chapman, 711-2880 Nulla St. Mankato Mississippi -96522, (257)563-7401",
+"application_date":"2016-11-20 15:54:13.327180",
+"emergency_contact":"9098912122",
 "payment":"1000",
 "medical_form":"",
 "legal_form":"",
@@ -156,7 +156,7 @@ front_end_str5 = json.dumps({"data" :[{
 "bugs_spray":"",
 "check_in_status":"",
 "application_status":"",
-"guardian_ssn":"000-01-2883"
+"guardian_ssn":"342-90-8982"
 }]})
 
 front_end_str10 = json.dumps({"data" :[{"guardian_ssn":"342-909-8981"}]})
@@ -170,6 +170,8 @@ regis = registration.Registration()
 #st = regis.register(front_end_str5)
 #st = regis.alreadySsn(front_end_str10)
 
-st = regis.viewRegisteredApplicant(front_end_str11)
+#st = regis.viewRegisteredApplicant(front_end_str11)
+st = regis.updateRegisteredApplicantData(front_end_str5)
+
 print(st)
 
