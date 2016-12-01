@@ -235,17 +235,19 @@ class Common_functions(object):
 
 		backup_input_list = copy.deepcopy(input_list)
 		sorted_list = []
-		ages = []
+		sort_on = []
 
 		for i in range(0,len(input_list)):
-			ages.append(int(input_list[i][column_to_sort_on]))
+			sort_on.append(int(input_list[i][column_to_sort_on]))
 
-		ages.sort()
+		sort_on.sort()
 
-		for j in range(0,len(ages)):
+		for j in range(0,len(sort_on)):
 			for k in range(0,len(input_list)):
-				if ages[j] == int(input_list[k][column_to_sort_on]):
+				if sort_on[j] == int(input_list[k][column_to_sort_on]):
 					if input_list[k] not in sorted_list:
 						sorted_list.append(input_list[k])
 
 		return sorted_list
+
+
