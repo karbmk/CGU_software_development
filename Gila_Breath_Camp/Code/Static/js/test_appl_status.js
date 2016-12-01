@@ -37,7 +37,7 @@ getTest2 = function(id)
 					}
 					
 				var html = '<tr>';
-				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
+				html += '<td id="appl_print'+i+'">'+obj_array[i]["applicant_id"]+'</td>'
 				html += '<td id="firstname'+i+'">'+obj_array[i]["applicant_first_name"]+'</td>'
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
 				html += '<td id="completed_appl'+i+'">'+check_stat+'</td>'
@@ -66,7 +66,9 @@ getTest2 = function(id)
 	
 }
 printLetter = function(clicked_id){
-	Applicant_Id = '{"data" :[{"applicant_id":"'+document.getElementById("appl"+clicked_id).innerHTML+'"}]}'
+	alert(clicked_id)
+	Applicant_Id = '{"data" :[{"applicant_id":"'+document.getElementById("appl_print"+clicked_id).innerHTML+'"}]}'
+	alert(Applicant_Id)
 	//$('#linkBtnUnitPrice').click(function() {
 	//alert(document.getElementById("appl"+clicked_id).innerHTML)
 	//});
