@@ -67,8 +67,9 @@ class Assignment_of_bunkhouses(object):
 
 			all_data = male_data_with_bunkhouses + female_data_with_bunkhouses
 			cf.updateManyRowIntoCsv('applicant.csv',all_data,'applicant_id')
+			all_data_rows = cf.sortData(all_data,'bunkhouse_id')
 
-			return_front_end_dict = '{ "data": ' + json.dumps(all_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
+			return_front_end_dict = '{ "data": ' + json.dumps(all_data_rows) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
 		return return_front_end_dict
 
