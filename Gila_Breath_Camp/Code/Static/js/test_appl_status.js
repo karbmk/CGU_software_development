@@ -415,7 +415,7 @@ $.ajax
 
     var k =
         {
-			applicant_id:"",
+			applicant_id:document.getElementById("c_appl_id").value,
 			user_id:"1",
 			bunkhouse_id:"",
 			tribe_id:"",
