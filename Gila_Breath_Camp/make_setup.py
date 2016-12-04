@@ -12,6 +12,43 @@ def createBatFile(text_file,proj_name,levels):
 	copyHtmlFiles(text_file,proj_name)
 	makeFolders(text_file,levels)
 	makeTextCsvFiles(text_file,levels)
+	makeShortcut(text_file,proj_name)
+
+def createDesktopShortcut(text_file,proj_name):
+	text_file.write('@echo off >> Gila_Breath_Camp.bat\n')
+	text_file.write('.>> Gila_Breath_Camp.bat\n')
+	text_file.write(':: BatchGotAdmin >> Gila_Breath_Camp.bat\n')
+	text_file.write(':------------------------------------- >> Gila_Breath_Camp.bat\n')
+	text_file.write('REM  --> Check for permissions >> Gila_Breath_Camp.bat\n')
+	text_file.write('    IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" ( >> Gila_Breath_Camp.bat\n')
+	text_file.write('>nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system" >> Gila_Breath_Camp.bat >> Gila_Breath_Camp.bat\n')
+	text_file.write(') ELSE ( >> Gila_Breath_Camp.bat\n')
+	text_file.write('>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system" >> Gila_Breath_Camp.bat\n')
+	text_file.write(') >> Gila_Breath_Camp.bat\n')
+	text_file.write(' >> Gila_Breath_Camp.bat\n')
+	text_file.write('REM --> If error flag set, we do not have admin. >> Gila_Breath_Camp.bat\n')
+	text_file.write('if \'%errorlevel%\' NEQ \'0\' ( >> Gila_Breath_Camp.bat\n')
+	text_file.write('    echo Requesting administrative privileges... >> Gila_Breath_Camp.bat\n')
+	text_file.write('    goto UACPrompt >> Gila_Breath_Camp.bat\n')
+	text_file.write(') else ( goto gotAdmin ) >> Gila_Breath_Camp.bat\n')
+	text_file.write('.>> Gila_Breath_Camp.bat\n')
+	text_file.write(':UACPrompt >> Gila_Breath_Camp.bat\n')
+	text_file.write('    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs" >> Gila_Breath_Camp.bat\n')
+	text_file.write('    set params = %*:"="" >> Gila_Breath_Camp.bat\n')
+	text_file.write('    echo UAC.ShellExecute "cmd.exe", "/c ""%~s0"" %params%", "", "runas", 1 >> "%temp%\getadmin.vbs" >> Gila_Breath_Camp.bat\n')
+	text_file.write(' >> Gila_Breath_Camp.bat\n')
+	text_file.write('    "%temp%\getadmin.vbs" >> Gila_Breath_Camp.bat\n')
+	text_file.write('    del "%temp%\getadmin.vbs" >> Gila_Breath_Camp.bat\n')
+	text_file.write('    exit /B >> Gila_Breath_Camp.bat\n')
+	text_file.write('.>> Gila_Breath_Camp.bat\n')
+	text_file.write(':gotAdmin >> Gila_Breath_Camp.bat\n')
+	text_file.write('    pushd "%CD%" >> Gila_Breath_Camp.bat\n')
+	text_file.write('    CD /D "%~dp0" >> Gila_Breath_Camp.bat\n')
+	text_file.write(':--------------------------------------  >> Gila_Breath_Camp.bat\n')
+	text_file.write('.>> Gila_Breath_Camp.bat\n')
+	text_file.write('start python manage.py runserver >> Gila_Breath_Camp.bat\n')
+	text_file.write('start http://localhost:8000/Python >> Gila_Breath_Camp.bat\n')
+	text_file.write('.>> Gila_Breath_Camp.bat\n')
 
 def makeProperPathInLevels(text_file,levels,file_path,proj_name):
 	for i in range(0,len(levels)):
@@ -57,7 +94,7 @@ def makeTextCsvFiles(text_file,levels):
 
 	for level in all_levels:
 		for i in range(0,len(levels)):
-			if levels[i]['type'] not in ['PNG','JPG','HTML','FOLDER','JS','CSS'] and levels[i]['level'] == level:
+			if levels[i]['type'] not in ['PNG','JPG','HTML','FOLDER','JS','CSS','CSV'] and levels[i]['level'] == level:
 				text_file.write('echo copying ' + levels[i]['new_path'] + '\\' + levels[i]['file_name'] + '\n')
 				text_file.write('cd ' + levels[i]['new_path'] + '\n')
 				#print(levels[i]['path'] + '\\' + levels[i]['file_name'])
@@ -67,7 +104,18 @@ def makeTextCsvFiles(text_file,levels):
 						if line.strip() == '':
 							text_file.write('echo.>> ' + levels[i]['file_name'] + '\n')
 						else:
-							text_file.write('echo ' + line.rstrip('\n').replace('|','^|').replace('&','^&').replace('"""','^"""').replace('>','^>').replace('<','^<').replace('%','^%%') + ' >> ' + levels[i]['file_name'] + '\n')							
+							text_file.write('echo ' + line.rstrip('\n').replace('|','^|').replace('&','^&').replace('"""','^"""').replace('>','^>').replace('<','^<').replace('%','%%') + ' >> ' + levels[i]['file_name'] + '\n')							
+			if levels[i]['type'] in ['CSV'] and levels[i]['level'] == level:
+				text_file.write('echo copying ' + levels[i]['new_path'] + '\\' + levels[i]['file_name'] + '\n')
+				text_file.write('cd ' + levels[i]['new_path'] + '\n')
+				#print(levels[i]['path'] + '\\' + levels[i]['file_name'])
+				with open(levels[i]['path'] + '\\' + levels[i]['file_name'] , "r") as myfile:
+					for line in myfile:
+						#print(line)
+						if line.strip() == '':
+							text_file.write('echo.>> ' + levels[i]['file_name'] + '\n')
+						else:
+							text_file.write('echo ' + line.rstrip('\n').replace('|','^|').replace('&','^&').replace('"""','^"""').replace('>','^>').replace('<','^<').replace('%','^%%') + '>> ' + levels[i]['file_name'] + '\n')														
 
 def copyHtmlFiles(text_file,proj_name):
 	file_path = os.getcwd()
@@ -75,6 +123,11 @@ def copyHtmlFiles(text_file,proj_name):
 	text_file.write('cd %var%\n')
 	text_file.write('mkdir Static\n')
 	text_file.write('ROBOCOPY ".\\Static" "' + new_file_path + '\\Static' + '" /S\n')
+
+def makeShortcut(text_file,proj_name):
+	new_file_path = 'C:\\Program Files\\' + proj_name + '\\Static'
+	text_file.write('cd ' + new_file_path + '\n')
+	text_file.write('XCOPY ".\\Gila_Breath_Camp.bat" "%userprofile%\desktop" /S\n')
 
 def delTextCsvFiles(text_file,levels):
 	""" make folders statement """
@@ -233,6 +286,7 @@ def main():
 	#jpgfile = Image.open("Pic.jpg")
 	#End of line
 	text_file = open(proj_name + "_setup.bat","w")
+	#createDesktopShortcut(text_file,proj_name)
 	levels = makeLevels(text_file,0,0,file_path)
 	levels = makeProperPathInLevels(text_file,levels,file_path,proj_name)
 	print(levels[0]['path'])
