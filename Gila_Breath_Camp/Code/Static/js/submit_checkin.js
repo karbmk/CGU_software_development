@@ -88,7 +88,7 @@ send_checkin = function(id)
     		{
 				var obj = $.parseJSON(data)
 				alert(obj["message"])
-				//location.reload()
+				location.reload()
         		
     		},
     		error: function(data)
@@ -189,7 +189,7 @@ send_cancel = function(id){
     		{
 				var obj = $.parseJSON(data)
 				alert(obj["message"])
-				//location.reload()
+				location.reload()
         		
     		},
     		error: function(data)
@@ -272,7 +272,7 @@ send_priority = function(id){
     		{
 				var obj = $.parseJSON(data)
 				alert(obj["message"])
-				//location.reload()
+				location.reload()
 				//document.getElementById("reggg").removeClass("active");
 				//document.getElementById("get_priorities").addClass("active")
         		

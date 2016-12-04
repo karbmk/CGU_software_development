@@ -1805,7 +1805,194 @@ function myFunction()
 					</div>		
 				</div>
 				<!-- tab5-End -->
-	
+	<div class="tab-pane fade in" id="tab8">
+										<div id="ver-tab" class="col-md-3">
+					    <ul class="nav nav-tabs">
+				    		<li role="presentation" class="active"><a href="#tab-8-1" data-toggle="tab"></a></li>
+							<!--<li role="presentation"><a href="#tab-1-2" data-toggle="tab">Parent Information</a></li>
+							<li role="presentation"><a href="#tab-1-3" data-toggle="tab">Bank Borrowings</a></li>-->
+						</ul>
+				    </div>
+				    <!-- nav-tabs-stop -->
+				    
+					<!-- tab-content-1-start -->
+				    <div class="tab-content">
+				    	<!-- tab-1-1-comp-start -->
+				    	<div class="tab-pane active fade in" id="tab-1-1">
+					    	<div class="box col-md-9">
+					    			
+									<div class="form-group">
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGen" class="control-label">Applicant ID</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="c_appl_id" class="form-control" placeholder="Applicant ID"><br>
+											</div>
+										</div>
+											<input type="submit" onclick="Update_get(1)" value="GET" id="btnCmp" name="btnCmp" class="btn form-btn">
+									</div>
+									<strong>CAMPER INFORMATION</strong> <br><br>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">NAME</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="c_first_name_up" class="form-control" placeholder="First Name"><br>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="form-group">
+										<div class="col-md-5"> </div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdLn" id="c_last_name_up" class="form-control" placeholder="Last Name"><br>
+											</div>
+										</div>	
+									</div>	
+
+
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">AGE</label>
+
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpCrHdFn" id="c_age_up" class="form-control" placeholder="Age"><br>
+											</div>
+										</div>	
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-5"> 
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">GENDER</label>										
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<select name="cmbCmpCrHdSal" id="c_sex_up" class="form-control">
+													<option>MALE</option>
+													<option>FEMALE</option>
+												</select><br>
+											</div>
+										</div>	
+									</div>		
+
+									<div class="form-group">
+										<div class="col-md-5"> 
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">ADDRESS</label>																				
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<!--<input type="text" size="50" name="txtCmpCrHdLn" id="txtCmpCrHdLn" class="form-control" placeholder="Address">-->
+												<textarea rows="4" id="c_address_up" cols="32" class="form-control" placeholder="Address"></textarea><br>
+											</div>
+										</div>	
+									</div>	
+									
+
+									<div class="form-group">
+									<strong>PARENT/GUARDIAN INFORMATION</strong> <br><br>
+										
+										
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">SSN</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="g_ssn_up" onblur="alreadySsn()" class="form-control" placeholder="SSN"><br>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">NAME</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="g_first_name_up" class="form-control" placeholder="First Name"><br>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-5"> </div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdLn" id="g_last_name_up" class="form-control" placeholder="Last Name"><br>
+											</div>
+										</div>	
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5"> 
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">ADDRESS</label>																		
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<!--<input type="text" size="50" name="txtCmpCrHdLn" id="txtCmpCrHdLn" class="form-control" placeholder="Address">-->
+												<textarea rows="4" cols="32" id="g_address_up" class="form-control" placeholder="Address"></textarea><br>
+											</div>
+										</div>	
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">CONTACT</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="g_contact_info_up" class="form-control" placeholder="Contact"><br>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">EMERENCY CONTACT</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="g_emergency_contact_up" class="form-control" placeholder="Emergency Contact"><br>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-5">
+											<label name="lblCmpGenPro" id="lblCmpGenPro" class="control-label">PAYMENT</label>
+										</div>
+										<div class="col-md-7">
+											<div class="col-md-10">
+												<input type="text" name="txtCmpFdFn" id="g_payment_up" class="form-control" placeholder="Payment"><br>
+											</div>
+										</div>
+									</div>
+									
+									
+									<div class="form-group">
+										<div class="col-md-8">
+											<input type="submit" onclick="set_update(1)" value="REGISTER" id="btnCmp" name="btnCmp" class="btn form-btn"> 
+										</div>
+									</div>
+					        </div>
+					    </div>     
+					    <!-- tab-1-1-comp-end -->
+
+					    <!-- tab-1-3-borr-start -->
+					</div>  
+				</div>
+
 				<!-- tab6-start -->
 				<div class="tab-pane fade in" id="tab6">
 				&nbsp &nbsp &nbsp &nbsp &nbsp No. of Tribes:

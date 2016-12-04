@@ -63,4 +63,14 @@ class HomePage(Page):
 	def click_register_button(self):
 		self.browser.find_element_by_id("btnCmp").click()
 
+	def click_date_2(self):
+		self.browser.find_element_by_id("date_2").click()
+	
+	def select_priority(self):
+		#self.browser.find_element_by_id("tab7").click()
+		#self.browser.find_element_by_id("tab7").click()
+		clerk_btn = self.browser.find_element_by_xpath("//a[@href='#tab7']")
+		webdriver.ActionChains(self.browser).move_to_element(clerk_btn).click(clerk_btn).perform()
+		#find_element_by_css_selector("#tab7 > div > div.t-box > #btnCmp").click()
+
 

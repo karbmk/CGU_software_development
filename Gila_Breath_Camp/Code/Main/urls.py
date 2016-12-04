@@ -32,5 +32,7 @@ urlpatterns = [
 	url(r'^priorities_set_submit/', views.priorities_set_submit, name='priorities_set_submit'),
 	url(r'^assignment_tribe/', views.assignment_tribe, name='assignment_tribe'),
 	url(r'^assignment_bunkhouse/', views.assignment_bunkhouse, name='assignment_bunkhouse'),
+	url(r'^update_get_application/', views.update_get_application, name='update_get_application'),
+	url(r'^update_set_application/', views.update_set_application, name='update_set_application'),
 
 ]

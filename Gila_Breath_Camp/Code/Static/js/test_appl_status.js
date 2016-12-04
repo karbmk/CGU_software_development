@@ -338,3 +338,145 @@ String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.split(search).join(replacement);
 };
+
+Update_get = function(id){
+	var e = document.getElementById("c_appl_id").value;
+	//var strUser = e.options[e.selectedIndex].value;
+	//alert(strUser)
+	appl_id = '{"data" :[{"applicant_id":"'+e+'"}]}'
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../update_get_application/",
+			async:true,
+			data: 
+   				{
+        			prior: appl_id // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+				
+				var obj = $.parseJSON(data)
+				obj_array = obj["data"]
+				//alert(obj_array[0][0]["guardian_last_name"])
+				//alert("success")
+				document.getElementById("c_first_name_up").value = obj_array[0][0]["applicant_first_name"]
+				document.getElementById("c_last_name_up").value = obj_array[0][0]["applicant_last_name"]
+				document.getElementById("c_age_up").value = obj_array[0][0]["applicant_age"]
+				document.getElementById("c_sex_up").value = obj_array[0][0]["applicant_gender"]
+				document.getElementById("c_address_up").value = obj_array[0][0]["applicant_address"]
+				document.getElementById("g_ssn_up").value = obj_array[0][0]["guardian_ssn"]
+				document.getElementById("g_first_name_up").value = obj_array[0][0]["guardian_first_name"]
+				document.getElementById("g_last_name_up").value = obj_array[0][0]["guardian_last_name"]
+				document.getElementById("g_address_up").value = obj_array[0][0]["guardian_address"]
+				document.getElementById("g_contact_info_up").value = obj_array[0][0]["guardian_contact_number"]
+				document.getElementById("g_emergency_contact_up").value = obj_array[0][0]["emergency_contact"]
+				document.getElementById("g_payment_up").value = obj_array[0][0]["payment"]
+    		},
+    		error: function(data)
+    		{
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
+      		}
+    	}
+  	);
+}
+
+
+set_update = function(id){
+var camp_slots = "";
+$.ajax
+	(
+		{
+			type:"GET",
+			url:"../../application_status_get/",
+			async:false,
+			success:function(response){
+			var obj = $.parseJSON(response)
+			if(id==1)
+			{
+				camp_slots = obj["data"][0]["camp_time_slots1"]
+			}
+			else if(id==2)
+			{
+				camp_slots = obj["data"][0]["camp_time_slots2"]
+			}
+			else if(id==3)
+			{
+				camp_slots = obj["data"][0]["camp_time_slots3"]
+			}
+			},
+			error:function(response){
+				alert("error")
+			}
+		}
+	);
+
+    var k =
+        {
+			applicant_id:"",
+			user_id:"1",
+			bunkhouse_id:"",
+			tribe_id:"",
+			camp_time_slots:camp_slots,
+            applicant_first_name:document.getElementById("c_first_name_up").value,
+            applicant_last_name:document.getElementById("c_last_name_up").value,
+            applicant_age:document.getElementById("c_age_up").value,
+            applicant_gender:document.getElementById("c_sex_up").value,
+            applicant_address:document.getElementById("c_address_up").value,
+			guardian_ssn:document.getElementById("g_ssn_up").value,
+            guardian_first_name:document.getElementById("g_first_name_up").value,
+            guardian_last_name:document.getElementById("g_last_name_up").value,
+            guardian_address:document.getElementById("g_address_up").value,
+            guardian_contact_number:document.getElementById("g_contact_info_up").value,
+			application_date:"",
+            emergency_contact:document.getElementById("g_emergency_contact_up").value,
+            payment:document.getElementById("g_payment_up").value,
+			medical_form:"",
+			legal_form:"",
+			helmet:"",
+			boot:"",
+			sleeping_bag:"",
+			water_bottle:"",
+			sunscreen:"",
+			bugs_spray:"",
+			check_in_status:"",
+			application_status:""
+        };
+    var input = JSON.stringify({data:[k]})
+	$.ajax
+	(
+		{
+			type:"POST",
+			url:"../../update_set_application/",
+			async:true,
+			data: 
+   				{
+        			prior: input // from form
+        		},
+    		dataType: "text",
+    		success: function(data) 
+    		{
+        		debugger;
+				var obj = $.parseJSON(data)
+				if(obj["status"] == "success")
+				{
+					alert(obj["message"])
+					location.reload()
+				}
+				else{
+					
+					alert(obj["message"].replaceAll("|","\n"))
+				}
+				
+        		
+    		},
+    		error: function(data)
+    		{
+        		alert("Sorry for the inconvinience. Server is not working. check if the server is working.");
+      		}
+    	}
+  	);
+
+}

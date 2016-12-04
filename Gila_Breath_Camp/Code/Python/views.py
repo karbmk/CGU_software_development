@@ -270,4 +270,22 @@ def application_status_get(request):
 		st = e
 	return HttpResponse(st,content_type="application/type")
 
+@csrf_exempt
+def update_get_application(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["prior"]
+	regis = registration.Registration()
+	st = regis.viewRegisteredApplicant(data)
+	print(st)
+	return HttpResponse(st,content_type="application/type")
 
+@csrf_exempt
+def update_set_application(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["prior"]
+	regis = registration.Registration()
+	st = regis.updateRegisteredApplicantData(data)
+	print(st)
+	return HttpResponse(st,content_type="application/type")
