@@ -73,4 +73,20 @@ class HomePage(Page):
 		webdriver.ActionChains(self.browser).move_to_element(clerk_btn).click(clerk_btn).perform()
 		#find_element_by_css_selector("#tab7 > div > div.t-box > #btnCmp").click()
 
-
+	def select_appl_with(self):
+		#self.browser.find_element_by_id("sel_appl_name0").click()
+		self.browser.find_element_by_xpath("//select[@id='sel_appl_name0']/option[@value='TOLLNER, MITSUE']").click()
+		#self.wait_till_element_visible((By.XPATH,"//select[@id='guar_with0']"))
+	
+	def select_appl_id_with(self):
+		self.browser.find_element_by_xpath("//select[@id='guar_with0']/option[@value='10']").click()
+	
+	def select_appl_not_with(self):
+		self.browser.find_element_by_xpath("//select[@id='appl_name_without0']/option[@value='RAO, JAYANT']").click()
+	
+	def select_appl_id_without(self):
+		self.browser.find_element_by_xpath("//select[@id='guar_with0']/option[@value='8']").click()
+	
+	def click_submit_button(self):
+		self.browser.find_element_by_id("btnCmp_submit").click()
+	
