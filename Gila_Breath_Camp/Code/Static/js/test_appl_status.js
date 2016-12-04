@@ -339,6 +339,8 @@ String.prototype.replaceAll = function(search, replacement) {
     return target.split(search).join(replacement);
 };
 
+var global_application_date = ""
+
 Update_get = function(id){
 	var e = document.getElementById("c_appl_id").value;
 	//var strUser = e.options[e.selectedIndex].value;
@@ -360,7 +362,8 @@ Update_get = function(id){
 				
 				var obj = $.parseJSON(data)
 				obj_array = obj["data"]
-				//alert(obj_array[0][0]["guardian_last_name"])
+				global_application_date = obj_array[0][0]["application_date"]
+				//alert(obj_array[0][0]["application_date"])
 				//alert("success")
 				document.getElementById("c_first_name_up").value = obj_array[0][0]["applicant_first_name"]
 				document.getElementById("c_last_name_up").value = obj_array[0][0]["applicant_last_name"]
@@ -430,7 +433,7 @@ $.ajax
             guardian_last_name:document.getElementById("g_last_name_up").value,
             guardian_address:document.getElementById("g_address_up").value,
             guardian_contact_number:document.getElementById("g_contact_info_up").value,
-			application_date:"",
+			application_date:global_application_date,
             emergency_contact:document.getElementById("g_emergency_contact_up").value,
             payment:document.getElementById("g_payment_up").value,
 			medical_form:"",
