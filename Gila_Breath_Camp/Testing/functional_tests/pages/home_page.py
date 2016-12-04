@@ -90,3 +90,22 @@ class HomePage(Page):
 	def click_submit_button(self):
 		self.browser.find_element_by_id("btnCmp_submit").click()
 	
+	def select_update_reg(self):
+		#self.browser.find_element_by_id("tab7").click()
+		#self.browser.find_element_by_id("tab7").click()
+		clerk_btn = self.browser.find_element_by_xpath("//a[@href='#tab8']")
+		webdriver.ActionChains(self.browser).move_to_element(clerk_btn).click(clerk_btn).perform()
+		#find_element_by_css_selector("#tab7 > div > div.t-box > #btnCmp").click()
+	
+	def select_appl_id_up(self, appl_id):
+		self.browser.find_element_by_id('c_appl_id').send_keys(appl_id)
+	
+	def click_up_get(self):
+		self.browser.find_element_by_id("btnCmp_get").click()
+	
+	def enter_c_l_name_up(self, c_last_name):
+		self.browser.find_element_by_id('c_last_name_up').clear()
+		self.browser.find_element_by_id('c_last_name_up').send_keys(c_last_name)
+	
+	def click_reg_button_up(self):
+		self.browser.find_element_by_id("btnCmp_reg_up").click()
