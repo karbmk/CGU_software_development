@@ -6,13 +6,14 @@ import copy
 from csv import DictWriter
 os.system("chcp 65001")
 
-def createBatFile(proj_name,levels):
-	text_file = open(proj_name + "_setup.bat","w")
+def createBatFile(text_file,proj_name,levels):
+	
 	createSpaceInProgramFiles(text_file,proj_name,levels)
+	copyHtmlFiles(text_file,proj_name)
 	makeFolders(text_file,levels)
 	makeTextCsvFiles(text_file,levels)
 
-def makeProperPathInLevels(levels,file_path,proj_name):
+def makeProperPathInLevels(text_file,levels,file_path,proj_name):
 	for i in range(0,len(levels)):
 		replace_with = 'C:\\Program Files\\' + proj_name
 		levels[i]['new_path'] = levels[i]['path'].replace(file_path,replace_with)
@@ -56,7 +57,8 @@ def makeTextCsvFiles(text_file,levels):
 
 	for level in all_levels:
 		for i in range(0,len(levels)):
-			if levels[i]['type'] not in ['PNG','JPG','HTML','FOLDER'] and levels[i]['level'] == level:
+			if levels[i]['type'] not in ['PNG','JPG','HTML','FOLDER','JS','CSS'] and levels[i]['level'] == level:
+				text_file.write('echo copying ' + levels[i]['new_path'] + '\\' + levels[i]['file_name'] + '\n')
 				text_file.write('cd ' + levels[i]['new_path'] + '\n')
 				#print(levels[i]['path'] + '\\' + levels[i]['file_name'])
 				with open(levels[i]['path'] + '\\' + levels[i]['file_name'] , "r") as myfile:
@@ -65,7 +67,14 @@ def makeTextCsvFiles(text_file,levels):
 						if line.strip() == '':
 							text_file.write('echo.>> ' + levels[i]['file_name'] + '\n')
 						else:
-							text_file.write('echo ' + line.rstrip('\n').replace('|','^|').replace('&','^&').replace('"""','^"').replace('>','^>').replace('<','^<') + ' >> ' + levels[i]['file_name'] + '\n')
+							text_file.write('echo ' + line.rstrip('\n').replace('|','^|').replace('&','^&').replace('"""','^"""').replace('>','^>').replace('<','^<').replace('%','^%%') + ' >> ' + levels[i]['file_name'] + '\n')							
+
+def copyHtmlFiles(text_file,proj_name):
+	file_path = os.getcwd()
+	new_file_path = 'C:\\Program Files\\' + proj_name
+	text_file.write('cd %var%\n')
+	text_file.write('mkdir Static\n')
+	text_file.write('ROBOCOPY ".\\Static" "' + new_file_path + '\\Static' + '" /S\n')
 
 def delTextCsvFiles(text_file,levels):
 	""" make folders statement """
@@ -115,6 +124,7 @@ def createSpaceInProgramFiles(text_file,filename,levels):
 	text_file.write(':-------------------------------------- \n')
 	text_file.write('\n')
 	text_file.write('@echo off\n')
+	text_file.write('set "var=%cd%"\n')
 	text_file.write('TITLE Installing ' + filename + '\n')
 	text_file.write('cd C:\Program Files\n')
 	text_file.write('if exist "' + filename + '" (\n')
@@ -138,11 +148,11 @@ def findFilesFolders(file_path):
 	all_folders_files = [name for name in os.listdir(file_path)]
 	segregate_folders_files = {'file_names':[],'path':''}
 	for name in all_folders_files:
-		if name not in ['__pycache__','Dustbin','.DS_Store','db.sqlite3'] and name[-4:] not in ['.pyc','.bat']:
+		if name not in ['__pycache__','Dustbin','.DS_Store','db.sqlite3','applicant_11_17_2016.csv','applicant_old.csv','Static'] and name[-4:] not in ['.pyc','.bat']:
 			segregate_folders_files['file_names'].append(name)
 	return segregate_folders_files
 
-def makeLevels(continue_flag,level,file_path):
+def makeLevels(text_file,continue_flag,level,file_path):
 	""" Make one level at which files are present """
 	if continue_flag == 1:
 		return []
@@ -187,7 +197,8 @@ def makeLevels(continue_flag,level,file_path):
 				continue_flag = 1
 			elif '.' not in level_dict['file_name']:
 				level_dict['type'] = 'FOLDER'
-				all_level = all_level + makeLevels(0,level + 1,file_path + '\\' + level_dict['file_name'])
+				#text_file.write('echo copying ' + file_path + '\\' + level_dict['file_name'] + '\n')
+				all_level = all_level + makeLevels(text_file,0,level + 1,file_path + '\\' + level_dict['file_name'])
 
 	return all_level
 
@@ -221,11 +232,12 @@ def main():
 	#print(file_path)
 	#jpgfile = Image.open("Pic.jpg")
 	#End of line
-	levels = makeLevels(0,0,file_path)
-	levels = makeProperPathInLevels(levels,file_path,proj_name)
+	text_file = open(proj_name + "_setup.bat","w")
+	levels = makeLevels(text_file,0,0,file_path)
+	levels = makeProperPathInLevels(text_file,levels,file_path,proj_name)
 	print(levels[0]['path'])
 	#header = ['level','parent','file_name','type','path']
-	createBatFile(proj_name,levels)
+	createBatFile(text_file,proj_name,levels)
 	#text_file.write('\n')
 
 main()
