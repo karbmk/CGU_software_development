@@ -109,3 +109,13 @@ class HomePage(Page):
 	
 	def click_reg_button_up(self):
 		self.browser.find_element_by_id("btnCmp_reg_up").click()
+	
+	def click_checkin(self):
+		clerk_btn = self.browser.find_element_by_xpath("//a[@href='#tab3']")
+		webdriver.ActionChains(self.browser).move_to_element(clerk_btn).click(clerk_btn).perform()
+	
+	def click_sub_checkin(self):
+		self.browser.find_element_by_id("btnCmp_chk_sub").click()
+	
+	def click_sel_all(self):
+		self.browser.find_element_by_id("sel_all0").click()

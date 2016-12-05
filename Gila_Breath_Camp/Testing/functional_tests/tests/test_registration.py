@@ -86,3 +86,16 @@ class TestRegistrationPage(BaseTest):
 		time.sleep(2)
 		self.home_page.click_reg_button_up()
 		time.sleep(2)
+	
+	def test_check_in(self):
+		self.home_page.click_on_clerk_button()
+		#import pdb;pdb.set_trace()
+		time.sleep(1)
+		self.home_page.click_date_2()
+		time.sleep(3)
+		self.home_page.click_checkin()
+		time.sleep(3)
+		self.home_page.click_sel_all()
+		time.sleep(3)
+		self.home_page.click_sub_checkin()
+		time.sleep(2)
