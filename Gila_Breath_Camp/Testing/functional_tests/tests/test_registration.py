@@ -99,3 +99,16 @@ class TestRegistrationPage(BaseTest):
 		time.sleep(3)
 		self.home_page.click_sub_checkin()
 		time.sleep(2)
+	
+	def test_cancel(self):
+		self.home_page.click_on_clerk_button()
+		#import pdb;pdb.set_trace()
+		time.sleep(1)
+		self.home_page.click_date_2()
+		time.sleep(3)
+		self.home_page.click_cancel()
+		time.sleep(3)
+		self.home_page.click_checkbox_cancel()
+		time.sleep(2)
+		self.home_page.click_sub_cancel()
+		time.sleep(2)

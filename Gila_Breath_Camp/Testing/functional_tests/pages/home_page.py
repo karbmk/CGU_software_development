@@ -119,3 +119,13 @@ class HomePage(Page):
 	
 	def click_sel_all(self):
 		self.browser.find_element_by_id("sel_all0").click()
+	
+	def click_cancel(self):
+		clerk_btn = self.browser.find_element_by_xpath("//a[@href='#tab4']")
+		webdriver.ActionChains(self.browser).move_to_element(clerk_btn).click(clerk_btn).perform()
+	
+	def click_checkbox_cancel(self):
+		self.browser.find_element_by_id("cancel4").click()
+	
+	def click_sub_cancel(self):
+		self.browser.find_element_by_id("btnCmp_sub_cancel").click()
