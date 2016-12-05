@@ -25,6 +25,8 @@ class TestRegistrationPage(BaseTest):
 		self.home_page.click_on_clerk_button()
 		#import pdb;pdb.set_trace()
 		time.sleep(1)
+		self.home_page.click_date_2()
+		time.sleep(3)
 		self.home_page.enter_camper_name("Terry","Ryan")
 		time.sleep(1)
 		self.home_page.enter_campers_age(27)
