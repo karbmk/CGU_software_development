@@ -117,8 +117,9 @@ class HomePage(Page):
 	def click_sub_checkin(self):
 		self.browser.find_element_by_id("btnCmp_chk_sub").click()
 	
-	def click_sel_all(self):
-		self.browser.find_element_by_id("sel_all0").click()
+	def click_sel_all(self,sel_all_number):
+		#self.browser.find_element_by_id("sel_all0").click()
+		self.browser.find_element_by_id(sel_all_number).click()
 	
 	def click_cancel(self):
 		clerk_btn = self.browser.find_element_by_xpath("//a[@href='#tab4']")

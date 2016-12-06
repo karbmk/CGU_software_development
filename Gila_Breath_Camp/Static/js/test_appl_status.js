@@ -203,16 +203,16 @@ getPriority = function(id){
 				//alert(obj_array[i]["applicant_name_together_with"].length)
 				for(var j=0;j<obj_array[i]["applicant_name_together_with"].length;j++){
 					//alert(obj_array[i]["applicant_name_together_with"][j])
-					html_appl_name +='<option>'+obj_array[i]["applicant_name_together_with"][j]+'</option>'
+					html_appl_name +='<option value="'+obj_array[i]["applicant_name_together_with"][j]+'">'+obj_array[i]["applicant_name_together_with"][j]+'</option>'
 				}
 				for(var j=0;j<obj_array[i]["applicant_id_together_with"].length;j++){
-					html_guar_with +='<option>'+obj_array[i]["applicant_id_together_with"][j]+'</option>'
+					html_guar_with +='<option value="'+obj_array[i]["applicant_id_together_with"][j]+'">'+obj_array[i]["applicant_id_together_with"][j]+'</option>'
 				}
 				for(var j=0;j<obj_array[i]["applicant_name_not_together_with"].length;j++){
-					html_appl_name_without +='<option>'+obj_array[i]["applicant_name_not_together_with"][j]+'</option>'
+					html_appl_name_without +='<option value="'+obj_array[i]["applicant_name_not_together_with"][j]+'">'+obj_array[i]["applicant_name_not_together_with"][j]+'</option>'
 				}
 				for(var j=0;j<obj_array[i]["applicant_id_not_together_with"].length;j++){
-					html_guar_without +='<option>'+obj_array[i]["applicant_id_not_together_with"][j]+'</option>'
+					html_guar_without +='<option value="'+obj_array[i]["applicant_id_not_together_with"][j]+'">'+obj_array[i]["applicant_id_not_together_with"][j]+'</option>'
 				}
 				var html = '<tr>';
 				html += '<td id="appl'+i+'">'+obj_array[i]["applicant_id"]+'</td>'

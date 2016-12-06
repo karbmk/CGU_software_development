@@ -2157,7 +2157,7 @@ echo # CHANGE HISTORY : >> cancellation.py
 echo # VER	^|	DATE       	^|	MODIFIED BY  		^|  	CHANGE DESCRIPTION >> cancellation.py
 echo # ---------------------------------------------------------------------------------- >> cancellation.py
 echo # 1.0   	28-OCT-2016  	SOHEIL BOUZARI    		Started coding >> cancellation.py
-echo # =================================================================================== >> cancellation.py
+echo # ================================================================================== >> cancellation.py
 echo.>> cancellation.py
 echo.>> cancellation.py
 echo.>> cancellation.py
