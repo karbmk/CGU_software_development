@@ -31,6 +31,7 @@ class TestRegistrationPage(BaseTest):
 			sleep = lod[i]['sleep']
 			try:
 				self.test_update_register(id, name, int(sleep))
+				
 				cf.insertIntoCsv(['Test Update Register', csvName,i,'Success'])
 			except Exception as e:
 				cf.insertIntoCsv(['Test Update Register', csvName,i,'Error'])
@@ -56,4 +57,6 @@ class TestRegistrationPage(BaseTest):
 		self.home_page.enter_c_l_name_up(name)
 		time.sleep(sleep)
 		self.home_page.click_reg_button_up()
+		time.sleep(sleep)
+		self.home_page.click_browser_ok()
 		time.sleep(sleep)

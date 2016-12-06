@@ -61,4 +61,6 @@ class TestRegistrationPage(BaseTest):
 		#time.sleep(2)
 		self.home_page.click_submit_button()
 		time.sleep(sleep)
+		self.home_page.click_browser_ok()
+		time.sleep(sleep)
 	

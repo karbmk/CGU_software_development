@@ -52,4 +52,5 @@ class TestRegistrationPage(BaseTest):
 		time.sleep(sleep)
 		self.home_page.click_sub_checkin()
 		time.sleep(sleep)
-		
+		self.home_page.click_browser_ok()
+		time.sleep(sleep)

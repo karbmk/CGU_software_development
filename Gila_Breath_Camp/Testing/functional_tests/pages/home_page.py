@@ -132,3 +132,7 @@ class HomePage(Page):
 	
 	def click_sub_cancel(self):
 		self.browser.find_element_by_id("btnCmp_sub_cancel").click()
+
+	def click_browser_ok(self):
+		alert =self.browser.switch_to_alert()
+		alert.accept()
