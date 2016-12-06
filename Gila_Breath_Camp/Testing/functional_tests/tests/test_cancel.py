@@ -26,29 +26,30 @@ class TestRegistrationPage(BaseTest):
 		self.home_page.click_date_2()
 		time.sleep(3)
 		for i in range(0,len(lod)):
-			sel_all_number = lod[i]['sel_all_number']
+			cancel = lod[i]['cancel']
+			#name = lod[i]['name']
 			try:
-				self.test_check_in(sel_all_number)
-				cf.insertIntoCsv(['Test Check In', csvName,i,'Success'])
+				self.test_cancel(cancel)
+				cf.insertIntoCsv(['Test Cancel', csvName,i,'Success'])
 			except Exception as e:
-				cf.insertIntoCsv(['Test Check In', csvName,i,'Error'])
+				cf.insertIntoCsv(['Test Cancel', csvName,i,'Error'])
 		#print(out_lol)
 	
-	def test_main_check_in(self):
-		self.test_readFromCsAndRUnTestCheckIn("input.csv")
-	
+	def test_main_cancel(self):
+		self.test_readFromCsAndRUnTestCheckIn("input_cancel.csv")
+
 	def test_registration_form_redirection(self):
 		print (self.driver.title)
 		self.home_page.click_on_clerk_button()
 		#import pdb;pdb.set_trace()
 		#clerk_btn = driver.find_element_by_xpath("//a[@href='/Static/Templates/tran-his.html']")
 		#webdriver.ActionChains(driver).move_to_element(clerk_btn).click(clerk_btn).perform()
+
 	
-	def test_check_in(self,sel_all_number):
-		self.home_page.click_checkin()
+	def test_cancel(self, cancel):
+		self.home_page.click_cancel()
 		time.sleep(3)
-		self.home_page.click_sel_all(sel_all_number)
-		time.sleep(3)
-		self.home_page.click_sub_checkin()
-		time.sleep(5)
-		
+		self.home_page.click_checkbox_cancel(cancel)
+		time.sleep(2)
+		self.home_page.click_sub_cancel()
+		time.sleep(2)

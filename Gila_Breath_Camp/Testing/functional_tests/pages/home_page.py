@@ -73,16 +73,17 @@ class HomePage(Page):
 		webdriver.ActionChains(self.browser).move_to_element(clerk_btn).click(clerk_btn).perform()
 		#find_element_by_css_selector("#tab7 > div > div.t-box > #btnCmp").click()
 
-	def select_appl_with(self):
+	def select_appl_with(self, sel_appl_name, name):
 		#self.browser.find_element_by_id("sel_appl_name0").click()
-		self.browser.find_element_by_xpath("//select[@id='sel_appl_name0']/option[@value='TOLLNER, MITSUE']").click()
+		xpath_str = "//select[@id='"+sel_appl_name+"']/option[@value='"+name+"']"
+		self.browser.find_element_by_xpath(xpath_str).click()
 		#self.wait_till_element_visible((By.XPATH,"//select[@id='guar_with0']"))
 	
 	def select_appl_id_with(self):
 		self.browser.find_element_by_xpath("//select[@id='guar_with0']/option[@value='10']").click()
 	
-	def select_appl_not_with(self):
-		self.browser.find_element_by_xpath("//select[@id='appl_name_without0']/option[@value='RAO, JAYANT']").click()
+	def select_appl_not_with(self,sel_appl_name_without, name_not):
+		self.browser.find_element_by_xpath("//select[@id='"+sel_appl_name_without+"']/option[@value='"+name_not+"']").click()
 	
 	def select_appl_id_without(self):
 		self.browser.find_element_by_xpath("//select[@id='guar_with0']/option[@value='8']").click()
@@ -116,6 +117,7 @@ class HomePage(Page):
 	
 	def click_sub_checkin(self):
 		self.browser.find_element_by_id("btnCmp_chk_sub").click()
+		self.wait_till_element_visible((By.XPATH,self.REGISTRATION_TAB_XPATH))
 	
 	def click_sel_all(self,sel_all_number):
 		#self.browser.find_element_by_id("sel_all0").click()
@@ -125,8 +127,8 @@ class HomePage(Page):
 		clerk_btn = self.browser.find_element_by_xpath("//a[@href='#tab4']")
 		webdriver.ActionChains(self.browser).move_to_element(clerk_btn).click(clerk_btn).perform()
 	
-	def click_checkbox_cancel(self):
-		self.browser.find_element_by_id("cancel4").click()
+	def click_checkbox_cancel(self, cancel):
+		self.browser.find_element_by_id(cancel).click()
 	
 	def click_sub_cancel(self):
 		self.browser.find_element_by_id("btnCmp_sub_cancel").click()

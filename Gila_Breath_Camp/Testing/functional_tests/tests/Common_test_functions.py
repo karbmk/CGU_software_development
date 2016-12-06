@@ -1,4 +1,4 @@
-from csv import DictWriter
+import csv
 
 class Common_test_functions():
 
@@ -48,3 +48,13 @@ class Common_test_functions():
 						list_dict_data_where.append(list_dict_data[i])
 
 		return list_dict_data_where
+	
+	def insertIntoCsv(self,object_name):
+		with open('output.csv', 'a') as csvfile:
+			fieldnames = ['Test Name','Csv Name','Row Number','Status']
+			writer = csv.DictWriter(csvfile,fieldnames=fieldnames)
+
+			#writer.writeheader()
+			#for i in range(0,len(object_name)):
+			writer.writerow({'Test Name': object_name[0], 'Csv Name': object_name[1], 'Row Number':object_name[2],'Status':object_name[3]})
+
