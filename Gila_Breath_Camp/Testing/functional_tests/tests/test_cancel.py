@@ -27,9 +27,10 @@ class TestRegistrationPage(BaseTest):
 		time.sleep(3)
 		for i in range(0,len(lod)):
 			cancel = lod[i]['cancel']
+			sleep = lod[i]['sleep']
 			#name = lod[i]['name']
 			try:
-				self.test_cancel(cancel)
+				self.test_cancel(cancel,int(sleep))
 				cf.insertIntoCsv(['Test Cancel', csvName,i,'Success'])
 			except Exception as e:
 				cf.insertIntoCsv(['Test Cancel', csvName,i,'Error'])
@@ -46,10 +47,10 @@ class TestRegistrationPage(BaseTest):
 		#webdriver.ActionChains(driver).move_to_element(clerk_btn).click(clerk_btn).perform()
 
 	
-	def test_cancel(self, cancel):
+	def test_cancel(self, cancel, sleep):
 		self.home_page.click_cancel()
-		time.sleep(3)
+		time.sleep(sleep)
 		self.home_page.click_checkbox_cancel(cancel)
-		time.sleep(2)
+		time.sleep(sleep)
 		self.home_page.click_sub_cancel()
-		time.sleep(2)
+		time.sleep(sleep)

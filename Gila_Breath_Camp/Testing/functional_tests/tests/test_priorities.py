@@ -30,8 +30,9 @@ class TestRegistrationPage(BaseTest):
 			name = lod[i]['name']
 			sel_appl_not_with = lod[i]['sel_appl_not_with']
 			name_not = lod[i]['name_not']
+			sleep = lod[i]['sleep']
 			try:
-				self.test_priority_set(sel_appl_name,name,sel_appl_not_with,name_not)
+				self.test_priority_set(sel_appl_name,name,sel_appl_not_with,name_not,int(sleep))
 				cf.insertIntoCsv(['Test priority', csvName,i,'Success'])
 			except Exception as e:
 				cf.insertIntoCsv(['Test priority', csvName,i,'Error'])
@@ -47,17 +48,17 @@ class TestRegistrationPage(BaseTest):
 		#clerk_btn = driver.find_element_by_xpath("//a[@href='/Static/Templates/tran-his.html']")
 		#webdriver.ActionChains(driver).move_to_element(clerk_btn).click(clerk_btn).perform()
 
-	def test_priority_set(self, sel_appl_name, name, sel_appl_not_with, name_not):
+	def test_priority_set(self, sel_appl_name, name, sel_appl_not_with, name_not,sleep):
 		self.home_page.select_priority()
-		time.sleep(5)
+		time.sleep(sleep)
 		self.home_page.select_appl_with(sel_appl_name, name)
-		time.sleep(5)
+		time.sleep(sleep)
 		#self.home_page.select_appl_id_with()
 		#time.sleep(2)
 		self.home_page.select_appl_not_with(sel_appl_not_with, name_not)
-		time.sleep(5)
+		time.sleep(sleep)
 		#self.home_page.select_appl_id_without()
 		#time.sleep(2)
 		self.home_page.click_submit_button()
-		time.sleep(5)
+		time.sleep(sleep)
 	

@@ -22,14 +22,15 @@ class TestRegistrationPage(BaseTest):
 		print(lod)
 		self.home_page.click_on_clerk_button()
 		#import pdb;pdb.set_trace()
-		time.sleep(1)
+		time.sleep(2)
 		self.home_page.click_date_2()
-		time.sleep(3)
+		time.sleep(2)
 		for i in range(0,len(lod)):
 			id = lod[i]['id']
 			name = lod[i]['name']
+			sleep = lod[i]['sleep']
 			try:
-				self.test_update_register(id, name)
+				self.test_update_register(id, name, int(sleep))
 				cf.insertIntoCsv(['Test Update Register', csvName,i,'Success'])
 			except Exception as e:
 				cf.insertIntoCsv(['Test Update Register', csvName,i,'Error'])
@@ -45,14 +46,14 @@ class TestRegistrationPage(BaseTest):
 		#clerk_btn = driver.find_element_by_xpath("//a[@href='/Static/Templates/tran-his.html']")
 		#webdriver.ActionChains(driver).move_to_element(clerk_btn).click(clerk_btn).perform()
 
-	def test_update_register(self, id, name):
+	def test_update_register(self, id, name,sleep):
 		self.home_page.select_update_reg()
-		time.sleep(3)
+		time.sleep(sleep)
 		self.home_page.select_appl_id_up(id)
-		time.sleep(1)
+		time.sleep(sleep)
 		self.home_page.click_up_get()
-		time.sleep(2)
+		time.sleep(sleep)
 		self.home_page.enter_c_l_name_up(name)
-		time.sleep(2)
+		time.sleep(sleep)
 		self.home_page.click_reg_button_up()
-		time.sleep(2)
+		time.sleep(sleep)

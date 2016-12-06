@@ -27,8 +27,9 @@ class TestRegistrationPage(BaseTest):
 		time.sleep(3)
 		for i in range(0,len(lod)):
 			sel_all_number = lod[i]['sel_all_number']
+			sleep = lod[i]['sleep']
 			try:
-				self.test_check_in(sel_all_number)
+				self.test_check_in(sel_all_number,int(sleep))
 				cf.insertIntoCsv(['Test Check In', csvName,i,'Success'])
 			except Exception as e:
 				cf.insertIntoCsv(['Test Check In', csvName,i,'Error'])
@@ -44,11 +45,11 @@ class TestRegistrationPage(BaseTest):
 		#clerk_btn = driver.find_element_by_xpath("//a[@href='/Static/Templates/tran-his.html']")
 		#webdriver.ActionChains(driver).move_to_element(clerk_btn).click(clerk_btn).perform()
 	
-	def test_check_in(self,sel_all_number):
+	def test_check_in(self,sel_all_number,sleep):
 		self.home_page.click_checkin()
-		time.sleep(3)
+		time.sleep(sleep)
 		self.home_page.click_sel_all(sel_all_number)
-		time.sleep(3)
+		time.sleep(sleep)
 		self.home_page.click_sub_checkin()
-		time.sleep(5)
+		time.sleep(sleep)
 		
