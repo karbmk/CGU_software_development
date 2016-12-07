@@ -345,7 +345,34 @@ Update_get = function(id){
 	var e = document.getElementById("c_appl_id").value;
 	//var strUser = e.options[e.selectedIndex].value;
 	//alert(strUser)
-	appl_id = '{"data" :[{"applicant_id":"'+e+'"}]}'
+	var camp_slots = "";
+	$.ajax
+	(
+		{
+			type:"GET",
+			url:"../../application_status_get/",
+			async:false,
+			success:function(response){
+			var obj = $.parseJSON(response)
+			if(id==1)
+			{
+				camp_slots = obj["data"][0]["camp_time_slots1"]
+			}
+			else if(id==2)
+			{
+				camp_slots = obj["data"][0]["camp_time_slots2"]
+			}
+			else if(id==3)
+			{
+				camp_slots = obj["data"][0]["camp_time_slots3"]
+			}
+			},
+			error:function(response){
+				alert("error")
+			}
+		}
+	);
+	appl_id = '{"data" :[{"camp_time_slots":"'+camp_slots+'","applicant_id":"'+e+'"}]}'
 	$.ajax
 	(
 		{
@@ -361,6 +388,8 @@ Update_get = function(id){
     		{
 				
 				var obj = $.parseJSON(data)
+				if(obj["status"] == "success")
+				{
 				obj_array = obj["data"]
 				global_application_date = obj_array[0][0]["application_date"]
 				//alert(obj_array[0][0]["application_date"])
@@ -377,6 +406,10 @@ Update_get = function(id){
 				document.getElementById("g_contact_info_up").value = obj_array[0][0]["guardian_contact_number"]
 				document.getElementById("g_emergency_contact_up").value = obj_array[0][0]["emergency_contact"]
 				document.getElementById("g_payment_up").value = obj_array[0][0]["payment"]
+				}
+				else{
+					alert(obj["message"])
+				}
     		},
     		error: function(data)
     		{
