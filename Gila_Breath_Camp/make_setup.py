@@ -1,5 +1,4 @@
 import os
-import PIL.Image
 import io
 import re
 import copy
@@ -279,7 +278,7 @@ def main():
 	#createSpaceInProgramFiles(text_file)
 	#file_path = input('Enter the path plus the folder name for which you need to create setup.exe :\n')
 #	file_path = "C:\Rohan\CGU\Fall 2016\Software Development\BitBucket\software_development_cgu\Gila_Breath_Camp\\folder"
-	file_path = "C:\Rohan\CGU\Fall 2016\Software Development\BitBucket\software_development_cgu\Gila_Breath_Camp\Code"
+	file_path = "C:\\Users\\Acer\Desktop\CGU\SD\Bitbucket\software_development_cgu\Gila_Breath_Camp\Code"
 	proj_name = 'Gila_Breath_Camp'
 	#file_path = file_path.replace("\\","\\\\")
 	#print(file_path)
