@@ -57,9 +57,10 @@ flag = ''
 for i in range(0,len(list_data)):
 	if(list_data[i]["Status"]=="Error"):
 		flag='0'
-	else:
+		break
+	elif(list_data[i]["Status"]=="Success"):
 		flag='1'
-		pass
+
 
 if (flag == '1'):
 	os.system("git push origin master")

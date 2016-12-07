@@ -1,4 +1,1 @@
-Test Name,Csv Name,Row Number,StatusTest priority,input_priority.csv,0,Success
-Test Check In,input.csv,0,Error
-Test Update Register,input_update_register.csv,0,Error
-Test Cancel,input_cancel.csv,0,Success
+Test Name,Csv Name,Row Number,Status

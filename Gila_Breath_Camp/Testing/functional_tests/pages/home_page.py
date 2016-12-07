@@ -117,7 +117,7 @@ class HomePage(Page):
 	
 	def click_sub_checkin(self):
 		self.browser.find_element_by_id("btnCmp_chk_sub").click()
-		self.wait_till_element_visible((By.XPATH,self.REGISTRATION_TAB_XPATH))
+		#self.wait_till_element_visible((By.XPATH,self.REGISTRATION_TAB_XPATH))
 	
 	def click_sel_all(self,sel_all_number):
 		#self.browser.find_element_by_id("sel_all0").click()
