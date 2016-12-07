@@ -50,7 +50,7 @@ class Common_test_functions():
 		return list_dict_data_where
 	
 	def insertIntoCsv(self,object_name):
-		with open('output.csv', 'a') as csvfile:
+		with open('Report/output.csv', 'a') as csvfile:
 			fieldnames = ['Test Name','Csv Name','Row Number','Status']
 			writer = csv.DictWriter(csvfile,fieldnames=fieldnames)
 
