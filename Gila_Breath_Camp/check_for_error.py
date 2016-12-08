@@ -51,7 +51,7 @@ def getFromCsv(filename,where):
 	return list_dict_data_where
 
 os.system("python remove_lines.py")
-print(getFromCsv("Report/output_new.csv",{}))
+print(getFromCsv("Report/TestCaseReports.csv",{}))
 list_data = getFromCsv("Report/TestCaseReports.csv",{})
 flag = ''
 for i in range(0,len(list_data)):
