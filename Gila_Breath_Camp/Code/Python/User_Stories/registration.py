@@ -113,14 +113,18 @@ class Registration(object):
 		""" View Registered Applicant based on Application Id """
 		front_end_dict = ast.literal_eval(front_end_str)
 		front_end_data = front_end_dict['data'][0]
-
+		applicant_id_dict = {'applicant_id':front_end_data['applicant_id']}
 		cf = common_functions.Common_functions()
-		data = cf.getFromCsv('applicant.csv',front_end_data)
+		data = cf.getFromCsv('applicant.csv',applicant_id_dict)
+
+		if data != []:
+			if data[0]['camp_time_slots'] != front_end_data['camp_time_slots']:
+				data = []
 
 		if len(data) != 0:
 			return_front_end_dict = '{ "data": [' + json.dumps(data) + '], "status":"success", "message":"DATA RETRIEVED" }'
 		else:
-			return_front_end_dict = '{ "data": [' + json.dumps(data) + '], "status":"success", "message":"THERE WAS SOME PROBLEM WHILE RETRIEVING DATA" }'
+			return_front_end_dict = '{ "data": [' + json.dumps(data) + '], "status":"success", "message":"APPLICANT ID NOT FOUND FOR THIS CAMP TIME SLOT" }'
 
 		return return_front_end_dict
 
