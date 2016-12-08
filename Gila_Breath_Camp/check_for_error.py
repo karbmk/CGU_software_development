@@ -50,9 +50,9 @@ def getFromCsv(filename,where):
 
 	return list_dict_data_where
 
-os.system("python lol.py")
+os.system("python remove_lines.py")
 print(getFromCsv("Report/output_new.csv",{}))
-list_data = getFromCsv("Report/output_new.csv",{})
+list_data = getFromCsv("Report/TestCaseReports.csv",{})
 flag = ''
 for i in range(0,len(list_data)):
 	if(list_data[i]["Status"]=="Error"):
