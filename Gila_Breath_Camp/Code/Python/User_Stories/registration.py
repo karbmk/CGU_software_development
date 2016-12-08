@@ -124,7 +124,7 @@ class Registration(object):
 		if len(data) != 0:
 			return_front_end_dict = '{ "data": [' + json.dumps(data) + '], "status":"success", "message":"DATA RETRIEVED" }'
 		else:
-			return_front_end_dict = '{ "data": [' + json.dumps(data) + '], "status":"success", "message":"APPLICANT ID NOT FOUND FOR THIS CAMP TIME SLOT" }'
+			return_front_end_dict = '{ "data": [' + json.dumps(data) + '], "status":"error", "message":"APPLICANT ID NOT FOUND FOR THIS CAMP TIME SLOT" }'
 
 		return return_front_end_dict
 
