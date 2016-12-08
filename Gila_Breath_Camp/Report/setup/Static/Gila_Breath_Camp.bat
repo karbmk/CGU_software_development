@@ -31,4 +31,5 @@ if '%errorlevel%' NEQ '0' (
 
 cd C:\Program Files\Gila_Breath_Camp
 start python manage.py runserver
+sleep 15
 start http://localhost:8000/Python
