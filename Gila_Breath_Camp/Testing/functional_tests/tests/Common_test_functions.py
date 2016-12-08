@@ -54,7 +54,7 @@ class Common_test_functions():
 			fieldnames = ['Test Name','Csv Name','Row Number','Status']
 			writer = csv.DictWriter(csvfile,fieldnames=fieldnames)
 
-			#writer.writeheader()
+			writer.writeheader()
 			#for i in range(0,len(object_name)):
 			writer.writerow({'Test Name': object_name[0], 'Csv Name': object_name[1], 'Row Number':object_name[2],'Status':object_name[3]})
 

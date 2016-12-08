@@ -102,6 +102,7 @@ printLetter = function(clicked_id){
 getCancel = function(id){
 	var input = '{"data" :[{"date_id":"'+id+'"}]}';
 	document.getElementById("get_cancel").onclick=''
+	//debugger;
 	$.ajax
 	(
 		{
@@ -154,7 +155,7 @@ getCancel = function(id){
 				html += '<td id="completed_appl'+i+'">'+check_stat+'</td>'
 				html += '<td align="center" id="appl_status'+i+'" name="appl_status" >'+check+'</td>'
 				if (check == 'NOT SENT')
-				{html +='<td style="font-size: 12px;" align="center" id="cancel'+i+'">NOTICE SHOULD BE SENT BEFORE CANCELLING AN APPLICATION</td>'}
+				{html +='<td style="font-size: 12px;" align="center" id="cancel'+i+'">GO TO STATUS and send the notice of acceptance</td>'}
 				else
 				{html += '<td align="center"><input id="cancel'+i+'" type="checkbox" name="appl_status" '+check_cancel+'></td>'}
 				html += '<td>'+obj_array[i]["mailing_date"]+'</td>'

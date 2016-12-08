@@ -64,6 +64,7 @@ for i in range(0,len(list_data)):
 
 if (flag == '1'):
 	os.system("git push origin master")
+	os.system("python ci_sd.py")
 	print("Success")
 else:
 	print("Error")
