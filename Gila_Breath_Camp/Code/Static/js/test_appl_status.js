@@ -66,9 +66,9 @@ getTest2 = function(id)
 	
 }
 printLetter = function(clicked_id){
-	alert(clicked_id)
+	//alert(clicked_id)
 	Applicant_Id = '{"data" :[{"applicant_id":"'+document.getElementById("appl_print"+clicked_id).innerHTML+'"}]}'
-	alert(Applicant_Id)
+	//alert(Applicant_Id)
 	//$('#linkBtnUnitPrice').click(function() {
 	//alert(document.getElementById("appl"+clicked_id).innerHTML)
 	//});

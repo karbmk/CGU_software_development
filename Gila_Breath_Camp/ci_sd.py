@@ -19,6 +19,6 @@ if not os.path.exists("Report/setup"):
     os.makedirs("Report/setup")
 
 os.system("copy /Y Gila_Breath_Camp_setup.bat Report\setup\Gila_Breath_Camp_setup.bat")
-os.system('XCOPY "Code/Static" "Report/setup" /S /Y')
+os.system('XCOPY "Code/Static" "Report/setup/Static" /S /Y')
 
-zip("Report/setup","Report/setup.zip")
+zip("Report/setup","Report/setup")

@@ -136,3 +136,13 @@ class HomePage(Page):
 	def click_browser_ok(self):
 		alert =self.browser.switch_to_alert()
 		alert.accept()
+
+	def click_status_tab(self):
+		clerk_btn = self.browser.find_element_by_xpath("//a[@href='#tab2']")
+		webdriver.ActionChains(self.browser).move_to_element(clerk_btn).click(clerk_btn).perform()
+
+	def click_checkbox_status(self):
+		self.browser.find_element_by_id("appl_status40").click()
+
+	def click_sub_status(self):
+		self.browser.find_element_by_id("btnCmp_status").click()

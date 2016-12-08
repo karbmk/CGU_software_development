@@ -277,6 +277,7 @@ def update_get_application(request):
 	data = request.POST["prior"]
 	regis = registration.Registration()
 	st = regis.viewRegisteredApplicant(data)
+	print(data)
 	print(st)
 	return HttpResponse(st,content_type="application/type")
 
