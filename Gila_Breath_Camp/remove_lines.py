@@ -1,6 +1,6 @@
 import csv
 in_fnam = "Report/output.csv"
-out_fnam = "Report/output_new.csv"
+out_fnam = "Report/TestCaseReports.csv"
 input = open(in_fnam, 'rt',encoding='ascii')
 output = open(out_fnam, 'w',newline='')
 writer = csv.writer(output)

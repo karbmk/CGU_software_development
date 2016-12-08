@@ -107,6 +107,10 @@ class HomePage(Page):
 	def enter_c_l_name_up(self, c_last_name):
 		self.browser.find_element_by_id('c_last_name_up').clear()
 		self.browser.find_element_by_id('c_last_name_up').send_keys(c_last_name)
+
+	def enter_c_age_up(self, c_age):
+		self.browser.find_element_by_id('c_age_up').clear()
+		self.browser.find_element_by_id('c_age_up').send_keys(c_age)
 	
 	def click_reg_button_up(self):
 		self.browser.find_element_by_id("btnCmp_reg_up").click()

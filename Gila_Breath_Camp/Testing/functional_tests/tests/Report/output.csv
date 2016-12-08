@@ -10,3 +10,9 @@ Test Name,Csv Name,Row Number,Status
 Test priority,input_priority.csv,0,Success
 Test Update Register,input_update_register.csv,0,Success
 Test Update Register,input_update_register.csv,0,Success
+Test Update Register,input_update_register.csv,0,Success
+Test Check In,input.csv,0,Success
+Test Update Register,input_update_register.csv,0,Success
+Test Check In,input.csv,0,Success
+Test priority,input_priority.csv,0,Success
+Test Cancel,input_cancel.csv,0,Success
