@@ -204,14 +204,14 @@ echo.>> test.py
 echo copying C:\Program Files\Gila_Breath_Camp\Csv\applicant.csv
 cd C:\Program Files\Gila_Breath_Camp\Csv
 echo "applicant_id","user_id","bunkhouse_id","tribe_id","camp_time_slots","applicant_first_name","applicant_last_name","applicant_age","applicant_gender","applicant_address","guardian_first_name","guardian_last_name","guardian_contact_number","guardian_address","application_date","emergency_contact","payment","medical_form","legal_form","helmet","boot","sleeping_bag","water_bottle","sunscreen","bugs_spray","check_in_status","application_status","acceptance_packet","mailing_date","rejected_reason","guardian_ssn","cancel_flag","refund","cancel_date","applicant_name_together_with","applicant_id_together_with","applicant_name_not_together_with","applicant_id_not_together_with">> applicant.csv
-echo "1","1","","","2017-02-12 00:00:00.000000","JEMIN","GOHIL","21","MALE","Cecilia Chapman, 711-2880 Nulla St. Mankato Mississippi -96522, (257)563-7401","SANJIV","GOHIL","9098912122","Cecilia Chapman, 711-2880 Nulla St. Mankato Mississippi -96522, (257)563-7401","2016-11-20 15:54:13.327180","9098912122","1000","","","","","","","","","","0","","","AGE IS NOT BETWEEN 8 AND 19","342-909-8982","","","","TENDULKAR, SACHIN","3","RAO, JAYANT","8">> applicant.csv
-echo "2","1","3","","2017-02-12 00:00:00.000000","KARTHIK","BASAVANAHALLI","16","MALE","Calista Wise, 7292 Dictum Av. San Antonio MI 47096, (492)709-6392","MANJUNATH","BASAVANAHALLI","9096751122","Calista Wise, 7292 Dictum Av. San Antonio MI 47096, (492)709-6392","2016-11-23 15:54:13.327180","0","1000","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","343-10-1212","0","","","NONE","NONE","NONE","NONE">> applicant.csv
-echo "3","1","1","","2017-02-12 00:00:00.000000","SACHIN","TENDULKAR","10","MALE","Bandra, Mumbai","RAMESH","TENDULKAR","9099099099","Bandra, Mumbai","2016-11-24 12:40:19.105645","1","10000","1","1","1","1","1","1","1","1","1","1","1","2016-11-24 13:10:39.878099","NO VIOLATIONS","000-11-2222","1","9900.0","2016-12-08 18:14:19.804749","NONE","NONE","NONE","NONE">> applicant.csv
-echo "4","1","","","2017-02-12 00:00:00.000000","VIRAT","KOHLI","20","MALE","Delhi, India","MR","KOHLI","9899899899","Delhi, India","2016-11-24 12:50:46.615292","9899899899","1000","","","","","","","","","","0","","","AGE IS NOT BETWEEN 8 AND 19","000-11-1111","","","","NONE","NONE","NONE","NONE">> applicant.csv
-echo "5","1","2","","2017-02-12 00:00:00.000000","SURESH","RAINA","13","MALE","100, N. Mills Ave, Claremont California -91711","MR","RAINA","9090099009","100, N. Mills Ave, Claremont California -91711","2016-11-26 17:22:11.901116","1","1000","1","1","1","1","1","1","1","1","1","1","1","2016-11-29 13:29:13.353150","NO VIOLATIONS","123-45-6789","1","900.0","2016-12-08 18:14:19.806709","GOHIL, JEMIN","1","NONE","NONE">> applicant.csv
+echo "1","1","","","2017-02-12 00:00:00.000000","JEMIN","GOHIL","21","MALE","Cecilia Chapman, 711-2880 Nulla St. Mankato Mississippi -96522, (257)563-7401","SANJIV","GOHIL","9098912122","Cecilia Chapman, 711-2880 Nulla St. Mankato Mississippi -96522, (257)563-7401","2016-11-20 15:54:13.327180","9098912122","1000","","","","","","","","","","0","","","AGE IS NOT BETWEEN 8 AND 19","342-909-8982","","","","BUTT, JAMES","9","NONE","NONE">> applicant.csv
+echo "2","1","","","2017-02-12 00:00:00.000000","KARTHIK","BASAVANAHALLI","16","MALE","Calista Wise, 7292 Dictum Av. San Antonio MI 47096, (492)709-6392","MANJUNATH","BASAVANAHALLI","9096751122","Calista Wise, 7292 Dictum Av. San Antonio MI 47096, (492)709-6392","2016-11-23 15:54:13.327180","9096751122","1000","","","","","","","","","","","","","NO VIOLATIONS","343-10-1212","","","","","","","">> applicant.csv
+echo "3","1","1","","2017-02-12 00:00:00.000000","SACHIN","TENDULKAR","10","MALE","Bandra, Mumbai","RAMESH","TENDULKAR","9099099099","Bandra, Mumbai","2016-11-24 12:40:19.105645","1","10000","1","1","1","1","1","1","1","1","1","1","1","2016-11-24 13:10:39.878099","NO VIOLATIONS","000-11-2222","1","9900.0","2016-12-03 15:56:10.678288","NONE","NONE","NONE","NONE">> applicant.csv
+echo "4","1","","","2017-02-12 00:00:00.000000","VIRAT","KOHLI","20","MALE","Delhi, India","MR","KOHLI","9899899899","Delhi, India","2016-11-24 12:50:46.615292","9899899899","1000","","","","","","","","","","","","","AGE IS NOT BETWEEN 8 AND 19","000-11-1111","","","","","","","NONE">> applicant.csv
+echo "5","1","2","","2017-02-12 00:00:00.000000","SURESH","RAINA","13","MALE","100, N. Mills Ave, Claremont California -91711","MR","RAINA","9090099009","100, N. Mills Ave, Claremont California -91711","2016-11-26 17:22:11.901116","1","1000","1","1","1","1","1","1","1","1","1","1","1","2016-11-29 13:29:13.353150","NO VIOLATIONS","123-45-6789","1","900.0","2016-12-03 15:56:10.683413","GOHIL, JEMIN","1","NONE","NONE">> applicant.csv
 echo "6","1","2","","2017-02-12 00:00:00.000000","RICKY","P ONTING","11","MALE","Australia","GREAME","PONTING","1234567890","Australia","2016-11-26 19:03:08.001738","0","1200","0","0","0","0","0","0","0","0","0","1","1","2016-11-29 14:42:04.905432","NO VIOLATIONS","000-00-0000","0","","","KOHLI, VIRAT","4","NONE","NONE">> applicant.csv
 echo "7","1","4.0","","2017-02-12 00:00:00.000000","SONAL","RYDER","9","FEMALE","1244 West Main Stamford,CA 069122 USA","ZACKIE","RYDER","2033528600","1244 West Main Stamford,CA 069122 USA","2016-11-26 21:17:05.899819","1","1000","1","1","1","1","1","1","1","1","1","1","","","NO VIOLATIONS","100-22-3333","0","","","NONE","NONE","NONE","NONE">> applicant.csv
-echo "8","1","1","","2017-02-12 00:00:00.000000","JAYANT","RAO","17","MALE","Kalyan, India - 421304","GOVIND","RAO","9093447086","Kalyan, India - 421304","2016-11-26 21:19:52.986987","0","1150","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","110-11-1234","0","","","BASAVANAHALLI, KATHIK","16","NONE","NONE">> applicant.csv
+echo "8","1","1","","2017-02-12 00:00:00.000000","JAYANT","RAO","17","MALE","Kalyan, India - 421304","GOVIND","RAO","9093447086","Kalyan, India - 421304","2016-11-26 21:19:52.986987","0","1150","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","110-11-1234","0","","","BASAVANAHALLI, KATHIK","2","NONE","NONE">> applicant.csv
 echo "9","1","3","","2017-02-12 00:00:00.000000","JAMES","BUTT","12","MALE","6649 N Blue Gum St, New Orleans, Orleans, LA 70116","FRANCOISE","BUTT","5199786179","6649 N Blue Gum St, New Orleans, Orleans, LA 70116","2016-11-26 21:22:44.662888","0","1300","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","234-11-7788","0","","","NONE","NONE","NONE","NONE">> applicant.csv
 echo "10","1","3","","2017-02-12 00:00:00.000000","MITSUE","TOLLNER","15","MALE","7 Eads St, Chicago, Cook, IL 60632","HUI","TOLLNER","5062764830","7 Eads St, Chicago, Cook, IL 60632","2016-11-26 21:25:52.208938","0","1000","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","123-45-6666","0","","","NONE","NONE","NONE","NONE">> applicant.csv
 echo "11","1","1","","2017-02-12 00:00:00.000000","YUKI","WHOBREY","9","MALE","1 State Route 27, Taylor, Wayne, MI 48180","VALENTIN","WHOBREY","3063167477","1 State Route 27, Taylor, Wayne, MI 48180","2016-11-26 21:28:33.525999","0","1000","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","111-00-2222","0","","","HOLLACK, CECILY","14","NONE","NONE">> applicant.csv
@@ -226,7 +226,7 @@ echo "19","1","5.0","","2017-02-12 00:00:00.000000","KANCHAN","GHONGE","16","FEM
 echo "20","1","4.0","","2017-02-12 00:00:00.000000","JOSEPHINE","DARAKJY","15","FEMALE","4 B Blue Ridge Blvd, Brighton, Livingston, MI 48116","KENDRA","DARAKJY","5069324472","4 B Blue Ridge Blvd, Brighton, Livingston, MI 48116","2016-11-29 14:12:21.495608","0","1000","0","0","0","0","0","0","0","0","0","1","1","2016-11-29 14:42:04.949794","NO VIOLATIONS","090-87-8989","0","","","MARRIER, KRIS","21","NONE","NONE">> applicant.csv
 echo "21","1","4.0","","2017-02-12 00:00:00.000000","KRIS","MARRIER","17","FEMALE","228 Runamuck Pl #2808, Baltimore, Baltimore City, MD 21224","PAOLA","MARRIER","9052637711","228 Runamuck Pl #2808, Baltimore, Baltimore City, MD 21224","2016-11-29 14:14:47.074711","0","1001","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","201-34-5678","0","","","NONE","NONE","DARAKJY, JOSEPHINE","20">> applicant.csv
 echo "22","1","4.0","","2017-02-12 00:00:00.000000","ABEL","MACLEAD","13","FEMALE","37275 St Rt 17m M, Middle Island, Suffolk, NY 11953","LEANNA","TIJERINA","4166581773","37275 St Rt 17m M, Middle Island, Suffolk, NY 11953","2016-11-29 14:17:11.715827","1","1000","1","1","1","1","1","1","1","1","1","1","","","NO VIOLATIONS","101-11-1213","0","","","MARRIER, KRIS","21","NONE","NONE">> applicant.csv
-echo "23","1","5.0","","2017-02-12 00:00:00.000000","GRACIELA","RUTA","18","FEMALE","98 Connecticut Ave Nw, Chagrin Falls, Geauga, OH 44023","HUEY","RUTA","7805201241","98 Connecticut Ave Nw, Chagrin Falls, Geauga, OH 44023","2016-11-29 14:20:08.830637","0","1000","0","0","0","0","0","0","0","0","0","1","1","2016-11-29 14:42:04.959151","NO VIOLATIONS","909-99-9999","1","900.0","2016-12-08 18:14:19.808234","NONE","NONE","NONE","NONE">> applicant.csv
+echo "23","1","5.0","","2017-02-12 00:00:00.000000","GRACIELA","RUTA","18","FEMALE","98 Connecticut Ave Nw, Chagrin Falls, Geauga, OH 44023","HUEY","RUTA","7805201241","98 Connecticut Ave Nw, Chagrin Falls, Geauga, OH 44023","2016-11-29 14:20:08.830637","0","1000","0","0","0","0","0","0","0","0","0","1","1","2016-11-29 14:42:04.959151","NO VIOLATIONS","909-99-9999","1","900.0","2016-12-03 15:56:10.685424","NONE","NONE","NONE","NONE">> applicant.csv
 echo "24","1","6.0","","2017-02-12 00:00:00.000000","MEAGHAN","GARUFI","9","FEMALE","69734 E Carrillo St, Mc Minnville, Warren, TN 37110","CRISSY","GARUFI","7055236746","69734 E Carrillo St, Mc Minnville, Warren, TN 37110","2016-11-29 14:32:35.169643","1","1000","1","1","1","1","1","1","1","1","1","1","","","NO VIOLATIONS","100-21-0495","0","","","NONE","NONE","NONE","NONE">> applicant.csv
 echo "25","1","1","","2017-02-12 00:00:00.000000","CAMMY","ALBARES","18","MALE","56 E Morehead St, Laredo, Webb, TX 78045","APOLONIA","ALBARES","5062211874","56 E Morehead St, Laredo, Webb, TX 78045","2016-11-30 00:39:22.857196","0","1000","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","120-11-3456","0","","","NONE","NONE","NONE","NONE">> applicant.csv
 echo "26","1","4.0","","2017-02-12 00:00:00.000000","GLADYS","RIM","12","FEMALE","322 New Horizon Blvd, Milwaukee, Milwaukee, WI 53207","GIANNA","RIM","4035405944","322 New Horizon Blvd, Milwaukee, Milwaukee, WI 53207","2016-11-30 00:43:42.676066","0","1100","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","109-11-1234","0","","","NONE","NONE","NONE","NONE">> applicant.csv
@@ -246,7 +246,6 @@ echo "39","1","","","2017-02-12 00:00:00.000000","STEPHAINE","BARFIELD","10","FE
 echo "40","1","","","2017-02-12 00:00:00.000000","STEPHEN","EMIGH","16","MALE","3777 E Richmond St #900, Akron, Summit, OH 44302","FREEMAN","EMIGH","4505867429","3777 E Richmond St #900, Akron, Summit, OH 44302","2016-11-30 13:16:11.454155","0","1000","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","328-43-4729","0","","","NONE","NONE","NONE","NONE">> applicant.csv
 echo "41","1","","","2017-02-12 00:00:00.000000","TAMMARA","WARDRIP","14","FEMALE","4800 Black Horse Pike, Burlingame, San Mateo, CA 94010","ELLSWORTH","WARDRIP","6134146589","4800 Black Horse Pike, Burlingame, San Mateo, CA 94010","2016-11-30 13:18:48.562919","0","1000","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","280-48-8593","0","","","NONE","NONE","NONE","NONE">> applicant.csv
 echo "42","1","","","2017-02-12 00:00:00.000000","ROLLAND","FRANCESCON","16","MALE","2726 Charcot Ave, Paterson, Passaic, NJ 7501","HARLEY","FRANCESCON","5196333173","2726 Charcot Ave, Paterson, Passaic, NJ 7501","2016-11-30 13:21:26.536817","0","1001","0","0","0","0","0","0","0","0","0","1","","","NO VIOLATIONS","347-39-8539","0","","","NONE","NONE","NONE","NONE">> applicant.csv
-echo "43","1","","","2017-02-12 00:00:00.000000","TERRY","RYAN","16","MALE","840 Wood St, Clarion, PA 16214, USA","MR","RYAN","1234567890","840 Wood St, Clarion, PA 16214, USA","2016-12-08 18:09:31.369711","1","1000","1","1","1","1","1","1","1","1","1","1","1","2016-12-08 18:09:53.438168","NO VIOLATIONS","134-44-1111","1","900.0","2016-12-08 18:14:19.809243","TENDULKAR, SACHIN","3","RAO, JAYANT","8">> applicant.csv
 echo copying C:\Program Files\Gila_Breath_Camp\Csv\date.csv
 cd C:\Program Files\Gila_Breath_Camp\Csv
 echo "date_id","month","year">> date.csv
@@ -647,7 +646,8 @@ echo.>> common_functions.py
 echo 		accepted_applicant_id = [] >> common_functions.py
 echo 		for i in range(0,len(data_accepted)): >> common_functions.py
 echo 			if data_accepted[i]['application_status'] == 1: >> common_functions.py
-echo 				accepted_applicant_id.append(data_accepted[i]['applicant_id']) >> common_functions.py
+echo 				if data[i]['cancel_flag'] != "1": >> common_functions.py
+echo 					accepted_applicant_id.append(data_accepted[i]['applicant_id']) >> common_functions.py
 echo.>> common_functions.py
 echo 		accepted_data = [] >> common_functions.py
 echo 		for i in range(0,len(data)): >> common_functions.py
@@ -668,7 +668,8 @@ echo.>> common_functions.py
 echo 		checked_in_applicant_id = [] >> common_functions.py
 echo 		for i in range(0,len(data)): >> common_functions.py
 echo 			if data[i]['check_in_status'] == "1": >> common_functions.py
-echo 				checked_in_applicant_id.append(data[i]['applicant_id']) >> common_functions.py
+echo 				if data[i]['cancel_flag'] != "1": >> common_functions.py
+echo 					checked_in_applicant_id.append(data[i]['applicant_id']) >> common_functions.py
 echo.>> common_functions.py
 echo 		checked_in_data = [] >> common_functions.py
 echo 		for i in range(0,len(data)): >> common_functions.py
@@ -1879,6 +1880,15 @@ echo 			return False >> application_status.py
 echo 		else: >> application_status.py
 echo 			return True >> application_status.py
 echo.>> application_status.py
+echo.>> application_status.py
+echo 	def isApplicationCancelled(self,cancel_flag): >> application_status.py
+echo 		^""" checks whether application has been cancelled ^""" >> application_status.py
+echo.>> application_status.py
+echo 		if cancel_flag == '1': >> application_status.py
+echo 			return True >> application_status.py
+echo 		else: >> application_status.py
+echo 			return False >> application_status.py
+echo.>> application_status.py
 echo 	def getApplicationStatus(self,front_end_str): >> application_status.py
 echo.>> application_status.py
 echo 		front_end_dict = ast.literal_eval(front_end_str) >> application_status.py
@@ -1906,7 +1916,12 @@ echo 				camp_date = datetime.datetime.strptime(data[i]['camp_time_slots'],"%%Y-
 echo 				application_date = datetime.datetime.strptime(data[i]['application_date'],"%%Y-%%m-%%d %%H:%%M:%%S.%%f") >> application_status.py
 echo 				gender = data[i]['applicant_gender'] >> application_status.py
 echo 				age = int(data[i]['applicant_age']) >> application_status.py
-echo 				payment = int(data[i]['payment'])	 >> application_status.py
+echo 				payment = int(data[i]['payment']) >> application_status.py
+echo 				cancel_flag = data[i]['cancel_flag']	 >> application_status.py
+echo.>> application_status.py
+echo.>> application_status.py
+echo 				if self.isApplicationCancelled(cancel_flag): >> application_status.py
+echo 					violations.append('APPLICATION HAS BEEN CANCELLED') >> application_status.py
 echo.>> application_status.py
 echo 				if self.isApplicationDateNotInRange(application_date,camp_date): >> application_status.py
 echo 					violations.append('DATE OF REGISTRATION HAS SURPASSED') >> application_status.py
@@ -1924,6 +1939,9 @@ echo 				if len(violations) == 0: >> application_status.py
 echo 					accepted_count[gender] += 1 >> application_status.py
 echo 					applicant_status = 1 >> application_status.py
 echo 					violations.append('NO VIOLATIONS') >> application_status.py
+echo.>> application_status.py
+echo 				if self.isApplicationCancelled(cancel_flag): >> application_status.py
+echo 					applicant_status = 2 >> application_status.py
 echo.>> application_status.py
 echo 				dict['applicant_id'] = data[i]['applicant_id'] >> application_status.py
 echo 				dict['applicant_first_name'] = data[i]['applicant_first_name'] >> application_status.py
@@ -1971,6 +1989,8 @@ echo 			if front_end_data[i]['application_status'][0] == "A": >> application_sta
 echo 				data[0]['application_status'] = "1" >> application_status.py
 echo 			elif front_end_data[i]['application_status'][0] == "R": >> application_status.py
 echo 				data[0]['application_status'] = "0" >> application_status.py
+echo 			elif front_end_data[i]['application_status'][0] == "C": >> application_status.py
+echo 				data[0]['application_status'] = "2" >> application_status.py
 echo.>> application_status.py
 echo 			data[0]['rejected_reason'] = front_end_data[i]['rejected_reason'] >> application_status.py
 echo.>> application_status.py
