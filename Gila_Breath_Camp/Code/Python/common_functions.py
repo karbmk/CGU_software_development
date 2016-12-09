@@ -189,7 +189,8 @@ class Common_functions(object):
 		accepted_applicant_id = []
 		for i in range(0,len(data_accepted)):
 			if data_accepted[i]['application_status'] == 1:
-				accepted_applicant_id.append(data_accepted[i]['applicant_id'])
+				if data[i]['cancel_flag'] != "1":
+					accepted_applicant_id.append(data_accepted[i]['applicant_id'])
 
 		accepted_data = []
 		for i in range(0,len(data)):
@@ -210,7 +211,8 @@ class Common_functions(object):
 		checked_in_applicant_id = []
 		for i in range(0,len(data)):
 			if data[i]['check_in_status'] == "1":
-				checked_in_applicant_id.append(data[i]['applicant_id'])
+				if data[i]['cancel_flag'] != "1":
+					checked_in_applicant_id.append(data[i]['applicant_id'])
 
 		checked_in_data = []
 		for i in range(0,len(data)):

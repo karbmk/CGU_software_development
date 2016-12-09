@@ -63,6 +63,15 @@ class Application_status(object):
 		else:
 			return True
 
+
+	def isApplicationCancelled(self,cancel_flag):
+		""" checks whether application has been cancelled """
+
+		if cancel_flag == '1':
+			return True
+		else:
+			return False
+
 	def getApplicationStatus(self,front_end_str):
 
 		front_end_dict = ast.literal_eval(front_end_str)
@@ -90,7 +99,12 @@ class Application_status(object):
 				application_date = datetime.datetime.strptime(data[i]['application_date'],"%Y-%m-%d %H:%M:%S.%f")
 				gender = data[i]['applicant_gender']
 				age = int(data[i]['applicant_age'])
-				payment = int(data[i]['payment'])	
+				payment = int(data[i]['payment'])
+				cancel_flag = data[i]['cancel_flag']	
+
+
+				if self.isApplicationCancelled(cancel_flag):
+					violations.append('APPLICATION HAS BEEN CANCELLED')
 
 				if self.isApplicationDateNotInRange(application_date,camp_date):
 					violations.append('DATE OF REGISTRATION HAS SURPASSED')
@@ -108,6 +122,9 @@ class Application_status(object):
 					accepted_count[gender] += 1
 					applicant_status = 1
 					violations.append('NO VIOLATIONS')
+
+				if self.isApplicationCancelled(cancel_flag):
+					applicant_status = 2
 
 				dict['applicant_id'] = data[i]['applicant_id']
 				dict['applicant_first_name'] = data[i]['applicant_first_name']
@@ -155,6 +172,8 @@ class Application_status(object):
 				data[0]['application_status'] = "1"
 			elif front_end_data[i]['application_status'][0] == "R":
 				data[0]['application_status'] = "0"
+			elif front_end_data[i]['application_status'][0] == "C":
+				data[0]['application_status'] = "2"
 
 			data[0]['rejected_reason'] = front_end_data[i]['rejected_reason']
 
