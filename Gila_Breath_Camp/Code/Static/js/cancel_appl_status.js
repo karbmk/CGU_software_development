@@ -31,6 +31,9 @@ getTest3 = function(id)
 					{
 						check_stat = 'ACCEPTED'
 					}
+					else if(obj_array[i]["application_status"]=='2'){
+						check_stat = 'CANCELLED'
+					}
 					else
 					{
 						check_stat = 'REJECTED'
