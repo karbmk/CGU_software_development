@@ -7,7 +7,7 @@ send_checkin = function(id)
 	(
 		{
 			type:"POST",
-			url:"../../test_js/",
+			url:"../../test_js_check_in/",
 			async:false,
 			data: 
    				{
@@ -28,7 +28,7 @@ send_checkin = function(id)
       		}
     	}
   	);
-	var array = [],med ='1',leg ='1',emer ='1',hel ='1',boot ='1',sleeping_bag ='1',water_bottle ='1',sunscreen ='1',bugs_spray ='1',completed ='1';
+	var array = [],med ='1',leg ='1',hel ='1',boot ='1',sleeping_bag ='1',water_bottle ='1',sunscreen ='1',bugs_spray ='1',completed ='1';
 				for(i=0;i<test;i++)
 				{
 				if(document.getElementById("medical"+i).checked){med = '1'}else{med = '0'}
@@ -50,7 +50,7 @@ send_checkin = function(id)
 					url:"../../application_status_get/",
 					async:false,
 					success:function(response){
-					var obj = $.parseJSON(resopnse)
+					var obj = $.parseJSON(response)
 					if(id==1)
 					{
 						camp_time = obj["data"][0]["camp_time_slots1"]
