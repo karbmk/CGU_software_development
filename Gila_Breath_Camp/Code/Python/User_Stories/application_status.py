@@ -160,20 +160,22 @@ class Application_status(object):
 			data = cf.getFromCsv('applicant.csv',where_applicant_id)
 			print(data)
 
-			if front_end_data[i]['acceptance_packet'] == "1":
-				data[0]['acceptance_packet'] = front_end_data[i]['acceptance_packet']
-				if data[0]['mailing_date'] == "":
-					data[0]['mailing_date'] = str(datetime.datetime.now())
-			elif front_end_data[i]['acceptance_packet'] == "0":
-				data[0]['acceptance_packet'] = ""
-				data[0]['mailing_date'] = ""
-
 			if front_end_data[i]['application_status'][0] == "A":
 				data[0]['application_status'] = "1"
 			elif front_end_data[i]['application_status'][0] == "R":
 				data[0]['application_status'] = "0"
 			elif front_end_data[i]['application_status'][0] == "C":
 				data[0]['application_status'] = "2"
+
+			if front_end_data[i]['acceptance_packet'] == "1":
+				data[0]['acceptance_packet'] = front_end_data[i]['acceptance_packet']
+				if data[0]['mailing_date'] == "":
+					data[0]['mailing_date'] = str(datetime.datetime.now())
+			elif data[0]['application_status'] == "2":
+				pass
+			elif front_end_data[i]['acceptance_packet'] == "0":
+				data[0]['acceptance_packet'] = ""
+				data[0]['mailing_date'] = ""
 
 			data[0]['rejected_reason'] = front_end_data[i]['rejected_reason']
 

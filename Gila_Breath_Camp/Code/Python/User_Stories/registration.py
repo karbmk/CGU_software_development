@@ -142,6 +142,8 @@ class Registration(object):
 		front_end_dict = ast.literal_eval(front_end_str)
 		front_end_data = front_end_dict['data'][0]
 		
+		print("front_end_data :",front_end_data)
+
 		error.append(appl.setApplicantId(front_end_data['applicant_id']))
 		error.append(appl.setUserId(front_end_data['user_id']))
 		error.append(appl.setCampTimeSlots(front_end_data['camp_time_slots']))
@@ -170,7 +172,7 @@ class Registration(object):
 					message = message + '|' + error[i]
 
 		if message == '':
-			cf.updateOneRowIntoCsv('applicant.csv',appl,'applicant_id')
+			cf.updateManyRowIntoCsv('applicant.csv',[appl.__dict__],'applicant_id')
 			return_front_end_dict = '{ "data": [' + json.dumps(appl.__dict__) + '], "status":"success", "message":"APPLICANT DATA UPDATED" }'
 		else:
 			return_front_end_dict = '{ "data": [' + json.dumps(appl.__dict__) + '], "status":"error", "message":"' + message + '" }'

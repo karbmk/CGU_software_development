@@ -66,13 +66,14 @@ class Application_cancellation(object):
 
 		front_end_dict = ast.literal_eval(front_end_str)
 		front_end_data = front_end_dict['data']
-		
+	
 		cf = common_functions.Common_functions()
 		data = cf.getFromCsv('applicant.csv',{})
 
 		applicant_ids = []
 		new = []
 
+		current_date_time = str(datetime.datetime.now())
 
 		for i in range(0,len(front_end_data)):
 			applicant_ids.append(front_end_data[i]['applicant_id'])
@@ -81,17 +82,19 @@ class Application_cancellation(object):
 			if data[j]['applicant_id'] in applicant_ids:
 				new.append(data[j])
 
-		print (len(new))
-
 		for k in range(0,len(new)):
 			for i in range(0,len(front_end_data)):
 				if new[k]["applicant_id"] == front_end_data[i]["applicant_id"]:
 					new[k]["cancel_flag"] = front_end_data[i]["cancel_flag"]
-
+					if new[k]["cancel_flag"] == '1':
+						new[k]["application_status"] = '2'
+					elif new[k]["cancel_flag"] == '0':
+						new[k]["application_status"] = '1'
 
 		for l in range(0,len(new)):
 			if new[l]["cancel_flag"] == '1':
-				new[l]["cancel_date"] = str(datetime.datetime.now())
+				if new[l]["cancel_date"] == '':
+					new[l]["cancel_date"] = current_date_time
 				print('new[l]["cancel_date"]:',new[l]["cancel_date"])
 					#getRefund(new[l]["payment"],new[l]["mailing_date"],new[l]["cancel_date"])
 				new[l]["refund"] = self.getRefund(new[l]["payment"],new[l]["mailing_date"],new[l]["cancel_date"])
