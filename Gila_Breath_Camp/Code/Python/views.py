@@ -152,14 +152,14 @@ def test_js(request):
 		dt = choose_date.Choose_date()
 		st = dt.chooseDate()
 		camp_slot = ''
-		cis = check_in_status.Check_in_status()
+		apps = application_cancellation.Application_cancellation()
 		if json.loads(data)["data"][0]["date_id"]=="1":
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots1"]
 		elif json.loads(data)["data"][0]["date_id"]=="2":
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots2"]
 		elif json.loads(data)["data"][0]["date_id"]=="3":
 			camp_slot = json.loads(st)["data"][0]["camp_time_slots3"]
-		st_get = cis.getCheckInStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
+		st_get = apps.getApplicationCancellation('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
 	except Exception as e:
 		st_get = e
 	print(st_get)
