@@ -30,6 +30,7 @@ if '%errorlevel%' NEQ '0' (
 :-------------------------------------- 
 
 cd C:\Program Files\Gila_Breath_Camp
-start python manage.py runserver
-sleep 15
+start /min python manage.py runserver
+echo After you press ENTER your default browser will open. In case the application doesn't start immediately then REFRESH the page
+PAUSE
 start http://localhost:8000/Python
