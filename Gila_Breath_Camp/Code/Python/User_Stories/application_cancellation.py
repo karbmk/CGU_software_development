@@ -30,7 +30,7 @@ class Application_cancellation(object):
 		""" get data for accepted applicants """
 
 		cf = common_functions.Common_functions()
-		data = cf.getAcceptedApplicants(front_end_str)
+		data = cf.getAcceptedCancelledApplicants(front_end_str)
 
 		if len(data) == 0:
 			return_front_end_dict = '{ "data": [], "status":"success", "message":"No applicants registered" }'

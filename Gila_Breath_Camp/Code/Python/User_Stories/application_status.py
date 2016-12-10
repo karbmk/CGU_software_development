@@ -107,7 +107,7 @@ class Application_status(object):
 					violations.append('APPLICATION HAS BEEN CANCELLED')
 
 				if self.isApplicationDateNotInRange(application_date,camp_date):
-					violations.append('DATE OF REGISTRATION HAS SURPASSED')
+					violations.append('DATE OF REGISTRATION HAS NOT YET STARTED OR HAS SURPASSED')
 
 				if self.isSlotNotAvailable(accepted_count,gender):
 					violations.append(gender + ' SLOTS ARE FULL')
