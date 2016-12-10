@@ -33,7 +33,7 @@ send_checkin = function(id)
 				{
 				if(document.getElementById("medical"+i).checked){med = '1'}else{med = '0'}
 				if(document.getElementById("legal"+i).checked){leg = '1'}else{leg = '0'}
-				if(document.getElementById("emergency"+i).checked){emer = '1'}else{emer = '0'}
+				//if(document.getElementById("emergency"+i).checked){emer = '1'}else{emer = '0'}
 				if(document.getElementById("helmet"+i).checked){hel = '1'}else{hel = '0'}
 				if(document.getElementById("boot"+i).checked){boot = '1'}else{boot = '0'}
 				if(document.getElementById("sleeping_bag"+i).checked){sleeping_bag = '1'}else{sleeping_bag = '0'}
@@ -68,7 +68,7 @@ send_checkin = function(id)
 				);
 				
 				
-				var k = '{"applicant_id":"'+document.getElementById("appl"+i).innerText+'", "applicant_first_name":"'+document.getElementById("firstname"+i).innerText+'","applicant_last_name":"'+document.getElementById("lastname"+i).innerText+'","medical_form":"'+med+'","legal_form":"'+leg+'","emergency_contact":"'+emer+'","helmet":"'+hel+'","boot":"'+boot+'","sleeping_bag":"'+sleeping_bag+'","water_bottle":"'+water_bottle+'","sunscreen":"'+sunscreen+'","bugs_spray":"'+bugs_spray+'","check_in_status":"'+completed+'","camp_time_slots":"'+camp_time+'"}'
+				var k = '{"applicant_id":"'+document.getElementById("appl"+i).innerText+'", "applicant_first_name":"'+document.getElementById("firstname"+i).innerText+'","applicant_last_name":"'+document.getElementById("lastname"+i).innerText+'","medical_form":"'+med+'","legal_form":"'+leg+'","helmet":"'+hel+'","boot":"'+boot+'","sleeping_bag":"'+sleeping_bag+'","water_bottle":"'+water_bottle+'","sunscreen":"'+sunscreen+'","bugs_spray":"'+bugs_spray+'","check_in_status":"'+completed+'","camp_time_slots":"'+camp_time+'"}'
 				array.push(k)
 				
 				}

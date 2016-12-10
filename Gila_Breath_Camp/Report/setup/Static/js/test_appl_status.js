@@ -140,14 +140,17 @@ getCancel = function(id){
 					{
 						check = 'NOT SENT'
 					}
-					//if(obj_array[i]["application_status"]=='1')
-					//{
+					if(obj_array[i]["application_status"]=='1')
+					{
 						check_stat = 'ACCEPTED'
-					//}
-					//else
-					//{
-						//check_stat = 'REJECTED'
-					//}
+					}
+					else if(obj_array[i]["application_status"]=='2'){
+						check_stat = 'CANCELLED'
+					}
+					else
+					{
+						check_stat = 'REJECTED'
+					}
 				//if(obj_array[i]["check_in_status"]=='1'){complete = 'COMPLETE'}else{complete = 'INCOMPLETE'}
 				
 				var html = '<tr>';
@@ -156,7 +159,10 @@ getCancel = function(id){
 				html += '<td id="lastname'+i+'">'+obj_array[i]["applicant_last_name"]+'</td>'
 				html += '<td id="completed_appl'+i+'">'+check_stat+'</td>'
 				html += '<td align="center" id="appl_status'+i+'" name="appl_status" >'+check+'</td>'
-				if (check == 'NOT SENT')
+				if(check_stat=='CANCELLED'){
+					html +='<td style="font-size: 12px;" align="center" id="cancel'+i+'"></td>'
+				}
+				else if (check == 'NOT SENT')
 				{html +='<td style="font-size: 12px;" align="center" id="cancel'+i+'">GO TO "STATUS TAB". CLICK CHECKBOX(SEND ACCEPTANCE LETTER)</td>'}
 				else
 				{html += '<td align="center"><input id="cancel'+i+'" type="checkbox" name="appl_status" '+check_cancel+'></td>'}

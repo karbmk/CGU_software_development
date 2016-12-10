@@ -23,7 +23,7 @@ getTest1 = function(id)
 				{
 				if(obj_array[i]["medical_form"]=='1'){med = 'checked'}else{med = ''}
 				if(obj_array[i]["legal_form"]=='1'){leg = 'checked'}else{leg = ''}
-				if(obj_array[i]["emergency_contact"]=='1'){emer = 'checked'}else{emer = ''}
+				//if(obj_array[i]["emergency_contact"]=='1'){emer = 'checked'}else{emer = ''}
 				if(obj_array[i]["helmet"]=='1'){hel = 'checked'}else{hel = ''}
 				if(obj_array[i]["boot"]=='1'){boot = 'checked'}else{boot = ''}
 				if(obj_array[i]["sleeping_bag"]=='1'){sleeping_bag = 'checked'}else{sleeping_bag = ''}
@@ -39,7 +39,7 @@ getTest1 = function(id)
 				html += '<td><input onchange="select_all('+i+')" id="sel_all'+i+'" type="checkbox"  name="select" '+sel_all+'></td>'
 				html += '<td><input onchange="myFunction()" id="medical'+i+'" type="checkbox"  name="medical" '+med+'></td>'
 				html += '<td><input onchange="myFunction()" id="legal'+i+'" type="checkbox" name="legal" '+leg+'></td>'
-				html += '<td><input onchange="myFunction()" id="emergency'+i+'" type="checkbox" name="emergency" '+emer+'></td>'
+				//html += '<td><input onchange="myFunction()" id="emergency'+i+'" type="checkbox" name="emergency" '+emer+'></td>'
 				html += '<td><input onchange="myFunction()" id="helmet'+i+'" type="checkbox" name="helmet" '+hel+'></td>'
 				html += '<td><input onchange="myFunction()" id="boot'+i+'" type="checkbox" name="boot" '+boot+'></td>'
 				html += '<td><input onchange="myFunction()" id="sleeping_bag'+i+'" type="checkbox" name="sleeping_bag" '+sleeping_bag+'></td>'
@@ -65,7 +65,7 @@ function select_all(id){
 	if(document.getElementById("sel_all"+id).checked == true){
 		document.getElementById("medical"+id).checked = true
 		document.getElementById("legal"+id).checked = true
-		document.getElementById("emergency"+id).checked = true
+		//document.getElementById("emergency"+id).checked = true
 		document.getElementById("helmet"+id).checked = true
 		document.getElementById("boot"+id).checked = true
 		document.getElementById("sleeping_bag"+id).checked = true
@@ -80,7 +80,7 @@ function select_all(id){
 		//alert("false")
 		document.getElementById("medical"+id).checked = false
 		document.getElementById("legal"+id).checked = false
-		document.getElementById("emergency"+id).checked = false
+		//document.getElementById("emergency"+id).checked = false
 		document.getElementById("helmet"+id).checked = false
 		document.getElementById("boot"+id).checked = false
 		document.getElementById("sleeping_bag"+id).checked = false
