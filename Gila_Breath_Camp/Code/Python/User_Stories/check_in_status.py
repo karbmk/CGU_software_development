@@ -58,7 +58,7 @@ class Check_in_status(object):
 
 			data[0]['medical_form'] = front_end_data[i]['medical_form']
 			data[0]['legal_form'] = front_end_data[i]['legal_form']
-			data[0]['emergency_contact'] = front_end_data[i]['emergency_contact']
+			#data[0]['emergency_contact'] = front_end_data[i]['emergency_contact']
 			data[0]['helmet'] = front_end_data[i]['helmet']
 			data[0]['boot'] = front_end_data[i]['boot']
 			data[0]['sleeping_bag'] = front_end_data[i]['sleeping_bag']
