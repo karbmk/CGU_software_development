@@ -165,6 +165,29 @@ def test_js(request):
 	print(st_get)
 	return HttpResponse(st_get,content_type="application/type")
 
+@csrf_exempt
+def test_js_check_in(request):
+	c = {}
+	c.update(csrf(request));
+	data = request.POST["vol_name"]
+	try:
+		dt = choose_date.Choose_date()
+		st = dt.chooseDate()
+		camp_slot = ''
+		apps = check_in_status.Check_in_status()
+		if json.loads(data)["data"][0]["date_id"]=="1":
+			camp_slot = json.loads(st)["data"][0]["camp_time_slots1"]
+		elif json.loads(data)["data"][0]["date_id"]=="2":
+			camp_slot = json.loads(st)["data"][0]["camp_time_slots2"]
+		elif json.loads(data)["data"][0]["date_id"]=="3":
+			camp_slot = json.loads(st)["data"][0]["camp_time_slots3"]
+		st_get = apps.getCheckInStatus('{"data" :[{"camp_time_slots":"'+camp_slot+'"}]}')
+	except Exception as e:
+		st_get = e
+	print(st_get)
+	return HttpResponse(st_get,content_type="application/type")
+
+
 @csrf_exempt	
 def test_js_get_appl(request):
 	c = {}

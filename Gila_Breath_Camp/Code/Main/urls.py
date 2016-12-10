@@ -34,5 +34,6 @@ urlpatterns = [
 	url(r'^assignment_bunkhouse/', views.assignment_bunkhouse, name='assignment_bunkhouse'),
 	url(r'^update_get_application/', views.update_get_application, name='update_get_application'),
 	url(r'^update_set_application/', views.update_set_application, name='update_set_application'),
+	url(r'^test_js_check_in/', views.test_js_check_in, name='test_js_check_in'),
 
 ]

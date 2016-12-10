@@ -6,7 +6,7 @@ getTest1 = function(id)
 	(
 		{
 			type:"POST",
-			url:"../../test_js/",
+			url:"../../test_js_check_in/",
 			async:true,
 			data: 
    				{
