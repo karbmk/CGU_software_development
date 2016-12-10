@@ -65,7 +65,7 @@ function select_all(id){
 	if(document.getElementById("sel_all"+id).checked == true){
 		document.getElementById("medical"+id).checked = true
 		document.getElementById("legal"+id).checked = true
-		document.getElementById("emergency"+id).checked = true
+		//document.getElementById("emergency"+id).checked = true
 		document.getElementById("helmet"+id).checked = true
 		document.getElementById("boot"+id).checked = true
 		document.getElementById("sleeping_bag"+id).checked = true
@@ -80,7 +80,7 @@ function select_all(id){
 		//alert("false")
 		document.getElementById("medical"+id).checked = false
 		document.getElementById("legal"+id).checked = false
-		document.getElementById("emergency"+id).checked = false
+		//document.getElementById("emergency"+id).checked = false
 		document.getElementById("helmet"+id).checked = false
 		document.getElementById("boot"+id).checked = false
 		document.getElementById("sleeping_bag"+id).checked = false
