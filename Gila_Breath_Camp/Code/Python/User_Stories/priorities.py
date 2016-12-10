@@ -91,8 +91,6 @@ class Priorities(object):
 
 				new_data.append(new_dict)
 
-			print("new_data[0]:",new_data[11])
-
 			return_front_end_dict = '{ "data": ' + json.dumps(new_data) + ', "status":"success", "message":"All applicant''s information retrieved" }'
 
 		return return_front_end_dict
