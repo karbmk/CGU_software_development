@@ -140,14 +140,17 @@ getCancel = function(id){
 					{
 						check = 'NOT SENT'
 					}
-					//if(obj_array[i]["application_status"]=='1')
-					//{
+					if(obj_array[i]["application_status"]=='1')
+					{
 						check_stat = 'ACCEPTED'
-					//}
-					//else
-					//{
-						//check_stat = 'REJECTED'
-					//}
+					}
+					else if(obj_array[i]["application_status"]=='2'){
+						check_stat = 'CANCELLED'
+					}
+					else
+					{
+						check_stat = 'REJECTED'
+					}
 				//if(obj_array[i]["check_in_status"]=='1'){complete = 'COMPLETE'}else{complete = 'INCOMPLETE'}
 				
 				var html = '<tr>';
