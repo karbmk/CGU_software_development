@@ -7,7 +7,7 @@ send_checkin = function(id)
 	(
 		{
 			type:"POST",
-			url:"../../test_js/",
+			url:"../../test_js_check_in/",
 			async:false,
 			data: 
    				{
@@ -28,7 +28,7 @@ send_checkin = function(id)
       		}
     	}
   	);
-	var array = [],med ='1',leg ='1',emer ='1',hel ='1',boot ='1',sleeping_bag ='1',water_bottle ='1',sunscreen ='1',bugs_spray ='1',completed ='1';
+	var array = [],med ='1',leg ='1',hel ='1',boot ='1',sleeping_bag ='1',water_bottle ='1',sunscreen ='1',bugs_spray ='1',completed ='1';
 				for(i=0;i<test;i++)
 				{
 				if(document.getElementById("medical"+i).checked){med = '1'}else{med = '0'}
@@ -50,7 +50,7 @@ send_checkin = function(id)
 					url:"../../application_status_get/",
 					async:false,
 					success:function(response){
-					var obj = $.parseJSON(resopnse)
+					var obj = $.parseJSON(response)
 					if(id==1)
 					{
 						camp_time = obj["data"][0]["camp_time_slots1"]
@@ -292,7 +292,7 @@ send_priority = function(id){
 submitBunk = function(id){
 	var input = '{"data" :[{"date_id":"'+id+'","no_of_bunkhouses":"'+document.getElementById("bunk_number").value+'"}]}';
 	document.getElementById("get_bunk").onclick=''
-	if(isNaN(document.getElementById("bunk_number").value) || parseInt(document.getElementById("bunk_number").value)%2 != 0 || parseInt(document.getElementById("bunk_number").value)==0){
+	if(isNaN(document.getElementById("bunk_number").value) || parseInt(document.getElementById("bunk_number").value)%2 != 0 || parseFloat(document.getElementById("bunk_number").value)%1 == 0.0 || parseInt(document.getElementById("bunk_number").value)==0){
 		alert("Enter valid Bunkhouse number \nBunkhouse number should be a multiple of 2")
 		return;
 	}
@@ -362,7 +362,7 @@ submitBunk = function(id){
 submitTribe = function(id){
 	var input = '{"data" :[{"date_id":"'+id+'","no_of_tribes":"'+document.getElementById("tribe_number").value+'"}]}';
 	document.getElementById("get_tribe").onclick=''
-	if(isNaN(document.getElementById("tribe_number").value) || parseInt(document.getElementById("tribe_number").value)%2 != 0 || parseInt(document.getElementById("tribe_number").value)==0){
+	if(isNaN(document.getElementById("tribe_number").value) || parseInt(document.getElementById("tribe_number").value)%2 != 0 || parseFloat(document.getElementById("tribe_number").value)%1 == 0.0|| parseInt(document.getElementById("tribe_number").value)==0){
 		alert("Enter valid Tribe number \nBunkhouse number should be a multiple of 2")
 		return;
 	}
